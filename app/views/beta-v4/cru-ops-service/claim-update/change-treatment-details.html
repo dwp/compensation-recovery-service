@@ -1,0 +1,135 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Check your answers before registering the claim
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+  <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters-from-desktop">
+
+        <h1 class="govuk-heading-xl">Update treatment details</h1>
+
+
+
+
+        <h2 class="govuk-heading-m">Treatment details</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              NHS hospital treatment
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Yes {{ data['treatment'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+
+                <a class="govuk-link" href="nhs-guard?backtocheckanswers=true&">
+                  Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              NHS trust exemption
+            </dt>
+            <dd class="govuk-summary-list__value">
+            No  {{ data['exemption'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+
+                <a class="govuk-link" href="exemption?backtocheckanswers=true&">
+                  Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Treatment 1
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+            	North Manchester General Hospital   {{ data['hospitalOne'] }} <br>
+              Inpatient  <br>
+              From 10 January 2023 <br>
+              31 days
+
+            </dd>
+
+            <dd class="govuk-summary-list__actions">
+              <!-- Check lookup or manual address -->
+
+                <a class="govuk-link" href="treatment1">
+                  Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Treatment 2
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              North Manchester General Hospital   {{ data['hospitalOne'] }} <br>
+              Ambulance  <br>
+              10 January 2023
+
+            </dd>
+
+            <dd class="govuk-summary-list__actions">
+              <!-- Check lookup or manual address -->
+
+                <a class="govuk-link" href="treatment2">
+                  Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Treatment 3
+            </dt>
+            <dd class="govuk-summary-list__value">
+              St Mary's Hospital Manchester   {{ data['hospitalOne'] }} <br>
+              Outpatient  <br>
+              10 January 2023
+
+            </dd>
+
+            <dd class="govuk-summary-list__actions">
+              <!-- Check lookup or manual address -->
+
+                <a class="govuk-link" href="treatment3">
+                  Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+            </dd>
+          </div>
+        </dl>
+
+
+        <form action="confirmation2" method="post" novalidate>
+
+          <input type="hidden" name="checkanswers" value="true" />
+
+          <button class="govuk-button" data-module="govuk-button">
+            Update details
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

@@ -1,0 +1,112 @@
+
+{% extends folder+ "/layout.html" %}
+{% set serviceName %}
+  Manage a compensation recovery claim
+{% endset%}
+
+{% block pageTitle %}
+About the injured person - Enter injured person's name and date of birth
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <!-- <nav class="navigation-secondary govuk-!-margin-bottom-6">
+      <ul>
+        <li class="active"><a href="">Home</a></li>
+        <li><a href="">Approve Compensators (11)</a></li>
+        <li><a href="my-account">My account</a></li>
+      </ul>
+    </nav>  -->
+    <nav class="navigation-secondary">
+      <ul>
+        <li><a href="./tasks-and-workflows/v2-dashboard">Home</a></li>
+        <li><a href="./tasks-and-workflows/v2-tasks">Tasks</a></li>
+        <li><a href="./tasks-and-workflows/find-case">Find a claim</a></li>
+        <li><a href="./tasks-and-workflows2_0/org-list_multiple">Organisation list</a></li>
+        <li class="active"><a href="./mi">Download reports</a></li>
+      </ul>
+    </nav>
+
+    <div class="govuk-grid-column-two-thirds govuk-main-wrapper--auto-spacing">
+
+      <a href="v2-dashboard" class="govuk-back-link govuk-!-margin-bottom-7">Back</a>
+
+
+        <h1 class="govuk-heading-xl">Download Cue history file</h1>
+
+
+      <p class="govuk-body">Download monthly claim data from September 2022.</p>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+              Claim data month
+            </h1>
+          </legend>
+          <div id="passport-issued-hint" class="govuk-hint">
+            For example, 3 2023
+          </div>
+          <div class="govuk-date-input" id="passport-issued">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+       
+      <!-- <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+              Month to
+            </h1>
+          </legend>
+          <div id="passport-issued-hint" class="govuk-hint">
+            For example, 4 2023
+          </div>
+          <div class="govuk-date-input" id="passport-issued">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div> -->
+
+           
+      {{ govukButton({
+      text: "Download file"
+      }) }}
+
+
+    </div>
+  </div>
+
+{% endblock %}

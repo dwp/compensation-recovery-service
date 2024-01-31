@@ -1,0 +1,112 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+NHS Hospital and Trusts - view Hospital
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}
+
+
+{% block content %}
+
+<!--  <div class="govuk-breadcrumbs">-->
+<!--    <ol class="govuk-breadcrumbs__list">-->
+<!--      <li class="govuk-breadcrumbs__list-item">-->
+<!--        <a class="govuk-breadcrumbs__link" href="#">Home</a>-->
+<!--      </li>-->
+<!--      <li class="govuk-breadcrumbs__list-item">-->
+<!--        <a class="govuk-breadcrumbs__link" href="#">NHS Tools</a>-->
+<!--      </li>-->
+<!--      <li class="govuk-breadcrumbs__list-item">-->
+<!--        <a class="govuk-breadcrumbs__link" href="#">NHS Hospitals and Trusts</a>-->
+<!--      </li>-->
+<!--      <li class="govuk-breadcrumbs__list-item">-->
+<!--        <a class="govuk-breadcrumbs__link" href="#">{{ data['hospital-name'] | default('Cheltenham General Hospital') }}</a>-->
+<!--      </li>-->
+<!--    </ol>-->
+<!--  </div>-->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-8">Back</a>
+
+      <h1 class="govuk-heading-xl">{{ data['hospital-name'] | default('Cheltenham General Hospital') }}</h1>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Hospital name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['hospital-name'] | default('Cheltenham General Hospital') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+<!--            <strong class="govuk-tag govuk-tag&#45;&#45;blue">VERIFIED</strong>-->
+            <a class="govuk-link" href="hospital-change-name">Change<span class="govuk-visually-hidden"> hospital name</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['hospital-address-lookup'] | default('Sandford road, \nCheltenham, \nGlos, \nGL53 7AN' | escape | nl2br) }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="hospital-change-address">Change<span class="govuk-visually-hidden"> address</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Trust
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['trust-results'] | default('Gloucestershire Hospitals NHS Foundation Trust') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+           <a class="govuk-link" href="view-trust">View<span class="govuk-visually-hidden"> trust</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Trust organisation code
+          </dt>
+          <dd class="govuk-summary-list__value">
+            RTE
+          </dd>
+          <dd class="govuk-summary-list__actions">
+<!--            <a class="govuk-link" href="hospital-change-trust">Change<span class="govuk-visually-hidden"> trust</span></a>-->
+          </dd>
+        </div>
+      </dl>
+
+<!--      <p class="govuk-body">-->
+<!--        <a class="govuk-link" href="index">Back to NHS hospitals and trusts</a>-->
+<!--      </p>-->
+
+
+    </div>
+  </div>
+
+{% endblock %}

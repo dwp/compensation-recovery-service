@@ -1,0 +1,56 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Register a claim with the Compensation Recovery Unit
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds  govuk-main-wrapper--auto-spacing">
+      {{ govukPanel({
+        titleText: "Application complete",
+        html: "Your reference number<br><strong>CRU-REG-2123-F</strong>"
+      }) }}
+
+      <p class="govuk-body">We have sent you a confirmation email.</p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">
+        We’ve sent your application to the Compensator Recovery Unit.
+      </p>
+      <p class="govuk-body">
+        They will contact you either to confirm your registration, or to ask for more information.
+      </p>
+
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+      </p>
+    </div>
+  </div>
+
+
+
+      <!-- code for demo only-->
+  <style>
+    a.timemachine{
+      position:absolute;
+      top:0px;
+      right:0px;
+      background:green;
+      padding:0.8em;
+      color:white;
+      animation: mymove 1s infinite alternate;
+      }
+      @keyframes mymove {
+        from {background-color: #00703c;}
+        to {background-color: #1d70b8;}
+      }
+  </style>
+
+  <!-- <a href ="../compensator-registration/claim-registered-email" class="timemachine">Open email</a> -->
+
+
+{% endblock %}

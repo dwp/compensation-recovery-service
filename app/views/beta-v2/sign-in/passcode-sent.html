@@ -1,0 +1,67 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+About the injured person - Enter injured person's name and date of birth
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+        <form class="form" action="../compensator/compensator-dashboard-empty" method="post">
+
+      {{ govukInput({
+        label: {
+          text: "What is your passcode?",
+          classes: "govuk-label--l",
+          isPageHeading: true
+        },
+        classes: "govuk-input--width-10",
+        hint: {
+          text: "We’ve sent you a passcode by email and can take a few minutes to arrive."
+        },
+        id: "account-number",
+        name: "account-number",
+        inputmode: "numeric",
+        pattern: "[0-9]*",
+        spellcheck: false
+      }) }}
+
+      {{ govukButton({
+        text: "Verify"
+      }) }}
+
+    </form>
+
+
+      <p>If you didn't receive an email, you can
+      <a href="resend" class="govuk-link">get another passcode</a>.
+    </p>
+    </div>
+    <!-- <a href="activation-email" class="govuk-link">Open email</a> -->
+  </div>
+
+
+<!-- code for demo only-->
+  <style>
+    a.timemachine{
+      position:absolute;
+      top:0px;
+      right:0px;
+      background:green;
+      padding:0.8em;
+      color:white;
+      animation: mymove 1s infinite alternate;
+      }
+      @keyframes mymove {
+        from {background-color: #00703c;}
+        to {background-color: #1d70b8;}
+      }
+  </style>
+
+  <a href ="email-passcode" class="timemachine">Open email</a>
+
+
+{% endblock %}

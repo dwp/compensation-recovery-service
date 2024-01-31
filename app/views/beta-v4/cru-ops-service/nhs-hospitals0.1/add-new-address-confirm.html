@@ -1,0 +1,75 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+NHS Hospital and Trusts - Add a new Hospital or Trust
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-8">Back</a>
+      <form class="form" action="add-new-type-route" method="post">
+
+          {% if data['add-new'] == 'Hospital' %}
+          <span class="govuk-caption-l">{{ data['new-hospital-name'] | default('Bristol Royal Hospital') }}</span>
+          <h1 class="govuk-heading-xl">Select hospital address</h1>
+          {% elseif data['add-new'] == 'Trust' %}
+          <span class="govuk-caption-l">{{ data['new-trust-name'] | default('Gloucestershire Hospitals NHS Foundation Trust') }}</span>
+          <h1 class="govuk-heading-xl">Select trust address</h1>
+          {% elseif data['add-new'] == 'Ambulance Trust' %}
+          <span class="govuk-caption-l">{{ data['new-ambulance-trust-name'] | default('Isle of Wight Ambulance Trust') }}</span>
+          <h1 class="govuk-heading-xl">Select ambulance trust address</h1>
+          {% endif %}
+
+
+          <h2 class="govuk-heading-m">Postcode</h2>
+          <p class="govuk-body">{{ data['add-new-postcode']}} <a href="add-new-address">Change</a></p>
+
+          <div class="govuk-form-group">
+              <label class="govuk-label" for="add-new-address-lookup">
+                  Select an address
+              </label>
+              <select class="govuk-select" id="add-new-address-lookup" name="add-new-address-lookup">
+                  <option value="published">3 addresses found</option>
+                  <option value="4 High Street {{ data['add-new-postcode'] | default('M4 4GH')}}">4 High Street, {{ data['add-new-postcode'] | default('M4 4GH')}}</option>
+                  <option value="6 High Street {{ data['add-new-postcode'] | default('M4 4GH')}}">6 High Street, {{ data['add-new-postcode'] | default('M4 4GH')}}</option>
+                  <option value="8 High Street {{ data['add-new-postcode'] | default('M4 4GH')}}">8 High Street, {{ data['add-new-postcode'] | default('M4 4GH')}}</option>
+              </select>
+          </div>
+
+          <p class="govuk-body"><a href="add-new-address-manual">I can't find the address in the list</a></p>
+
+          {{ govukButton({
+          text: "Continue"
+          }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

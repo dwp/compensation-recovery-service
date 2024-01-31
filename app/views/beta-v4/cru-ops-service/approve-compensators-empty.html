@@ -1,0 +1,40 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+CRU - Compensator Recovery Unit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <!-- <nav class="navigation-secondary govuk-!-margin-bottom-6">
+      <ul>  
+        <li class="active"><a href="">Home</a></li>
+        <li><a href="">Approve Compensators (11)</a></li>
+        <li><a href="my-account">My account</a></li>
+      </ul>
+    </nav>  -->
+    {% set nav = "Approval needed" %}
+    {% include "./_globalnav-empty.html" %}
+
+    
+      <div class="govuk-grid-column-full  govuk-main-wrapper--auto-spacing">
+        <form class="form" action="" method="post">
+      <h1 class="govuk-heading-xl">
+
+        Approve user
+      </h1> 
+      <p class="govuk-body">No new registrations to approve.</p>
+
+
+
+    </form>
+
+    </div>
+
+
+
+    </div>
+
+{% endblock %}

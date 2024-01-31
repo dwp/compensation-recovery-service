@@ -1,0 +1,101 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Compensation Recovery Service
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+  <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">CRU123
+        </span>
+
+        <h1 class="govuk-heading-xl" style="margin-bottom:10px">Task details</h1>
+<strong class="govuk-tag govuk-tag--yellow">In progress</strong> <br>
+        
+<br><br>
+<br>
+        <h2 class="govuk-heading-m" style="margin-bottom:10px">Task instructions</h2>
+
+      <p style="margin-bottom:15px">
+        <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+    <li>  Check injury description </li>   
+    <li>Accept claim if injury description has enough detail </li>   
+    </ul> </p>
+
+
+        <br>
+        <div class="govuk-notification-banner" role="region"
+          aria-labelledby="govuk-notification-banner-title"
+          data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Injury description
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content" style="padding-bottom:30px">
+            Brian injury and multiple fractures 
+            
+          </div>
+        </div>
+
+
+  <form  class="form" action="injury-description" method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h3 class="govuk-fieldset__heading">
+                What do you want to do?
+              </h3>
+            </legend>
+            <!-- <div id="changed-name-hint" class="govuk-hint">
+              Either changed or no change needed
+            </div> -->
+            <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="task_decision" name="injury" type="radio" value="edit">
+                <label class="govuk-label govuk-radios__label" for="task_decision">
+                  Edit injury description and accept claim
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="task_decision" name="injury" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="task_decision">
+                  Accept claim
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="task_decision" name="injury" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="task_decision">
+                  Reject claim
+                </label>
+              </div>
+
+                  </fieldset>
+                </div>
+
+
+          <div class="govuk-button-group">
+            <button class="govuk-button" data-module="govuk-button">
+              Save and continue
+            </button>
+            <a class="govuk-link" href="#">Cancel</a>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

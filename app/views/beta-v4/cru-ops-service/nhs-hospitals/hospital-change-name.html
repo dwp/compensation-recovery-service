@@ -1,0 +1,59 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+NHS Hospital and Trusts - Change Hospital name
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-8">Back</a>
+    <form class="form" action="view-hospital" method="post">
+
+     <span class="govuk-caption-xl">Cheltenham General Hospital</span>
+      <h1 class="govuk-heading-xl">Change hospital name</h1>
+
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="hospital-name">
+        Type new hospital name
+      </label>
+      <input class="govuk-input govuk-!-width-full" id="hospital-name" name="hospital-name" type="text">
+    </div>
+
+    <div class="govuk-button-group">
+      <button class="govuk-button" data-module="govuk-button">
+        Confirm
+      </button>
+      <a class="govuk-link" href="view-hospital">Cancel</a>
+    </div>
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

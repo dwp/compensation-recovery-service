@@ -1,0 +1,109 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+NHS Hospital and Trusts - Add a new Hospital or Trust
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-8">Back</a>
+    <form class="form" action="add-new-check-answers" method="post">
+
+      <span class="govuk-caption-l">{{ data['new-ambulance-trust-name'] | default('Isle of Wight Ambulance Trust') }}</span>
+      <h1 class="govuk-heading-xl">Contact details</h1>
+
+      <h2 class="govuk-heading-m">
+        Contact details
+      </h2>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="add-new-ambulance-trust-contact1-name">
+          Full name
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="add-new-ambulance-trust-contact1-name" name="add-new-ambulance-trust-contact1-name" type="text" value="{{ data['add-new-ambulance-trust-contact1-name'] }}">
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="add-new-ambulance-trust-contact1-email">
+          Email address
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="add-new-ambulance-trust-contact1-email" name="add-new-ambulance-trust-contact1-email" type="text" value="{{ data['add-new-ambulance-trust-contact1-email'] }}">
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="add-new-ambulance-trust-contact1-tel">
+          Telephone number
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="add-new-ambulance-trust-contact1-tel" name="add-new-ambulance-trust-contact1-tel" type="text" value="{{ data['add-new-ambulance-trust-contact1-tel'] }}">
+      </div>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Add additional contact details
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+
+          <h2 class="govuk-heading-m">
+            Contact details 2 (optional)
+          </h2>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="add-new-ambulance-trust-contact2-name">
+              Full name
+            </label>
+            <input class="govuk-input govuk-input--width-20" id="add-new-ambulance-trust-contact2-name" name="add-new-ambulance-trust-contact2-name" type="text">
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="add-new-ambulance-trust-contact2-email">
+              Email address
+            </label>
+            <input class="govuk-input govuk-input--width-20" id="add-new-ambulance-trust-contact2-email" name="add-new-ambulance-trust-contact2-email" type="text">
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="add-new-ambulance-trust-contact2-tel">
+              Telephone number
+            </label>
+            <input class="govuk-input govuk-input--width-20" id="add-new-ambulance-trust-contact2-tel" name="add-new-ambulance-trust-contact2-tel" type="text">
+          </div>
+
+        </div>
+      </details>
+
+
+      <div class="govuk-button-group">
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </div>
+
+    </form>
+    </div>
+  </div>
+
+{% endblock %}

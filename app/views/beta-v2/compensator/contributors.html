@@ -1,0 +1,75 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Invite or remove a user
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <!-- <nav class="navigation-secondary govuk-!-margin-bottom-6">
+      <ul>
+        <li><a href="compensator-dashboard">Home</a></li>
+        <li><a href="../registration/about-the-injured-person">New claim</a></li>
+        <li class="active"><a href="find-case">My account</a></li>
+        <li><a href="signout">Sign out</a></li>
+      </ul>
+    </nav> -->
+    {% set nav = "My account" %}
+    {% include "./_globalnav.html" %}
+    
+    <div class="govuk-grid-column-full">
+      {{ govukBreadcrumbs({
+          items: [
+            {
+              text: "Home",
+              href: "compensator-dashboard"
+            },
+            {
+              text: "My account",
+              href: "my-account"
+            },
+            {
+              text: "Add or remove users"
+            }
+          ]
+        }) }}
+      </div>
+        <div class="govuk-grid-column-full">
+        <form class="form" action="cru-landing" method="post">
+          <h1 class="govuk-heading-xl govuk-!-margin-top-5">Invite or remove a user
+          </h1>
+          <div class="govuk-form-group">
+            {{ govukButton({
+          text: "Invite a user",
+          href: "invite-contributor"
+        }) }}
+
+            <table class="govuk-table">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Name</th>
+                  <th scope="col" class="govuk-table__header">Action</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Fran Dilly</th>
+                  <td class="govuk-table__cell"><a href="">Delete</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Nasir Ahmed</th>
+                  <td class="govuk-table__cell"><a href="">Delete</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

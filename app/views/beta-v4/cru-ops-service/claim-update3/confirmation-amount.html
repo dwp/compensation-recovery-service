@@ -1,0 +1,208 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Register a claim with the Compensation Recovery Unit
+{% endblock %}
+
+{% block content %}
+
+
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds-from-desktop">
+
+          <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-top-5">
+            <h1 class="govuk-panel__title ">
+              Registration complete
+            </h1>
+            <div class="govuk-panel__body">
+              Claim reference number<br><strong>CRU12345</strong>
+            </div>
+          </div>
+
+          <div class="govuk-inset-text">
+            <h2 class="govuk-heading-s">Amount to be paid</h2>
+
+              <p class="govuk-body">
+                <span  class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold govuk-!-display-block">£54682.00</span>
+                The injured person has not been paid any benefit due to the injury. The certificate has been issued to the compensator.
+              </p>
+
+
+          </div>
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Payment calculations
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <h2 class="govuk-heading-s">Amount to pay</h2>
+
+              <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+                <div class="govuk-summary-list__row">
+                        <dd class="govuk-summary-list__value" style="width:300px">
+                    YORKSHIRE AMBULANCE SERVICE NHS TRUST
+                  </dd>
+                  <dd class="govuk-summary-list__value">
+                  <p>2 trips @</p>
+                  </dd>
+                  <dd class="govuk-summary-list__value">
+                  <p> £225.00</p>
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+             £450.00
+
+                  </dd>
+                </div>
+
+
+
+                <div class="govuk-summary-list__row">
+                  <dd class="govuk-summary-list__value" style="width:300px">
+                    LEEDS TEACHING HOSPITALS NHS TRUST
+                  </dd>
+                  <dd class="govuk-summary-list__value">
+
+
+                     48 days @ 
+
+                  </dd>
+                  <dd class="govuk-summary-list__value">
+                £915.00
+
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                £25867.00
+
+                  </dd>
+                </div>
+
+                <div class="govuk-summary-list__row">
+                  <dd class="govuk-summary-list__value" style="width:300px">
+                SHEFFIELD TEACHING HOSPITAL NHS TRUST
+                  </dd>
+                  <dd class="govuk-summary-list__value">
+
+
+                     31 days @ 
+
+                  </dd>
+                  <dd class="govuk-summary-list__value">
+                £915.00
+
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+              £28365.00
+
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+            <dd class="govuk-summary-list__value" >
+              Total NHS charges payable
+                  </dd>
+                  <dd class="govuk-summary-list__value">
+                  </dd>
+                  <dd class="govuk-summary-list__value">
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                £54682.00
+
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dd class="govuk-summary-list__value" >
+                Payments
+                  </dd>
+                  <dd class="govuk-summary-list__value">
+                  </dd>
+                  <dd class="govuk-summary-list__value">
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+                £0.00
+
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dd class="govuk-summary-list__value" >
+                Amount to be paid
+                  </dd>
+                  <dd class="govuk-summary-list__value">
+                  </dd>
+                  <dd class="govuk-summary-list__value">
+                  </dd>
+                  <dd class="govuk-summary-list__actions">
+
+              £54682.00
+
+                  </dd>
+                </div>
+
+              </dl>
+
+            </div>
+          </details>
+
+
+
+<div>
+  <h2 class="govuk-heading-m">What this means</h2>
+
+
+
+
+<p class="govuk-body">{{ data['first-name'] | default('Bojen') }}  {{ data['last-name'] | default('Westoros') }} has not received any benefit payments or NHS hospital treatment as a result of their injury.</p>
+  <p class="govuk-body">The amount to pay could change if the injured person later claims a social security benefit in relation to their injury.</p>
+
+<h2 class="govuk-heading-m">What happens next</h2>
+
+
+
+
+<p class="govuk-body">Your certificates are ready to download.</p>
+<p class="govuk-body">You can also download them using the link we sent in your confirmation email.  </p>
+<h3 class="govuk-heading-s">Download certificates</h3>
+<ul class="govuk-list govuk-list--bullet">
+  <li><a href="/public/downloads/CRU-nil-cert-generic-24-feb.pdf" class="govuk-link">Compensation Recovery (CRU) Certificate</a></li>
+  <li><a href="/public/downloads/NHS-nil-cert-generic-24feb.pdf" class="govuk-link">NHS Charges Certificate</a></li>
+</ul>
+
+  <p class="gov-body">CRU certificates are valid for 6 months. NHS certificates do not expire.</p>
+  <p class="gov-body"> We'll email you a reminder when a certificate is due to expire. If a certificate expires before you settle the claim, a new one will be emailed to you automatically. </p>
+
+
+  </div>
+
+
+<br>
+
+
+         <a href="../compensator/compensator-dashboard" class="govuk-button govuk-button--secondary">Return to home</a></div>
+      </div>
+
+
+        </div>
+      </div>
+
+      <!-- code for demo only-->
+  <style>
+    a.timemachine{
+      position:absolute;
+      top:0px;
+      right:0px;
+      background:green;
+      padding:0.8em;
+      color:white;
+      animation: mymove 1s infinite alternate;
+      }
+      @keyframes mymove {
+        from {background-color: #00703c;}
+        to {background-color: #1d70b8;}
+      }
+  </style>
+
+  <a href ="../compensator-registration/claim-registered-email" class="timemachine">Open email</a>
+
+
+{% endblock %}

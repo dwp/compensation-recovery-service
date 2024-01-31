@@ -1,0 +1,182 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Check your answers before registering the claim
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+  <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters-from-desktop">
+
+        <h1 class="govuk-heading-xl">Update injury details</h1>
+
+
+
+
+
+        <!-- Injury details -->
+        <h2 class="govuk-heading-m">Injury details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Whiplash
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+
+              Yes
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="whiplash-guard?backtocheckanswers=true&">
+                Change<span class="govuk-visually-hidden"> whiplash</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Other injuries
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              Yes
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="injury-guard?backtocheckanswers=true&">
+                Change<span class="govuk-visually-hidden"> other injuries</span>
+              </a>
+            </dd>
+          </div>
+
+          <!-- Types of injury -->
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Types of injury
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              Physical injury other than whiplash<br>
+              Psychological<br>
+Neurological
+            </dd>
+            <dd class="govuk-summary-list__actions">
+<!--              <a class="govuk-link" href="other-injuries?backtocheckanswers=true&">-->
+<!--                Change<span class="govuk-visually-hidden"> types of injury</span>-->
+<!--              </a>-->
+            </dd>
+          </div>
+
+
+
+
+              <!-- Physical injuries -->
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Physical injury other than whiplash
+                </dt>
+                <dd class="govuk-summary-list__value">
+
+                    <!-- Start Head injuries  -->
+
+                      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Head injuries</h3><br />
+                      <p>Details</p>
+                      <ul class="govuk-list govuk-list--bullet">
+
+                          <li>
+Pain or discomfort
+                          </li>
+                          <li>
+Fracture
+                          </li>
+                      </ul>
+
+                      <p>Injury location</p>
+                      <ul class="govuk-list govuk-list--bullet">
+
+                        <li>Left side</li>
+
+                      </ul>
+
+                  <!-- End Head -->
+
+
+
+                </dd>
+
+              </div>
+
+
+              <!-- Psychological injuries -->
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Psychological injuries
+                </dt>
+                <dd class="govuk-summary-list__value">
+
+
+                      	Psychological shock <br />
+
+                      {{ item }} {{ data['more-detail-psychological'] }}
+
+                  </ul>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+<!--                  <a class="govuk-link" href="psychological?backtocheckanswers=true&">-->
+<!--                    Change<span class="govuk-visually-hidden"> psychological injury</span>-->
+<!--                  </a>-->
+                </dd>
+              </div>
+
+
+              <!-- Neurological injuries -->
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Neurological injuries
+                </dt>
+                <dd class="govuk-summary-list__value">
+
+	Memory loss
+                </dd>
+                <dd class="govuk-summary-list__actions">
+<!--                  <a class="govuk-link" href="neurological?backtocheckanswers=true&">-->
+<!--                    Change<span class="govuk-visually-hidden"> neurological injury</span>-->
+<!--                  </a>-->
+                </dd>
+              </div>
+
+
+
+        </dl>
+
+
+
+
+        <form action="confirmation2" method="post" novalidate>
+
+          <input type="hidden" name="checkanswers" value="true" />
+
+          <button class="govuk-button" data-module="govuk-button">
+            Update claim
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

@@ -1,0 +1,66 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+NHS Hospital and Trusts - Change Hospital address
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-8">Back</a>
+      <form class="form" action="view-hospital" method="post">
+
+        <span class="govuk-caption-xl">Cheltenham General Hospital</span>
+          <h1 class="govuk-heading-xl">Change hospital address</h1>
+
+          <h2 class="govuk-heading-m">Postcode</h2>
+          <p class="govuk-body">{{ data['hospital-address-postcode']}} <a href="hospital-change-address">Change</a></p>
+
+          <div class="govuk-form-group">
+              <label class="govuk-label" for="hospital-address-lookup">
+                  Select an address
+              </label>
+              <select class="govuk-select" id="hospital-address-lookup" name="hospital-address-lookup">
+                  <option value="published">3 addresses found</option>
+                  <option value="4 High Street {{ data['hospital-address-postcode'] | default('M4 4GH')}}">4 High Street, {{ data['hospital-address-postcode'] | default('M4 4GH')}}</option>
+                  <option value="6 High Street {{ data['hospital-address-postcode'] | default('M4 4GH')}}">6 High Street, {{ data['hospital-address-postcode'] | default('M4 4GH')}}</option>
+                  <option value="8 High Street {{ data['hospital-address-postcode'] | default('M4 4GH')}}">8 High Street, {{ data['hospital-address-postcode'] | default('M4 4GH')}}</option>
+              </select>
+          </div>
+
+          <p class="govuk-body govuk-!-margin-bottom-6"><a href="hospital-change-address-manual">I can't find the address in the list</a></p>
+
+          {{ govukButton({
+          text: "Confirm"
+          }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+About your company
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-main-wrapper--auto-spacing">
+        <!-- <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a> -->
+
+
+
+         <h1 class="govuk-heading-xl">What is your company address?</h1>
+         <h2 class="govuk-heading-m">Postcode</h2>
+         <p class="govuk-body">{{ data['companyaddresspostcode']}} <a href="company-postcode">Change</a></p>
+
+
+<form class="form" action="company-tel-guard" method="post">
+   <div class="govuk-form-group">
+     <label class="govuk-label" for="choose-company-address">
+       Select an address
+     </label>
+     <select class="govuk-select" id="choose-company-address" name="choose-company-address">
+       <option value="published">3 addresses found</option>
+       <option value="4 High Street">4 High Street, {{ data['companyaddresspostcode'] | default('M4 4GH')}}</option>
+       <option value="6 High Street">6 High Street, {{ data['companyaddresspostcode'] | default('M4 4GH')}}</option>
+       <option value="8 High Street">8 High Street, {{ data['companyaddresspostcode'] | default('M4 4GH')}}</option>
+     </select>
+   </div>
+
+   <div class="govuk-radios__item govuk-visually-hidden">
+    <input class="govuk-radios__input" id="injured-persons-details" name="injured-persons-details" type="radio" value="completed" checked>
+    <label class="govuk-label govuk-radios__label" for="injured-persons-details">
+     hidden radio for logic
+    </label>
+  </div>
+<p class="govuk-body"><a href="company-address-manual-entry">I can't find the address in the list</a></p>
+   <button class="govuk-button" data-module="govuk-button">
+    Continue
+   </button>
+
+
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

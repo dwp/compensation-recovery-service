@@ -1,0 +1,42 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+About the injured person - Enter injured person's name and date of birth
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+        <!--        <form class="form" action="check-answers-ip" method="post">-->
+
+        <form class="form" action="date-of-claim" method="post">
+
+
+            <h1 class="govuk-heading-xl">
+                <span class="govuk-caption-xl">The injured person</span>
+                No National Insurance number
+            </h1>
+
+            <div class="govuk-warning-text">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                    <span class="govuk-warning-text__assistive">Warning</span>
+                    Failing to provide a National Insurance number for the injured person could delay the issue of certificates for this claim.
+                </strong>
+            </div>
+
+            <p class="govuk-body">To enter the National Insurance number for the injured person, <br /><a class="govuk-link" href="about-the-injured-person">go back to the injured person details</a>.</p>
+
+            <button class="govuk-button govuk-!-margin-top-4" data-module="govuk-button">
+                Continue
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,108 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Completed task summary
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+  {% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="#" method="post">
+
+        <h1 class="govuk-heading-xl govuk-!-margin-top-9 govuk-!-margin-bottom-2">
+          Task details
+        </h1>
+        <strong class="govuk-tag govuk-tag--green">Completed</strong>
+
+        <div class="govuk-inset-text"> NIL NHS certificate of charges has been sent to the compensator.</div>
+
+<!-- summary start -->
+<dl class="govuk-summary-list govuk-!-margin-top-7">
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Task description
+      </dt>
+      <dd class="govuk-summary-list__value">
+        NHS treatment status not known
+      </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        CRU reference
+      </dt>
+      <dd class="govuk-summary-list__value">
+        PAB283
+      </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Name of injured person
+      </dt>
+      <dd class="govuk-summary-list__value">
+        John Jones
+      </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Date of birth
+      </dt>
+      <dd class="govuk-summary-list__value">
+        13 July 1945
+      </dd>
+    </div>
+
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Age
+      </dt>
+      <dd class="govuk-summary-list__value">
+        78 years old
+      </dd>
+    </div>
+  </dl>
+<!-- summary end -->
+
+<p><a href="../../claim-update3/case-view-history" class="govuk-link">View claim</a></p>
+
+          <div class="govuk-button-group govuk-!-margin-top-9">
+              <button class="govuk-button" data-module="govuk-button">
+                  Go to next task
+              </button>
+              <a href="#" class="govuk-button govuk-button--secondary" data-module="govuk-button">Return to dashboard</a>
+          </div>
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

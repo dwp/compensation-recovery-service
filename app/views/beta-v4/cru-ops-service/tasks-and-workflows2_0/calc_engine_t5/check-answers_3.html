@@ -1,0 +1,250 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Check your answers before registering the claim
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+  <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <span class="govuk-caption-xl">CRS233450
+        </span>
+
+        <h1 class="govuk-heading-xl" style="margin-bottom:10px">Task details</h1>
+<strong class="govuk-tag govuk-tag--yellow">In progress</strong> <br>
+        <!-- <div class="govuk-inset-text">
+        More information received:
+          <p class="govuk-body govuk-!-font-weight-bold">Patient was diagnosed march 2020 Haemachromatosis and had fortnightly venesection at the hospital until they were suspended on the 19/11/2020</p>
+        </div> -->
+
+        <dl class="govuk-summary-list govuk-!-margin-top-7">
+          <!-- <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Assigned to
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Sam Smith
+            </dd>
+          </div> -->
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Description
+            </dt>
+            <dd class="govuk-summary-list__value">
+              More information received: investigate if it affects the treatment details
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              CRU reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+              CRS233450
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Injury type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Physical injury other than whiplash
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Liability type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Motor
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Date of injury
+            </dt>
+            <dd class="govuk-summary-list__value">
+              16 November 2022
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+          Compensator
+            </dt>
+            <dd class="govuk-summary-list__value">
+              	Insure Co Ltd
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            NHS Hospital providing treatment 
+            </dt>
+            <dd class="govuk-summary-list__value">
+            North Manchester General Hospital
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+          NHS Trust linked to hospital
+            </dt>
+            <dd class="govuk-summary-list__value">
+              University of Manchester Hospital Trust
+            </dd>
+          </div>
+        </dl>
+
+        <p class="govuk-body">
+          <a href="case-view-calc" class="govuk-link">View claim</a>
+        </p>
+
+<br>
+
+
+        <!-- Injured persons rep details -->
+        <h2 class="govuk-heading-m">Details provided by NHS</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-3">
+
+
+
+
+
+
+
+            {% if data['newline'] == 'false' %}
+            <div class="govuk-summary-list__row">
+                    <dd class="govuk-summary-list__value" style="width:30%">
+
+                {{ data['hospitalOne'] | default('North Manchester General Hospital') }}
+              </dd>
+
+              <dd class="govuk-summary-list__value" style="width:14%">
+              {{ data['charge'] }}
+              </dd>
+              <dd class="govuk-summary-list__value" style="width:20%">
+              <p> From 17 November 2022</p>
+              </dd>
+              <dd class="govuk-summary-list__value" style="width:7%">
+              <p> {{ data['days'] }} days</p>
+              </dd>
+              <dd class="govuk-summary-list__actions" style="width:10%">
+                <a class="govuk-link" href="item1">
+                  Change<span class="govuk-visually-hidden"></span>
+                </a>
+
+              </dd>
+            </div>
+                  {% else %}
+                    {% endif %}
+{% if data['newlineB'] == 'false' %}
+<div class="govuk-summary-list__row">
+        <dd class="govuk-summary-list__value" style="width:30%">
+
+    {{ data['hospitalOne'] | default('North Manchester General Hospital') }}
+  </dd>
+
+  <dd class="govuk-summary-list__value" style="width:14%">
+  {{ data['chargeB'] }}
+  </dd>
+  <dd class="govuk-summary-list__value" style="width:20%">
+  <p> From 24 November 2022</p>
+  </dd>
+  <dd class="govuk-summary-list__value" style="width:7%">
+  <p> {{ data['daysB'] }} days</p>
+  </dd>
+  <dd class="govuk-summary-list__actions" style="width:10%">
+    <a class="govuk-link" href="item1">
+      Change<span class="govuk-visually-hidden"></span>
+    </a>
+
+  </dd>
+</div>
+{% else %}
+  {% endif %}
+<br>
+  <form  class="form" action="new-line_3" method="post">
+<button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+  Add new line
+</button>
+</form>
+
+        </dl>
+        <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner" style="width:75%">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              More information received:
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+              <p class="govuk-body">
+            attended outpatients on 17/11  24/11  13/12
+
+            </p>
+          </div>
+        </div>
+        <!-- <div class="govuk-inset-text">
+          <p class="govuk-body">
+          Patient was diagnosed march 2020 Haemachromatosis and had fortnightly venesection at the hospital until they were suspended on the 19/11/2020
+        </p>
+        </div> -->
+  <form  class="form" action="extra-info-route" method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h3 class="govuk-fieldset__heading">
+              Have you updated the details?
+              </h3>
+            </legend>
+            <!-- <div id="changed-name-hint" class="govuk-hint">
+              Either changed or no change needed
+            </div> -->
+            <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="info-4" name="info" type="radio" value="Details updated" {{ checked("info", "Details updated") }}>
+                <label class="govuk-label govuk-radios__label" for="info-4">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="info-5" name="info" type="radio" value="No update needed" {{ checked("info", "No update needed") }}>
+                <label class="govuk-label govuk-radios__label" for="info-5">
+                  No - update not needed
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="info-6" name="info" type="radio" value="" {{ checked("info", "") }}>
+                <label class="govuk-label govuk-radios__label" for="info-6">
+                  No - more information is needed
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+
+        <br>
+
+
+
+          <input type="hidden" name="checkanswers" value="true" />
+
+          <div class="govuk-button-group">
+            <button class="govuk-button" data-module="govuk-button">
+              Save and continue
+            </button>
+            <a class="govuk-link" href="#">Cancel</a>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

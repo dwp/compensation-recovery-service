@@ -1,0 +1,129 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Check your answers before registering the claim
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+  <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters-from-desktop">
+
+        <h1 class="govuk-heading-xl">Change injured person's representative details</h1>
+
+        <!-- Hospital question & Liability type -->
+
+
+
+        <!-- Injured persons rep details -->
+        <h2 class="govuk-heading-m">Injured person's representative</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Company name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['represesntative-name'] | default('McAdar Solicitors') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="about-the-injured-persons-rep?backtocheckanswers=true&">
+                Change<span class="govuk-visually-hidden">Solictor name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Email address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['email-solicitor'] | default('claims@mcadarx.co.uk') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="about-the-injured-persons-rep?backtocheckanswers=true&">
+                Change<span class="govuk-visually-hidden">email address</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Reference number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['represesntative-reference'] | default('Cr1234567') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="about-the-injured-persons-rep">
+                Change<span class="govuk-visually-hidden"> About the accident or incident</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Telephone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['represesntative-phone-number'] | default('07880109642') }}
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="about-the-injured-persons-rep?backtocheckanswers=true&">
+                Change<span class="govuk-visually-hidden">telephone</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <!-- Check lookup or manual address -->
+
+                {{ data['solicitor-address'] | default('Ivy House, Ivy Lane') }}<br>Warehorne<br>{{ data['representativepostcode'] | default('TN26 9XE') }}
+
+                <!-- {{ data['address-line-1-rep'] }}<br />
+                {{ data['address-line-2-rep'] }}<br />
+                {{ data['address-town-rep'] }}<br />
+                {{ data['address-county-rep'] }}<br />
+                {{ data['address-postcode-rep'] }} -->
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!-- Check lookup or manual address -->
+
+              <a class="govuk-link" href="representative-address-choice">
+                Change<span class="govuk-visually-hidden"> address</span>
+              </a>
+
+
+
+            </dd>
+          </div>
+        </dl>
+
+
+
+
+
+        <form action="confirmation2" method="post" novalidate>
+
+          <input type="hidden" name="checkanswers" value="true" />
+
+          <button class="govuk-button" data-module="govuk-button">
+            Update details
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

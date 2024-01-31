@@ -1,0 +1,20 @@
+<nav class="navigation-secondary govuk-!-margin-bottom-6">
+    <ul>
+      {% if nav  == 'Home' %}
+      <li class="active">
+        {% else %}
+        <li>
+          {% endif %}
+        <a  href="cru-ops-landing.html">Home</a>
+        </li>
+    
+      {% if nav  == 'Tasks' %}
+      <li class="active">
+        {% else %}
+        <li>
+          {% endif %}
+        <a href="approve-compensators">Approve Compensators (1)</a>
+        
+      </li>
+    </ul>
+  </nav>

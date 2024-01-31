@@ -1,0 +1,230 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Check your answers before registering the claim
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <span class="govuk-caption-xl">CRS233450
+        </span>
+        <h1 class="govuk-heading-xl" style="margin-bottom:10px">Reminder: Task details</h1>
+
+        <!-- <div class="govuk-inset-text">
+        More information received:
+          <p class="govuk-body govuk-!-font-weight-bold">Patient was diagnosed march 2020 Haemachromatosis and had fortnightly venesection at the hospital until they were suspended on the 19/11/2020</p>
+        </div> -->
+
+        <div class="govuk-inset-text">
+          <p class="govuk-body govuk-!-font-weight-regular" style="margin-bottom:10px"> Reminder date: <span class="govuk-body govuk-!-font-weight-bold">23 June 2023</span></p>
+
+
+        <p class="govuk-body govuk-!-font-weight-regular" style="margin-bottom:10px"> Reminder notes:
+        <span class="govuk-body govuk-!-font-weight-bold">  "Get in contact with NHS"</span></p>
+        </div>
+
+        <!-- Injured persons rep details -->
+
+
+        <dl class="govuk-summary-list govuk-!-margin-top-7">
+          <!-- <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Assigned to
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Sam Smith
+            </dd>
+          </div> -->
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Description
+            </dt>
+            <dd class="govuk-summary-list__value">
+              More information received: investigate if it affects the treatment details
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Decision
+            </dt>
+            <dd class="govuk-summary-list__value">
+        	Set a reminder for 23 June 2023
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              CRU reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+              CRS233450
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Type of injury
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Physical injury other than whiplash
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Type of liability
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Motor
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Date of injury
+            </dt>
+            <dd class="govuk-summary-list__value">
+              19 June 2022
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+          Compensator
+            </dt>
+            <dd class="govuk-summary-list__value">
+                Insure Co Ltd
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Hospital assigned to
+            </dt>
+            <dd class="govuk-summary-list__value">
+            North Manchester General Hospital
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+          Trust assigned to
+            </dt>
+            <dd class="govuk-summary-list__value">
+              University of Manchester Hospital Trust
+            </dd>
+          </div>
+        </dl>
+
+
+        <p class="govuk-body">
+            <a href="case-view-task-certs" class="govuk-link">View full claim details (opens in new tab)</a>
+        </p>
+
+        <br><br>
+
+        <form  class="form" action="reminder-route" method="post">
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                    <h3 class="govuk-fieldset__heading">
+                    What do you want to do?
+                    </h3>
+                  </legend>
+                  <!-- <div id="changed-name-hint" class="govuk-hint">
+                    Either changed or no change needed
+                  </div> -->
+                  <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="reminder-extend" name="reminder" type="radio" data-aria-controls="conditional-contact-3" value="extend" {{ checked("info", "Set a reminder for") }}>
+                      <label class="govuk-label govuk-radios__label" for="info-3">
+                        Extend reminder
+                      </label>
+                    </div>
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-3">
+                      <div class="govuk-form-group">
+        <label class="govuk-label" for="more-detail">
+        Reason for extension
+        </label>
+        <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"></textarea>
+        <legend class="govuk-fieldset__legend">
+        Reminder date
+        </legend>
+        <div id="passport-issued-hint" class="govuk-hint">
+        For example, 15 1 2023
+        </div>
+        <div class="govuk-date-input" id="passport-issued">
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+              Day
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="start-date-day" name="start-date-day" type="text" pattern="[0-9]*" inputmode="numeric" value="{{data['start-date-day']}}">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+              Month
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="start-date-month" name="start-date-month" type="text" pattern="[0-9]*" inputmode="numeric" value="{{data['start-date-month']}}">
+          </div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+              Year
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="start-date-year" name="start-date-year" type="text" pattern="[0-9]*" inputmode="numeric" value="{{data['start-date-year']}}">
+          </div>
+        </div>
+        </div>
+        </div>
+        </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="reminder-cancel" name="reminder" type="radio" value="cancel" {{ checked("info", "Data ready") }}>
+                      <label class="govuk-label govuk-radios__label" for="info-4">
+                      Cancel reminder
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="reminder-reopen" name="reminder" type="radio" value="reopen" {{ checked("info", "Data ready") }}>
+                      <label class="govuk-label govuk-radios__label" for="info-5">
+                      Re-open the task
+                      </label>
+                    </div>
+
+
+
+
+                  </div>
+                </fieldset>
+              </div>
+
+
+              <br>
+
+
+
+                <input type="hidden" name="checkanswers" value="true" />
+
+                <div class="govuk-button-group">
+                  <button class="govuk-button" data-module="govuk-button">
+                    Save and continue
+                  </button>
+                  <a class="govuk-link" href="#">Cancel</a>
+                </div>
+
+              </form>
+
+
+
+
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

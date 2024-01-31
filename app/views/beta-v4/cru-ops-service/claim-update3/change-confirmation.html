@@ -1,0 +1,134 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Register a claim with the Compensation Recovery Unit
+{% endblock %}
+
+{% block content %}
+
+
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds-from-desktop">
+          <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-top-5">
+            <h1 class="govuk-panel__title ">
+              Claim details updated
+            </h1>
+            <div class="govuk-panel__body">
+              Claim reference number<br><strong>CRU12345</strong>
+            </div>
+          </div>
+
+          <h2 class="govuk-heading-m govuk-!-margin-top-9">Details updated</h2>
+
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              NHS hospital treatment
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['treatment'] | default('Not known') }}
+            </dd>
+          </div>
+          {% if checked('treatment','Yes') %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              NHS trust exemption
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['exemption'] }}
+            </dd>
+          </div>
+          
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Hospitals added
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              {% if data['manualHospital'] == 'false' %}
+              1. {{ data['hospitalOne'] }}
+              {% else %}
+              {{ data['m-hospital-1'] }}<br />
+              {{ data['hos-address-line-1'] }}<br />
+              {{ data['hos-address-line-2'] }}<br />
+              {{ data['hos-address-town'] }}<br />
+              {{ data['hos-address-county'] }}<br />
+              {{ data['hos-address-postcode'] }}
+              {% endif %}
+
+              {% if data['addHos2'] == 'false' %}
+
+<br />
+                  {% if data['manualHospital2'] == 'false' %}
+                   2. {{ data['hospitalTwo'] }}
+                  {% else %}
+                  {{ data['m-hospital-2'] }}<br />
+                  <!-- {{ data['hos2-address-line-1'] }}<br />
+                  {{ data['hos2-address-line-2'] }}<br />
+                  {{ data['hos2-address-town'] }}<br />
+                  {{ data['hos2-address-county'] }}<br />
+                  {{ data['hos2-address-postcode'] }} -->
+                  {% endif %}
+
+
+              {% endif %}
+              {% endif %}
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!-- Check lookup or manual address -->
+              {% if data['manualHospital'] == 'false' %}
+
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              NHS number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['nhs-number'] != '' %}
+                <p class="govuk-body"> {{ data['nhs-number'] }}</p>
+              {% else %}
+              <p class="govuk-body"> No </p>
+              {% endif %}
+            </dd>
+
+          </div>
+          
+          {% else %}
+        {% endif %}
+        </dl>
+
+
+          <h2 class="govuk-heading-m govuk-!-margin-top-9">What do you want to do next?</h2>
+
+
+              <p class="govuk-body">
+                <a class="govuk-link" href="check-answers">
+                  Update another detail on claim
+                </a>
+              </p>
+
+              <p class="govuk-body">
+                <a class="govuk-link" href="../../cru-ops-service/note/1-add-note">
+                  Add note
+                </a>
+              </p>
+
+              <p class="govuk-body">
+                <a class="govuk-link" href="../../cru-ops-service/tasks-and-workflows/nhs-not-known-v2/2-task-1">
+                  Go back to task
+                </a>
+              </p>
+
+
+
+{% endblock %}
+
+
+
+
+

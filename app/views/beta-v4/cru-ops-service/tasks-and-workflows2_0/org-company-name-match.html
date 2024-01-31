@@ -1,0 +1,40 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+    <h1 class="govuk-heading-xl">This organisation has an account</h1>
+
+    <p class="govuk-body">You entered: <strong>{{ data['company-name'] | default('Geneva') }}</strong></p>
+
+    <p class="govuk-body">The following company has been found:</p>
+
+    <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          {{ data['company-name'] | default('Geneva') }}
+        </dt>
+        <dd class="govuk-summary-list__value">
+          43 Woodward Way<br />
+          Lakeside<br />
+          BS1 1RT
+        </dd>
+        <dd class="govuk-summary-list__value" style="text-align:right;">
+      <td class="govuk-table__cell"><a href="org-details">View</a></td>
+        </dd>
+      </div>
+    </dl>
+
+
+  </div>
+</div>
+
+{% endblock %}

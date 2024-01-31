@@ -1,0 +1,36 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+About the injured person - Enter injured person's name and date of birth
+{% endblock %}
+
+{% block content %}
+<main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="cru-landing" method="post">
+      <h1 class="govuk-heading-xl">
+
+        Account under review
+      </h1>
+      <div class="govuk-form-group">
+        <p class="govuk-body">Your account is currently being reviewed to verify your company details.</p>
+
+        <p>During this review, you can still create a new claim but won't able to submit your CRU1 form. Reviews can take up to a few hours to a few days.</p>
+        <p>We will send you an email once your account has been verified or you will see the a status update on your account when you sign in.</p>
+      </div>
+
+      {{ govukButton({
+        text: "Continue",
+        href: "../compensator/compensator-dashboard-under-review"
+      }) }}
+
+    </form>
+
+    </div>
+  </div>
+  </main>
+
+{% endblock %}

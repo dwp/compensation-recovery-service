@@ -1,0 +1,67 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+NHS Hospital and Trusts - Add a new Hospital or Trust - Address
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-8">Back</a>
+        <form class="form" action="add-new-address-confirm" method="post">
+
+            {% if data['add-new'] == 'Hospital' %}
+                <span class="govuk-caption-l">{{ data['new-hospital-name'] | default('Bristol Royal Hospital') }}</span>
+                <h1 class="govuk-heading-xl">Find hospital address</h1>
+            {% elseif data['add-new'] == 'Trust' %}
+                <span class="govuk-caption-l">{{ data['new-trust-name'] | default('Gloucestershire Hospitals NHS Foundation Trust') }}</span>
+                <h1 class="govuk-heading-xl">Find trust address</h1>
+            {% elseif data['add-new'] == 'Ambulance Trust' %}
+                <span class="govuk-caption-l">{{ data['new-ambulance-trust-name'] | default('Isle of Wight Ambulance Trust') }}</span>
+                <h1 class="govuk-heading-xl">Find ambulance trust address</h1>
+            {% endif %}
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="add-new-postcode">
+                    Enter postcode
+                </label>
+                <input class="govuk-input govuk-input--width-10" id="add-new-postcode" name="add-new-postcode" type="text" value="{{ data['add-new-postcode']}}">
+            </div>
+
+            <div class="govuk-button-group">
+                <button class="govuk-button" data-module="govuk-button">
+                    Find address
+                </button>
+            </div>
+
+        <p class="govuk-body"><a href="add-new-address-manual">Enter address manually</a></p>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

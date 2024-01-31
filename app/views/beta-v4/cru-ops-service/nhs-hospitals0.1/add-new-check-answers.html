@@ -1,0 +1,281 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+NHS Hospital and Trusts - Add a new Hospital or Trust - Check your answers
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-8">Back</a>
+
+    <form class="form" action="add-new-confirmation" method="post">
+
+      {% if data['add-new'] == 'Hospital' %}
+      <span class="govuk-caption-l">{{ data['new-hospital-name'] | default('Bristol Royal Hospital') }}</span>
+      {% elseif data['add-new'] == 'Trust' %}
+      <span class="govuk-caption-l">{{ data['new-trust-name'] | default('Gloucestershire Hospitals NHS Foundation Trust') }}</span>
+      {% elseif data['add-new'] == 'Ambulance Trust' %}
+      <span class="govuk-caption-l">{{ data['new-ambulance-trust-name'] | default('Isle of Wight Ambulance Trust') }}</span>
+      {% endif %}
+      <h1 class="govuk-heading-xl">Check your answers</h1>
+
+      <!-- Vary the list depending if a Hospital / Trust / Ambulance Trust -->
+      {% if data['add-new'] == 'Hospital' %}
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Hospital name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['new-hospital-name'] | default('Tetbury General Hospital') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-new">Change<span class="govuk-visually-hidden"> hospital name</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Hospital address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['add-new-address-lookup'] | default('Sandford road, \nCheltenham, \nGlos, \nGL53 7AN' | escape | nl2br) }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-new-address">Change<span class="govuk-visually-hidden"> address</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Associated trust
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['add-new-hospital-trust'] | default('Gloucestershire Hospitals NHS Foundation Trust') }}
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-new-hospital-add-trust">Change<span class="govuk-visually-hidden"> trust</span></a>
+          </dd>
+        </div>
+      </dl>
+
+      {% elseif data['add-new'] == 'Trust' %}
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Trust name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['new-trust-name'] | default('Tetbury General Hospital') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-new">Change<span class="govuk-visually-hidden"> trust name</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Trust address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['add-new-address-lookup'] | default('Sandford road, \nCheltenham, \nGlos, \nGL53 7AN' | escape | nl2br) }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-new-address">Change<span class="govuk-visually-hidden"> address</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Country
+          </dt>
+          <dd class="govuk-summary-list__value">
+            England
+          </dd>
+          <dd class="govuk-summary-list__actions">
+<!--            <a class="govuk-link" href="add-new-address">Change<span class="govuk-visually-hidden">country</span></a>-->
+          </dd>
+        </div>
+<!--        <div class="govuk-summary-list__row">-->
+<!--          <dt class="govuk-summary-list__key">-->
+<!--            Hospitals linked to this Trust-->
+<!--          </dt>-->
+<!--          <dd class="govuk-summary-list__value">-->
+<!--            {{ data['add-new-trust-add-hospital1'] | default('Gloucestershire Hospitals NHS Foundation Trust') }}-->
+<!--          </dd>-->
+<!--          <dd class="govuk-summary-list__actions">-->
+<!--            <a class="govuk-link" href="add-new-trust-review-hospitals">Change<span class="govuk-visually-hidden"> hospitals that link to this trust</span></a>-->
+<!--          </dd>-->
+<!--        </div>-->
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Organisation code
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['add-new-trust-orgcode'] | default('PPM') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-new-trust-orgcode">Change<span class="govuk-visually-hidden"> org code</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            NHS finance office postcode
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['add-new-trust-nhs-office'] | default('GL1 1SF') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-new-trust-nhs-office">Change<span class="govuk-visually-hidden"> NHS finance office postcode</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Supplier number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['add-new-trust-supplier-number'] | default('304958') }}<br />
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-new-trust-supplier-number">Change<span class="govuk-visually-hidden"> supplier number</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contact details
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['add-new-trust-contact1-name'] | default('Claire Jones') }}<br />
+            {{ data['add-new-trust-contact1-email'] | default('claire.jones@nhs.uk') }}<br />
+            {{ data['add-new-trust-contact1-tel'] | default('07746 464363') }}<br />
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-new-trust-contact-details">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd>
+        </div>
+      </dl>
+
+      {% elseif data['add-new'] == 'Ambulance Trust' %}
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Ambulance trust name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['new-ambulance-trust-name'] | default('Isle of Wight Ambulance Trust') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-new">Change<span class="govuk-visually-hidden"> trust name</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Trust address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['add-new-address-lookup'] | default('Sandford road, \nCheltenham, \nGlos, \nGL53 7AN' | escape | nl2br) }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-new-address">Change<span class="govuk-visually-hidden"> address</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Country
+          </dt>
+          <dd class="govuk-summary-list__value">
+            England
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <!--            <a class="govuk-link" href="add-new-address">Change<span class="govuk-visually-hidden">country</span></a>-->
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Organisation code
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['add-new-ambulance-trust-orgcode'] | default('R1WFI') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-new-ambulance-trust-orgcode">Change<span class="govuk-visually-hidden"> org code</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            NHS finance office postcode
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['add-new-ambulance-trust-nhs-office'] | default('BS3 3DP') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-new-trust-nhs-office">Change<span class="govuk-visually-hidden"> NHS finance office postcode</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Supplier number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['add-new-ambulance-trust-supplier-number'] | default('23412') }}<br />
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-new-trust-supplier-number">Change<span class="govuk-visually-hidden"> supplier number</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contact details
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['add-new-ambulance-trust-contact1-name'] | default('Claire Jones') }}<br />
+            {{ data['add-new-ambulance-trust-contact1-email'] | default('claire.jones@nhs.uk') }}<br />
+            {{ data['add-new-ambulance-trust-contact1-tel'] | default('07746 464363') }}<br />
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="add-new-ambulance-trust-contact-details">Change<span class="govuk-visually-hidden"> contact details</span></a>
+          </dd>
+        </div>
+      </dl>
+
+      {% endif %}
+
+      <p class="govuk-body">
+        <button class="govuk-button" data-module="govuk-button">
+          Confirm
+        </button>
+      </p>
+
+    </form>
+    </div>
+  </div>
+
+{% endblock %}

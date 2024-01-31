@@ -1,0 +1,133 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Check your answers before registering the claim
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+  <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters-from-desktop">
+
+        <h1 class="govuk-heading-xl">Update injured person's details</h1>
+
+        <!-- Hospital question & Liability type -->
+
+
+        <h2 class="govuk-heading-m">The injured person</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['first-name'] | default('Bojen') }}  {{ data['last-name'] | default('Westoros') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="about-the-injured-person">
+                Change<span class="govuk-visually-hidden"> address</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['date-of-birth-day'] | default("28") }} {{ data['date-of-birth-month'] | default("02") | toMonth }} {{ data['date-of-birth-year'] | default("1978") }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="about-the-injured-person">
+                Change<span class="govuk-visually-hidden"> address</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              National Insurance number
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+                <p class="govuk-body"> {{ data['ni-number'] | default('AA 11 22 33 B ') }}</p>
+
+
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="about-the-injured-person">
+                Change<span class="govuk-visually-hidden"> address</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of injury
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['claim-date-day'] | default("3") }} {{ data['claim-date-month'] | default("03") | toMonth }} {{ data['claim-date-year'] | default("2020") }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!--              <a class="govuk-link" href="date-of-claim?backtocheckanswers=true&">-->
+              <!--                Change<span class="govuk-visually-hidden"> date of injury</span>-->
+              <!--              </a>-->
+              <a class="govuk-link" href="date-of-claim">
+                Change<span class="govuk-visually-hidden"> address</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <!-- Check lookup or manual address -->
+
+                {{ data['choose-ip-address'] | default('4 High Street') }}<br>Thrupp<br>{{ data['addresspostcode'] | default('SW11 4DY') }}
+<!--
+                {{ data['address-line-1'] }}<br />
+                {{ data['address-line-2'] }}<br />
+                {{ data['address-town'] }}<br />
+                {{ data['address-county'] }}<br />
+                {{ data['address-postcode'] }} -->
+
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!-- Check lookup or manual address -->
+
+
+                <a class="govuk-link" href="injured-person-address-choice">
+                  Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+
+            </dd>
+          </div>
+        </dl>
+
+        <!-- Injury details -->
+
+
+
+        <form action="confirmation2" method="post" novalidate>
+
+          <input type="hidden" name="checkanswers" value="true" />
+
+          <button class="govuk-button" data-module="govuk-button">
+            Update details
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

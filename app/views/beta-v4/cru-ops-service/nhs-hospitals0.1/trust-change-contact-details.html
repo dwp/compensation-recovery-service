@@ -1,0 +1,160 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+NHS Hospital and Trusts - Change Trust contact details
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-8">Back</a>
+    <form class="form" action="view-trust" method="post">
+
+      <span class="govuk-caption-l">{{ data['trust-name'] | default('Gloucestershire Hospitals NHS Foundation Trust') }}</span>
+      <h1 class="govuk-heading-xl">Change contact details</h1>
+
+      <h2 class="govuk-heading-m">
+        Contact details 1
+      </h2>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="trust-contact1-name">
+          Full name
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="trust-contact1-name" name="trust-contact1-name" type="text" value="{{ data['trust-contact1-name'] | default('Claire Jones') }}">
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="trust-contact1-email">
+          Email address
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="trust-contact1-email" name="trust-contact1-email" type="text" value="{{ data['trust-contact1-email'] | default('claire.jones@glosnhs.nhs.uk') }}">
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="trust-contact1-tel">
+          Telephone number
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="trust-contact1-tel" name="trust-contact1-tel" type="text" value="{{ data['trust-contact1-tel'] | default('01452 282838') }}">
+      </div>
+
+      <details class="govuk-details" data-module="govuk-details" open>
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Add additional contact details
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+
+          <h2 class="govuk-heading-m">
+            Contact details 2 (optional)
+          </h2>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="trust-contact2-name">
+              Full name
+            </label>
+            <input class="govuk-input govuk-input--width-20" id="trust-contact2-name" name="trust-contact2-name" type="text" value="{{ data['trust-contact2-email'] | default('Doug Brown') }}">
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="trust-contact2-email">
+              Email address
+            </label>
+            <input class="govuk-input govuk-input--width-20" id="trust-contact2-email" name="trust-contact2-email" type="text" value="{{ data['trust-contact2-email'] | default('db@glosnhs.nhs.uk') }}">
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="trust-contact2-tel">
+              Telephone number
+            </label>
+            <input class="govuk-input govuk-input--width-20" id="trust-contact2-tel" name="trust-contact2-tel" type="text" value="{{ data['trust-contact2-email'] | default('01452 873474') }}">
+          </div>
+
+          <h2 class="govuk-heading-m">
+            Contact details 3 (optional)
+          </h2>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="add-new-trust-contact3-name">
+              Full name
+            </label>
+            <input class="govuk-input govuk-input--width-20" id="add-new-trust-contact3-name" name="add-new-trust-contact3-name" type="text">
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="add-new-trust-contact3-email">
+              Email address
+            </label>
+            <input class="govuk-input govuk-input--width-20" id="add-new-trust-contact3-email" name="add-new-trust-contact3-email" type="text">
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="add-new-trust-contact3-tel">
+              Telephone number
+            </label>
+            <input class="govuk-input govuk-input--width-20" id="add-new-trust-contact3-tel" name="add-new-trust-contact3-tel" type="text">
+          </div>
+
+          <h2 class="govuk-heading-m">
+            Contact details 4 (optional)
+          </h2>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="add-new-trust-contact4-name">
+              Full name
+            </label>
+            <input class="govuk-input govuk-input--width-20" id="add-new-trust-contact4-name" name="add-new-trust-contact4-name" type="text">
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="add-new-trust-contact4-email">
+              Email address
+            </label>
+            <input class="govuk-input govuk-input--width-20" id="add-new-trust-contact4-email" name="add-new-trust-contact4-email" type="text">
+          </div>
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="add-new-trust-contact4-tel">
+              Telephone number
+            </label>
+            <input class="govuk-input govuk-input--width-20" id="add-new-trust-contact4-tel" name="add-new-trust-contact4-tel" type="text">
+          </div>
+
+        </div>
+      </details>
+
+
+
+    <div class="govuk-button-group">
+      <button class="govuk-button" data-module="govuk-button">
+        Confirm
+      </button>
+
+      <a class="govuk-link" href="view-trust">Cancel</a>
+    </div>
+
+<!--    <p class="govuk-body"><a href="">Enter address manually</a></p>-->
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

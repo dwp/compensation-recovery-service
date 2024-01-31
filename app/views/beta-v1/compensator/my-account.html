@@ -1,0 +1,114 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+My account
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <!-- <nav class="navigation-secondary govuk-!-margin-bottom-6">
+      <ul>
+        <li><a href="compensator-dashboard-empty">Home</a></li>
+        <li><a href="../registration/about-the-injured-person">New claim</a></li>
+        <li class="active"><a href="">My account</a></li>
+        <li><a href="signout">Sign out</a></li>
+      </ul>
+    </nav> -->
+    {% set nav = "My account" %}
+    {% include "./_globalnav.html" %}
+
+    <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="cru-landing" method="post">
+      <h1 class="govuk-heading-xl govuk-!-margin-top-5">
+       My account
+      </h1>
+
+      <h2 class="govuk-heading-m">Personal details</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Sam Smith
+          </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Password
+          </dt>
+          <dd class="govuk-summary-list__value">
+            **********
+          </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="change-password">
+                  Change<span class="govuk-visually-hidden">password</span>
+              </a>
+            </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">Company details</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            4 High Street<br>ROSEWORTHY<br>TR14 6RF
+          </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="change-postcode">
+                  Change<span class="govuk-visually-hidden"> address</span>
+              </a>
+            </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contact details
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">0161 222 2121</p><p class="govuk-body">sam.smith@compensatorltd.com</p>
+          </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="change-contact-details">
+                  Change<span class="govuk-visually-hidden"> contact details</span>
+              </a>
+            </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">Manage users</h2>
+      <p class="govuk-body">Give team members access to add and manage claims on this account.</p>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Users
+          </dt>
+          <dd class="govuk-summary-list__value">
+            None
+          </dd>
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="invite-contributor">
+                  Add user<span class="govuk-visually-hidden"> Add user</span>
+              </a>
+            </dd>
+        </div>
+      </dl>
+
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

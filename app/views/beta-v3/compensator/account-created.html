@@ -1,0 +1,36 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Account created
+{% endblock %}
+
+{% block content %}
+
+
+<main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="account-sign-in" method="post">
+          <h1 class="govuk-heading-l">
+
+            Account created
+          </h1>
+      <div class="govuk-form-group">
+        <p class="govuk-body">You must sign in to register a new claim.</p>
+
+      </div>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    </div>
+
+
+  </main>
+
+{% endblock %}

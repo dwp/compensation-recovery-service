@@ -1,0 +1,280 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+
+  <nav class="navigation-secondary govuk-!-margin-bottom-7">
+    <ul>
+      <li><a href="./">Home</a></li>
+      <li><a href="current-tasks">Current tasks</a></li>
+      <li><a href="completed-tasks">Completed tasks</a></li>
+      <li><a href="legacy-tasks">Legacy tasks</a></li>
+      <li><a href="find-case">Find a claim</a></li>
+      <li><a href="org-list">Organisation list</a></li>
+      <li><a href="">Download reports</a></li>
+    </ul>
+  </nav>
+<div class="govuk-grid-column-full">
+
+
+<div class="govuk-grid-column-full">
+
+
+
+
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--xl" for="company-name">
+      NHS Tariffs for compensation recovery
+          </label>
+        </h1>
+{% if data['update'] == 'true' %}
+  <form  class="form" action="dates" method="post" >
+<div class="govuk-inset-text">
+<p class="govuk-body govuk-!-font-weight-regular">The table was last updated on <span class="govuk-body govuk-!-font-weight-bold">5 December 2022<span>.</p>
+  <button class="govuk-button" data-module="govuk-button">
+    Update now
+  </button>
+</div>
+</form>
+{% else %}
+  <form  class="form" action="dates" method="post" >
+<div class="govuk-inset-text">
+<p class="govuk-body govuk-!-font-weight-regular">The table was last updated on <span class="govuk-body govuk-!-font-weight-bold">4 December 2021<span>.</p>
+  <button class="govuk-button" data-module="govuk-button">
+    Update now
+  </button>
+</div>
+</form>
+      {% endif %}
+    <table class="govuk-table gov">
+<!--        <caption class="govuk-table__caption govuk-table__caption&#45;&#45;m">Organisation users</caption>-->
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Start date</th>
+        <th scope="col" class="govuk-table__header">End date</th>
+        <th scope="col" class="govuk-table__header">Ambulance</th>
+        <th scope="col" class="govuk-table__header">Outpatient</th>
+                <th scope="col" class="govuk-table__header">Inpatient</th>
+                        <th scope="col" class="govuk-table__header">Cap</th>
+        <th scope="col" class="govuk-table__header"></th>
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+
+        {% if data['update'] == 'true' %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">
+  Effective from
+</strong><br>
+
+
+{% if data['date'] == '1' %}
+1 April 2023
+  {% else %}
+{{ data['start-date-day'] | default("1") }} {{ data['start-date-month'] | default("04") | toMonth }} {{ data['start-date-year'] | default("2023") }}
+{% endif %} <br>
+          </td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">£{{ data['ambulance'] | default('10') }}</td>
+          <td class="govuk-table__cell">£{{ data['out-patient'] | default('20') }}</td>
+              <td class="govuk-table__cell">£{{ data['in-patient'] | default('30') }}</td>
+                  <td class="govuk-table__cell">£{{ data['cap'] | default('500') }}</td>
+
+        </tr>
+                  {% else %}
+
+        {% endif %}
+
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">1 April 2022</td>
+                  <td class="govuk-table__cell">
+                    {% if data['date'] == '1' %}
+                    1 April 2023
+                      {% else %}
+                    {{ data['start-date-day'] | default("1") }} {{ data['start-date-month'] | default("04") | toMonth }} {{ data['start-date-year'] | default("2023") }}
+                    {% endif %}
+                  </td>
+                  <td class="govuk-table__cell">£231</td>
+                  <td class="govuk-table__cell">£766</td>
+                      <td class="govuk-table__cell">£941</td>
+                          <td class="govuk-table__cell">£54,260</td>
+              <td class="govuk-table__cell"><a href="org-details"></a></td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">1 April 2021</td>
+                  <td class="govuk-table__cell">31 March 2022</td>
+                  <td class="govuk-table__cell">£225</td>
+                  <td class="govuk-table__cell">£744</td>
+                      <td class="govuk-table__cell">£915</td>
+                          <td class="govuk-table__cell">£54,682</td>
+              <td class="govuk-table__cell"><a href="org-details"></a></td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">1 April 2020</td>
+                  <td class="govuk-table__cell">31 March 2021</td>
+                  <td class="govuk-table__cell">£224</td>
+                  <td class="govuk-table__cell">£743</td>
+                      <td class="govuk-table__cell">£913</td>
+                          <td class="govuk-table__cell">£54,566</td>
+              <td class="govuk-table__cell"><a href="org-details"></a></td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">1 April 2019</td>
+                  <td class="govuk-table__cell">31 March 2020</td>
+                  <td class="govuk-table__cell">£219</td>
+                  <td class="govuk-table__cell">£725</td>
+                      <td class="govuk-table__cell">£891</td>
+                          <td class="govuk-table__cell">£53,278</td>
+              <td class="govuk-table__cell"><a href="org-details"></a></td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">1 April 2018</td>
+                  <td class="govuk-table__cell">31 March 2019</td>
+                  <td class="govuk-table__cell">£208</td>
+                  <td class="govuk-table__cell">£688</td>
+                      <td class="govuk-table__cell">£846</td>
+                          <td class="govuk-table__cell">£50,561</td>
+              <td class="govuk-table__cell"><a href="org-details"></a></td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">1 April 2017</td>
+                  <td class="govuk-table__cell">31 March 2018</td>
+                  <td class="govuk-table__cell">£205</td>
+                  <td class="govuk-table__cell">£678</td>
+                      <td class="govuk-table__cell">£833</td>
+                          <td class="govuk-table__cell">£49,824</td>
+              <td class="govuk-table__cell"><a href="org-details"></a></td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">1 April 2016</td>
+                  <td class="govuk-table__cell">31 March 2017</td>
+                  <td class="govuk-table__cell">£201</td>
+                  <td class="govuk-table__cell">£665</td>
+                      <td class="govuk-table__cell">£817</td>
+                          <td class="govuk-table__cell">£48,849</td>
+              <td class="govuk-table__cell"><a href="org-details"></a></td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">1 April 2015</td>
+                  <td class="govuk-table__cell">31 March 2016</td>
+                  <td class="govuk-table__cell">£195</td>
+                  <td class="govuk-table__cell">£647</td>
+                      <td class="govuk-table__cell">£796</td>
+                          <td class="govuk-table__cell">£47,569</td>
+              <td class="govuk-table__cell"><a href="org-details"></a></td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">1 April 2014</td>
+                  <td class="govuk-table__cell">31 March 2015</td>
+                  <td class="govuk-table__cell">£192</td>
+                  <td class="govuk-table__cell">£637</td>
+                      <td class="govuk-table__cell">£783</td>
+                          <td class="govuk-table__cell">£46,831</td>
+              <td class="govuk-table__cell"><a href="org-details"></a></td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">1 April 2013</td>
+                  <td class="govuk-table__cell">31 March 2014</td>
+                  <td class="govuk-table__cell">£189</td>
+                  <td class="govuk-table__cell">£627</td>
+                      <td class="govuk-table__cell">£770</td>
+                          <td class="govuk-table__cell">£46,046</td>
+              <td class="govuk-table__cell"><a href="org-details"></a></td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">1 April 2012</td>
+                  <td class="govuk-table__cell">31 March 2013</td>
+                  <td class="govuk-table__cell">£185</td>
+                  <td class="govuk-table__cell">£615</td>
+                      <td class="govuk-table__cell">£755</td>
+                          <td class="govuk-table__cell">£45,153</td>
+              <td class="govuk-table__cell"><a href="org-details"></a></td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">1 April 2011</td>
+                  <td class="govuk-table__cell">31 March 2012</td>
+                  <td class="govuk-table__cell">£181</td>
+                  <td class="govuk-table__cell">£600</td>
+                      <td class="govuk-table__cell">£737</td>
+                          <td class="govuk-table__cell">£44,056</td>
+              <td class="govuk-table__cell"><a href="org-details"></a></td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">1 April 2010</td>
+                  <td class="govuk-table__cell">31 March 2011</td>
+                  <td class="govuk-table__cell">£177</td>
+                  <td class="govuk-table__cell">£585</td>
+                      <td class="govuk-table__cell">£719</td>
+                          <td class="govuk-table__cell">£42,999</td>
+              <td class="govuk-table__cell"><a href="org-details"></a></td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">1 April 2009</td>
+                  <td class="govuk-table__cell">31 March 2010</td>
+                  <td class="govuk-table__cell">£171</td>
+                  <td class="govuk-table__cell">£566</td>
+                      <td class="govuk-table__cell">£695</td>
+                          <td class="govuk-table__cell">£41,545</td>
+              <td class="govuk-table__cell"><a href="org-details"></a></td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">1 April 2008</td>
+                  <td class="govuk-table__cell">31 March 2009</td>
+                  <td class="govuk-table__cell">£165</td>
+                  <td class="govuk-table__cell">£547</td>
+                      <td class="govuk-table__cell">£672</td>
+                          <td class="govuk-table__cell">£40,179</td>
+              <td class="govuk-table__cell"><a href="org-details"></a></td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">29 January 2007</td>
+                  <td class="govuk-table__cell">31 March 2008</td>
+                  <td class="govuk-table__cell">£159</td>
+                  <td class="govuk-table__cell">£505</td>
+                      <td class="govuk-table__cell">£620</td>
+                          <td class="govuk-table__cell">£37,100</td>
+              <td class="govuk-table__cell"><a href="org-details"></a></td>
+                </tr>
+
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">1 April 2006</td>
+        <td class="govuk-table__cell">31 March 2007</td>
+        <td class="govuk-table__cell">N/A</td>
+        <td class="govuk-table__cell">£505</td>
+            <td class="govuk-table__cell">£620</td>
+                <td class="govuk-table__cell">£37,100</td>
+    <td class="govuk-table__cell"><a href="org-details"></a></td>
+      </tr>
+
+      </tbody>
+    </table>
+    </div>
+
+      </div>
+
+
+{% endblock %}

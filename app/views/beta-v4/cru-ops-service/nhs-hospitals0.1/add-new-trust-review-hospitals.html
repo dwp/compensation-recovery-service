@@ -1,0 +1,71 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+NHS Hospital and Trusts - Add a new Hospital or Trust
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-8">Back</a>
+
+      <span class="govuk-caption-l">{{ data['new-trust-name'] | default('Gloucestershire Hospitals NHS Foundation Trust') }}</span>
+      <h1 class="govuk-heading-xl">Which Hospitals belong to this Trust?</h1>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Hospital name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['add-new-trust-add-hospital1'] | default('Tetbury General Hospital') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> hospital</span></a>
+          </dd>
+        </div>
+      </dl>
+
+      <div class="govuk-button-group">
+        <form class="form" action="add-new-check-answers" method="post">
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+        </form>
+        <form class="form" action="" method="post">
+          <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Add another Hospital
+          </button>
+        </form>
+      </div>
+
+    </form>
+    </div>
+  </div>
+
+{% endblock %}

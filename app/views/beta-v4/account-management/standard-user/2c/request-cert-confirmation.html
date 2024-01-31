@@ -1,0 +1,45 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Request updated certificate - Confirmation
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-main-wrapper--auto-spacing">
+
+      {{ govukPanel({
+      titleText: "Request sent to the Compensation Recovery Unit",
+      html: ""
+      }) }}
+
+      <p class="govuk-body">We will send you an email to confirm this request for an updated certificate.</p>
+
+
+      <div>
+
+          <p class="govuk-body">The injured person in this claim appears to have received benefits. We need to check if these benefits are related to the claim.</p>
+
+          <h2 class="govuk-heading-m">What happens next</h2>
+          <p class="govuk-body">You will receive an updated certificate within 28 days: </p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>by email, if there are no recoverable benefits on this claim (NIL certificate)</li>
+            <li>by post, if there are recoverable benefits on this claim</li>
+          </ul>
+
+          <p class="gov-body"> If you have any questions about this claim, email <a href="mailto:“cru.ebt@dwp.gov.uk" class="govuk-link">cru.ebt@dwp.gov.uk</a></p>
+      </div>
+
+      <p class="govuk-body govuk-!-margin-top-7">
+        <a class="govuk-link" href="/beta-v4/account-management/standard-user/user-case-view">View claim</a>
+      </p>
+      <p class="govuk-body">
+          <a class="govuk-link" href="/beta-v4/account-management/standard-user/user-dashboard">Go to your dashboard</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

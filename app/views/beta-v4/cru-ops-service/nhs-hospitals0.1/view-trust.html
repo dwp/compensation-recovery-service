@@ -1,0 +1,309 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+NHS Hospital and Trusts - view Trust
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}
+
+
+{% block content %}
+
+<!--  <div class="govuk-breadcrumbs">-->
+<!--    <ol class="govuk-breadcrumbs__list">-->
+<!--      <li class="govuk-breadcrumbs__list-item">-->
+<!--        <a class="govuk-breadcrumbs__link" href="#">Home</a>-->
+<!--      </li>-->
+<!--      <li class="govuk-breadcrumbs__list-item">-->
+<!--        <a class="govuk-breadcrumbs__link" href="#">NHS Tools</a>-->
+<!--      </li>-->
+<!--      <li class="govuk-breadcrumbs__list-item">-->
+<!--        <a class="govuk-breadcrumbs__link" href="#">NHS Hospitals and Trusts</a>-->
+<!--      </li>-->
+<!--      <li class="govuk-breadcrumbs__list-item">-->
+<!--        <a class="govuk-breadcrumbs__link" href="#">{{ data['trust-name'] | default('Gloucestershire Hospitals NHS Foundation Trust') }}</a>-->
+<!--      </li>-->
+<!--    </ol>-->
+<!--  </div>-->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <a href="javascript:history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-8">Back</a>
+      <h1 class="govuk-heading-xl">{{ data['trust-name'] | default('Gloucestershire Hospitals NHS Foundation Trust') }}</h1>
+
+    <div class="govuk-tabs" data-module="govuk-tabs">
+      <h2 class="govuk-tabs__title">
+        Contents
+      </h2>
+      <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#trust-details">
+            Trust details
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#trust-hospitals">
+            Hospitals in this trust
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#trust-history">
+            Trust history
+          </a>
+        </li>
+      </ul>
+      <div class="govuk-tabs__panel" id="trust-details">
+        <h2 class="govuk-heading-m">
+          Trust details
+        </h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-4">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Trust name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['trust-name'] | default('Gloucestershire Hospitals NHS Foundation Trust') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="trust-change-name">Change<span class="govuk-visually-hidden"> trust name</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['trust-address-lookup'] | default('Sandford road, \nCheltenham, \nGlos, \nGL53 7AN' | escape | nl2br) }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="trust-change-address">Change<span class="govuk-visually-hidden"> trust address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Country
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['trust-country'] | default('England') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!--            <a class="govuk-link" href="trust-change-address">Change<span class="govuk-visually-hidden"> trust country</span></a>-->
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Organisation code
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['trust-org-code'] | default('RTE') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="trust-change-org-code">Change<span class="govuk-visually-hidden"> org code</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              NHS finance office
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['trust-nhs-office'] | default('GL3 2DA') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="trust-change-nhs-office">Change<span class="govuk-visually-hidden"> finance office</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Supplier number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['trust-supplier-number'] | default('11029384') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="trust-change-supplier-number">Change<span class="govuk-visually-hidden"> supplier number</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['trust-contact1-name'] | default('Claire Jones') }}<br />
+              {{ data['trust-contact1-email'] | default('claire.jones@glosnhs.nhs.uk') }}<br />
+              {{ data['trust-contact1-tel'] | default('01452 282838') }}<br /><br />
+
+              {{ data['trust-contact2-name'] | default('Doug Brown') }}<br />
+              {{ data['trust-contact2-email'] | default('db@glosnhs.nhs.uk') }}<br />
+              {{ data['trust-contact2-tel'] | default('01452 873474') }}<br />
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="trust-change-contact-details">Change<span class="govuk-visually-hidden"> contact details</span></a>
+            </dd>
+          </div>
+        </dl>
+      </div>
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="trust-hospitals">
+        <h2 class="govuk-heading-m">
+          Hospitals in this trust
+        </h2>
+
+        <table class="govuk-table">
+          <!--      <caption class="govuk-table__caption govuk-table__caption&#45;&#45;m">Month you apply</caption>-->
+          <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Name</th>
+            <th scope="col" class="govuk-table__header">Address</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+            <th scope="col" class="govuk-table__header"></th>
+          </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+          {% if data['link-hospital'] == 'true' %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">{{ data['link-hospital-name'] }}</td>
+              <td class="govuk-table__cell">
+                Example road<br />
+                Example city<br />
+                Example county<br />
+                XY1 4XY
+              </td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Active</strong></td>
+              <td class="govuk-table__cell govuk-!-text-align-right"><a class="govuk-link" href="view-hospital">View<span class="govuk-visually-hidden"> hospital</span></a></td>
+            </tr>
+          {% endif %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Cheltenham General Hospital</td>
+            <td class="govuk-table__cell">
+              Sandford road<br />
+              Cheltenham<br />
+              Glos<br />
+              GL53 7AN
+            </td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Active</strong></td>
+            <td class="govuk-table__cell govuk-!-text-align-right"><a class="govuk-link" href="view-hospital">View<span class="govuk-visually-hidden"> hospital</span></a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Stroud Maternity Hospital</td>
+            <td class="govuk-table__cell">
+              Field Road<br />
+              Stroud<br />
+              GL5 2JB
+            </td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Active</strong></td>
+            <td class="govuk-table__cell govuk-!-text-align-right"><a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> hospital</span></a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Standish Hospital</td>
+            <td class="govuk-table__cell">
+              Horsemarling Lane<br />
+              Stonehouse<br />
+              Glos<br />
+              GL10 3DB
+            </td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Active</strong></td>
+            <td class="govuk-table__cell govuk-!-text-align-right"><a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> hospital</span></a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Gloucestershire Royal Hospital</td>
+            <td class="govuk-table__cell">
+              Great Western Road<br />
+              Gloucester<br />
+              GL1 3NN
+            </td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Active</strong></td>
+            <td class="govuk-table__cell govuk-!-text-align-right"><a class="govuk-link" href="#">View<span class="govuk-visually-hidden"> hospital</span></a></td>
+          </tr>
+          </tbody>
+        </table>
+
+        
+        <form class="form" action="add-new" method="post">
+          <div class="govuk-form-group">
+            <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+              Add a new hospital
+            </button>
+          </div>
+        </form>
+        
+
+<!--        <form class="form" action="trust-add-hospital" method="post">-->
+<!--          <button class="govuk-button" data-module="govuk-button">-->
+<!--            Link a Hospital to this Trust-->
+<!--          </button>-->
+<!--        </form>-->
+      </div>
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="trust-history">
+        <h2 class="govuk-heading-m">Trust history</h2>
+        <table class="govuk-table">
+          <!--      <caption class="govuk-table__caption govuk-table__caption&#45;&#45;m">Month you apply</caption>-->
+          <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Date</th>
+            <th scope="col" class="govuk-table__header">Event</th>
+            <th scope="col" class="govuk-table__header">Data</th>
+            <th scope="col" class="govuk-table__header">User</th>
+          </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">21/11/2022</td>
+            <td class="govuk-table__cell">
+              Organisation code changed
+            </td>
+            <td class="govuk-table__cell">TRR</td>
+            <td class="govuk-table__cell">Jane Smith</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">14/12/2022</td>
+            <td class="govuk-table__cell">
+              Supplier number changed
+            </td>
+            <td class="govuk-table__cell">029384</td>
+            <td class="govuk-table__cell">Jane Smith</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">11/1/2023</td>
+            <td class="govuk-table__cell">Hospital added</td>
+            <td class="govuk-table__cell">Cheltenham General Hospital</td>
+            <td class="govuk-table__cell">Jane Smith</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">27/12/2023</td>
+            <td class="govuk-table__cell">Hospital removed</td>
+            <td class="govuk-table__cell">Stroud district Hospital</td>
+            <td class="govuk-table__cell">Jane Smith</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+<!--      <p class="govuk-body">-->
+<!--        <a class="govuk-link" href="index">Back to NHS hospitals and trusts</a>-->
+<!--      </p>-->
+    </div>
+  </div>
+
+{% endblock %}

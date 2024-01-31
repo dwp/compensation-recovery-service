@@ -1,0 +1,122 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Check your answers before registering the claim
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+  <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters-from-desktop">
+
+        <h1 class="govuk-heading-xl">Check your answers</h1>
+
+
+
+        <!-- Injured persons rep details -->
+        <h2 class="govuk-heading-m">Tariff details</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Planned start date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['date'] == '1' %}
+              1 April 2023
+                {% else %}
+           {{ data['start-date-day'] | default("1") }} {{ data['start-date-month'] | default("04") | toMonth }} {{ data['start-date-year'] | default("2023") }}
+            {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="dates?backtocheckanswers=true&">
+                Change<span class="govuk-visually-hidden"></span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Ambulance charges
+            </dt>
+            <dd class="govuk-summary-list__value">
+              £{{ data['ambulance'] | default('10') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="ambulance?backtocheckanswers=true&">
+                Change<span class="govuk-visually-hidden"></span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Outpatient charges
+            </dt>
+            <dd class="govuk-summary-list__value">
+              £{{ data['out-patient'] | default('20') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="out_patient?backtocheckanswers=true&">
+                Change<span class="govuk-visually-hidden"> About the accident or incident</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Inpatient charges
+            </dt>
+            <dd class="govuk-summary-list__value">
+              £{{ data['in-patient'] | default('30') }}
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="in_patient?backtocheckanswers=true&">
+                Change<span class="govuk-visually-hidden">telephone</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Cap
+            </dt>
+            <dd class="govuk-summary-list__value">
+              £{{ data['cap'] | default('500') }}
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="cap?backtocheckanswers=true&">
+                Change<span class="govuk-visually-hidden">telephone</span>
+              </a>
+            </dd>
+          </div>
+
+        </dl>
+
+
+
+
+      <form  class="form" action="confirmation?update=true&" method="post" >
+
+          <input type="hidden" name="checkanswers" value="true" />
+
+          <div class="govuk-button-group">
+            <button class="govuk-button" data-module="govuk-button">
+              Confirm
+            </button>
+            <a class="govuk-link" href="#">Cancel</a>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

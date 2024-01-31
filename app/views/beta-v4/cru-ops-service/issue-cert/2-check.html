@@ -1,0 +1,53 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Claim details -  What is the type of liability?
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+        <form class="form" action="issue" method="post">
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  Are you sure you want to send a Certificate of NHS Charges?
+                </h1>
+              </legend>
+<br>
+              <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="changedName" name="certificate" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="changedName">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="changedName-2" name="certificate" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="changedName-2">
+                    No
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+    </div>
+  </div>
+
+
+
+{% endblock %}

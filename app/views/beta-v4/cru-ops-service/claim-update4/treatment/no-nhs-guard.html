@@ -1,0 +1,51 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Compensation Recovery Service
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+        <form class="form" action="nhsguardnotknown" method="post">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="treatment-hint">
+              <h1 class="govuk-heading-xl">
+<!-- <span class="govuk-caption-xl">NHS treatment details</span> -->
+                  Did the injured person receive NHS hospital treatment?
+                </h1>
+
+
+  
+
+              <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="treatment-yes" name="treatment" type="radio" value="Yes" {{ checked("treatment", "Yes") }}>
+                  <label class="govuk-label govuk-radios__label" for="treatment-yes">
+                   Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="treatment-no" name="treatment" type="radio" value="No"  checked>
+                  <label class="govuk-label govuk-radios__label" for="treatment-no">
+                   No
+                  </label>
+                </div>
+              </div>
+
+            </fieldset>
+          </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Confirm
+      </button>
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

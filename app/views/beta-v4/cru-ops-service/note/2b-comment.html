@@ -1,0 +1,74 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Compensation Recovery Service
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+  {% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-7">Back</a>
+
+
+          <form class="form" action="../claim-update3/case-view-history-success" method="post">
+
+            <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="120">
+              <div class="govuk-form-group">
+                <h1 class="govuk-label-wrapper">
+                  <label class="govuk-label govuk-label--xl" for="with-hint">
+                    Add note
+                  </label>
+                </h1>
+
+                <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="comment" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
+              </div>
+              <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+                You can enter up to 120 characters
+              </div>
+            </div>
+
+            <div class="govuk-button-group">
+              <button class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
+                Add note
+              </button>
+              <a class="govuk-link" href="../claim-update3/case-view-history">Cancel</a>
+            </div>
+
+          </form>
+
+
+
+        </div>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,223 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+compensator Registration Details
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-width-container">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+    <main class="govuk-main-wrapper " id="main-content" role="main">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-three-quarters-from-desktop">
+
+          <h1 class="govuk-heading-xl">Approve user</h1>
+
+          <h2 class="govuk-heading-m">User details</h2>
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Gina Bailey  
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden">Name</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Company name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['represesntative-name'] | default('Compensator Limited') }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden">Solictor name</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Email address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['email-solicitor'] | default('gina.bailey@compensatorltd.com') }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden">email address</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Telephone number
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['represesntative-phone-number'] | default('0161 202 3698') }}
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden">telephone</span>
+                </a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['solicitor-address'] | default('4 High Street') }}<br>Manchester<br>{{ data['representativepostcode'] | default('M1 4FE') }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+              </dd>
+            </div>
+</dl>
+
+
+          
+      
+
+          <form action="approve-compensators-empty" method="post" novalidate>
+
+
+{% set otherHtml %}
+  {{ govukTextarea({
+  name: "more-detail",
+  id: "more-detail",
+  label: {
+    text: "Can you provide more detail?"
+  }
+}) }}
+
+{% endset -%}
+
+
+{% set approveHtml %}
+
+        {{ govukCheckboxes({
+          idPrefix: "evidence",
+          name: "evidence",
+          fieldset: {
+            legend: {
+              text: "Evidence used?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          hint: {
+            text: "Select all that apply."
+          },
+          items: [
+            {
+              value: "companiesHouse",
+              text: "Companies House"
+            },
+            {
+              value: "letter",
+              text: "X letter"
+            },
+            {
+              value: "id",
+              text: "X ID"
+            },
+            {
+              value: "other",
+              text: "other",
+              conditional: {
+                 html: otherHtml
+              }
+            }
+          ]
+        }) }}
+
+{% endset -%}
+
+{% set rejectHtml %}
+
+      <p class="govuk-body"><strong>Are you sure?</strong></p>
+      <p class="govuk-body">This can be undone in the rejected section.</p>
+
+{% endset -%}
+
+{% set deleteHtml %}
+      {{ govukErrorSummary({
+        titleText: "You are about to delete this registration.",
+        errorList: [
+          {
+            text: "This can not be undone."
+          }
+        ]
+      }) }}
+
+{% endset -%}
+
+{{ govukRadios({
+  idPrefix: "contact",
+  name: "contact",
+  fieldset: {
+    legend: {
+      text: "What would you like to do?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "Select one option."
+  },
+  items: [
+    {
+      value: "approve",
+      text: "Approve",
+      conditional: {
+        html: approveHtml
+      }
+    },
+    {
+      value: "reject",
+      text: "Reject",
+      conditional: {
+        html: rejectHtml
+      }
+    },
+    {
+      value: "delete",
+      text: "Delete",
+      conditional: {
+        html: deleteHtml
+      }
+    }
+  ]
+}) }}
+
+
+
+            <div class="govuk-button-group">
+              {{ govukButton({
+                text: "Save and return"
+              }) }}
+
+              <a class="govuk-link" href="javascript: history.go(-1)">Cancel</a>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+{% endblock %}

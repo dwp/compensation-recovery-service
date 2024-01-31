@@ -1,0 +1,58 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+About the injured person - Enter injured person's name and date of birth
+{% endblock %}
+
+{% set nav = "Home" %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    {% include "./_globalnav.html" %}
+
+
+    <div class="govuk-grid-column-full">
+    
+      <h1 class="govuk-heading-xl govuk-!-margin-top-5">
+      <span class="govuk-caption-xl">Compensator Ltd</span>
+       Sam Smith
+      </h1>
+      <form class="form" action="../compensator/cases-search-results" method="post">
+      <div class="govuk-form-group">
+          <label class="govuk-label" for="find-case">
+            Find a claim
+          </label>
+          <div id="find-case-hint" class="govuk-hint">
+            Enter the CRU reference or injured person's National Insurance number
+          </div>
+          <input class="govuk-input govuk-input--width-10" id="find-case" name="find-case" type="text" spellcheck="false" aria-describedby="find-case-hint" value="{{data['find-case']}}">
+          <button class="govuk-button govuk-!-margin-bottom-0">Find claim</button>
+        </div>
+        <div class="govuk-radios__item govuk-visually-hidden">
+          <input class="govuk-radios__input" id="findcase" name="findcase" type="radio" value="yes" checked>
+          <label class="govuk-label govuk-radios__label" for="findcase">
+           Visually hidded for logic
+          </label>
+        </div>
+      </form>
+
+
+
+      <div class="govuk-form-group">
+        <p>Or, begin by adding a new claim.</p>
+          {{ govukButton({
+          text: "Add a new claim",
+          href: "../registration/nhs-guard"
+      }) }}
+      </div>
+
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

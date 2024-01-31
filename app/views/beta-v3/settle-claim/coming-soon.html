@@ -1,0 +1,42 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Check if you can use this service
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <main class="govuk-main-wrapper " id="main-content" role="main">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+        <form class="form" action="enter-service" method="post">
+
+
+          <h1 class="govuk-heading-xl">
+            Coming soon
+          </h1>
+<p class="govuk-body">This service will be available soon.</p>
+
+
+    </form>
+
+    </div>
+  </div>
+
+    <!-- code for demo only-->
+    <style>
+      a.timemachine{
+        position:absolute;
+        top:0px;
+        right:0px;
+        background:black;
+        padding:0.8em;
+        color:white;
+        }
+    </style>
+
+
+
+{% endblock %}

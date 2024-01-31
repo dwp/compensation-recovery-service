@@ -1,0 +1,60 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Register a claim with the Compensation Recovery Unit
+{% endblock %}
+
+{% block content %}
+
+
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds-from-desktop">
+          <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-top-5">
+            <h1 class="govuk-panel__title ">
+              Claim details updated
+            </h1>
+            <div class="govuk-panel__body">
+              Claim reference number<br><strong>CRU12345</strong>
+            </div>
+          </div>
+
+          <h2 class="govuk-heading-m govuk-!-margin-top-9">Details updated</h2>
+
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Injury date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['claim-date-day'] | default("11") }} {{ data['claim-date-month'] | default("05") | toMonth }} {{ data['claim-date-year'] | default("2023") }}
+            </dd>
+          </div>
+        </dl>
+
+
+          <h2 class="govuk-heading-m govuk-!-margin-top-9">What do you want to do next?</h2>
+
+
+              <p class="govuk-body">
+                <a class="govuk-link" href="check-answers">
+                  Update another detail on claim
+                </a>
+              </p>
+
+              <p class="govuk-body">
+                <a class="govuk-link" href="../../cru-ops-service/note/1-add-note">
+                  Add note
+                </a>
+              </p>
+
+              <p class="govuk-body">
+                <a class="govuk-link" href="../../cru-ops-service/tasks-and-workflows/nhs-not-known-v2/2-task-1">
+                  Go back to task
+                </a>
+              </p>
+
+
+
+{% endblock %}

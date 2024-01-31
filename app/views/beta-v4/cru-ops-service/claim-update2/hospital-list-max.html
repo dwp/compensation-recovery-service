@@ -1,0 +1,149 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+<span class="govuk-caption-xl">Hospital details</span>
+      <h1 class="govuk-heading-xl">Hospitals where the injured person received treatment</h1>
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+        You have entered the maximum number of hospitals.
+        </strong>
+      </div>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Hospital 1
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['hospitalOne'] | default('North East General') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> organisation working on behalf of</span></a>
+<!--            | <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> this organisation working on behalf of</span></a>-->
+          </dd>
+        </div>
+
+
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Hospital 2
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['hospitalTwo'] | default('South West General') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> organisation working on behalf of</span></a>
+            <!--            | <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> this organisation working on behalf of</span></a>-->
+          </dd>
+        </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Hospital 3
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['m-hospital-2'] | default('North Manchester General') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> organisation working on behalf of</span></a>
+              <!--            | <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> this organisation working on behalf of</span></a>-->
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Hospital 4
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['m-hospital-2'] | default('North London General') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> organisation working on behalf of</span></a>
+              <!--            | <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> this organisation working on behalf of</span></a>-->
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Hospital 5
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['m-hospital-2'] | default('South Manchester General') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> organisation working on behalf of</span></a>
+              <!--            | <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> this organisation working on behalf of</span></a>-->
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Hospital 6
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['m-hospital-2'] | default('Hull General Hospital') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> organisation working on behalf of</span></a>
+              <!--            | <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> this organisation working on behalf of</span></a>-->
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Hospital 7
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['m-hospital-2'] | default('North Blackpool Hospital') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> organisation working on behalf of</span></a>
+              <!--            | <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> this organisation working on behalf of</span></a>-->
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Hospital 8
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['m-hospital-2'] | default('Swindon University Hospital') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> organisation working on behalf of</span></a>
+              <!--            | <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> this organisation working on behalf of</span></a>-->
+            </dd>
+          </div>
+
+
+      </dl>
+
+
+        <div class="govuk-button-group">
+          <form class="form" action="" method="post">
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+          </form>
+
+        </div>
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

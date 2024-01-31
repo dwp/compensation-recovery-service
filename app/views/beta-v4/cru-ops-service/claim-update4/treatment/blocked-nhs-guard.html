@@ -1,0 +1,29 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+  Compensation Recovery Service
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+        <form class="form" action="confirmation" method="post">
+
+              <h1 class="govuk-heading-xl">
+                  <!-- <span class="govuk-caption-xl">NHS treatment details</span> -->
+                  Did the injured person receive NHS hospital treatment?
+                </h1>
+
+
+              <p class="govuk-body">You must remove all treatment details from a claim before you can change the NHS hospital treatment response from Yes to No. </p>
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

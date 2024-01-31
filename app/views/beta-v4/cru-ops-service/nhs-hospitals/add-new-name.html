@@ -1,0 +1,68 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+NHS Hospital and Trusts - Add a new Hospital or Trust - Address
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-8">Back</a>
+        <form class="form" action="add-new-address" method="post">
+
+            {% if data['add-new'] == 'Hospital' %}
+                <h1 class="govuk-heading-xl" style="margin-bottom:15px">What is the name of the new hospital?</h1>
+                <div class="govuk-form-group">
+                  <input class="govuk-input govuk-!-width-full" id="new-hospital-name" name="new-hospital-name" value="{{ data['new-hospital-name'] }}">
+                </div>
+            {% elseif data['add-new'] == 'Trust' %}
+
+                <h1 class="govuk-heading-xl" style="margin-bottom:15px">What is the name of the new trust?</h1>
+                <div class="govuk-form-group">
+                      <input class="govuk-input govuk-!-width-full" id="new-trust-name" name="new-trust-name" value="{{ data['new-trust-name'] }}">
+                </div>
+            {% elseif data['add-new'] == 'Ambulance Trust' %}
+
+                <h1 class="govuk-heading-xl" style="margin-bottom:15px">What is the name of the new ambulance trust?</h1>
+                <div class="govuk-form-group">
+                    <input class="govuk-input govuk-!-width-full" id="new-ambulance-trust-name" name="new-ambulance-trust-name" value="{{ data['new-ambulance-trust-name'] }}">
+                </div>
+            {% endif %}
+
+
+
+            <div class="govuk-button-group">
+                <button class="govuk-button" data-module="govuk-button">
+                    Continue
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

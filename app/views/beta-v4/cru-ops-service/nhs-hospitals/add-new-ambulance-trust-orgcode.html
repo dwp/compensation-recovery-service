@@ -1,0 +1,57 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+NHS Hospital and Trusts - Add a new Hospital or Trust
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-8">Back</a>
+    <form class="form" action="add-new-ambulance-trust-nhs-office" method="post">
+
+      <span class="govuk-caption-l">{{ data['new-ambulance-trust-name'] | default('Isle of Wight Ambulance Trust') }}</span>
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--xl" for="add-new-ambulance-trust-orgcode">
+          What is the organisation code of the ambulance trust?
+        </label>
+        </h1>
+        <input class="govuk-input govuk-!-width-one-quarter" id="add-new-ambulance-trust-orgcode" name="add-new-ambulance-trust-orgcode" type="text" value="{{ data['add-new-ambulance-trust-orgcode'] }}">
+      </div>
+
+      <div class="govuk-button-group">
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </div>
+
+    </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,201 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+NHS Hospital and Trusts - view Ambulance Trust
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}
+
+
+{% block content %}
+
+<!--  <div class="govuk-breadcrumbs">-->
+<!--    <ol class="govuk-breadcrumbs__list">-->
+<!--      <li class="govuk-breadcrumbs__list-item">-->
+<!--        <a class="govuk-breadcrumbs__link" href="#">Home</a>-->
+<!--      </li>-->
+<!--      <li class="govuk-breadcrumbs__list-item">-->
+<!--        <a class="govuk-breadcrumbs__link" href="#">NHS Tools</a>-->
+<!--      </li>-->
+<!--      <li class="govuk-breadcrumbs__list-item">-->
+<!--        <a class="govuk-breadcrumbs__link" href="#">NHS Hospitals and Trusts</a>-->
+<!--      </li>-->
+<!--      <li class="govuk-breadcrumbs__list-item">-->
+<!--        <a class="govuk-breadcrumbs__link" href="#">{{ data['trust-name'] | default('Gloucestershire Hospitals NHS Foundation Trust') }}</a>-->
+<!--      </li>-->
+<!--    </ol>-->
+<!--  </div>-->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <a href="index" class="govuk-back-link govuk-!-margin-bottom-8">Back to NHS hospitals and trusts</a>
+      <h1 class="govuk-heading-xl">{{ data['ambulance-trust-name'] | default('Isle of Wight Ambulance Trust') }}</h1>
+
+    <div class="govuk-tabs" data-module="govuk-tabs">
+      <h2 class="govuk-tabs__title">
+        Contents
+      </h2>
+      <ul class="govuk-tabs__list">
+        <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+          <a class="govuk-tabs__tab" href="#trust-details">
+            Trust details
+          </a>
+        </li>
+        <li class="govuk-tabs__list-item">
+          <a class="govuk-tabs__tab" href="#trust-history">
+            Trust history
+          </a>
+        </li>
+      </ul>
+      <div class="govuk-tabs__panel" id="trust-details">
+        <h2 class="govuk-heading-m">
+          Trust details
+        </h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-4">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Trust name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['ambulance-trust-name'] | default('Isle of Wight Ambulance Trust') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> trust name</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Phoenix House<br />
+              Topcliffe Lane<br />
+              Wakefield<br />
+              West Yorks<br />
+              WF3 1WE
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> trust address</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Country
+            </dt>
+            <dd class="govuk-summary-list__value">
+              England
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!--            <a class="govuk-link" href="trust-change-address">Change<span class="govuk-visually-hidden"> trust country</span></a>-->
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Organisation code
+            </dt>
+            <dd class="govuk-summary-list__value">
+              R1FIW
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> org code</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              NHS finance office
+            </dt>
+            <dd class="govuk-summary-list__value">
+              123XYZ
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> finance office</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Supplier number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              12345
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> supplier number</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Contact details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Jill Harescombe<br />
+              j.harescombe@nhs.uk<br />
+              01983 282838
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> contact details</span></a>
+            </dd>
+          </div>
+        </dl>
+      </div>
+      <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="trust-history">
+        <h2 class="govuk-heading-m">Trust history</h2>
+        <table class="govuk-table">
+          <!--      <caption class="govuk-table__caption govuk-table__caption&#45;&#45;m">Month you apply</caption>-->
+          <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Date</th>
+            <th scope="col" class="govuk-table__header">Event</th>
+            <th scope="col" class="govuk-table__header">Data</th>
+            <th scope="col" class="govuk-table__header">User</th>
+          </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">21/11/2022</td>
+            <td class="govuk-table__cell">
+              Organisation code changed
+            </td>
+            <td class="govuk-table__cell">TRR</td>
+            <td class="govuk-table__cell">Jane Smith</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">14/12/2022</td>
+            <td class="govuk-table__cell">
+              Supplier number changed
+            </td>
+            <td class="govuk-table__cell">029384</td>
+            <td class="govuk-table__cell">Jane Smith</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+<!--      <p class="govuk-body">-->
+<!--        <a class="govuk-link" href="index">Back to NHS hospitals and trusts</a>-->
+<!--      </p>-->
+    </div>
+  </div>
+
+{% endblock %}

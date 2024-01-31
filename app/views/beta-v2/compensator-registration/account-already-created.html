@@ -1,0 +1,31 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+About the injured person - Enter injured person's name and date of birth
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+        <form class="form" action="cru-landing" method="post">
+      <h1 class="govuk-heading-xl">
+
+        Account already exists
+      </h1>
+      <div class="govuk-form-group">
+        <p class="govuk-body">Sorry, this email already exists.</p>
+      </div>
+
+      <p><a href="sign-in/sign-in" class="govuk-link">Sign in</a> to your account, or use a different email address.</p>
+
+
+    </form>
+
+    </div>
+    <!-- <a href="activation-email" class="govuk-link">Open email</a> -->
+  </div>
+
+{% endblock %}

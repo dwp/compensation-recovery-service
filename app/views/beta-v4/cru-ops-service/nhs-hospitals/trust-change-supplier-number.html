@@ -1,0 +1,60 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+NHS Hospital and Trusts - Change Trust supplier number
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-8">Back</a>
+    <form class="form" action="view-trust" method="post">
+
+      <span class="govuk-caption-l">{{ data['trust-name'] | default('Gloucestershire Hospitals NHS Foundation Trust') }}</span>
+      <h1 class="govuk-heading-xl">Change trust supplier number</h1>
+
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="trust-supplier-number">
+        Type new trust supplier number
+      </label>
+      <input class="govuk-input govuk-!-width-one-quarter" id="trust-supplier-number" name="trust-supplier-number" type="text">
+    </div>
+
+    <div class="govuk-button-group">
+      <button class="govuk-button" data-module="govuk-button">
+        Confirm
+      </button>
+
+      <a class="govuk-link" href="view-trust">Cancel</a>
+    </div>
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

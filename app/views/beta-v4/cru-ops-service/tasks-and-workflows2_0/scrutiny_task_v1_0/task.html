@@ -1,0 +1,273 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Check your answers before registering the claim
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+  <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-xl">CRU12345
+        </span>
+
+        <h1 class="govuk-heading-xl" style="margin-bottom:10px">Task details</h1>
+<strong class="govuk-tag govuk-tag--yellow">In progress</strong> <br>
+        <!-- <div class="govuk-inset-text">
+        More information received:
+          <p class="govuk-body govuk-!-font-weight-bold">Patient was diagnosed march 2020 Haemachromatosis and had fortnightly venesection at the hospital until they were suspended on the 19/11/2020</p>
+        </div> -->
+
+        <dl class="govuk-summary-list govuk-!-margin-top-7">
+          <!-- <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Assigned to
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Sam Smith
+            </dd>
+          </div> -->
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Description
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Claim check - personal details
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Date of claim registration
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ 'D MMMM YYYY' | baseDate(1) }}
+              </dd>
+          </div>
+
+          <!-- <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Injury
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              <details class="govuk-details" data-module="govuk-details" style="margin-bottom:0px">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Physical injury other than whiplash
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p class="govuk-body govuk-!-font-weight-bold">Face, cheekbones or jaw injuries</p>
+    <p class="govuk-body govuk-!-font-weight-regular" style="margin-bottom:10px">Details</p>
+    <li>Soft tissue injury (for example, bruise, strain or tear)</li>
+  </div>
+</details>
+
+
+               <details class="govuk-details" data-module="govuk-details">
+   <summary class="govuk-details__summary">
+     <span class="govuk-details__summary-text">
+       Psychological
+     </span>
+   </summary>
+   <div class="govuk-details__text">
+     Travel anxiety
+   </div>
+ </details>
+ Whiplash
+            </dd>
+          </div> -->
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Liability type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Motor
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Injury date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              8 January 2023
+            </dd>
+          </div>
+          <!-- <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+          Compensator
+            </dt>
+            <dd class="govuk-summary-list__value">
+              	Insure Co Ltd
+            </dd>
+          </div> -->
+
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+        NHS Trust
+            </dt>
+            <dd class="govuk-summary-list__value">
+                University of Manchester Hospitals Trust
+            </dd>
+          </div>
+
+        </dl>
+<br>
+        <h2 class="govuk-heading-m" style="margin-bottom:10px">Task instructions</h2>
+        <p style="margin-bottom:15px">
+    Personal details submitted on this claim do not match with those in Searchlight.
+
+      <p style="margin-bottom:15px">
+        <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+    <li>  Check the personal details  </li>   <li>Complete any necessary actions </li>   <li>Decide the next step </li> 
+    </ul> </p>
+
+                 <p class="govuk-body">    <a href="case-view-main" class="govuk-link" target=”blank”>Open full claim details (opens in new tab) </a>
+                  </p>
+
+
+        <br>
+        <div class="govuk-notification-banner" role="region"
+          aria-labelledby="govuk-notification-banner-title"
+          data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Name mismatch
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content" style="padding-bottom:30px">
+            <dl class="govuk-summary-list govuk-!-margin-bottom-1">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Name submitted by compensator
+                </dt>
+                <dd class="govuk-summary-list__value">
+                Bojen Westeros
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Name in Searchlight
+                </dt>
+                <dd class="govuk-summary-list__value">
+                Bojen Westerly
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+                </dd>
+              </div>
+            </dl>
+
+          </div>
+        </div>
+
+
+
+
+        <!-- Injured persons rep details -->
+        <!-- <h2 class="govuk-heading-m" style="margin-bottom:10px">Task instructions</h2>
+        <p>
+          Check if the notes content require any changes to the treatment details provided by the NHS trust.</p>        <p class="govuk-body">
+                    <a href="case-view-main" class="govuk-link" target=”_blank”>Access full claim details (opens in new tab)</a>
+                  </p>
+<br> -->
+
+
+
+
+
+
+
+<br>
+        <!-- <div class="govuk-inset-text">
+          <p class="govuk-body">
+          Patient was diagnosed march 2020 Haemachromatosis and had fortnightly venesection at the hospital until they were suspended on the 19/11/2020
+        </p>
+        </div> -->
+  <form  class="form" action="confirmed-check" method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h3 class="govuk-fieldset__heading">
+              What do you want to do next?
+              </h3>
+            </legend>
+            <!-- <div id="changed-name-hint" class="govuk-hint">
+              Either changed or no change needed
+            </div> -->
+            <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="task_decision" name="task_decision" type="radio" data-aria-controls="" value="accept">
+                <label class="govuk-label govuk-radios__label" for="task_decision">
+
+                Accept claim
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="task_decision" name="task_decision" type="radio" data-aria-controls="link" value="reject">
+                <label class="govuk-label govuk-radios__label" for="task_decision-2">
+                      Reject claim
+                </label>
+              </div>
+
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="link">
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend">
+                      Why is this case rejected?
+                    </legend>
+                    <div class="govuk-radios" data-module="govuk-radios">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="link" name="link" type="radio" value="yes">
+                        <label class="govuk-label govuk-radios__label" for="link">
+                    A duplicate claim has been identified
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="link" name="link" type="radio" value="no">
+                        <label class="govuk-label govuk-radios__label" for="link-2">
+                        Other
+                        </label>
+                      </div>
+
+                  </fieldset>
+                </div>
+                  </div>
+
+
+          </fieldset>
+        </div>
+
+
+        <br>
+
+
+
+          <input type="hidden" name="checkanswers" value="true" />
+
+          <div class="govuk-button-group">
+            <button class="govuk-button" data-module="govuk-button">
+              Save and continue
+            </button>
+            <a class="govuk-link" href="#">Cancel</a>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
