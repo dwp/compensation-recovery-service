@@ -1,0 +1,51 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+About the injured person - Enter injured person's name and date of birth
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <!-- <nav class="navigation-secondary govuk-!-margin-bottom-6">
+      <ul>  
+        <li class="active"><a href="">Home</a></li>
+        <li><a href="">Approve Compensators (11)</a></li>
+        <li><a href="my-account">My account</a></li>
+      </ul>
+    </nav>  -->
+    {% set nav = "Home" %}
+    {% include "./_globalnav.html" %}
+
+    
+      <div class="govuk-grid-column-two-thirds  govuk-main-wrapper--auto-spacing">
+        <form class="form" action="cru-landing" method="post">
+      <h1 class="govuk-heading-xl">
+
+        Find case
+      </h1>
+      
+
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-!-font-weight-bold" for="email">
+        You can find a case using the CRU reference or national insurance number
+      </label>
+      <input class="govuk-input govuk-input--width-20" id="email" name="email" type="text">
+    </div>
+
+
+      {{ govukButton({
+        text: "Find case",
+        href: "cases-search-results"
+      }) }}
+
+    </form>
+
+    </div>
+
+
+
+    </div>
+
+{% endblock %}

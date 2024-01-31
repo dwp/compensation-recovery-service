@@ -1,11 +1,31 @@
 
-{% extends "../../../index.html" %}
+{% extends folder+ "/layout.html" %}
 
 {% block pageTitle %}
 Task cannot be completed
 {% endblock %}
 
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
 
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+  {% endblock %}
 
 
 {% block content %}
@@ -25,7 +45,7 @@ Task cannot be completed
     <div class="govuk-grid-column-two-thirds">
       <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
 
-      <form class="form" action="certs-tasks2" method="post">
+      <form class="form" action="current-tasks" method="post">
 
         <h1 class="govuk-heading-xl govuk-!-margin-top-5 govuk-!-margin-bottom-7">
 <!--          <span class="govuk-caption-l">CRS39488</span>-->

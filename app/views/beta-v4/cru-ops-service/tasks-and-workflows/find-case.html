@@ -1,10 +1,31 @@
 
-{% extends "../../../index.html" %}
+{% extends folder+ "/layout.html" %}
 
 {% block pageTitle %}
 Find a claim
 {% endblock %}
 
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+homepageUrl: "/",
+serviceName: serviceName,
+serviceUrl: "/" + folder + "/",
+containerClasses: "govuk-width-container"
+}) }}
+
+<div class="govuk-width-container">
+  <div class="govuk-phase-banner">
+    <p class="govuk-phase-banner__content">
+      <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+        Prototype: Current
+      </strong>
+      <span>This is not production ready code</span>
+    </p>
+  </div>
+</div>
+
+{% endblock %}
 
 
 {% block content %}

@@ -1,5 +1,5 @@
 
-{% extends "../../index.html" %}
+{% extends folder+ "/layout.html" %}
 
 {% block pageTitle %}
 Create an account
@@ -14,23 +14,37 @@ Create an account
       <h1 class="govuk-heading-xl">Create an individual account</h1>
 
       <div class="govuk-form-group">
-        <p class="govuk-body">You’ll need:</p>
+        <p class="govuk-body">You will only need to go through this process one time.</p>
+        <p class="govuk-body">After we verify your account, you will be able to register and manage claims for your organisation.</p>
+        <p class="govuk-body">You'll need:</p>
         <ul class="govuk-list govuk-list--bullet">
-          <li>access to the email address you want to use for the account</li>
+          <li>access to your email address to activate your account</li>
           <li>to create a memorable password</li>
         </ul>
-        <p class="govuk-body">When you have created an account and your organisation has accepted the User Agreement, 
-          you’ll be able to register and manage a new claim online if:</p>  
-        <ul class="govuk-list govuk-list--bullet">
-          <li>it is for motor or public liability</li>
-          <li>the injured person is represented and can provide an email address for their representative</li>
-          <li>the injured person did not receive NHS hospital treatment as a result of the incident</li>
-        </ul>
-        <p class="govuk-body">You will not be able to manage claims previously registered by post or third 
-          party software through this service.</p>
       </div>
 
-      <br/>
+<!--      <div class="govuk-warning-text">-->
+<!--        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>-->
+<!--        <strong class="govuk-warning-text__text">-->
+<!--          <span class="govuk-warning-text__assistive">Warning</span>-->
+<!--          You must use the email address where you received the email to create an account with the Compensation Recovery Service.-->
+<!--        </strong>-->
+<!--      </div>-->
+
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-0">Email address</h2>
+      <p class="govuk-body">{{ data['new-user-email'] | default('ayana.lawrence@comps.com') }}</p>
+
+<!--      <div class="govuk-form-group">-->
+<!--        <label class="govuk-label govuk-label&#45;&#45;s" for="ind-email-address">-->
+<!--          Email address-->
+<!--        </label>-->
+<!--        <input class="govuk-input govuk-!-width-three-quarters" id="ind-email-address" name="ind-email-address" type="email" value="{{ data['new-user-email'] }}" />-->
+<!--      </div>-->
+
+      <!-- hidden field to set account type -->
+      <input style="display: none;" id="account-type-org" name="account-type" type="text" value="user" />
+
+      <br />
 
       {{ govukButton({
       text: "Continue"

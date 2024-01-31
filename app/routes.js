@@ -1,12 +1,15 @@
-//
-// For guidance on how to create routes see:
-// https://prototype-kit.service.gov.uk/docs/create-routes
-//
+const express = require('express')
+const router = express.Router()
 
-const govukPrototypeKit = require('govuk-prototype-kit')
-const router = govukPrototypeKit.requests.setupRouter()
+// Add your routes here - above the module.exports line
 
-// Add your routes here
+const radioButtonRedirect = require('radio-button-redirect')
+const { NULL } = require('node-sass')
+router.use(radioButtonRedirect)
+
+
+
+
 
 // GET SPRINT NAME - useful for relative templates
 router.use('/', (req, res, next) => {
@@ -20,6 +23,17 @@ router.use('/', (req, res, next) => {
     console.log('previous page is: ' + res.locals.prevURL + " and current page is " + req.url + " " + res.locals.currentURL );
     next();
   });
+
+// Old routes, no longer used? (will need backslash in path to work)
+router.use('/current', require('./views/current/_routes'));
+router.use('/v4', require('./views/v4/_routes'));
+router.use('/v3', require('./views/v3/_routes'));
+router.use('/v2-compensators', require('./views/v2-compensators/_routes'));
+router.use('/v1-compensators', require('./views/v1-compensators/_routes'));
+router.use('/v1-staff', require('./views/v1-staff/_routes'));
+router.use('/mvp', require('./views/mvp/_routes'));
+router.use('/mvp-01', require('./views/mvp-01/_routes'));
+router.use('/beta-v3-mvp', require('./views/beta-v3-mvp/_routes'));
 
 // This route in use
 router.use('/beta-v4', require('./views/beta-v4/\_routes'));
@@ -172,37 +186,6 @@ router.post('/beta-v4/nhs-claim/other-injuries-route', function (req, res) {
   }
 })
 
-router.post('/beta-v4/nhs-claim-duplicate/other-injuries-route', function (req, res) {
-
-  // check for no/no situation with whiplash and other injuries, and redirect to error page
-  if(req.session.data['whiplash'] == 'No' && req.session.data['other-injuries'] == 'No') {
-    res.redirect('/beta-v4/nhs-claim-duplicate/injury-guard-error')
-  } else if(req.session.data['whiplash'] == 'Yes' || req.session.data['other-injuries'] == 'Yes') {
-
-    const otherInjuries = req.session.data['other-injuries']
-
-    // If coming from check answers page then return there after clicking continue
-    if (req.session.data['backtocheckanswers'] == 'true') {
-
-      if (otherInjuries == 'Yes') {
-        req.session.data['injuryVar'] = 'true'
-        res.redirect('/beta-v4/nhs-claim-duplicate/other-injuries')
-      } else {
-        req.session.data['backtocheckanswers'] = 'false'
-        res.redirect('/beta-v4/nhs-claim-duplicate/check-answers')
-      }
-    } else {
-      if (otherInjuries == 'Yes') {
-        res.redirect('/beta-v4/nhs-claim-duplicate/other-injuries')
-      } else {
-        // Will need to flag error if Whiplash is also set to No
-        res.redirect('/beta-v4/nhs-claim-duplicate/nhs-guard')
-      }
-    }
-
-  }
-})
-
 // Routing for Any other injury > routes
 // router.post('/beta-v4/registration/other-injuries-route', function (req, res) {
 //
@@ -285,33 +268,6 @@ router.post('/beta-v4/nhs-claim/where-is-the-injury', function (req, res) {
 
 // Routing for Other injuries check boxes
 router.post('/beta-v4/nhs-claim/where-is-the-injury-route', function (req, res) {
-
-  const injury = req.session.data['injury']
-
-  if (injury) {
-
-    // Check and remove _unchecked value
-    for (var i = injury.length; i--;) {
-      if (injury[i] === '_unchecked') {
-        injury.splice(i, 1);
-      }
-    }
-
-    if (injury[0] == 'Physical injury other than whiplash') {
-      res.redirect('/beta-v4/nhs-claim/where-is-the-injury')
-    } else if (injury[0] == 'Psychological') {
-      res.redirect('/beta-v4/nhs-claim/psychological')
-    } else if (injury[0] == 'Neurological') {
-      res.redirect('/beta-v4/nhs-claim/neurological')
-    } else {
-      // do nothing
-      res.redirect('/beta-v4/nhs-claim/other-injuries')
-    }
-
-  }
-})
-
-router.post('/beta-v4/nhs-claim-duplicate/where-is-the-injury-route', function (req, res) {
 
   const injury = req.session.data['injury']
 
@@ -606,14 +562,6 @@ if (req.session.data['info'] == '') {
     }
 })
 
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/extra-info-route', function (req, res) {
-
-if (req.session.data['info'] == '') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/extra-info')
-  } else {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/confirmed')
-    }
-})
 
 router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_4/test1/extra-info-route', function (req, res) {
 
@@ -812,30 +760,6 @@ if (req.session.data['change'] == 'Liability') {
     }
 })
 
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows-cpe/confirmed-check', function (req, res) {
-
-if (req.session.data['cpe1'] == 'approve') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows-cpe/confirmation-approve')
-} else if (req.session.data['cpe1'] == 'remove') {
-    res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows-cpe/confirmation-remove')
-  } else if (req.session.data['cpe1'] == 'existing') {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows-cpe/confirmation-existing')
-} else {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows-cpe/confirmation-ask')
-    }
-})
-
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows-cpe/confirmed-check2', function (req, res) {
-
-  if (req.session.data['cpe1'] == 'approve') {
-    res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows-cpe/confirmation-approve')
-  } else if (req.session.data['task_decision'] == 'approve') {
-    res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/scrutiny_task_v1_0/confirmed_reject')
-  }  else {
-        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows-cpe/confirmation-legacy')
-      }
-  })
-
 router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/scrutiny_task_v1_0/confirmed-check', function (req, res) {
 
 if (req.session.data['task_decision'] == 'reject') {
@@ -878,25 +802,6 @@ if (req.session.data['change'] == 'Liability') {
     }
 })
 
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/action-options', function (req, res) {
-
-if (req.session.data['notification'] == 'CRU11') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/CRU11')
-    } else if (req.session.data['change'] == 'Liability') {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/check-answers-update')
-    } else if (req.session.data['change'] == 'Injured person') {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/confirmation_message')
-    } else if (req.session.data['change'] == 'Injury') {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/CRU10')
-    } else if (req.session.data['change'] == 'Treatment') {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/confirmation_reminder')
-    } else {
-          res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/actions')
-        }
-    })
-
-
-
 router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/reminder-route', function (req, res) {
 
 if (req.session.data['reminder'] == 'reopen') {
@@ -905,17 +810,6 @@ if (req.session.data['reminder'] == 'reopen') {
   res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/confirmation_extended')
   } else {
       res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/confirmation_cancelled')
-    }
-})
-
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/reminder-route', function (req, res) {
-
-if (req.session.data['reminder'] == 'reopen') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/confirmation_reopened')
-} else if (req.session.data['reminder'] == 'extend') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/confirmation_extended')
-  } else {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/confirmation_cancelled')
     }
 })
 
@@ -947,26 +841,6 @@ if (req.session.data['change'] == 'Liability') {
     }
 })
 
-
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows-settle/action-options2', function (req, res) {
-
-if (req.session.data['change'] == 'Liability') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/check-answers-update')
-} else if (req.session.data['change'] == 'Injured person') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/confirmation_message')
-} else if (req.session.data['change'] == 'Injury') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/confirmation_letter')
-} else if (req.session.data['change'] == 'Treatment') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/confirmation_reminder')
-} else if (req.session.data['change'] == 'new') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_0/actions')
-} else if (req.session.data['change'] == 'settle') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows-settle/settle')
-  } else {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/actions')
-    }
-})
-
 router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_0/result-route', function (req, res) {
 
 if (req.session.data['result'] == 'fully') {
@@ -989,460 +863,6 @@ if (req.session.data['result'] == 'withdrawn') {
     }
 })
 
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_1/action-options2', function (req, res) {
-
-if (req.session.data['change'] == 'Liability') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/check-answers-update')
-} else if (req.session.data['change'] == 'Injured person') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/confirmation_message')
-} else if (req.session.data['change'] == 'Injury') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/confirmation_letter')
-} else if (req.session.data['change'] == 'Treatment') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/confirmation_reminder')
-} else if (req.session.data['change'] == 'new') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_1/actions')
-  } else {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/actions')
-    }
-})
-
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_2/action-options2', function (req, res) {
-
-if (req.session.data['change'] == 'Liability') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_2/check-answers-update')
-} else if (req.session.data['change'] == 'Injured person') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/confirmation_message')
-} else if (req.session.data['change'] == 'Injury') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/confirmation_letter')
-} else if (req.session.data['change'] == 'Treatment') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/confirmation_reminder')
-} else if (req.session.data['change'] == 'new') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_2/actions')
-  } else {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/actions')
-    }
-})
-
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_1/result-route', function (req, res) {
-
-if (req.session.data['result'] == 'fully') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_1/cont_neg')
-} else if (req.session.data['result'] == 'disallowed') {
-    res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_1/confirmation-dis')
-    } else {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_1/confirmation-with')
-    }
-})
-
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_1/result-route2', function (req, res) {
-
-if (req.session.data['result'] == 'withdrawn') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_1/confirmation-with2')
-} else if (req.session.data['result'] == 'disallowed') {
-    res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_1/decision_reason_other')
-    } else {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_1/check-answers-update-rev')
-    }
-})
-
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_2/result-route2', function (req, res) {
-
-if (req.session.data['result'] == 'withdrawn') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_2/confirmation-with2')
-} else if (req.session.data['result'] == 'disallowed') {
-    res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_2/decision_reason_other')
-    } else {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_2/check-answers-review')
-    }
-})
-
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_1/action-options', function (req, res) {
-
-if (req.session.data['change'] == 'Liability') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_1/decision2')
-} else if (req.session.data['change'] == 'message') {
-    res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_1/confirmation-message')
-    } else {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_1/result')
-    }
-})
-
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_2/action-options', function (req, res) {
-
-if (req.session.data['change'] == 'Liability') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_2/decision2')
-} else if (req.session.data['change'] == 'message') {
-    res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_2/confirmation-message')
-    } else {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_2/result')
-    }
-})
-
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows-settle/action-options', function (req, res) {
-
-if (req.session.data['change'] == 'Liability') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows-settle/confirmation-interim')
-} else if (req.session.data['change'] == 'message') {
-    res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows-settle/confirmation-final')
-    } else {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows-settle/confirmation-withdrawn')
-    }
-})
-
-router.post('/beta-v4/account-management-dsa2/dsa/dsa-decision', function (req, res) {
-
-if (req.session.data['result'] == 'withdrawn') {
-  res.redirect('/beta-v4/account-management-dsa2/dsa/forward-dsa')
-} else if (req.session.data['result'] == 'disallowed') {
-    res.redirect('/beta-v4/account-management-dsa2/dsa/data-contact-holding_b')
-    } else {
-      res.redirect('/beta-v4/account-management-dsa2/dsa/data-contact-holding_c')
-    }
-})
-
-router.post('/beta-v4/account-management-dsa3/dsa/dsa-decision', function (req, res) {
-
-if (req.session.data['result'] == 'withdrawn') {
-  res.redirect('/beta-v4/account-management-dsa3/dsa2/forward-dsa')
-} else if (req.session.data['result'] == 'disallowed') {
-    res.redirect('/beta-v4/account-management-dsa3/dsa2/confirmation_later')
-    } else {
-      res.redirect('/beta-v4/account-management-dsa3/dsa2/confirmation_signed.html')
-    }
-})
-
-router.post('/beta-v4/account-management-dsa/dsa/dsa-decision', function (req, res) {
-
-if (req.session.data['result'] == 'withdrawn') {
-  res.redirect('/beta-v4/account-management-dsa/dsa/forward-dsa')
-} else if (req.session.data['result'] == 'disallowed') {
-    res.redirect('/beta-v4/account-management-dsa/dsa/data-contact-holding_b')
-    } else {
-      res.redirect('/beta-v4/account-management-dsa/dsa/data-contact-holding_c.html')
-    }
-})
-
-router.post('/beta-v4/account-management-dsa4/dsa/dsa-decision', function (req, res) {
-
-if (req.session.data['result'] == 'withdrawn') {
-  res.redirect('/beta-v4/account-management-dsa4/dsa2/forward-dsa')
-} else if (req.session.data['result'] == 'disallowed') {
-    res.redirect('/beta-v4/account-management-dsa4/dsa2/confirmation_later')
-    } else {
-      res.redirect('/beta-v4/account-management-dsa4/dsa2/confirmation_signed.html')
-    }
-})
-
-
-
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_0/reminder-options', function (req, res) {
-
-if (req.session.data['info'] == 'reminder') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_0/confirmation_reminder')
-    } else {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_0/confirmation2')
-    }
-})
-
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0/action-options2', function (req, res) {
-
-if (req.session.data['change'] == 'Liability') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0/check-answers-update')
-} else if (req.session.data['change'] == 'Injured person') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0/confirmation_message')
-} else if (req.session.data['change'] == 'Injury') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0/confirmation_letter')
-} else if (req.session.data['change'] == 'Treatment') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0/confirmation_reminder')
-  } else {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0/actions')
-    }
-})
-
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/action-options2', function (req, res) {
-
-if (req.session.data['change'] == 'Liability') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/check-answers-update')
-} else if (req.session.data['change'] == 'Injured person') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/confirmation_message')
-} else if (req.session.data['change'] == 'Injury') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/confirmation_letter')
-} else if (req.session.data['change'] == 'Treatment') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/confirmation_reminder')
-  } else {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/actions')
-    }
-})
-
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/other-injuries-route', function (req, res) {
-
-  // check for no/no situation with whiplash and other injuries, and redirect to error page
-  if(req.session.data['other-injuries'] == 'No') {
-    res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/check-answers-update')
-  } else if(req.session.data['whiplash'] == 'Yes' || req.session.data['other-injuries'] == 'Yes') {
-
-    const otherInjuries = req.session.data['other-injuries']
-
-    // If coming from check answers page then return there after clicking continue
-    if (req.session.data['backtocheckanswers'] == 'true') {
-
-      if (otherInjuries == 'Yes') {
-        req.session.data['injuryVar'] = 'true'
-        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/other-injuries')
-      } else {
-        req.session.data['backtocheckanswers'] = 'false'
-        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/check-answers-update')
-      }
-    } else {
-      if (otherInjuries == 'Yes') {
-        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/other-injuries')
-      } else {
-        // Will need to flag error if Whiplash is also set to No
-        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/check-answers-update')
-      }
-    }
-
-  }
-})
-
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/where-is-the-injury-route', function (req, res) {
-
-  const injury = req.session.data['injury']
-
-  if (injury) {
-
-    // Check and remove _unchecked value
-    for (var i = injury.length; i--;) {
-      if (injury[i] === '_unchecked') {
-        injury.splice(i, 1);
-      }
-    }
-
-    if (injury[0] == 'Physical injury other than whiplash') {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/where-is-the-injury')
-    } else if (injury[0] == 'Psychological') {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/psychological')
-    } else if (injury[0] == 'Neurological') {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/neurological')
-    } else {
-      // do nothing
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/other-injuries')
-    }
-
-  }
-})
-
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/injury-physical-route', function (req, res) {
-
-    const injury = req.session.data['injury']
-
-    // Check and remove _unchecked value
-    for (var i=injury.length; i--; ) {
-      if (injury[i] === '_unchecked') {
-        injury.splice(i, 1);
-      }
-    }
-    // On physical injury page
-    if (injury[1] == 'Psychological') {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/psychological')
-    } else if (injury[1] == 'Neurological') {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/neurological')
-    } else {
-
-      // If coming from check answers page then return there after clicking continue or continue as normal journey
-      if(req.session.data['backtocheckanswers'] == 'true') {
-        req.session.data['backtocheckanswers'] = 'false'
-        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/check-answers-update')
-      } else {
-        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/check-answers-update')
-      }
-    }
-
-})
-
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/injury-psychological-route', function (req, res) {
-
-    const injury = req.session.data['injury']
-
-    // Check and remove _unchecked value
-    for (var i=injury.length; i--; ) {
-      if (injury[i] === '_unchecked') {
-        injury.splice(i, 1);
-      }
-    }
-    // On psychological injury page
-    if (injury[1] == 'Neurological' || injury[2] == 'Neurological') {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/neurological')
-    } else {
-      // If coming from check answers page then return there after clicking continue or continue as normal journey
-      if(req.session.data['backtocheckanswers'] == 'true') {
-        req.session.data['backtocheckanswers'] = 'false'
-        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/check-answers-update')
-      } else {
-        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/check-answers-update')
-      }
-    }
-})
-
-
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/action-options2', function (req, res) {
-
-if (req.session.data['change'] == 'Liability') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/check-answers-update')
-} else if (req.session.data['change'] == 'Injured person') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/confirmation_message')
-} else if (req.session.data['change'] == 'Injury') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/confirmation_letter')
-} else if (req.session.data['change'] == 'Treatment') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/confirmation_reminder')
-  } else {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/actions')
-    }
-})
-
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/other-injuries-route', function (req, res) {
-
-  // check for no/no situation with whiplash and other injuries, and redirect to error page
-  if(req.session.data['other-injuries'] == 'No') {
-    res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/check-answers-update')
-  } else if(req.session.data['whiplash'] == 'Yes' || req.session.data['other-injuries'] == 'Yes') {
-
-    const otherInjuries = req.session.data['other-injuries']
-
-    // If coming from check answers page then return there after clicking continue
-    if (req.session.data['backtocheckanswers'] == 'true') {
-
-      if (otherInjuries == 'Yes') {
-        req.session.data['injuryVar'] = 'true'
-        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/other-injuries')
-      } else {
-        req.session.data['backtocheckanswers'] = 'false'
-        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/check-answers-update')
-      }
-    } else {
-      if (otherInjuries == 'Yes') {
-        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/other-injuries')
-      } else {
-        // Will need to flag error if Whiplash is also set to No
-        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/check-answers-update')
-      }
-    }
-
-  }
-})
-
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/where-is-the-injury-route', function (req, res) {
-
-  const injury = req.session.data['injury']
-
-  if (injury) {
-
-    // Check and remove _unchecked value
-    for (var i = injury.length; i--;) {
-      if (injury[i] === '_unchecked') {
-        injury.splice(i, 1);
-      }
-    }
-
-    if (injury[0] == 'Physical injury other than whiplash') {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/where-is-the-injury')
-    } else if (injury[0] == 'Psychological') {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/psychological')
-    } else if (injury[0] == 'Neurological') {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/neurological')
-    } else {
-      // do nothing
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/other-injuries')
-    }
-
-  }
-})
-
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/injury-physical-route', function (req, res) {
-
-    const injury = req.session.data['injury']
-
-    // Check and remove _unchecked value
-    for (var i=injury.length; i--; ) {
-      if (injury[i] === '_unchecked') {
-        injury.splice(i, 1);
-      }
-    }
-    // On physical injury page
-    if (injury[1] == 'Psychological') {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/psychological')
-    } else if (injury[1] == 'Neurological') {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/neurological')
-    } else {
-
-      // If coming from check answers page then return there after clicking continue or continue as normal journey
-      if(req.session.data['backtocheckanswers'] == 'true') {
-        req.session.data['backtocheckanswers'] = 'false'
-        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/check-answers-update')
-      } else {
-        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/check-answers-update')
-      }
-    }
-
-})
-
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/injury-psychological-route', function (req, res) {
-
-    const injury = req.session.data['injury']
-
-    // Check and remove _unchecked value
-    for (var i=injury.length; i--; ) {
-      if (injury[i] === '_unchecked') {
-        injury.splice(i, 1);
-      }
-    }
-    // On psychological injury page
-    if (injury[1] == 'Neurological' || injury[2] == 'Neurological') {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/neurological')
-    } else {
-      // If coming from check answers page then return there after clicking continue or continue as normal journey
-      if(req.session.data['backtocheckanswers'] == 'true') {
-        req.session.data['backtocheckanswers'] = 'false'
-        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/check-answers-update')
-      } else {
-        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/check-answers-update')
-      }
-    }
-})
-
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/benefit-options', function (req, res) {
-
-if (req.session.data['change'] == 'Liability') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/confirmation_benefits')
-} else {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/check-answers-benefits')
-    }
-})
-
-
-router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/dob_nino_route', function (req, res) {
-
-if (req.session.data['change'] == 'Liability') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/confirmation_dob_nino')
-} else {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/about-the-injured-person2')
-    }
-})
-
-router.post('/account-management-ni2/password-branch', function (req, res, next) {
-
-  const accountType = req.session.data['account-type']
-
-  if (accountType == 'user') {
-    res.redirect('/beta-v4/account-management-ni2/user-edit-name')
-  } else if (accountType == 'org') {
-    res.redirect('/beta-v4/account-management-ni2/org-user-name')
-  } else if (accountType == 'requested-user') {
-    res.redirect('/beta-v4/account-management-ni2/user-request-confirmation')
-  }
-})
-
-
 // router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/scrutiny_task_v1_0/confirmed-check', function (req, res) {
 //
 // if (req.session.data['link'] == 'yes') {
@@ -1453,3 +873,4 @@ router.post('/account-management-ni2/password-branch', function (req, res, next)
 // })
 
 //
+module.exports = router

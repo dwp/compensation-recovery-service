@@ -1,0 +1,50 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Signin in to your Compensation Recovery Unit (CRU) account
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+        <form class="form" action="passcode-sent" method="post">
+      <h1 class="govuk-heading-xl">
+
+        Sign in
+      </h1>
+      <p class="govuk-body">Sign in to your Compensation Recovery Unit (CRU) account, or <br> <a href="../compensator-registration/account-registration">create an account</a> to get started.</p>
+
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-!-font-weight-bold" for="email">
+        Email address
+      </label>
+      <input class="govuk-input govuk-input--width-20" id="email" name="email" type="text">
+    </div>
+
+      <div class="govuk-form-group">
+      <label class="govuk-label govuk-!-font-weight-bold" for="password">
+        Password
+      </label>
+      <input class="govuk-input govuk-input--width-20" id="password" name="password" type="text">
+    </div>
+
+
+
+
+      {{ govukButton({
+        text: "Sign in"
+      }) }}
+
+       <div class="govuk-form-group">
+        <a class="govuk-link" href="forgotten-password">Forgotten your password?</a>
+
+      </div>
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

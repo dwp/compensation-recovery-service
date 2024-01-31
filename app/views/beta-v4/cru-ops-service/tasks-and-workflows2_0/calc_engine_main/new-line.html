@@ -1,5 +1,5 @@
 
-{% extends "../../../../index.html" %}
+{% extends folder+ "/layout.html" %}
 
 {% block pageTitle %}
 About the injured person -  Does the injured person have a national insurance number
@@ -56,48 +56,50 @@ About the injured person -  Does the injured person have a national insurance nu
              <div class="govuk-form-group">
 
 
-               <div ondblclick="myFunction()" id="hospitalOne" class="autocomplete-wrapper" name="hospitalOne" value="{{ data['hospitalOneNew'] }}"></div>
+               <div id="hospitalOne" class="autocomplete-wrapper" name="hospitalOne" value="{{ data['hospitalOneNew'] }}"></div>
 
            <div id="js-anotherCurrentCountry"></div>
 
                <!-- <input class="govuk-input govuk-date-input__input govuk-input--width-20" id="doc-number" name="nationality" type="text"> -->
              </div>
            </div>
-           <div hidden class="govuk-inset-text" id="demo">
-             <div class="govuk-form-group">
-               <fieldset class="govuk-fieldset">
-                 <legend class="govuk-fieldset__legend">
-                 Type of charge
-                 </legend>
-                 <div class="govuk-radios" data-module="govuk-radios">
+<br><br>
+            <div class="govuk-form-group">
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend">
+                Type of charge
+                </legend>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="charge" name="charge" type="radio" value="Ambulance" data-aria-controls="charge-type">
+                    <label class="govuk-label govuk-radios__label" for="charge">
+                      Ambulance
+                    </label>
+                  </div>
 
-                   <div class="govuk-radios__item">
-                     <input class="govuk-radios__input" id="charge-2" name="charge" type="radio" value="Outpatient" data-aria-controls="charge-type-2">
-                     <label class="govuk-label govuk-radios__label" for="charge-2">
-                       Outpatient
-                     </label>
-                   </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="charge-2" name="charge" type="radio" value="Outpatient" data-aria-controls="charge-type-2">
+                    <label class="govuk-label govuk-radios__label" for="charge-2">
+                      Outpatient
+                    </label>
+                  </div>
 
-                   <div class="govuk-radios__item">
-                     <input class="govuk-radios__input" id="charge-3" name="charge" type="radio" value="Inpatient" data-aria-controls="charge-type-3">
-                     <label class="govuk-label govuk-radios__label" for="charge-3">
-                     Inpatient
-                     </label>
-                   </div>
-                   <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="charge-type-3">
-         <div class="govuk-form-group">
-           <label class="govuk-label" for="charge-type">
-             Days of treatment
-           </label>
-           <input class="govuk-input govuk-!-width-one-third" id="contact-by-email" name="contact-by-email" >
-         </div>
-       </div>
-                 </div>
-                 </div>
-           </div>
-
-                    <div class="govuk-form-group">
-
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="charge-3" name="charge" type="radio" value="Inpatient" data-aria-controls="charge-type-3">
+                    <label class="govuk-label govuk-radios__label" for="charge-3">
+                    Inpatient
+                    </label>
+                  </div>
+                  <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="charge-type-3">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="charge-type">
+            Days of treatment
+          </label>
+          <input class="govuk-input govuk-!-width-one-third" id="contact-by-email" name="contact-by-email" >
+        </div>
+      </div>
+                </div>
+<br>
 <br><br>
                 <legend class="govuk-fieldset__legend">
                   Start date
@@ -1867,18 +1869,13 @@ About the injured person -  Does the injured person have a national insurance nu
   <script type="text/javascript">
     element = document.querySelector('#hospitalOne')
     id = 'autocomplete-minLength'
-    name = 'hospitalOne'
+    name = 'countryTwo'
     accessibleAutocomplete({
       element: element,
       id: id,
       name: name,
       minLength: 2,
-      source: suggest,
-      confirmOnBlur: false,
-      onConfirm: ((hosp) => {
- console.log(hosp)
- demo.style.display = 'block'
- })
+      source: suggest
     })
   </script>
 

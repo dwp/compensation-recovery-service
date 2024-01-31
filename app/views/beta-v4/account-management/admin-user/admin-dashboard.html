@@ -1,5 +1,5 @@
 
-{% extends "../../../index.html" %}
+{% extends folder+ "/layout.html" %}
 
 {% block pageTitle %}
 Dashboard
@@ -54,7 +54,7 @@ Dashboard
     </p>
     <ul class="govuk-list govuk-list--bullet">
       <li>register claims</li>
-      <li>download CRU and NHS charges certificates</li>
+      <li>download CRS and NHS charges certificates in PDF format</li>
     </ul>
     <p class="govuk-body">
       <a href="../../nhs-claim/admin-register-new-claim" class="govuk-link">Register a new claim</a>
@@ -69,7 +69,7 @@ Dashboard
       Use this to:
     </p>
     <ul class="govuk-list govuk-list--bullet">
-      <li>tell us that you are taking over a claim registered by another organisation</li>
+      <li>tell the Compensation Recovery Service that you are taking over a claim registered by another organisation</li>
       <li>get notified when updated certificates are issued</li>
     </ul>
     <p class="govuk-body">
@@ -101,8 +101,8 @@ Dashboard
       Use this to:
     </p>
     <ul class="govuk-list govuk-list--bullet">
-      <li>invite people from your organisation to create user accounts to register and settle claims</li>
-      <li>review user access to the service</li>
+      <li>ask employees from your organisation to create individual accounts to register and settle claims</li>
+      <li>review user access</li>
     </ul>
     <p class="govuk-body">
       <a href="admin-manage-org" class="govuk-link">View and edit your organisation’s details</a>

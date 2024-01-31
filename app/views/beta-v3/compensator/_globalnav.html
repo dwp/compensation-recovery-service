@@ -1,0 +1,39 @@
+<nav class="navigation-secondary govuk-!-margin-bottom-6">
+    <ul>
+      {% if nav  == 'Home' %}
+      <li class="active">
+        {% else %}
+        <li>
+          {% endif %}
+        <a  href="compensator-dashboard-empty">Home</a>
+        </li>
+
+      {% if nav  == 'New claim' %}
+      <li class="active">
+        {% else %}
+        <li>
+          {% endif %}
+        <a href="../registration/nhs-guard">New claim</a>
+
+      </li>
+
+      {% if nav  == 'My account' %}
+      <li class="active">
+        {% else %}
+        <li>
+          {% endif %}
+        <a href="my-account-used">My account</a>
+
+
+
+
+      {% if nav  == 'Sign Out' %}
+      <li class="active">
+        {% else %}
+        <li>
+          {% endif %}
+        <a href="signout">Sign out</a>
+
+      </li>
+    </ul>
+  </nav>

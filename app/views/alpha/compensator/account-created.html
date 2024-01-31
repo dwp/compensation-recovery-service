@@ -1,0 +1,33 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Account created
+{% endblock %}
+
+{% block content %}
+<main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        <form class="form" action="cru-landing" method="post">
+      <h1 class="govuk-heading-xl">
+
+        Account created
+      </h1>
+      <div class="govuk-form-group">
+        <p class="govuk-body">You have successfully created your Compensation Recovery Unit (CRU) account.</p>
+      </div>
+
+      {{ govukButton({
+        text: "Continue",
+        href: "compensator-dashboard-empty"
+      }) }}
+
+    </form>
+
+    </div>
+  </div>
+  </main>
+
+{% endblock %}

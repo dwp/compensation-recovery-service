@@ -1,5 +1,5 @@
 
-{% extends "../../index.html" %}
+{% extends folder+ "/layout.html" %}
 
 {% block pageTitle %}
   About the injured person - Did they receive NHS hospital treatment?
@@ -14,26 +14,23 @@
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset" aria-describedby="treatment-hint">
               <h1 class="govuk-heading-xl">
-<span class="govuk-caption-xl">NHS or HS treatment details</span>
-              Did the injured person receive NHS or HS hospital treatment?
+<span class="govuk-caption-xl">NHS treatment details</span>
+                  Did the injured person receive NHS hospital treatment?
                 </h1>
 
-                <div class="govuk-inset-text">
-                  HS refers to Health and Social Care treatment specific to Northern Ireland.
-                </div>
 
               <p class="govuk-body">This includes:</p>
 
               <ul class="govuk-list govuk-list--bullet">
-                <li>treatment at any NHS or HS hospital</li>
-                <li>treatment at any NHS or HS urgent care centre</li>
-                <li>a trip in an NHS or HS ambulance</li>
+                <li>treatment at any NHS hospital</li>
+                <li>treatment at any NHS urgent care centre</li>
+                <li>a trip in an NHS ambulance</li>
               </ul>
 
               <p class="govuk-body">This <strong>does not</strong> include:</p>
 
               <ul class="govuk-list govuk-list--bullet">
-                <li>treatment at an NHS or HS GP surgery</li>
+                <li>treatment at an NHS GP surgery</li>
                 <li>treatment at a private hospital</li>
                 <li>a trip in a private ambulance</li>
               </ul>

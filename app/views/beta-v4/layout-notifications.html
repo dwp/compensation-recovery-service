@@ -1,0 +1,27 @@
+{% extends folder+ "/layout.html" %}
+
+{% block headIcons %}
+  <link rel="shortcut icon" href="{{ asset_path }}images/unbranded.ico?0.18.3" type="image/x-icon" />
+{% endblock %}
+
+{% block head %}
+  <!--[if lte IE 8]><link href="/public/stylesheets/unbranded-ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
+  <!--[if gt IE 8]><!--><link href="/public/stylesheets/unbranded.css" media="all" rel="stylesheet" type="text/css" /><!--<![endif]-->
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+        Prototype
+        </strong>
+        <span><b>This is not a live service</b></span>
+      </p>
+    </div>
+
+  {% for stylesheetUrl in extensionConfig.stylesheets %}
+    <link href="{{ stylesheetUrl }}" rel="stylesheet" type="text/css" />
+  {% endfor %}
+{% endblock %}
+
+{% block header %}{% endblock %}
+{% block footer %}{% endblock %}

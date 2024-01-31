@@ -1,0 +1,50 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+What is your name?
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+
+    <div class="govuk-grid-column-two-thirds  govuk-main-wrapper--auto-spacing">
+        <form class="form" action="" method="post">
+        {{ govukRadios({
+          idPrefix: "sign-in",
+          name: "sign-in",
+          fieldset: {
+            legend: {
+              text: "What do you want to do?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "yes~authorisation-number",
+              text: "Add a new claim"
+            },
+            {
+              value: "settle~../settle-claim/verify-details",
+              text: "Settle a claim"
+            },
+            {
+              value: "request~../settle-claim/coming-soon",
+              text: "Request a copy of a certificate"
+            }
+          ]
+        }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

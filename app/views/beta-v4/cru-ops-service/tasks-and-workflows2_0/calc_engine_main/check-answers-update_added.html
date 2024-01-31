@@ -1,5 +1,5 @@
 
-{% extends "../../../../index.html" %}
+{% extends folder+ "/layout.html" %}
 
 {% block pageTitle %}
 Check your answers before registering the claim
@@ -313,15 +313,20 @@ Fracture
             </dt>
 
             <dd class="govuk-summary-list__value">
-
   <p class="govuk-body govuk-!-font-weight-bold">Treatment 1</p>
+  Ambulance <br>
+  From 9 January 2023 <br>
+  1 day
+
+<br><br>
+  <p class="govuk-body govuk-!-font-weight-bold">Treatment 2</p>
 
   Inpatient  <br>
   From 10 January 2023 <br>
   31 days
 
 <br><br>
-<p class="govuk-body govuk-!-font-weight-bold">Treatment 2 <strong class="govuk-tag govuk-tag--green">
+<p class="govuk-body govuk-!-font-weight-bold">Treatment 3 <strong class="govuk-tag govuk-tag--green">
           Added and saved
         </strong> </p>
 
@@ -351,32 +356,11 @@ From 5 March 2023 <br>
                   Remove<span class="govuk-visually-hidden"> address</span>
                 </a>
 
-
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              North West Ambulance Service NHS Trust
-            </dt>
-            <dd class="govuk-summary-list__value">
-  <p class="govuk-body govuk-!-font-weight-bold">Treatment 1</p>
-
-              Ambulance <br>
-              From 9 January 2023 <br>
-              1 day
-<br><br>
-<a class="govuk-link" href="">
-Add new treatment<span class="govuk-visually-hidden"> address</span>
-</a>
-            </dd>
-
-            <dd class="govuk-summary-list__actions">
-              <!-- Check lookup or manual address -->
-
-                <a class="govuk-link" href="">
+            <br>
+                <br><br><br>
+                <a class="govuk-link" href="item1">
                   Change<span class="govuk-visually-hidden"> address</span>
-                </a>
-                <br>
+                </a><br>
                 <a class="govuk-link" href="">
                   Remove<span class="govuk-visually-hidden"> address</span>
                 </a>

@@ -25,18 +25,6 @@ router.post('/nhs-claim/nn-guard', function (req, res, next) {
   }
 })
 
-router.post('/nhs-claim-duplicate/nn-guard', function (req, res, next) {
-
-  const nino = req.session.data['ni-number']
-
-  if (!nino) {
-    res.redirect('/beta-v4/nhs-claim-duplicate/about-the-injured-person-nn')
-  } else {
-    res.redirect('/beta-v4/nhs-claim-duplicate/date-of-claim')
-  }
-})
-
-
 
 router.post('/registration/confirmation-route', function (req, res, next) {
 
@@ -110,20 +98,6 @@ router.post('/account-management/password-branch', function (req, res, next) {
   }
 })
 
-router.post('/account-management-dsa/password-branch', function (req, res, next) {
-
-  const accountType = req.session.data['account-type']
-
-  if (accountType == 'user') {
-    res.redirect('/beta-v4/account-management-dsa/user-edit-name')
-  } else if (accountType == 'org') {
-    res.redirect('/beta-v4/account-management-dsa/org-user-name')
-  } else if (accountType == 'requested-user') {
-    res.redirect('/beta-v4/account-management-dsa/user-request-confirmation')
-  }
-})
-
-
 router.post('/account-management/user-type-branch', function (req, res, next) {
 
   const standardUser = req.session.data['standard-user']
@@ -147,28 +121,6 @@ router.post('/account-management/org-tpa-route', function (req, res, next) {
   }
 })
 
-router.post('/account-management-dsa2/org-tpa-route', function (req, res, next) {
-
-  const orgType = req.session.data['type-of-org']
-
-  if (orgType == 'Third Party Administrator') {
-    res.redirect('/beta-v4/account-management-dsa2/org-working-on-behalf')
-  } else {
-    res.redirect('/beta-v4/account-management-dsa2/opt_in')
-  }
-})
-
-router.post('/account-management-dsa4/org-tpa-route', function (req, res, next) {
-
-  const orgType = req.session.data['type-of-org']
-
-  if (orgType == 'Third Party Administrator') {
-    res.redirect('/beta-v4/account-management-dsa4/org-working-on-behalf')
-  } else {
-    res.redirect('/beta-v4/account-management-dsa4/org-user-name')
-  }
-})
-
 // Account registration - DA/TPA - if working on behalf of other orgs, capture orgs, otherwise skip this section
 router.post('/account-management/org-working-on-behalf-route', function (req, res, next) {
 
@@ -178,29 +130,6 @@ router.post('/account-management/org-working-on-behalf-route', function (req, re
     res.redirect('/beta-v4/account-management/org-working-on-behalf-name')
   } else if (onBehalfOf == 'No') {
     res.redirect('/beta-v4/account-management/org-user-agreement')
-  }
-})
-
-router.post('/account-management-dsa2/org-working-on-behalf-route', function (req, res, next) {
-
-  const onBehalfOf = req.session.data['on-behalf-of']
-
-  if (onBehalfOf == 'Yes') {
-    res.redirect('/beta-v4/account-management-dsa2/org-working-on-behalf-name')
-  } else if (onBehalfOf == 'No') {
-    res.redirect('/beta-v4/account-management-dsa2/opt_in')
-  }
-})
-
-
-router.post('/account-management-dsa4/org-working-on-behalf-route', function (req, res, next) {
-
-  const onBehalfOf = req.session.data['on-behalf-of']
-
-  if (onBehalfOf == 'Yes') {
-    res.redirect('/beta-v4/account-management-dsa4/org-working-on-behalf-name')
-  } else if (onBehalfOf == 'No') {
-    res.redirect('/beta-v4/account-management-dsa4/org-user-name')
   }
 })
 
@@ -271,11 +200,11 @@ router.post('/cru-ops-service/nhs-hospitals/add-new-type-route', function (req, 
   router.post('/cru-ops-service/tasks-and-workflows/tasks', function (req, res, next) {
 
     const tasktype = req.session.data['tasktype']
-
+  
     if (tasktype == 'nonino') {
       res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows/action-task')
     } else if (tasktype == 'expiredcertificate') {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows/certs-tasks')
+      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows/action-task-certs')
     } else if (tasktype == 'existingclaim') {
       res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows/v2-action-task-da')
     } else if (tasktype == 'legacyclaim') {
@@ -283,27 +212,12 @@ router.post('/cru-ops-service/nhs-hospitals/add-new-type-route', function (req, 
     }
   })
 
-  router.post('/cru-ops-service/tasks-and-workflows-cpe/tasks', function (req, res, next) {
-
-    const tasktype = req.session.data['tasktype']
-
-    if (tasktype == 'nonino') {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows-cpe/cpe-tasks')
-    } else if (tasktype == 'expiredcertificate') {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows-cpe/certs-tasks')
-    } else if (tasktype == 'existingclaim') {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows-cpe/v2-action-task-da')
-    } else if (tasktype == 'legacyclaim') {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows-cpe/action-legacy-task')
-    }
-  })
-
-  // NHS Ops - TASKS TO DO
+  // NHS Ops - TASKS TO DO 
   // V1
   router.post('/cru-ops-service/tasks-and-workflows/nhs-not-known/tasks', function (req, res, next) {
 
     const tasktype = req.session.data['tasktype']
-
+  
     if (tasktype == 'task1') {
       res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows/nhs-not-known/2-task-1')
     } else if (tasktype == 'task2') {
@@ -313,14 +227,14 @@ router.post('/cru-ops-service/nhs-hospitals/add-new-type-route', function (req, 
     } else if (tasktype == 'closetask') {
       res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows/nhs-not-known/5-completed-close')
     }
-
+    
   })
 
     // V2
     router.post('/cru-ops-service/tasks-and-workflows/nhs-not-known-v2/tasks', function (req, res, next) {
 
       const tasktype = req.session.data['tasktype']
-
+    
       if (tasktype == 'task1') {
         res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows/nhs-not-known-v2/2-task-1')
       } else if (tasktype == 'task2') {
@@ -332,36 +246,36 @@ router.post('/cru-ops-service/nhs-hospitals/add-new-type-route', function (req, 
       } else if (tasktype == 'yes') {
         res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows/nhs-not-known-v2/5-completed-yes')
       }
-
+      
     })
 
-    // NHS Ops - NHS TREATMENT
+    // NHS Ops - NHS TREATMENT 
     // V1
     router.post('/cru-ops-service/tasks-and-workflows/nhs-not-known/treatment', function (req, res, next) {
 
       const treatment = req.session.data['treatment']
-
+    
       if (treatment == 'yes') {
         res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows/nhs-not-known/3-hospital')
       } else if (treatment == 'no') {
         res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows/nhs-not-known/2-task-no')
-      }
-
+      } 
+      
     })
 
       // V2
       router.post('/cru-ops-service/tasks-and-workflows/nhs-not-known-v2/treatment', function (req, res, next) {
 
         const treatment = req.session.data['treatment']
-
+      
         if (treatment == 'yes') {
           res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows/nhs-not-known-v2/5-completed-yes')
         } else if (treatment == 'letter') {
           res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows/nhs-not-known-v2/5-completed-letter')
         } else if (treatment == 'close') {
           res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows/nhs-not-known-v2/5-completed-close')
-        }
-
+        } 
+        
       })
 
 // V2
@@ -375,33 +289,21 @@ router.post('/cru-ops-service/claim-update3/answer', function (req, res, next) {
     res.redirect('/beta-v4/cru-ops-service/claim-update3/change-confirmation')
   } else if (treatment == 'Not known') {
     res.redirect('/beta-v4/cru-ops-service/claim-update3/check-answers')
-  }
-
+  } 
+  
 })
 
  // NHS Ops - NOTES
     router.post('/cru-ops-service/note/add-note', function (req, res, next) {
 
       const note = req.session.data['note']
-
+    
       if (note == 'nhs') {
         res.redirect('/beta-v4/cru-ops-service/note/2a-nhs')
       } else if (note == 'comment') {
         res.redirect('/beta-v4/cru-ops-service/note/2b-comment')
-      }
-
-    })
-
-    router.post('/cru-ops-service/tasks-and-workflows2_0/note/add-note', function (req, res, next) {
-
-      const note = req.session.data['note']
-
-      if (note == 'nhs') {
-        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/note/2a-nhs')
-      } else if (note == 'comment') {
-        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/note/2b-comment')
-      }
-
+      } 
+      
     })
 
 // SCRUTINY E-PARTNER INJURY DESCRIPTION
@@ -415,7 +317,7 @@ if (injury == 'yes') {
   res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/scrutiny_task_v2/3-task-completed')
 } else if (injury == 'edit') {
   res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/scrutiny_task_v2/3c-edit')
-}
+} 
 
 })
 
@@ -423,43 +325,43 @@ if (injury == 'yes') {
 router.post('/cru-ops-service/issue-cert/actions', function (req, res, next) {
 
   const option = req.session.data['option']
-
+  
   if (option == 'update') {
     res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/scrutiny_task_v2/3-task-completed')
   } else if (option == 'reminder') {
     res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/scrutiny_task_v2/3-task-completed')
   } else if (option == 'certificate') {
     res.redirect('/beta-v4/cru-ops-service/issue-cert/2-check')
-  }
-
+  } 
+  
   })
 
   // CLAIM OPTIONS - issue certificate of NHS charges
 router.post('/cru-ops-service/issue-cert/issue', function (req, res, next) {
 
   const certificate = req.session.data['certificate']
-
+  
   if (certificate == 'yes') {
     res.redirect('/beta-v4/cru-ops-service/issue-cert/3-confirmation')
   } else if (certificate == 'no') {
     res.redirect('/beta-v4/cru-ops-service/issue-cert/0-case-view')
-  }
-
+  } 
+  
   })
 
   // UPDATE CLAIM DETAILS - not known NHS hospital treatment
 router.post('/cru-ops-service/claim-update4/treatment/nhsguardnotknown', function (req, res, next) {
 
   const treatment = req.session.data['treatment']
-
+  
   if (treatment == 'Yes') {
     res.redirect('/beta-v4/cru-ops-service/claim-update4/treatment/hospital')
   } else if (treatment == 'No') {
     res.redirect('/beta-v4/cru-ops-service/claim-update4/treatment/confirmation2')
   } else if (treatment == 'No2') {
     res.redirect('/beta-v4/cru-ops-service/claim-update4/treatment/confirmation4')
-  }
-
+  } 
+  
   })
 
 module.exports = router

@@ -1,5 +1,5 @@
 
-{% extends "../../../index.html" %}
+{% extends folder+ "/layout.html" %}
 
 {% block pageTitle %}
 Agent dashboard
@@ -70,11 +70,11 @@ Agent dashboard
          <p><a href="v2-tasks" class="govuk-link govuk-link--no-visited-state">Go to tasks</a></p>
         </form>
     </div>
-
-
+    
+    
     {% endif %}
 
-
+    
     <div class="govuk-grid-column-one-half">
         <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Claims</h2>
         <p class="govuk-body"><strong>18</strong> claims registered today</p>
@@ -95,8 +95,7 @@ Agent dashboard
         <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Reports</h2>
         <ul class="govuk-list">
           <li><a href="../mi" class="govuk-link govuk-link--no-visited-state">Claims</a></li>
-          <li><a href="../mi-tasks" class="govuk-link govuk-link--no-visited-state">Tasks</a></li>
-          <li><a href="../mi-tasks" class="govuk-link govuk-link--no-visited-state">User Research</a></li>
+          <li><a href="../mi-tasks" class="govuk-link govuk-link--no-visited-state">Tasks</a></li> 
         </ul>
     </div>
 

@@ -1,0 +1,51 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <nav class="navigation-secondary govuk-!-margin-bottom-6">
+      <ul>
+        <li class="active"><a href="">Home</a></li>
+        <li><a href="../registration/nhs-guard">New claim</a></li>
+        <li><a href="my-account">My account</a></li>
+        <li><a href="signout">Sign out</a></li>
+      </ul>
+    </nav>
+
+
+
+    <div class="govuk-grid-column-full">
+      <div class="govuk-form-group">
+        {% set html %}
+  <p class="govuk-notification-banner__heading">
+    Your account is currently under review. You can create a new claim but you won't be able to submit it until we have verified your account.  
+  </p>
+{% endset %}
+
+{{ govukNotificationBanner({
+  html: html
+}) }}
+</div>
+        <form class="form" action="../registration/nhs-guard" method="post">
+      <h1 class="govuk-heading-xl govuk-!-margin-top-5">
+      <span class="govuk-caption-xl">Compensator Ltd</span>
+       Sam Smith
+      </h1>
+      <div class="govuk-form-group">
+          {{ govukButton({
+        text: "Add a new claim"
+      }) }}
+      </div>
+
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}
