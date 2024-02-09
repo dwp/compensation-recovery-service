@@ -1,0 +1,68 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Manage organisation - Remove user
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+<!--    <nav class="navigation-secondary govuk-!-margin-bottom-6">-->
+<!--      <ul>-->
+<!--        <li><a href="admin-dashboard">Home</a></li>-->
+<!--        <li><a href="admin-all-claims">All claims</a></li>-->
+<!--        <li><a href="admin-register-new-claim">Register a new claim</a></li>-->
+<!--        <li><a href="admin-take-over-claim">Take over an existing claim</a></li>-->
+<!--        <li class="active"><a href="admin-manage-org">Manage organisation</a></li>-->
+<!--        <li><a href="admin-profile">My profile</a></li>-->
+<!--      </ul>-->
+<!--    </nav>-->
+
+    <div class="govuk-grid-column-three-quarters">
+      <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+
+      <h1 class="govuk-heading-xl govuk-!-margin-top-5">
+<!--      <span class="govuk-caption-xl">{{ data['company-name'] | default('Compensator Ltd') }}</span>-->
+        Remove {{ data['new-user-full-name'] | default('Sam Smith') }}?
+      </h1>
+
+      <p class="govuk-body">If you remove this user, they will not be able to:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>register and manage claims</li>
+        <li>notify the Compensation Recovery Service that they are taking over a claim from another organisation</li>
+        {% if data['new-user-access-type'] == 'Admin user' %}<li>manage the organisation's account</li>{% endif %}
+      </ul>
+      <p class="govuk-body">If you need to add an employee's account after removal, you will need to add them as a new user.</p>
+
+<!--      <div class="govuk-warning-text">-->
+<!--        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>-->
+<!--        <strong class="govuk-warning-text__text">-->
+<!--          <span class="govuk-warning-text__assistive">Warning</span>-->
+<!--          -->
+<!--        </strong>-->
+<!--      </div>-->
+      <form class="form" action="admin-manage-org?show-notification=removed&" method="post">
+
+      <div class="govuk-button-group govuk-!-margin-top-9">
+<!--        <form class="form" action="admin-manage-org-view-user" method="post">-->
+<!--          <button class="govuk-button govuk-button&#45;&#45;secondary" data-module="govuk-button">-->
+<!--            Cancel-->
+<!--          </button>-->
+<!--        </form>-->
+
+
+          <button class="govuk-button govuk-button--warning" data-module="govuk-button">
+            Confirm remove user
+          </button>
+
+        <a class="govuk-link" href="admin-manage-org-view-user">Cancel</a>
+      </div>
+      </form>
+    </div>
+  </div>
+
+
+
+{% endblock %}

@@ -1,0 +1,91 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Take over an existing claim - About the injured person
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+    <form class="form" action="da-incident-date" method="post">
+
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">Take over an existing claim</span>
+        About the injured person
+      </h1>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="da-ip-first-name">
+          First name
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="da-ip-first-name" name="da-ip-first-name" type="text" value="{{ data['da-ip-first-name'] }}">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="da-ip-last-name">
+          Last name
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="da-ip-last-name" name="da-ip-last-name" type="text" value="{{ data['da-ip-last-name'] }}">
+      </div>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="da-ip-date-of-birth-hint">
+          <legend class="govuk-fieldset__legend">
+            <label class="govuk-fieldset__heading">
+              Date of birth
+            </label>
+          </legend>
+          <div id="da-ip-date-of-birth-hint" class="govuk-hint">
+            For example, 12 3 1990
+          </div>
+          <div class="govuk-date-input" id="da-ip-date-of-birth">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="da-ip-date-of-birth-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="da-ip-date-of-birth-day" name="da-ip-date-of-birth-day" type="text" pattern="[0-9]*" inputmode="numeric" value="{{data['da-ip-date-of-birth-day']}}"></div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="da-ip-date-of-birth-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="da-ip-date-of-birth-month" name="da-ip-date-of-birth-month" type="text" pattern="[0-9]*" inputmode="numeric" value="{{data['da-ip-date-of-birth-month']}}"></div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="da-ip-date-of-birth-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="da-ip-date-of-birth-year" name="da-ip-date-of-birth-year" type="text" pattern="[0-9]*" inputmode="numeric" value="{{data['da-ip-date-of-birth-year']}}"></div>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="da-ip-ni">
+          National Insurance number
+        </label>
+        <div id="da-ip-ni-hint" class="govuk-hint">
+          This must be in the correct format. For example, 'QQ123456C' or ‘QQ 12 34 56 C’.
+        </div>
+        <input class="govuk-input govuk-!-width-one-half" id="da-ip-ni" name="da-ip-ni" type="text" spellcheck="false" value="{{ data['da-ip-ni']}}">
+      </div>
+
+
+      {{ govukButton({
+      text: "Continue"
+      }) }}
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}
