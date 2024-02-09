@@ -1,0 +1,40 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Transfer claim - Compensator address
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+    <form class="form" action="da-handover-compensator-address-confirm" method="post">
+      <span class="govuk-caption-xl">Transfer claim: {{ data['da-crs-ref'] | default('CRS233450') }}</span>
+      <h1 class="govuk-heading-xl">Compensator address</h1>
+
+<!--      <p class="govuk-body">-->
+<!--        This address will be used for correspondence from the Compensation Recovery Service.-->
+<!--      </p>-->
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="da-address-postcode">
+              Enter postcode
+            </label>
+
+            <input class="govuk-input govuk-input--width-10" id="da-address-postcode" name="da-address-postcode" type="text" value="{{ data['da-address-postcode']}}">
+          </div>
+
+      {{ govukButton({
+      text: "Continue"
+      }) }}
+
+      <p class="govuk-body"><a href="">Enter address manually</a></p>
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}
