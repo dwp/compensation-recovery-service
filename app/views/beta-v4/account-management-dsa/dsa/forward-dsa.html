@@ -1,0 +1,95 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Manage organisation - Add new user
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+<!--    <nav class="navigation-secondary">-->
+<!--      <ul>-->
+<!--        <li><a href="admin-dashboard">Home</a></li>-->
+<!--        <li><a href="admin-all-claims">All claims</a></li>-->
+<!--        <li><a href="admin-register-claims">Register claims</a></li>-->
+<!--        <li class="active"><a href="admin-manage-org">Manage organisation</a></li>-->
+<!--        <li><a href="admin-profile">My profile</a></li>-->
+<!--      </ul>-->
+<!--    </nav>-->
+
+<!--    <form class="form" action="admin-manage-org-add-user-check?clear-fields=false&" method="post">-->
+    <form class="form" action="data-contact-holding" method="post">
+
+    <div class="govuk-grid-column-two-thirds">
+      <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+      <h1 class="govuk-heading-xl govuk-!-margin-top-5">
+<!--      <span class="govuk-caption-xl">Add a new user</span>-->
+      To whom should we forward the DSA?
+      </h1>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="new-user-full-name">
+          Full name
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="new-user-full-name" name="new-user-full-name" type="text" value="">
+      </div>
+
+<!--      <div class="govuk-form-group">-->
+<!--        <label class="govuk-label" for="new-user-last-name">-->
+<!--          Last name-->
+<!--        </label>-->
+<!--        <input class="govuk-input govuk-input&#45;&#45;width-20" id="new-user-last-name" name="new-user-last-name" type="text" value="{{ data['new-user-last-name'] }}">-->
+<!--      </div>-->
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="new-user-email">
+          Email address
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="new-user-email" name="new-user-email" type="text" value="">
+      </div>
+
+      <!-- <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend">
+            Access type
+          </legend>
+
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="new-user-access-type-standard" name="new-user-access-type" type="radio" value="Standard user" aria-describedby="new-user-access-type-standard-hint" {% if data['new-user-access-type'] == "Standard user" %}checked{% endif %} />
+              <label class="govuk-label govuk-radios__label" for="new-user-access-type-standard">
+                Standard user
+              </label>
+              <div id="new-user-access-type-standard-hint" class="govuk-hint govuk-radios__hint">
+                Standard users only have full access to claims.
+              </div>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="new-user-access-type-admin" name="new-user-access-type" type="radio" value="Admin user" aria-describedby="new-user-access-type-admin-hint" {% if data['new-user-access-type'] == "Admin user" %}checked{% endif %} />
+              <label class="govuk-label govuk-radios__label" for="new-user-access-type-admin">
+                Admin user
+              </label>
+              <div id="new-user-access-type-admin-hint" class="govuk-hint govuk-radios__hint">
+                Admin users are able to manage users and claims.
+              </div>
+            </div>
+          </div>
+
+        </fieldset>
+      </div> -->
+
+        <p class="govuk-body">
+            An email will be sent to this user with instructions how to access the Data sharing agreement
+        </p>
+
+        <button class="govuk-button govuk-!-margin-top-4" data-module="govuk-button">Send</button>
+      </form>
+
+    </div>
+  </div>
+
+
+
+{% endblock %}

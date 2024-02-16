@@ -9,18 +9,25 @@ Create an account
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds govuk-main-wrapper--auto-spacing">
-
-      {{ govukPanel({
-      titleText: "Account created",
-      html: ""
-      }) }}
+    <div class="govuk-panel govuk-panel--confirmation" style="background-color:	#1d70b8">
+              <h1 class="govuk-panel__title">
+          Account created
+              </h1>
+              <div class="govuk-panel__body">
+                Data sharing agreement yet to be signed
+              </div>
+            </div>
 
       <p class="govuk-body">You have created an organisation administrator account with the Compensation Recovery Service. We have sent you a confirmation email.</p>
 
       <h2 class="govuk-heading-m">What happens next</h2>
-
+      <div class="govuk-inset-text">
       <p class="govuk-body">
-          Go to your account dashboard where you can:
+          Go to our <a href="dsa" class="govuk-link">DSA process</a> where you can read, sign or forward it.
+      </p>
+</div>
+      <p class="govuk-body">
+          Once, you have signed the DSA you can go to your account dashboard where you can:
       </p>
       <ul class="govuk-list govuk-list--bullet">
           <li>register new claims</li>
