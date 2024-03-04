@@ -26,7 +26,7 @@ Manage organisation - Add new user
 
       <h1 class="govuk-heading-xl govuk-!-margin-top-5">
 <!--      <span class="govuk-caption-xl">Add a new user</span>-->
-      Please provide the details of the first data cotact person?
+    What are the details for the first data sharing contact at your organisation?
       </h1>
 
       <div class="govuk-form-group">
@@ -46,6 +46,13 @@ Manage organisation - Add new user
       <div class="govuk-form-group">
         <label class="govuk-label" for="new-user-email">
           Email address
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="new-user-email" name="new-user-email" type="text" value="{% if data['clear-fields'] == 'true' %} {% else %} {{ data['new-user-email'] }} {% endif %}">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="new-user-email">
+        Phone number
         </label>
         <input class="govuk-input govuk-input--width-20" id="new-user-email" name="new-user-email" type="text" value="{% if data['clear-fields'] == 'true' %} {% else %} {{ data['new-user-email'] }} {% endif %}">
       </div>
