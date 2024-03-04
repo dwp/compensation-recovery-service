@@ -863,6 +863,19 @@ if (req.session.data['result'] == 'withdrawn') {
     }
 })
 
+
+
+router.post('/beta-v4/account-management-dsa/dsa2/dsa-decision', function (req, res) {
+
+if (req.session.data['result'] == 'withdrawn') {
+  res.redirect('/beta-v4/account-management-dsa/dsa2/forward-dsa')
+} else if (req.session.data['result'] == 'disallowed') {
+    res.redirect('/beta-v4/account-management-dsa/dsa2/confirmation_later')
+    } else {
+      res.redirect('/beta-v4/account-management-dsa/dsa2/confirmation_signed.html')
+    }
+})
+
 // router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/scrutiny_task_v1_0/confirmed-check', function (req, res) {
 //
 // if (req.session.data['link'] == 'yes') {

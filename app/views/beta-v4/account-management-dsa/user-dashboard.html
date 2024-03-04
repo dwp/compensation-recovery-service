@@ -25,14 +25,13 @@ Dashboard
         </div>
         <div class="govuk-notification-banner__content">
           <p class="govuk-notification-banner__heading">
-            You have limited access to your account until you agree to the Data Sharing Agreement.
-            <a class="govuk-notification-banner__link" href="dsa2">Open it here</a>.
+            You have limited access to your account until your admin agrees to the Data Sharing Agreement.
           </p>
         </div>
       </div>
       <h1 class="govuk-heading-xl govuk-!-margin-top-5">
       <span class="govuk-caption-xl">{{ data['company-name'] | default('Compensator Ltd') }}</span>
-        {{ data['user-full-name'] | default('Sam Smith') }}
+        {{ data['user-full-name'] | default('John Baker') }}
       </h1>
 
     </div>
@@ -103,21 +102,6 @@ Dashboard
     </p> -->
   </div>
 
-  <div class="govuk-grid-column-one-half govuk-!-margin-top-7">
-    <h2 class="govuk-heading-m">
-      Manage your organisation account
-    </h2>
-    <p class="govuk-body">
-      Use this to:
-    </p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>ask employees from your organisation to create individual accounts to register and settle claims</li>
-      <li>review user access</li>
-    </ul>
-    <p class="govuk-body">
-      <a href="admin-user/admin-manage-org" class="govuk-link">View and edit your organisation’s details</a>
-    </p>
-  </div>
 
 </div>
 

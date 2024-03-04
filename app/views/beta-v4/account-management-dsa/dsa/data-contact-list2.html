@@ -22,6 +22,7 @@ Create an account
           <dd class="govuk-summary-list__value">
             {{ data['name'] | default('John Smith') }} <br>
               {{ data['email'] | default('john@avova.com') }} <br>
+                      {{ data['phone'] | default('0774354322') }} <br>
                 {{ data['role'] | default('Data officer') }}
           </dd>
           <dd class="govuk-summary-list__actions">
@@ -38,6 +39,7 @@ Create an account
           <dd class="govuk-summary-list__value">
             {{ data['name2'] | default('Jane Data') }} <br>
               {{ data['email2'] | default('jane@avova.com') }} <br>
+                      {{ data['phone'] | default('20243434331') }} <br>
                 {{ data['role2'] | default('Data officer') }}
           </dd>
           <dd class="govuk-summary-list__actions">
