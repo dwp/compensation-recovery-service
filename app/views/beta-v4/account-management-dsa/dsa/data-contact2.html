@@ -26,14 +26,14 @@ Manage organisation - Add new user
 
       <h1 class="govuk-heading-xl govuk-!-margin-top-5">
 <!--      <span class="govuk-caption-xl">Add a new user</span>-->
-      Please provide the details of the second data cotact person?
+      What are the details for the second data sharing contact?
       </h1>
 
       <div class="govuk-form-group">
         <label class="govuk-label" for="new-user-full-name">
           Full name
         </label>
-        <input class="govuk-input govuk-input--width-20" id="new-user-full-name" name="new-user-full-name" type="text" value="">
+        <input class="govuk-input govuk-input--width-20" id="new-user-full-name" name="new-user-full-name" type="text" value="{% if data['clear-fields'] == 'true' %} {% else %} {{ data['new-user-full-name'] }} {% endif %}">
       </div>
 
 <!--      <div class="govuk-form-group">-->
@@ -45,17 +45,25 @@ Manage organisation - Add new user
 
       <div class="govuk-form-group">
         <label class="govuk-label" for="new-user-email">
-          Email address
+          Phone number
         </label>
-        <input class="govuk-input govuk-input--width-20" id="new-user-email" name="new-user-email" type="text" value="">
+        <input class="govuk-input govuk-input--width-20" id="new-user-email" name="new-user-email" type="text" value="{% if data['clear-fields'] == 'true' %} {% else %} {{ data['new-user-email'] }} {% endif %}">
       </div>
 
       <div class="govuk-form-group">
         <label class="govuk-label" for="new-user-email">
-          Role
+      Email address
         </label>
-        <input class="govuk-input govuk-input--width-20" id="new-user-email" name="new-user-email" type="text" value="">
+        <input class="govuk-input govuk-input--width-20" id="new-user-email" name="new-user-email" type="text" value="{% if data['clear-fields'] == 'true' %} {% else %} {{ data['new-user-email'] }} {% endif %}">
       </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="new-user-email">
+      Job title
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="new-user-email" name="new-user-email" type="text" value="{% if data['clear-fields'] == 'true' %} {% else %} {{ data['new-user-email'] }} {% endif %}">
+      </div>
+
 
 
       <!-- <div class="govuk-form-group">
@@ -89,7 +97,7 @@ Manage organisation - Add new user
       </div> -->
 
         <p class="govuk-body">
-            An email will be sent to this user.
+                    This user will receive a confirmation email that they’ve been added as a data sharing contact in the event of a data breach.
         </p>
 
         <button class="govuk-button govuk-!-margin-top-4" data-module="govuk-button">Continue</button>

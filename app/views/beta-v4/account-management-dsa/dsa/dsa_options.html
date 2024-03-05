@@ -10,7 +10,7 @@ Create an account
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
-    <form class="form" action="forward-dsa" method="post">
+    <form class="form" action="dsa-decision" method="post">
       <h1 class="govuk-heading-xl">Review, accept or share the Data Sharing Agreement</h1>
 
       <div class="govuk-form-group">
@@ -22,71 +22,80 @@ Create an account
         </p>
       </div>
 <br>
-      <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+<div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
 
-        <legend class="govuk-fieldset__legend">
-          Do you want to:
-           </legend>
-<div class="govuk-radios__item">
-<input class="govuk-radios__input" id="change-person" name="change" type="radio" data-aria-controls="conditional-contact3" value="message"  }}>
-<label class="govuk-label govuk-radios__label" for="motor-liability">
-accept the Data Sharing Agreement now
-</label>
-</div>
-<div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact3">
-        <div class="govuk-form-group">
+  <legend class="govuk-fieldset__legend">
+    Do you want to:
+     </legend>
 
-            <label class="govuk-label" for="new-user-full-name">
-            -	Full name of the person responsible for accepting the Data Sharing Agreement
-            </label>
-            <input class="govuk-input govuk-input--width-20" id="new-user-full-name" name="new-user-full-name" type="text" value="{% if data['clear-fields'] == 'true' %} {% else %} {{ data['new-user-full-name'] }} {% endif %}">
-<br><br>
-            <label class="govuk-label" for="new-user-full-name">
-              Their job title
-            </label>
-            <input class="govuk-input govuk-input--width-20" id="new-user-full-name" name="new-user-full-name" type="text" value="{% if data['clear-fields'] == 'true' %} {% else %} {{ data['new-user-full-name'] }} {% endif %}">
-<br><br>
-            <label class="govuk-label" for="new-user-full-name">
-              Their email address
-            </label>
-            <input class="govuk-input govuk-input--width-20" id="new-user-full-name" name="new-user-full-name" type="text" value="{% if data['clear-fields'] == 'true' %} {% else %} {{ data['new-user-full-name'] }} {% endif %}">
+     <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
 
 
-        </div>
-      </div>
+       <div class="govuk-radios__item">
+         <input class="govuk-radios__input" id="full-result" name="result" type="radio" value="fully"  data-aria-controls="conditional-contact2"  }}>
+         <label class="govuk-label govuk-radios__label" for="full-result">
+    accept the Data Sharing Agreement now
+         </label>
+       </div>
 
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="change-update" name="change" type="radio" data-aria-controls="conditional-contact" value="Liability"  }}>
-          <label class="govuk-label govuk-radios__label" for="public-liability">
-          accept the Data Sharing Agreement at a different time
-          </label>
-        </div>
-        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
-                <div class="govuk-form-group">
-                  <label class="govuk-label" for="contact-by-email">
-                -	You will not be able to use your account to register claims until you have accepted the Data Sharing Agreement but you can continue to give data sharing contact details for your organisation 
-                  </label>
+       <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact2">
+         <div class="govuk-form-group">
 
-                </div>
-              </div>
+             <label class="govuk-label" for="new-user-full-name">
+             Full name of the person responsible for accepting the Data Sharing Agreement
+             </label>
+             <input class="govuk-input govuk-input--width-20" id="new-user-full-name" name="new-user-full-name" type="text" value="{% if data['clear-fields'] == 'true' %} {% else %} {{ data['new-user-full-name'] }} {% endif %}">
+ <br><br>
+             <label class="govuk-label" for="new-user-full-name">
+               Their job title
+             </label>
+             <input class="govuk-input govuk-input--width-20" id="new-user-full-name" name="new-user-full-name" type="text" value="{% if data['clear-fields'] == 'true' %} {% else %} {{ data['new-user-full-name'] }} {% endif %}">
+ <br><br>
+             <label class="govuk-label" for="new-user-full-name">
+               Their email address
+             </label>
+             <input class="govuk-input govuk-input--width-20" id="new-user-full-name" name="new-user-full-name" type="text" value="{% if data['clear-fields'] == 'true' %} {% else %} {{ data['new-user-full-name'] }} {% endif %}">
 
 
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="change-rep" name="change" type="radio" data-aria-controls="conditional-contact2"  value="Representative"  }}>
-          <label class="govuk-label govuk-radios__label" for="motor-liability">
+         </div>
+       </div>
+
+
+       <div class="govuk-radios__item">
+         <input class="govuk-radios__input" id="dis-result" name="result" type="radio" value="disallowed"  data-aria-controls="conditional-contact">
+         <label class="govuk-label govuk-radios__label" for="dis-result">
+      accept the Data Sharing Agreement at a different time
+         </label>
+       </div>
+
+       <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+         <div class="govuk-form-group">
+           <label class="govuk-label" for="contact-by-email">
+         You will not be able to use your account to register claims until you have accepted the Data Sharing Agreement. You can continue to give data sharing contact details for your organisation 
+           </label>
+
+         </div>
+       </div>
+
+
+
+       <div class="govuk-radios__item">
+         <input class="govuk-radios__input" id="with-result" name="result" type="radio" value="withdrawn"  data-aria-controls="conditional-contact3">
+         <label class="govuk-label govuk-radios__label" for="with-result">
 Share a PDF version with a person responsible for data handling processes
-          </label>
-        </div>
-        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact2">
-                <div class="govuk-form-group">
-                  <label class="govuk-label" for="contact-by-email">
-                You will not be able to use your organisation account to register claims until you have accepted the Data Sharing Agreement. 
-                  </label>
+         </label>
+       </div>
+       <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact3">
+         <div class="govuk-form-group">
+           <label class="govuk-label" for="contact-by-email">
+        You will not be able to use your account to register claims until you have accepted the Data Sharing Agreement. You can continue to give data sharing contact details for your organisation 
+           </label>
 
-                </div>
-              </div>
+         </div>
+</div>
 
-      </div>
+
+     </div>
   <br><br>
       <button class="govuk-button" data-module="govuk-button">
         Continue
