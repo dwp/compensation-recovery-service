@@ -876,6 +876,17 @@ if (req.session.data['result'] == 'withdrawn') {
     }
 })
 
+router.post('/beta-v4/account-management-dsa/dsa/dsa-decision', function (req, res) {
+
+if (req.session.data['result'] == 'withdrawn') {
+  res.redirect('/beta-v4/account-management-dsa/dsa/forward-dsa')
+} else if (req.session.data['result'] == 'disallowed') {
+    res.redirect('/beta-v4/account-management-dsa/dsa/data-contact_b')
+    } else {
+      res.redirect('/beta-v4/account-management-dsa/dsa/data-contact_c.html')
+    }
+})
+
 // router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/scrutiny_task_v1_0/confirmed-check', function (req, res) {
 //
 // if (req.session.data['link'] == 'yes') {

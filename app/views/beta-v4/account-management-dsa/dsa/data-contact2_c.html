@@ -19,14 +19,14 @@ Manage organisation - Add new user
 <!--    </nav>-->
 
 <!--    <form class="form" action="admin-manage-org-add-user-check?clear-fields=false&" method="post">-->
-    <form class="form" action="data-contact-list" method="post">
+    <form class="form" action="data-contact-list2_c" method="post">
 
     <div class="govuk-grid-column-two-thirds">
       <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
 
       <h1 class="govuk-heading-xl govuk-!-margin-top-5">
 <!--      <span class="govuk-caption-xl">Add a new user</span>-->
-    What are the details for the first data sharing contact?
+      What are the details for the second data sharing contact?
       </h1>
 
       <div class="govuk-form-group">
@@ -45,14 +45,14 @@ Manage organisation - Add new user
 
       <div class="govuk-form-group">
         <label class="govuk-label" for="new-user-email">
-        Phone number
+          Phone number
         </label>
         <input class="govuk-input govuk-input--width-20" id="new-user-email" name="new-user-email" type="text" value="{% if data['clear-fields'] == 'true' %} {% else %} {{ data['new-user-email'] }} {% endif %}">
       </div>
 
       <div class="govuk-form-group">
         <label class="govuk-label" for="new-user-email">
-        Email address
+      Email address
         </label>
         <input class="govuk-input govuk-input--width-20" id="new-user-email" name="new-user-email" type="text" value="{% if data['clear-fields'] == 'true' %} {% else %} {{ data['new-user-email'] }} {% endif %}">
       </div>
@@ -63,6 +63,7 @@ Manage organisation - Add new user
         </label>
         <input class="govuk-input govuk-input--width-20" id="new-user-email" name="new-user-email" type="text" value="{% if data['clear-fields'] == 'true' %} {% else %} {{ data['new-user-email'] }} {% endif %}">
       </div>
+
 
 
       <!-- <div class="govuk-form-group">
@@ -96,7 +97,7 @@ Manage organisation - Add new user
       </div> -->
 
         <p class="govuk-body">
-        This user will receive a confirmation email that they’ve been added as a data sharing contact in the event of a data breach.
+                    This user will receive a confirmation email that they’ve been added as a data sharing contact in the event of a data breach.
         </p>
 
         <button class="govuk-button govuk-!-margin-top-4" data-module="govuk-button">Continue</button>
