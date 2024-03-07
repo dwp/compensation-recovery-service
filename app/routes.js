@@ -881,9 +881,9 @@ router.post('/beta-v4/account-management-dsa/dsa/dsa-decision', function (req, r
 if (req.session.data['result'] == 'withdrawn') {
   res.redirect('/beta-v4/account-management-dsa/dsa/forward-dsa')
 } else if (req.session.data['result'] == 'disallowed') {
-    res.redirect('/beta-v4/account-management-dsa/dsa/data-contact_b')
+    res.redirect('/beta-v4/account-management-dsa/dsa/data-contact-holding_b')
     } else {
-      res.redirect('/beta-v4/account-management-dsa/dsa/data-contact_c.html')
+      res.redirect('/beta-v4/account-management-dsa/dsa/data-contact-holding_c.html')
     }
 })
 
