@@ -28,7 +28,7 @@ Create an account
                 {{ data['role'] | default('Data officer') }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="hospital">Remove<span class="govuk-visually-hidden"> organisation working on behalf of</span></a>
+            <a class="govuk-link" href="data-contact-list">Remove<span class="govuk-visually-hidden"> organisation working on behalf of</span></a>
 <!--            | <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> this organisation working on behalf of</span></a>-->
           </dd>
         </div>
@@ -45,7 +45,7 @@ Create an account
                 {{ data['role2'] | default('Data officer') }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="hospital-list2?org-name={{ data['hospitalTwo'] }}">Remove<span class="govuk-visually-hidden"> organisation working on behalf of</span></a>
+            <a class="govuk-link" href="data-contact-list">Remove<span class="govuk-visually-hidden"> organisation working on behalf of</span></a>
             <!--            | <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> this organisation working on behalf of</span></a>-->
           </dd>
         </div>
@@ -55,12 +55,12 @@ Create an account
 
 
         <div class="govuk-button-group">
-          <form class="form" action="confirmation" method="post">
+          <form class="form" action="../admin-user/admin-manage-org"" method="post">
           <button class="govuk-button" data-module="govuk-button">
             Continue
           </button>
           </form>
-          <form class="form" action="hospital-2?addHos2=false&" method="post">
+          <form class="form" action="" method="post">
           <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
             Add another
           </button>
