@@ -11,14 +11,14 @@ Create an account
   <div class="govuk-grid-column-two-thirds">
     <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
     <form class="form" action="dsa-decision" method="post">
-      <h1 class="govuk-heading-xl">Review, accept or share the Data Sharing Agreement</h1>
+      <h1 class="govuk-heading-xl">Review, accept or share the User Agreement</h1>
 
       <div class="govuk-form-group">
 
 
         <p class="govuk-body">
           You can download and review the
-          <a href="" class="govuk-link">Data sharing agreement</a> (PDF)
+          <a href="" class="govuk-link">User Agreement</a> (PDF)
         </p>
       </div>
 <br>
@@ -34,7 +34,7 @@ Create an account
        <div class="govuk-radios__item">
          <input class="govuk-radios__input" id="full-result" name="result" type="radio" value="fully"  data-aria-controls="conditional-contact2"  }}>
          <label class="govuk-label govuk-radios__label" for="full-result">
-    accept the Data Sharing Agreement now
+    accept the User Agreement now
          </label>
        </div>
 
@@ -42,7 +42,7 @@ Create an account
          <div class="govuk-form-group">
 
              <label class="govuk-label" for="new-user-full-name">
-             Full name of the person responsible for accepting the Data Sharing Agreement
+             Full name of the person responsible for accepting the User Agreement
              </label>
              <input class="govuk-input govuk-input--width-20" id="new-user-full-name" name="new-user-full-name" type="text" value="{% if data['clear-fields'] == 'true' %} {% else %} {{ data['new-user-full-name'] }} {% endif %}">
  <br><br>
@@ -64,14 +64,14 @@ Create an account
        <div class="govuk-radios__item">
          <input class="govuk-radios__input" id="dis-result" name="result" type="radio" value="disallowed"  data-aria-controls="conditional-contact">
          <label class="govuk-label govuk-radios__label" for="dis-result">
-      accept the Data Sharing Agreement at a different time
+      accept the User Agreement at another time
          </label>
        </div>
 
        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
          <div class="govuk-form-group">
            <label class="govuk-label" for="contact-by-email">
-         You will not be able to use your account to register claims until you have accepted the Data Sharing Agreement. You can continue to give data sharing contact details for your organisation 
+         You will not be able to use your account to register claims until you have accepted the User Agreement. You can still provide details of data sharing contacts in your organisation.
            </label>
 
          </div>
@@ -82,13 +82,13 @@ Create an account
        <div class="govuk-radios__item">
          <input class="govuk-radios__input" id="with-result" name="result" type="radio" value="withdrawn"  data-aria-controls="conditional-contact3">
          <label class="govuk-label govuk-radios__label" for="with-result">
-Share a PDF version with a person responsible for data handling processes
+share a PDF version with an appropriate person
          </label>
        </div>
        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact3">
          <div class="govuk-form-group">
            <label class="govuk-label" for="contact-by-email">
-        You will not be able to use your account to register claims until you have accepted the Data Sharing Agreement. You can continue to give data sharing contact details for your organisation 
+      You will not be able to use your account to register claims until you have accepted the User Agreement. You can still provide details of data sharing contacts in your organisation.
            </label>
 
          </div>
