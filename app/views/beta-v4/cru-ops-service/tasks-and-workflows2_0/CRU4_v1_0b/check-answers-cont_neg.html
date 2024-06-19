@@ -1,0 +1,104 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Register a claim with the Compensation Recovery Unit
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-width-container">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+    <main class="govuk-main-wrapper " id="main-content" role="main">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+
+          <fieldset class="govuk-fieldset" aria-describedby="liability-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+
+                Check charges details
+              </h1>
+            </legend>
+
+
+<br>
+
+          <table class="govuk-table">
+<thead class="govuk-table__head">
+  <tr class="govuk-table__row">
+    <th scope="col" class="govuk-table__header app-custom-class"></th>
+    <th scope="col" class="govuk-table__header app-custom-class"></th>
+    <th scope="col" class="govuk-table__header app-custom-class"></th>
+    <th scope="col" class="govuk-table__header app-custom-class"></th>
+    <th scope="col" class="govuk-table__header app-custom-class"></th>
+    <th scope="col" class="govuk-table__header app-custom-class"></th>
+      <th scope="col" class="govuk-table__header app-custom-class"></th>
+  </tr>
+
+</thead>
+<tbody class="govuk-table__body">
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell">Total NHS charges</td>
+    <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell">£59,700</td>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--yellow">Contributory negligence</strong></td>
+    <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"> <strong class="govuk-tag govuk-tag--yellow">50.00%</strong></td>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell govuk-!-font-weight-bold">Net amount to be paid</td>
+    <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell govuk-!-font-weight-bold">£27,225</td>
+  </tr>
+</tbody>
+</table>
+
+
+            <form action="confirmation" method="post" novalidate>
+
+              <input type="hidden" name="answers-checked" value="true">
+
+              <button class="govuk-button" data-module="govuk-button">
+               Continue
+              </button>
+
+
+          </form>
+
+        </div>
+      </div>
+    </main>
+  </div>
+  <!-- code for demo only-->
+<style>
+a.timemachine{
+  position:absolute;
+  top:0px;
+  right:0px;
+  background:black;
+  padding:0.8em;
+  color:white;
+  }
+</style>
+
+<a href ="../registration/ip-not-found" class="timemachine">Alternate view</a>
+
+
+{% endblock %}
