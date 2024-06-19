@@ -13,26 +13,19 @@ About the injured person - Enter injured person's name and date of birth
         <form class="form" action="check-answers-update3" method="post">
       <h1 class="govuk-heading-xl">
         <span class="govuk-caption-xl">Injured person's representative</span>
-        Add the representative's details
+        The representative's details
       </h1>
 
       <div class="govuk-inset-text">
         This would normally be the legal representative or solicitor representing the injured person. We’ll use the representative’s email address to send certificates of charges. 
       </div>
 
-      <div class="govuk-warning-text">
-        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-        <strong class="govuk-warning-text__text">
-          <span class="govuk-warning-text__assistive">Warning</span>
-          If you do not have the representative’s details, you will need to submit a CRU1 form by email or post. Do not add an injured person’s details in place.
-        </strong>
-      </div>
 
       <div class="govuk-form-group">
         <label class="govuk-label" for="represesntative-name">
             Name of company or person
           </label>
-        <input class="govuk-input" id="represesntative-name" name="represesntative-name" type="text" value="{{ data['represesntative-name'] }}">
+        <input class="govuk-input" id="represesntative-name" name="represesntative-name" type="text" value="{{ data['represesntative-name'] | default('McAdar Solicitors') }}">
       </div>
 
       <div class="govuk-form-group">
@@ -42,14 +35,14 @@ About the injured person - Enter injured person's name and date of birth
         <div id="email-solicitor-hint" class="govuk-hint">
           We’ll use this to send them information about the claim
         </div>
-        <input class="govuk-input" id="email-solicitor" name="email-solicitor" type="email-solicitor" spellcheck="false" aria-describedby="email-solicitor-hint" autocomplete="email-solicitor" value="{{data['email-solicitor']}}">
+        <input class="govuk-input" id="email-solicitor" name="email-solicitor" type="email-solicitor" spellcheck="false" aria-describedby="email-solicitor-hint" autocomplete="email-solicitor" value="{{data['email-solicitor'] | default('claims@mcadarx.co.uk') }}">
       </div>
 
       <div class="govuk-form-group">
         <label class="govuk-label" for="represesntative-phone-number">
           Telephone number
           </label>
-        <input class="govuk-input govuk-input--width-10" id="represesntative-phone-number" name="represesntative-phone-number" type="text" value="{{data['represesntative-phone-number']}}">
+        <input class="govuk-input govuk-input--width-10" id="represesntative-phone-number" name="represesntative-phone-number" type="text" value="{{data['represesntative-phone-number'] | default('07880109642') }}">
       </div>
 
       <div class="govuk-form-group">
@@ -59,7 +52,7 @@ About the injured person - Enter injured person's name and date of birth
           <div id="email-solicitor-hint" class="govuk-hint">
             Usually the reference number used by the injured person's solicitor or legal representative
           </div>
-        <input class="govuk-input govuk-input--width-10" id="represesntative-reference" name="represesntative-reference" type="text" value="{{data['represesntative-reference']}}">
+        <input class="govuk-input govuk-input--width-10" id="represesntative-reference" name="represesntative-reference" type="text" value="{{data['represesntative-reference'] | default('Cr1234567') }}">
       </div>
 
       <div class="govuk-radios__item govuk-visually-hidden">
