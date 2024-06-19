@@ -37,7 +37,7 @@ Check your answers before registering the claim
               Description
             </dt>
             <dd class="govuk-summary-list__value">
-            CRU4 change request
+            Check and update claim details (CRU4)
             </dd>
           </div>
 
@@ -121,11 +121,15 @@ Check your answers before registering the claim
         </dl>
 <br>
         <h2 class="govuk-heading-m" style="margin-bottom:10px">Task instructions</h2>
-        <p style="margin-bottom:15px">
-            Check the CRU4 request from the compensator which includes details of information that has changed. </p>
-      <p style="margin-bottom:15px">
-          Once you have completed all the necessary actions, you will have to come back to this page to select one of the options at the bottom of the page.</p>       <p class="govuk-body">
-                    <a href="case-view-history" class="govuk-link" target=”_blank”>Access full claim details to complete the request (opens in new tab)</a>
+
+        <ol class="govuk-list govuk-list--number">
+  <li>Check the new details provided by the compensator</li>
+  <li>Update the claim with new details if necessary</li>
+  <li>Return to this page and select the next step</li>
+</ol>
+
+           <p class="govuk-body">
+                    <a href="case-view-history" class="govuk-link" target=”_blank”>Full claim details (opens in new tab)</a>
                   </p>
 
         <br> <br>
@@ -202,14 +206,14 @@ Check your answers before registering the claim
                 <input class="govuk-radios__input" id="info-4" name="info" type="radio" value="Submitted information to calculate NHS charges" {{ checked("info", "Data ready") }}>
                 <label class="govuk-label govuk-radios__label" for="info-4">
 
-  Finish the CRU4 request
+Complete task
                 </label>
               </div>
 
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="info" name="info" type="radio" data-aria-controls="conditional-contact" value="Task completed but informaton not submitted" {{ checked("info", "Reply with further info to the NHS") }}>
                 <label class="govuk-label govuk-radios__label" for="info">
-                    Set a reminder as the request is not completed
+                  Set a reminder to complete task
                 </label>
               </div>
 
