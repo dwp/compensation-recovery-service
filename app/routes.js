@@ -998,6 +998,20 @@ if (req.session.data['change'] == 'Liability') {
     }
 })
 
+router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/action-options2', function (req, res) {
+
+if (req.session.data['change'] == 'Liability') {
+  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/check-answers-update')
+} else if (req.session.data['change'] == 'Injured person') {
+  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/confirmation_message')
+} else if (req.session.data['change'] == 'Injury') {
+  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/confirmation_letter')
+} else if (req.session.data['change'] == 'Treatment') {
+  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/confirmation_reminder')
+  } else {
+      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/actions')
+    }
+})
 
 
 // router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/scrutiny_task_v1_0/confirmed-check', function (req, res) {
