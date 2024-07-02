@@ -12,6 +12,8 @@ Create an account
     <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
     <form class="form" action="org-create-account" method="post">
       <h1 class="govuk-heading-xl">This organisation has an account</h1>
+
+            <p class="govuk-body">You entered: <strong>{{ data['company-name'] | default('email@company.com') }}</strong></p>
       <p class="govuk-body">
       The email address you entered is a match with an organisation that already has an account.
       </p>
