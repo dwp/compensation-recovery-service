@@ -10,7 +10,7 @@ Signin in to your Compensation Recovery Unit (CRU) account
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         <!--        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>-->
-        <form class="form" action="existing_email_holding" method="post">
+
             <h1 class="govuk-heading-xl govuk-!-margin-top-9">
                 Sign in to your account.
             </h1>
@@ -52,11 +52,11 @@ Signin in to your Compensation Recovery Unit (CRU) account
                 </script>
 
             </div>
-
+  <form class="form" action="existing_email_holding" method="post">
           {{ govukButton({
             text: "Sign in"
           }) }}
-
+    </form>
             <div class="govuk-form-group govuk-!-margin-bottom-7">
                 <p class="govuk-body">
                     <a class="govuk-link" href="forgotten-password">Forgotten your password?</a>
@@ -72,7 +72,7 @@ Signin in to your Compensation Recovery Unit (CRU) account
             <p class="govuk-body">If one already exists, the account administrator can add you to it. You will receive an email from Compensation Recovery Service inviting you to create an individual account.</p>
 
 
-        </form>
+
     </div>
   </div>
 
