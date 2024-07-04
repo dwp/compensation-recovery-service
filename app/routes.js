@@ -1013,6 +1013,116 @@ if (req.session.data['change'] == 'Liability') {
     }
 })
 
+router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/other-injuries-route', function (req, res) {
+
+  // check for no/no situation with whiplash and other injuries, and redirect to error page
+  if(req.session.data['other-injuries'] == 'No') {
+    res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/check-answers-update')
+  } else if(req.session.data['whiplash'] == 'Yes' || req.session.data['other-injuries'] == 'Yes') {
+
+    const otherInjuries = req.session.data['other-injuries']
+
+    // If coming from check answers page then return there after clicking continue
+    if (req.session.data['backtocheckanswers'] == 'true') {
+
+      if (otherInjuries == 'Yes') {
+        req.session.data['injuryVar'] = 'true'
+        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/other-injuries')
+      } else {
+        req.session.data['backtocheckanswers'] = 'false'
+        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/check-answers-update')
+      }
+    } else {
+      if (otherInjuries == 'Yes') {
+        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/other-injuries')
+      } else {
+        // Will need to flag error if Whiplash is also set to No
+        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/check-answers-update')
+      }
+    }
+
+  }
+})
+
+router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/where-is-the-injury-route', function (req, res) {
+
+  const injury = req.session.data['injury']
+
+  if (injury) {
+
+    // Check and remove _unchecked value
+    for (var i = injury.length; i--;) {
+      if (injury[i] === '_unchecked') {
+        injury.splice(i, 1);
+      }
+    }
+
+    if (injury[0] == 'Physical injury other than whiplash') {
+      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/where-is-the-injury')
+    } else if (injury[0] == 'Psychological') {
+      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/psychological')
+    } else if (injury[0] == 'Neurological') {
+      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/neurological')
+    } else {
+      // do nothing
+      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/other-injuries')
+    }
+
+  }
+})
+
+router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/injury-physical-route', function (req, res) {
+
+    const injury = req.session.data['injury']
+
+    // Check and remove _unchecked value
+    for (var i=injury.length; i--; ) {
+      if (injury[i] === '_unchecked') {
+        injury.splice(i, 1);
+      }
+    }
+    // On physical injury page
+    if (injury[1] == 'Psychological') {
+      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/psychological')
+    } else if (injury[1] == 'Neurological') {
+      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/neurological')
+    } else {
+
+      // If coming from check answers page then return there after clicking continue or continue as normal journey
+      if(req.session.data['backtocheckanswers'] == 'true') {
+        req.session.data['backtocheckanswers'] = 'false'
+        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/check-answers-update')
+      } else {
+        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/check-answers-update')
+      }
+    }
+
+})
+
+router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/injury-psychological-route', function (req, res) {
+
+    const injury = req.session.data['injury']
+
+    // Check and remove _unchecked value
+    for (var i=injury.length; i--; ) {
+      if (injury[i] === '_unchecked') {
+        injury.splice(i, 1);
+      }
+    }
+    // On psychological injury page
+    if (injury[1] == 'Neurological' || injury[2] == 'Neurological') {
+      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/neurological')
+    } else {
+      // If coming from check answers page then return there after clicking continue or continue as normal journey
+      if(req.session.data['backtocheckanswers'] == 'true') {
+        req.session.data['backtocheckanswers'] = 'false'
+        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/check-answers-update')
+      } else {
+        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/check-answers-update')
+      }
+    }
+})
+
 
 // router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/scrutiny_task_v1_0/confirmed-check', function (req, res) {
 //
