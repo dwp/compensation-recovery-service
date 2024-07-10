@@ -1,0 +1,60 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Injury details -  What type of injury did the person suffer
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+        <form action="other-injuries-route" method="post" class="form">
+
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="other-injuries-hint">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                    <h1 class="govuk-fieldset__heading">
+                      <span class="govuk-caption-xl">Injury details
+                      </span>
+                      Did the person suffer any other injury?
+                    </h1>
+                  </legend>
+                  <div class="govuk-hint">
+                    Includes physical, psychological or neurological injuries
+                  </div>
+                  <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="other-injuries-yes" name="other-injuries" type="radio" value="Yes" checked>
+                      <label class="govuk-label govuk-radios__label" for="other-injuries-yes">
+                        Yes
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="other-injuries-no" name="other-injuries" type="radio" value="No" {{ checked("other-injuries", "No") }}>
+                      <label class="govuk-label govuk-radios__label" for="other-injuries-no">
+                        No
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </div>
+
+
+
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+
+
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}
