@@ -17,7 +17,7 @@ Check your answers before registering the claim
 
         <h1 class="govuk-heading-xl">Update claim details</h1>
 
-        <details open class="govuk-details">
+        <details class="govuk-details">
           <summary class="govuk-details__summary">
             <span class="govuk-details__summary-text">
               Task details
@@ -538,7 +538,7 @@ Add new treatment<span class="govuk-visually-hidden"> address</span>
 {{ data['address-line-2-rep'] }}<br>
 {{ data['address-town-rep'] | default('Warehorne') }}
 {{ data['address-county-rep'] }}<br>
-{{ data['address-postcode-rep'] | default('TN26 9XE') }}
+{{ data['representativepostcode'] | default('TN26 9XE') }}
 
 
 
