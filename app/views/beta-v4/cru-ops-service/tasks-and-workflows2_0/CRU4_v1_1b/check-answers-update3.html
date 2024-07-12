@@ -19,7 +19,7 @@ Check your answers before registering the claim
 
         <details class="govuk-details">
           <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text" style="font-weight: bold">
+            <span class="govuk-details__summary-text" style="font-weight: bold;">
               Task details
             </span>
           </summary>
@@ -29,7 +29,7 @@ Check your answers before registering the claim
               data-module="govuk-notification-banner">
               <div class="govuk-notification-banner__header">
                 <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-                  Check claim details
+              Check claim details
                 </h2>
               </div>
               <div class="govuk-notification-banner__content" style="padding-bottom:30px">
@@ -42,53 +42,33 @@ Check your answers before registering the claim
                     <tr class="govuk-table__row">
                       <th scope="col" class="govuk-table__header">Detail</th>
                       <th scope="col" class="govuk-table__header">Current</th>
-                        <th scope="col" class="govuk-table__header">New</th>
+                        <th scope="col" class="govuk-table__header">New </th>
 
                     </tr>
                   </thead>
                   <tbody class="govuk-table__body">
                     <tr class="govuk-table__row">
-                      <th scope="row" class="govuk-table__header">Representative<br> company name</th>
-                      <td class="govuk-table__cell">	McAdar Solicitors</td>
-                          <td class="govuk-table__cell">Davidson & McKinley</td>
+                      <th scope="row" class="govuk-table__header">Date of birth</th>
+                      <td class="govuk-table__cell">		28 February 1978</td>
+                          <td class="govuk-table__cell">28 February 1979</td>
 
                     </tr>
                     <tr class="govuk-table__row">
-                      <th scope="row" class="govuk-table__header">Representative<br> email</th>
-                      <td class="govuk-table__cell">claims@mcadarx.co.uk</td>
-                          <td class="govuk-table__cell">info@dmpartners.co.uk</td>
+                      <th scope="row" class="govuk-table__header">National Insurance number</th>
+                      <td class="govuk-table__cell">AA 11 22 33 B</td>
+                          <td class="govuk-table__cell">CD 21 31 75 B</td>
 
                     </tr>
                     <tr class="govuk-table__row">
-                      <th scope="row" class="govuk-table__header">Representative: telephone</th>
-                      <td class="govuk-table__cell">07880109642</td>
-                          <td class="govuk-table__cell">01536 345472</td>
+                      <th scope="row" class="govuk-table__header">Injury date</th>
+                      <td class="govuk-table__cell">14 February 2024</td>
+                          <td class="govuk-table__cell">12 February 2024</td>
 
                     </tr>
                     <tr class="govuk-table__row">
-                      <th scope="row" class="govuk-table__header">Representative: reference</th>
-                      <td class="govuk-table__cell">Cr1234567</td>
-                          <td class="govuk-table__cell">Crl4652322</td>
 
-                    </tr>
-                    <tr class="govuk-table__row">
-                      <th scope="row" class="govuk-table__header">Representative: <br>address line 1</th>
-                      <td class="govuk-table__cell">Ivy House, Ivy Lane</td>
-                          <td class="govuk-table__cell">14 Samson Road</td>
 
-                    </tr>
-                    <tr class="govuk-table__row">
-                      <th scope="row" class="govuk-table__header">Representative:<br> town or city</th>
-                      <td class="govuk-table__cell">Warehorne</td>
-                          <td class="govuk-table__cell">Kettering</td>
 
-                    </tr>
-                    <tr class="govuk-table__row">
-                      <th scope="row" class="govuk-table__header">Representative: postcode</th>
-                      <td class="govuk-table__cell">TN26 9XE</td>
-                          <td class="govuk-table__cell">NN15 7HT</td>
-
-                    </tr>
 
 
                   </tbody>
@@ -186,7 +166,7 @@ Check your answers before registering the claim
             <dd class="govuk-summary-list__value">
               <!-- Check lookup or manual address -->
 
-                {{ data['choose-ip-address'] | default('22 High Street') }}<br>Leicester<br>{{ data['addresspostcode'] | default('LE1 1AQ') }}
+                {{ data['choose-ip-address'] | default('21 High Street') }}<br>Leicester<br>{{ data['addresspostcode'] | default('LE1 1AQ') }}
 <!--
                 {{ data['address-line-1'] }}<br />
                 {{ data['address-line-2'] }}<br />
@@ -493,7 +473,7 @@ Add new treatment<span class="govuk-visually-hidden"> address</span>
               {{ data['represesntative-name'] | default('McAdar Solicitors') }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="about-the-injured-persons-rep?backtocheckanswers=true&">
+              <a class="govuk-link" href="about-the-injured-persons-rep">
                 Change<span class="govuk-visually-hidden">Solictor name</span>
               </a>
             </dd>
@@ -506,7 +486,7 @@ Add new treatment<span class="govuk-visually-hidden"> address</span>
               {{ data['email-solicitor'] | default('claims@mcadarx.co.uk') }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="about-the-injured-persons-rep?backtocheckanswers=true&">
+              <a class="govuk-link" href="about-the-injured-persons-rep">
                 Change<span class="govuk-visually-hidden">email address</span>
               </a>
             </dd>
@@ -533,7 +513,7 @@ Add new treatment<span class="govuk-visually-hidden"> address</span>
 
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="about-the-injured-persons-rep?backtocheckanswers=true&">
+              <a class="govuk-link" href="about-the-injured-persons-rep">
                 Change<span class="govuk-visually-hidden">telephone</span>
               </a>
             </dd>
@@ -543,18 +523,15 @@ Add new treatment<span class="govuk-visually-hidden"> address</span>
               Address
             </dt>
             <dd class="govuk-summary-list__value">
-
-{{ data['address-line-1-rep'] | default('	14 Samson Road') }}
-{{ data['address-line-2-rep'] }}<br>
-{{ data['address-town-rep'] | default('Kettering') }}
-{{ data['address-county-rep'] }}<br>
-{{ data['representativepostcode'] | default('TN26 9XE') }}
-
-
+              {{ data['address-line-1-rep'] | default('Ivy House, Ivy Lane') }}
+              {{ data['address-line-2-rep'] }}<br>
+              {{ data['address-town-rep'] | default('Warehorne') }}
+              {{ data['address-county-rep'] }}<br>
+              {{ data['address-postcode-rep'] | default('TN26 9XE') }}
 
             </dd>
             <dd class="govuk-summary-list__actions">
-
+              <!-- Check lookup or manual address -->
 
               <a class="govuk-link" href="representative-address">
                 Change<span class="govuk-visually-hidden"> address</span>
@@ -669,7 +646,7 @@ Add new treatment<span class="govuk-visually-hidden"> address</span>
 
 <br>
 
-        <form action="cru4-taskc" method="post" novalidate>
+        <form action="cru4-task" method="post" novalidate>
 
           <input type="hidden" name="checkanswers" value="true" />
 

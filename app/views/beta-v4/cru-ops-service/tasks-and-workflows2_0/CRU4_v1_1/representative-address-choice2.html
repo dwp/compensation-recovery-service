@@ -7,10 +7,11 @@ About the injured person -  Does the injured person have a national insurance nu
 
 {% block content %}
 
-  <div class="govuk-grid-row">
+<div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
-        <form class="form" action="representative-address-choice" method="post">
+
+        <form class="form" action="cru4-taskb3" method="post">
 
             <h1 class="govuk-heading-xl">
                 <span class="govuk-caption-xl">Injured person's representative</span>
@@ -98,20 +99,36 @@ About the injured person -  Does the injured person have a national insurance nu
               </div>
             </details>
 
+            <h2 class="govuk-heading-m">Postcode</h2>
+            <p class="govuk-body">{{ data['representativepostcode']}} <a href="representative-address.html">Change</a></p>
+
             <div class="govuk-form-group">
-                <label class="govuk-label govuk-!-font-weight-bold" for="representativepostcode">
-                UK postcode
+                <label class="govuk-label" for="solicitor-address">
+                    Select an address
                 </label>
-                <input class="govuk-input govuk-input--width-10" id="representativepostcode" name="representativepostcode" type="text" value="{{ data['representativepostcode']}}">
+                <select class="govuk-select" id="solicitor-address" name="solicitor-address">
+                    <option value="published">3 addresses found</option>
+                    <option value="Ivy House, Ivy Lane"> 12 Samson Road,	Kettering, {{ data['representativepostcode'] | default('MK9 2AH') }}</option>
+                    <option value="14 Ivy Lane">14 Samson Road,	Kettering, {{ data['representativepostcode'] | default('MK9 2AH') }}</option>
+                    <option value="16 Ivy House">16 Samson Road, Kettering, {{ data['representativepostcode'] | default('MK9 2AH') }}</option>
+                </select>
+            </div>
+
+            <div class="govuk-radios__item govuk-visually-hidden">
+                <input class="govuk-radios__input" id="injured-persons-details" name="representative-details" type="radio" value="completed" checked>
+                <label class="govuk-label govuk-radios__label" for="injured-persons-details">
+                    hidden radio for logic
+                </label>
             </div>
 
             <button class="govuk-button" data-module="govuk-button">
-                Find address
+                Continue
             </button>
-            <p class="govuk-body"><a href="representative-address-manual">The address is outside the UK</a></p>
+
+            <p class="govuk-body"><a href="representative-address-manual">I can't find the address in the list</a></p>
 
         </form>
     </div>
-  </div>
+</div>
 
 {% endblock %}
