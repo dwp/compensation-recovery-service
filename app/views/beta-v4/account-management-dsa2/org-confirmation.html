@@ -1,0 +1,49 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-main-wrapper--auto-spacing">
+    <div class="govuk-panel govuk-panel--confirmation" style="background-color:	#1d70b8">
+              <h1 class="govuk-panel__title">
+          Account created
+              </h1>
+              <div class="govuk-panel__body">
+                You still need to accept the User Agreement
+              </div>
+            </div>
+
+      <p class="govuk-body">You have created an organisation administrator account to manage your compensation recovery claims. We have sent you an confirmation email. </p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <div class="govuk-inset-text">
+        <p class="govuk-body">
+          Review, accept or share the  <a href="dsa" class="govuk-link"> User Agreement</a>.
+        </p>
+
+</div>
+      <p class="govuk-body">
+        When you have accepted the User Agreement, you can access your account dashboard and:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+          <li>register new claims</li>
+          <li>notify the Compensation Recovery Service that you are taking over an existing claim from another organisation</li>
+          <li>ask employees from your organisation to create their own individual accounts</li>
+      </ul>
+      <p class="govuk-body govuk-!-margin-top-7">
+        <a class="govuk-link" href="admin-dashboard">Go to your dashboard</a>
+      </p>
+
+<!--      <p class="govuk-body">-->
+<!--        <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)-->
+<!--      </p>-->
+
+    </div>
+  </div>
+
+{% endblock %}

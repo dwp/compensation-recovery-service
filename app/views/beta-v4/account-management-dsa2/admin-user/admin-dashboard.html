@@ -1,0 +1,115 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <nav class="navigation-secondary govuk-!-margin-bottom-6">
+      <ul><li class="active"><a href="">Home</a></li>
+        <li><a href="admin-all-claims">All claims</a></li>
+        <li><a href="../../nhs-claim/admin-register-new-claim">Register a new claim</a></li>
+        <li><a href="admin-take-over-claim">Take over a claim from another organisation</a></li>
+        <li><a href="admin-manage-org">Manage organisation</a></li>
+        <li><a href="admin-profile">My profile</a></li>
+      </ul>
+    </nav>
+
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl govuk-!-margin-top-5">
+      <span class="govuk-caption-xl">{{ data['company-name'] | default('Compensator Ltd') }}</span>
+        {{ data['user-full-name'] | default('Sam Smith') }}
+      </h1>
+
+    </div>
+  </div>
+
+<!--   onboarding? -->
+<!--<div class="govuk-grid-row">-->
+<!--  <div class="govuk-grid-column-two-thirds">-->
+
+<!--    <h2 class="govuk-heading-l">-->
+<!--      Welcome-->
+<!--    </h2>-->
+
+<!--    <p class="govuk-body">-->
+<!--      Register new claims, download certificates, manage and settle claims and take over previously registered claims.-->
+<!--    </p>-->
+
+<!--  </div>-->
+<!--</div>-->
+
+    <!-- Dashboard elements -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <h2 class="govuk-heading-m">
+      Register new claims
+    </h2>
+    <p class="govuk-body">
+      Use this to:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>register claims</li>
+      <li>download CRS and NHS charges certificates in PDF format</li>
+    </ul>
+    <p class="govuk-body">
+      <a href="../../nhs-claim/admin-register-new-claim" class="govuk-link">Register a new claim</a>
+    </p>
+  </div>
+
+  <div class="govuk-grid-column-one-half">
+    <h2 class="govuk-heading-m">
+      Take over claims registered by another organisation
+    </h2>
+    <p class="govuk-body">
+      Use this to:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>tell the Compensation Recovery Service that you are taking over a claim registered by another organisation</li>
+      <li>get notified when updated certificates are issued</li>
+    </ul>
+    <p class="govuk-body">
+      <a href="admin-take-over-claim" class="govuk-link">Take over a claim from another organisation</a>
+    </p>
+  </div>
+
+  <div class="govuk-grid-column-one-half govuk-!-margin-top-7">
+    <h2 class="govuk-heading-m">
+      Manage and settle claims
+    </h2>
+    <p class="govuk-body">
+      Use this to:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>search all claims registered by your organisation</li>
+      <li>view and settle individual claims</li>
+    </ul>
+    <p class="govuk-body">
+      <a href="admin-all-claims" class="govuk-link">View all current claims for your organisation</a>
+    </p>
+  </div>
+
+  <div class="govuk-grid-column-one-half govuk-!-margin-top-7">
+    <h2 class="govuk-heading-m">
+      Manage your organisation account
+    </h2>
+    <p class="govuk-body">
+      Use this to:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>ask employees from your organisation to create individual accounts to register and settle claims</li>
+      <li>review user access</li>
+    </ul>
+    <p class="govuk-body">
+      <a href="admin-manage-org" class="govuk-link">View and edit your organisation’s details</a>
+    </p>
+  </div>
+
+</div>
+
+
+{% endblock %}
