@@ -76,10 +76,10 @@ Check your answers before registering the claim
 <br><br>
         <h2 class="govuk-heading-m" style="margin-bottom:10px">Task instructions</h2>
         <ol class="govuk-list govuk-list--number">
-  <li>Check the new details given by a compensator in a CRU4. They are different to current claim details. </li>
-    <li>Select the claim changes that you want to accept.</li>
-  <li>Update any other claim details if necessary.</li>
-  <li>Select the next step.</li>
+  <li>Check the new details. They have been given by a compensator in a CRU4. They are different to the current details we hold on the claim.</li>
+    <li>Select the new details that you want to accept. The claim will update  automatically when you save and continue.</li>
+  <li>Update claim details manually if required.</li>
+  <li>Mark task as complete or set a reminder to complete later.</li>
 </ol>
         <br> <br>
 
@@ -102,7 +102,7 @@ Check your answers before registering the claim
           <th scope="col" class="govuk-table__header">Detail</th>
           <th scope="col" class="govuk-table__header">Current</th>
             <th scope="col" class="govuk-table__header">New </th>
-                  <th scope="col" class="govuk-table__header">Label TBC</th>
+                  <th scope="col" class="govuk-table__header">Accept</th>
         </tr>
       </thead>
       <tbody class="govuk-table__body">
@@ -153,7 +153,7 @@ Check your answers before registering the claim
 <br> -->
 
 <div class="govuk-inset-text">
-<p class="govuk-body">Do you need to update any details manually?  </p>
+<p class="govuk-body">You may need to update new claim details manually  </p>
 <p class="govuk-body">
     <a href="check-answers-update" class="govuk-link" target=”_blank”>Update claim details (opens in new tab)</a>
   </p>
@@ -185,14 +185,15 @@ Check your answers before registering the claim
                 <input class="govuk-radios__input" id="info-4" name="info" type="radio" value="Submitted information to calculate NHS charges" {{ checked("info", "Data ready") }}>
                 <label class="govuk-label govuk-radios__label" for="info-4">
 
-Complete task
+Mark task as complete
                 </label>
               </div>
 
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="info" name="info" type="radio" data-aria-controls="conditional-contact" value="Task completed but informaton not submitted" {{ checked("info", "Reply with further info to the NHS") }}>
                 <label class="govuk-label govuk-radios__label" for="info">
-Set a reminder to complete task
+                  Set a reminder to complete task later
+
                 </label>
               </div>
 
