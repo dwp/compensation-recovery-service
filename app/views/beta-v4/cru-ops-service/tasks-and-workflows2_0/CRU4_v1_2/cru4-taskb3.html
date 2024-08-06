@@ -76,10 +76,10 @@ Check your answers before registering the claim
 <br><br>
         <h2 class="govuk-heading-m" style="margin-bottom:10px">Task instructions</h2>
         <ol class="govuk-list govuk-list--number">
-  <li>Check the new details provided by the compensator.</li>
-  <li>Update the claim with new details if necessary.</li>
-  <li>Return to this page and select the next step.</li>
-</ol>
+        <li>Check the new details. They have been given by a compensator in a CRU4. They are different to the current details we hold on the claim.</li>
+        <li>Update claim details manually if required.</li>
+        <li>Mark task as complete or set a reminder to complete later.</li>
+        </ol>
 
         <br> <br>
 
@@ -171,14 +171,14 @@ Check your answers before registering the claim
                 <input class="govuk-radios__input" id="info-4" name="info" type="radio" value="Submitted information to calculate NHS charges" {{ checked("info", "Data ready") }}>
                 <label class="govuk-label govuk-radios__label" for="info-4">
 
-Complete task
+Mark task as complete
                 </label>
               </div>
 
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="info" name="info" type="radio" data-aria-controls="conditional-contact" value="Task completed but informaton not submitted" {{ checked("info", "Reply with further info to the NHS") }}>
                 <label class="govuk-label govuk-radios__label" for="info">
-Set a reminder to complete task
+Set a reminder to complete task later
                 </label>
               </div>
 
