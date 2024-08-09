@@ -75,20 +75,33 @@
     {{ govukFooter({
       meta: {
         items: [
-          {
-            href: "https://govuk-prototype-kit.herokuapp.com/",
-            text: "GOV.UK Prototype Kit " + releaseVersion
-          },
-          {
-            href: "/prototype-admin/clear-data",
-            text: "Clear data"
-          },
-          {
-            href: "reset-tasks",
-            text: "Reset tasks"
-          }
-        ]
-      }
+
+                  {
+                    href: "/prototype-admin/clear-data",
+                    text: "Clear data"
+                  },
+                  {
+                    href: "",
+                    text: "Privacy "
+                  },
+                  {
+                    href: "",
+                    text: "Cookies "
+                  },
+                  {
+                    href: "",
+                    text: "Accessibility statement "
+                  },
+                  {
+                    href: "",
+                    text: "User Agreement (PDF) "
+                  },
+                  {
+                    href: "opt_in_later.html",
+                    text: "Research opt-in "
+                  }
+                ]
+              }
     }) }}
   {% endblock %}
 {% endif %}
