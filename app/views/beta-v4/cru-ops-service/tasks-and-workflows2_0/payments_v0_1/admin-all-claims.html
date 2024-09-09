@@ -1,0 +1,167 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <nav class="navigation-secondary govuk-!-margin-bottom-6">
+      <ul>
+        <li><a href="admin-dashboard">Home</a></li>
+        <li class="active"><a href="admin-all-claims">All claims</a></li>
+          <li><a href="admin-register-new-claim">Register a new claim</a></li>
+          <li><a href="admin-take-over-claim">Take over a claim from another organisation</a></li>
+        <li><a href="admin-manage-org">Manage organisation</a></li>
+        <li><a href="admin-profile">My profile</a></li>
+      </ul>
+    </nav>
+
+    <div class="govuk-grid-column-full">
+
+        <h1 class="govuk-heading-xl govuk-!-margin-top-5">
+            <span class="govuk-caption-xl">{{ data['company-name'] | default('Compensator Ltd') }}</span>
+            All claims
+        </h1>
+
+        <!-- Filters -->
+        <div class="govuk-form-group">
+            <label class="govuk-label govuk-!-font-weight-bold" for="search-name">
+                Search all claims registered by your organisation
+            </label>
+            <div id="event-name-hint" class="govuk-hint">
+                Enter a reference or the name of the injured person
+            </div>
+            <input class="govuk-input govuk-input--width-20" id="search-name" name="search-name" type="text" value="">
+            <button class="govuk-button" data-module="govuk-button">
+                Search
+            </button>
+        </div>
+
+        <table class="govuk-table gov">
+  <!--        <caption class="govuk-table__caption govuk-table__caption&#45;&#45;m">Organisation users</caption>-->
+          <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Name</th>
+            <th scope="col" class="govuk-table__header">CRS reference</th>
+            <th scope="col" class="govuk-table__header">NINO</th>
+            <th scope="col" class="govuk-table__header">DOB</th>
+            <th scope="col" class="govuk-table__header">Settled</th>
+            <th scope="col" class="govuk-table__header"></th>
+          </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Claire Jones</td>
+              <td class="govuk-table__cell">CRS323443</td>
+              <td class="govuk-table__cell">QQ123456C</td>
+              <td class="govuk-table__cell"> 28 February 1978  </td>
+              <td class="govuk-table__cell">Yes</td>
+              <td class="govuk-table__cell"><a href="case-view-history">View</a></td>
+            </tr>
+
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Calum Vasquez</td>
+            <td class="govuk-table__cell">CRS233450</td>
+            <td class="govuk-table__cell">AA123456C</td>
+            <td class="govuk-table__cell"> 11 March 1987  </td>
+            <td class="govuk-table__cell">Yes</td>
+            <td class="govuk-table__cell"><a href="">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Felicity Taylor</td>
+            <td class="govuk-table__cell">CRS113477</td>
+            <td class="govuk-table__cell">BB123456C</td>
+            <td class="govuk-table__cell"> 18 February 1992  </td>
+            <td class="govuk-table__cell">Yes</td>
+            <td class="govuk-table__cell"><a href="">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Kayla Ayers</td>
+            <td class="govuk-table__cell">CRS345423</td>
+            <td class="govuk-table__cell">CC123456C</td>
+            <td class="govuk-table__cell"> 28 May 1971  </td>
+            <td class="govuk-table__cell">Yes</td>
+            <td class="govuk-table__cell"><a href="">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Aden Serrano</td>
+            <td class="govuk-table__cell">CRS242355</td>
+            <td class="govuk-table__cell">EE123456C</td>
+            <td class="govuk-table__cell"> 12 July 1999 </td>
+            <td class="govuk-table__cell">Yes</td>
+            <td class="govuk-table__cell"><a href="">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Robert Zamora</td>
+            <td class="govuk-table__cell">CRS299450</td>
+            <td class="govuk-table__cell">FF123456C</td>
+            <td class="govuk-table__cell"> 22 June 1975  </td>
+            <td class="govuk-table__cell">No</td>
+            <td class="govuk-table__cell"><a href="">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Yvonne Bautista</td>
+            <td class="govuk-table__cell">CRS733477</td>
+            <td class="govuk-table__cell">DD123456C</td>
+            <td class="govuk-table__cell"> 27 February 1978  </td>
+            <td class="govuk-table__cell">Yes</td>
+            <td class="govuk-table__cell"><a href="">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Jo Green</td>
+            <td class="govuk-table__cell">CRS358480</td>
+            <td class="govuk-table__cell">WW123456C</td>
+            <td class="govuk-table__cell"> 3 Januaey 1978  </td>
+            <td class="govuk-table__cell">Yes</td>
+            <td class="govuk-table__cell"><a href="">View</a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">Adam Jones</td>
+            <td class="govuk-table__cell">CRS233450</td>
+            <td class="govuk-table__cell">SS123456C</td>
+            <td class="govuk-table__cell"> 30 December 1984  </td>
+            <td class="govuk-table__cell">Yes</td>
+            <td class="govuk-table__cell"><a href="">View</a></td>
+          </tr>
+
+          </tbody>
+        </table>
+        <nav class="govuk-pagination" role="navigation" aria-label="results">
+          <div class="govuk-pagination__prev">
+            <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
+              <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+              </svg>
+              <span class="govuk-pagination__link-title">Previous</span></a>
+          </div>
+          <ul class="govuk-pagination__list">
+            <li class="govuk-pagination__item govuk-pagination__item--current">
+              <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1"  aria-current="page">
+                1
+              </a>
+            </li>
+            <li class="govuk-pagination__item">
+              <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
+                2
+              </a>
+            </li>
+            <li class="govuk-pagination__item">
+              <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+                3
+              </a>
+            </li>
+          </ul>
+          <div class="govuk-pagination__next">
+            <a class="govuk-link govuk-pagination__link" href="#" rel="next"> <span class="govuk-pagination__link-title">Next</span> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+              <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+            </svg></a>
+          </div>
+        </nav>
+    </div>
+  </div>
+{% endblock %}
