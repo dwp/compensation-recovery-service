@@ -1249,6 +1249,16 @@ router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/injury-ps
     }
 })
 
+router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/benefit-options', function (req, res) {
+
+if (req.session.data['change'] == 'Liability') {
+  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/confirmation_benefits')
+} else {
+      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/check-answers-benefits')
+    }
+})
+
+
 
 // router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/scrutiny_task_v1_0/confirmed-check', function (req, res) {
 //
