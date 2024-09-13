@@ -10,7 +10,7 @@ Create an account
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
-    <form class="form" action="dsa/dsa_options" method="post">
+    <form class="form" action="benefit-options" method="post">
       <h1 class="govuk-heading-xl">There are benefits on this claim</h1>
 
       <div class="govuk-form-group">
@@ -47,7 +47,7 @@ Are the benefits received attributable to the incident?
     </div> -->
     <div class="govuk-radios govuk-radios" data-module="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="info-4" name="info" type="radio" value="Submitted information to calculate NHS charges" {{ checked("info", "Data ready") }}>
+        <input class="govuk-radios__input" id="info-4" name="change" type="radio" value="Liability" {{ checked("info", "Data ready") }}>
         <label class="govuk-label govuk-radios__label" for="info-4">
 
 Yes
@@ -55,7 +55,7 @@ Yes
       </div>
 
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="info" name="info" type="radio" data-aria-controls="conditional-contact" value="Task completed but informaton not submitted" {{ checked("info", "Reply with further info to the NHS") }}>
+        <input class="govuk-radios__input" id="info" name="change" type="radio" data-aria-controls="conditional-contact" value="Task completed but informaton not submitted" {{ checked("info", "Reply with further info to the NHS") }}>
         <label class="govuk-label govuk-radios__label" for="info">
 No
         </label>
