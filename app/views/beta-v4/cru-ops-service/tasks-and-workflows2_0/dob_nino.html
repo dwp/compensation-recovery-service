@@ -1,0 +1,85 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+    <form class="form" action="dob_nino_route" method="post">
+      <h1 class="govuk-heading-xl">We cannot find the injured person</h1>
+
+      <div class="govuk-form-group">
+          <p class="govuk-body">Based on the details you have updated, we cannot find the injured person in CIS. </p>
+    <p class="govuk-body">Check that you have updated these details correctly. </p>
+
+
+
+<div class="govuk-inset-text">
+  <p class="govuk-body">You updated:</p>
+    <p class="govuk-body">National Insurance Number: <span style="font-weight: bold">GD 24 23 554 A</span></p>
+      <p class="govuk-body">Date of birth: <span style="font-weight: bold">11 May 1998</span></p>
+</div>
+
+
+
+<!-- <div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-visually-hidden">Warning</span>
+Check CIS and decide if the benefits received were attributable to the incident.
+  </strong>
+</div> -->
+<br>
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h3 class="govuk-fieldset__heading">
+Are these details correct?
+      </h3>
+    </legend>
+    <!-- <div id="changed-name-hint" class="govuk-hint">
+      Either changed or no change needed
+    </div> -->
+    <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="info-4" name="change" type="radio" value="Liability" {{ checked("info", "Data ready") }}>
+        <label class="govuk-label govuk-radios__label" for="info-4">
+
+Yes, create a legacy task
+        </label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="info" name="change" type="radio" data-aria-controls="conditional-contact" value="Task completed but informaton not submitted" {{ checked("info", "Reply with further info to the NHS") }}>
+        <label class="govuk-label govuk-radios__label" for="info">
+No, I’ll update the details again
+        </label>
+      </div>
+
+
+
+
+  </fieldset>
+</div>
+
+
+      </div>
+
+  <br><br>
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+
+
+    </div>
+  </div>
+
+{% endblock %}
