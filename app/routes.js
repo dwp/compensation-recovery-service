@@ -1259,6 +1259,17 @@ if (req.session.data['change'] == 'Liability') {
 })
 
 
+router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/dob_nino_route', function (req, res) {
+
+if (req.session.data['change'] == 'Liability') {
+  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/confirmation_dob_nino')
+} else {
+      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/about-the-injured-person2')
+    }
+})
+
+
+
 
 // router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/scrutiny_task_v1_0/confirmed-check', function (req, res) {
 //
