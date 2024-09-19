@@ -23,12 +23,11 @@ Dashboard
 
         <h1 class="govuk-heading-xl govuk-!-margin-top-5">
             <span class="govuk-caption-xl">{{ data['company-name'] | default('Compensator Ltd') }}</span>
-          Bulk payments for settled cases
-
+        Payment information for settled claims
         </h1>
 
         <div id="event-name-hint" class="govuk-hint" style="margin-top:0px">
-            Select claims you want to mark as paid
+            Select claims to tell us you have paid them.
         </div>
 <br>
         <table class="govuk-table gov">
@@ -36,9 +35,9 @@ Dashboard
           <thead class="govuk-table__head">
           <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header">Name</th>
-            <th scope="col" class="govuk-table__header">CRS reference</th>
-            <th scope="col" class="govuk-table__header">NINO</th>
-            <th scope="col" class="govuk-table__header">DOB</th>
+            <th scope="col" class="govuk-table__header">CRU reference</th>
+            <th scope="col" class="govuk-table__header">National Insurance Number</th>
+            <th scope="col" class="govuk-table__header">Date of Birth</th>
 
             <th scope="col" class="govuk-table__header">Select</th>
           </tr>
