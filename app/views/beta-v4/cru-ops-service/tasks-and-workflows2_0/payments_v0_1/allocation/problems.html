@@ -1,0 +1,194 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Claim details -  What is the type of liability?
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+        <form class="form" action="confirmation1" method="post">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="liability-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                <h1 class="govuk-fieldset__heading">
+
+                  What is the problem?
+                </h1>
+              </legend>
+              <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+<!--                <div class="govuk-radios__item">-->
+<!--                  <input class="govuk-radios__input" id="liability" name="liability" type="radio" value="Employer" {{ checked("liability", "Employer") }}>-->
+<!--                  <label class="govuk-label govuk-radios__label" for="liability">-->
+<!--                   Employer-->
+<!--                  </label>-->
+<!--                </div>-->
+<!--                <div class="govuk-radios__item">-->
+<!--                  <input class="govuk-radios__input" id="liability" name="liability" type="radio" value="Clinical negligence" {{ checked("liability", "Clinical negligence") }}>-->
+<!--                  <label class="govuk-label govuk-radios__label" for="liability">-->
+<!--                   Clinical negligence-->
+<!--                  </label>-->
+<!--                </div>-->
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="change-liability" name="change" type="radio" value="Liability" data-aria-controls="conditional-contact-3"  }}>
+                  <label class="govuk-label govuk-radios__label" for="public-liability">
+                   Missing information
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-3">
+                  <div class="govuk-form-group">
+                    <div class="govuk-radios" data-module="govuk-radios">
+  <div class="govuk-radios__item">
+  <input class="govuk-radios__input" id="notification" name="notification" type="radio" value="NHS10COMP" {{ checked("notification", "NHS10COMP") }}>
+  <label class="govuk-label govuk-radios__label" for="notification">
+     Injured person's date of birth
+  </label>
+  </div>
+  <div class="govuk-radios__item">
+  <input class="govuk-radios__input" id="notification-2" name="notification" type="radio" value="NHS10REP" {{ checked("notification", "NHS10IPREP") }}>
+  <label class="govuk-label govuk-radios__label" for="notification-2">
+  Payment reference
+  </label>
+  </div>
+  <div class="govuk-radios__item">
+  <input class="govuk-radios__input" id="notification-3" name="notification" type="radio" value="NHS10IP" {{ checked("notification", "NHS10IP") }}>
+  <label class="govuk-label govuk-radios__label" for="notification-3">
+  Payment is not right (over £100)
+  </label>
+  </div>
+  <div class="govuk-radios__item">
+  <input class="govuk-radios__input" id="notification-4" name="notification" type="radio" value="NHS11COMP" {{ checked("notification", "NHS11COMP") }}>
+  <label class="govuk-label govuk-radios__label" for="notification-4">
+Payment is not right (under £100)
+  </label>
+  </div>
+  <div class="govuk-radios__item">
+  <input class="govuk-radios__input" id="notification-5" name="notification" type="radio" value="NHS11IPREP" {{ checked("notification", "NHS11IPREP") }}>
+  <label class="govuk-label govuk-radios__label" for="notification-5">
+Bulk payment total does not add up (amount is £500 under)
+  </label>
+  </div>
+
+
+
+  </div>
+  <!-- <label class="govuk-label" for="more-detail">
+  More information
+  </label>
+  <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"></textarea> -->
+  </div>
+
+              </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="change-person" name="change" type="radio" data-aria-controls="conditional-contact" value="Injured person"  }}>
+                  <label class="govuk-label govuk-radios__label" for="motor-liability">
+            Incorrect information
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+
+                  <div class="govuk-form-group">
+                    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+        Ref 10ABC
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+        Ref 20ABC
+        </label>
+      </div>
+      </div>
+
+  </div>
+
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="change-injury" name="change" type="radio" data-aria-controls="conditional-contact-2" value="Injury"  }}>
+                  <label class="govuk-label govuk-radios__label" for="motor-liability">
+          Overpaid or underpaid
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+                  <div class="govuk-form-group">
+                    <div class="govuk-radios" data-module="govuk-radios">
+  <div class="govuk-radios__item">
+  <input class="govuk-radios__input" id="notification" name="notification" type="radio" value="NHS10COMP" {{ checked("notification", "NHS10COMP") }}>
+  <label class="govuk-label govuk-radios__label" for="notification">
+Amount is not right (over £100)
+  </label>
+  </div>
+  <div class="govuk-radios__item">
+  <input class="govuk-radios__input" id="notification-2" name="notification" type="radio" value="NHS10REP" {{ checked("notification", "NHS10IPREP") }}>
+  <label class="govuk-label govuk-radios__label" for="notification-2">
+  Amount is not right (under £100)
+  </label>
+  </div>
+  <div class="govuk-radios__item">
+  <input class="govuk-radios__input" id="notification-3" name="notification" type="radio" value="NHS10IP" {{ checked("notification", "NHS10IP") }}>
+  <label class="govuk-label govuk-radios__label" for="notification-3">
+  Bulk payment total does not add up (amount is £500 under)
+  </label>
+  </div>
+
+
+
+
+
+  </div>
+  <!-- <label class="govuk-label" for="more-detail">
+  More information
+  </label>
+  <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"></textarea> -->
+  </div>
+
+              </div>
+
+
+
+
+<!--                <div class="govuk-radios__item">-->
+<!--                  <input class="govuk-radios__input" id="liability-2" name="liability" type="radio" value="Other" data-aria-controls="conditional-liability-2" {{ checked("liability", "Other") }}>-->
+<!--                  <label class="govuk-label govuk-radios__label" for="liability-2">-->
+<!--                  Other-->
+<!--                  </label>-->
+<!--                </div>-->
+<!--                <div class="govuk-radios__conditional govuk-radios__conditional&#45;&#45;hidden" id="conditional-liability-2">-->
+<!--                  <div class="govuk-form-group">-->
+<!--                    <label class="govuk-label" for="other-liability">-->
+<!--                      Enter type of liability -->
+<!--                    </label>-->
+<!--                    <input class="govuk-input govuk-!-width-one-half" id="ni-by-text" name="other-liability" type="text" spellcheck="false" value="{{ data['other-liability']}}"></div>-->
+<!--          -->
+<!--                </div>-->
+              </div>
+
+            </fieldset>
+          </div>
+
+<!--          <div class="govuk-radios__item govuk-visually-hidden">-->
+<!--            <input class="govuk-radios__input" id="claim-details" name="claim-details" type="radio" value="completed" checked>-->
+<!--            <label class="govuk-label govuk-radios__label" for="claim-details">-->
+<!--             hidden radio for logic-->
+<!--            </label>-->
+<!--          </div>-->
+<br>
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+    </div>
+  </div>
+
+
+
+{% endblock %}

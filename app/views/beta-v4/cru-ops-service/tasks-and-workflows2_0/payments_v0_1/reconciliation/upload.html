@@ -1,0 +1,48 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+About the injured person -  Does the injured person have a national insurance number
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+    <form class="form" action="confirmation2" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="date-hint">
+
+          <div class="govuk-form-group">
+            <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="cost">
+              <span class="govuk-capt§ion-xl">
+              </span>
+                Upload statement to CRS
+              </label>
+            </h1>
+
+<br>
+<div class="govuk-form-group">
+<label class="govuk-label" for="file-upload-1">
+Upload a file
+</label>
+<input class="govuk-file-upload" id="file-upload-1" name="fileUpload1" type="file">
+</div>
+          </div>
+
+        </fieldset>
+      </div>
+<br>
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
