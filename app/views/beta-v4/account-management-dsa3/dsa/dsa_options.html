@@ -1,0 +1,111 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+    <form class="form" action="dsa-decision" method="post">
+      <h1 class="govuk-heading-xl">Review, accept or share the User Agreement</h1>
+
+      <div class="govuk-form-group">
+
+
+        <p class="govuk-body">
+          You can download and review the
+          <a href="" class="govuk-link">User Agreement</a> (PDF)
+        </p>
+      </div>
+<br>
+<div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
+  <legend class="govuk-fieldset__legend">
+    Do you want to:
+     </legend>
+
+     <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
+
+       <div class="govuk-radios__item">
+         <input class="govuk-radios__input" id="full-result" name="result" type="radio" value="fully"  data-aria-controls="conditional-contact2"  }}>
+         <label class="govuk-label govuk-radios__label" for="full-result">
+    accept the User Agreement now
+         </label>
+       </div>
+
+       <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact2">
+         <div class="govuk-form-group">
+
+             <label class="govuk-label" for="new-user-full-name">
+             Full name of the person responsible for accepting the User Agreement
+             </label>
+             <input class="govuk-input govuk-input--width-20" id="new-user-full-name" name="new-user-full-name" type="text" value="{% if data['clear-fields'] == 'true' %} {% else %} {{ data['new-user-full-name'] }} {% endif %}">
+ <br><br>
+             <label class="govuk-label" for="new-user-full-name">
+               Their job title
+             </label>
+             <input class="govuk-input govuk-input--width-20" id="new-user-full-name" name="new-user-full-name" type="text" value="{% if data['clear-fields'] == 'true' %} {% else %} {{ data['new-user-full-name'] }} {% endif %}">
+ <br><br>
+             <label class="govuk-label" for="new-user-full-name">
+               Their email address
+             </label>
+             <input class="govuk-input govuk-input--width-20" id="new-user-full-name" name="new-user-full-name" type="text" value="{% if data['clear-fields'] == 'true' %} {% else %} {{ data['new-user-full-name'] }} {% endif %}">
+
+
+         </div>
+       </div>
+
+
+       <div class="govuk-radios__item">
+         <input class="govuk-radios__input" id="dis-result" name="result" type="radio" value="disallowed"  data-aria-controls="conditional-contact">
+         <label class="govuk-label govuk-radios__label" for="dis-result">
+      accept the User Agreement at another time
+         </label>
+       </div>
+
+       <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+         <div class="govuk-form-group">
+           <label class="govuk-label" for="contact-by-email">
+         You will not be able to use your account to register claims until you have accepted the User Agreement. You can still provide details of data sharing contacts in your organisation.
+           </label>
+
+         </div>
+       </div>
+
+
+
+       <div class="govuk-radios__item">
+         <input class="govuk-radios__input" id="with-result" name="result" type="radio" value="withdrawn"  data-aria-controls="conditional-contact3">
+         <label class="govuk-label govuk-radios__label" for="with-result">
+share a PDF version with an appropriate person
+         </label>
+       </div>
+       <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact3">
+         <div class="govuk-form-group">
+           <label class="govuk-label" for="contact-by-email">
+      You will not be able to use your account to register claims until you have accepted the User Agreement. You can still provide details of data sharing contacts in your organisation.
+           </label>
+
+         </div>
+</div>
+
+
+     </div>
+  <br><br>
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+
+
+    </div>
+  </div>
+
+{% endblock %}
