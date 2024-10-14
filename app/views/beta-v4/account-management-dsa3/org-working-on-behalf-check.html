@@ -1,0 +1,65 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+    <span class="govuk-caption-xl">{{ data['company-name'] | default('John Smith Associates Ltd') }}</span>
+      <h1 class="govuk-heading-xl">Organisations you manage claims for</h1>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Organisation name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['on-behalf-of-org1'] | default('Aviva') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="org-working-on-behalf-remove?org-name={{ data['on-behalf-of-org1'] }}">Remove<span class="govuk-visually-hidden"> organisation working on behalf of</span></a>
+<!--            | <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> this organisation working on behalf of</span></a>-->
+          </dd>
+        </div>
+        {% if data['org2'] == "exists" %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Organisation name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['on-behalf-of-org2'] | default('esure') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="org-working-on-behalf-remove?org-name={{ data['on-behalf-of-org2'] }}">Remove<span class="govuk-visually-hidden"> organisation working on behalf of</span></a>
+            <!--            | <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> this organisation working on behalf of</span></a>-->
+          </dd>
+        </div>
+        {% endif %}
+      </dl>
+
+
+        <div class="govuk-button-group">
+          <form class="form" action="org-user-agreement" method="post">
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+          </form>
+          <form class="form" action="org-working-on-behalf-name-2" method="post">
+          <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Add an organisation
+          </button>
+          </form>
+        </div>
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

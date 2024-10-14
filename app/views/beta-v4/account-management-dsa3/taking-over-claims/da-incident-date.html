@@ -1,0 +1,65 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Take over an existing claim - Date of injury
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+    <form class="form" action="da-compensator-details" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="da-date-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              <span class="govuk-caption-xl">Take over an existing claim</span>
+              Date of injury
+            </h1>
+          </legend>
+          <div id="da-date-hint" class="govuk-hint">
+            For example, 12 3 2020
+          </div>
+          <div class="govuk-date-input" id="da-injury-date">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="da-injury-date-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="da-injury-date-day" name="da-injury-date-day" type="text" pattern="[0-9]*" inputmode="numeric" value="{{data['da-injury-date-day']}}"></div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="da-injury-date-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="da-injury-date-month" name="da-injury-date-month" type="text" pattern="[0-9]*" inputmode="numeric" value="{{data['da-injury-date-month']}}"></div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="da-injury-date-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="da-injury-date-year" name="da-injury-date-year" type="text" pattern="[0-9]*" inputmode="numeric" value="{{data['da-injury-date-year']}}"></div>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+
+      
+
+
+      {{ govukButton({
+      text: "Continue"
+      }) }}
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

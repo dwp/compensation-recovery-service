@@ -963,6 +963,17 @@ if (req.session.data['result'] == 'withdrawn') {
     }
 })
 
+router.post('/beta-v4/account-management-dsa3/dsa2/dsa-decision', function (req, res) {
+
+if (req.session.data['result'] == 'withdrawn') {
+  res.redirect('/beta-v4/account-management-dsa3/dsa2/forward-dsa')
+} else if (req.session.data['result'] == 'disallowed') {
+    res.redirect('/beta-v4/account-management-dsa3/dsa2/confirmation_later')
+    } else {
+      res.redirect('/beta-v4/account-management-dsa3/dsa2/confirmation_signed.html')
+    }
+})
+
 router.post('/beta-v4/account-management-dsa/dsa/dsa-decision', function (req, res) {
 
 if (req.session.data['result'] == 'withdrawn') {
