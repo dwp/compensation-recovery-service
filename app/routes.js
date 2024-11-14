@@ -952,7 +952,7 @@ if (req.session.data['change'] == 'Liability') {
     }
 })
 
-router.post('/beta-v4/account-management-dsa/dsa2/dsa-decision', function (req, res) {
+router.post('/beta-v4/account-management-dsa/dsa/dsa-decision', function (req, res) {
 
 if (req.session.data['result'] == 'withdrawn') {
   res.redirect('/beta-v4/account-management-dsa/dsa2/forward-dsa')
@@ -963,7 +963,7 @@ if (req.session.data['result'] == 'withdrawn') {
     }
 })
 
-router.post('/beta-v4/account-management-dsa3/dsa2/dsa-decision', function (req, res) {
+router.post('/beta-v4/account-management-dsa3/dsa/dsa-decision', function (req, res) {
 
 if (req.session.data['result'] == 'withdrawn') {
   res.redirect('/beta-v4/account-management-dsa3/dsa2/forward-dsa')
@@ -984,6 +984,19 @@ if (req.session.data['result'] == 'withdrawn') {
       res.redirect('/beta-v4/account-management-dsa/dsa/data-contact-holding_c.html')
     }
 })
+
+router.post('/beta-v4/account-management-dsa4/dsa/dsa-decision', function (req, res) {
+
+if (req.session.data['result'] == 'withdrawn') {
+  res.redirect('/beta-v4/account-management-dsa4/dsa2/forward-dsa')
+} else if (req.session.data['result'] == 'disallowed') {
+    res.redirect('/beta-v4/account-management-dsa4/dsa2/confirmation_later')
+    } else {
+      res.redirect('/beta-v4/account-management-dsa4/dsa2/confirmation_signed.html')
+    }
+})
+
+
 
 router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_0/reminder-options', function (req, res) {
 
