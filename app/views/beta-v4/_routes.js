@@ -135,6 +135,17 @@ router.post('/account-management/org-tpa-route', function (req, res, next) {
   }
 })
 
+router.post('/account-management-dsa2/org-tpa-route', function (req, res, next) {
+
+  const orgType = req.session.data['type-of-org']
+
+  if (orgType == 'Third Party Administrator') {
+    res.redirect('/beta-v4/account-management-dsa2/org-working-on-behalf')
+  } else {
+    res.redirect('/beta-v4/account-management-dsa2/org-check-answers')
+  }
+})
+
 // Account registration - DA/TPA - if working on behalf of other orgs, capture orgs, otherwise skip this section
 router.post('/account-management/org-working-on-behalf-route', function (req, res, next) {
 
@@ -144,6 +155,17 @@ router.post('/account-management/org-working-on-behalf-route', function (req, re
     res.redirect('/beta-v4/account-management/org-working-on-behalf-name')
   } else if (onBehalfOf == 'No') {
     res.redirect('/beta-v4/account-management/org-user-agreement')
+  }
+})
+
+router.post('/account-management-dsa2/org-working-on-behalf-route', function (req, res, next) {
+
+  const onBehalfOf = req.session.data['on-behalf-of']
+
+  if (onBehalfOf == 'Yes') {
+    res.redirect('/beta-v4/account-management-dsa2/org-working-on-behalf-name')
+  } else if (onBehalfOf == 'No') {
+    res.redirect('/beta-v4/account-management-dsa2/org-check-answers')
   }
 })
 

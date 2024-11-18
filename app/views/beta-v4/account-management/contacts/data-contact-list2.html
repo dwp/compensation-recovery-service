@@ -9,55 +9,67 @@ Create an account
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+<br><br><br>
 
-    <span class="govuk-caption-xl">{{ data['company-name'] | default('John Smith Associates Ltd') }}</span>
-      <h1 class="govuk-heading-xl">Organisations you manage claims for</h1>
 
+      <h1 class="govuk-heading-xl">Data contacts for your organisation</h1>
+      <div class="govuk-inset-text">
+        You can add up to 8 contacts
+      </div>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Organisation name
+            Contact 1
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['on-behalf-of-org1'] | default('Aviva') }}
+            {{ data['name'] | default('John Smith') }} <br>
+              {{ data['email'] | default('john@avova.com') }} <br>
+                      {{ data['phone'] | default('0774354322') }} <br>
+                {{ data['role'] | default('Data officer') }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="org-working-on-behalf-remove?org-name={{ data['on-behalf-of-org1'] }}">Remove<span class="govuk-visually-hidden"> organisation working on behalf of</span></a>
+            <a class="govuk-link" href="data-contact-list">Remove<span class="govuk-visually-hidden"> organisation working on behalf of</span></a>
 <!--            | <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> this organisation working on behalf of</span></a>-->
           </dd>
         </div>
-        {% if data['org2'] == "exists" %}
+
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Organisation name
+            Contact 2
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['on-behalf-of-org2'] | default('esure') }}
+            {{ data['name2'] | default('Jane Data') }} <br>
+              {{ data['email2'] | default('jane@avova.com') }} <br>
+                      {{ data['phone'] | default('20243434331') }} <br>
+                {{ data['role2'] | default('Data officer') }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="org-working-on-behalf-remove?org-name={{ data['on-behalf-of-org2'] }}">Remove<span class="govuk-visually-hidden"> organisation working on behalf of</span></a>
+            <a class="govuk-link" href="data-contact-list">Remove<span class="govuk-visually-hidden"> organisation working on behalf of</span></a>
             <!--            | <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> this organisation working on behalf of</span></a>-->
           </dd>
         </div>
-        {% endif %}
+
+
       </dl>
 
 
         <div class="govuk-button-group">
-          <form class="form" action="org-check-answers" method="post">
+          <form class="form" action="../admin-user/admin-manage-org"" method="post">
           <button class="govuk-button" data-module="govuk-button">
-            Continue
+            Save
           </button>
           </form>
-          <form class="form" action="org-working-on-behalf-name-2" method="post">
+          <form class="form" action="" method="post">
           <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-            Add an organisation
+            Add another
           </button>
           </form>
+
         </div>
-
-
+        <div class="govuk-button-group">
+        <a class="govuk-link" href="admin-manage-org">Cancel</a>
+    </div>
 
     </div>
   </div>
