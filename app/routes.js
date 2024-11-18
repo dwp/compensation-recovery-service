@@ -952,14 +952,14 @@ if (req.session.data['change'] == 'Liability') {
     }
 })
 
-router.post('/beta-v4/account-management-dsa/dsa/dsa-decision', function (req, res) {
+router.post('/beta-v4/account-management-dsa2/dsa/dsa-decision', function (req, res) {
 
 if (req.session.data['result'] == 'withdrawn') {
-  res.redirect('/beta-v4/account-management-dsa/dsa2/forward-dsa')
+  res.redirect('/beta-v4/account-management-dsa2/dsa/forward-dsa')
 } else if (req.session.data['result'] == 'disallowed') {
-    res.redirect('/beta-v4/account-management-dsa/dsa2/confirmation_later')
+    res.redirect('/beta-v4/account-management-dsa2/dsa/data-contact-holding_b')
     } else {
-      res.redirect('/beta-v4/account-management-dsa/dsa2/confirmation_signed.html')
+      res.redirect('/beta-v4/account-management-dsa2/dsa/data-contact-holding_c')
     }
 })
 
