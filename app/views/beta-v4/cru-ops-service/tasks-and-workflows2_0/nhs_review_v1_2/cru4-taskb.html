@@ -1,0 +1,212 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Check your answers before registering the claim
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+  <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters">
+        <span class="govuk-caption-xl">CRU12345
+        </span>
+
+        <h1 class="govuk-heading-xl" style="margin-bottom:10px">Check and update claim details from CRU4</h1>
+<strong class="govuk-tag govuk-tag--yellow">In progress</strong> <br>
+        <!-- <div class="govuk-inset-text">
+        More information received:
+          <p class="govuk-body govuk-!-font-weight-bold">Patient was diagnosed march 2020 Haemachromatosis and had fortnightly venesection at the hospital until they were suspended on the 19/11/2020</p>
+        </div> -->
+
+        <!-- <dl class="govuk-summary-list govuk-!-margin-top-7">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Description
+            </dt>
+            <dd class="govuk-summary-list__value">
+            Check and update claim details
+            </dd>
+          </div>
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Liability type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Motor
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Injury date
+            </dt>
+            <dd class="govuk-summary-list__value">
+            14 February 2024
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Compensator
+            </dt>
+            <dd class="govuk-summary-list__value">
+            	Johnson & partners
+            </dd>
+          </div>
+
+
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+        NHS Treating Trust
+            </dt>
+            <dd class="govuk-summary-list__value">
+            Newcastle Hospitals NHS Foundation Trust
+            </dd>
+          </div>
+
+        </dl> -->
+<br><br>
+<h2 class="govuk-heading-m" style="margin-bottom:10px">Task instructions</h2>
+<ol class="govuk-list govuk-list--number">
+<li>Check the new details. They have been given by a compensator in a CRU4. They are different to the current details we hold on the claim.</li>
+<li>Update claim details manually if required.</li>
+<li>Mark task as complete or set a reminder to complete later.</li>
+</ol>
+
+        <br> <br>
+
+        <div class="govuk-notification-banner" role="region"
+          aria-labelledby="govuk-notification-banner-title"
+          data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Check claim details
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content" style="padding-bottom:30px">
+
+
+
+            <table class="govuk-table">
+              <!-- <caption class="govuk-table__caption govuk-table__caption--m">Current and new claim details</caption> -->
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Detail</th>
+                  <th scope="col" class="govuk-table__header">Current</th>
+                    <th scope="col" class="govuk-table__header">New </th>
+                          <th scope="col" class="govuk-table__header"></th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Date of birth</th>
+                  <td class="govuk-table__cell">		28 February 1978</td>
+                      <td class="govuk-table__cell">28 February 1979</td>
+                        <td class="govuk-table__cell">   <a class="govuk-link" href="about-the-injured-person2" target=”_blank”>Change</a> </td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">National Insurance number</th>
+                  <td class="govuk-table__cell">AA 11 22 33 B</td>
+                      <td class="govuk-table__cell">CD 21 31 75 B</td>
+                      <td class="govuk-table__cell">    <a class="govuk-link" href="about-the-injured-person2" target=”_blank”>Change</a> </td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Injury date</th>
+                  <td class="govuk-table__cell">14 February 2024</td>
+                      <td class="govuk-table__cell">12 February 2024</td>
+                      <td class="govuk-table__cell">      <a class="govuk-link" href="">Change</a> </td>
+                </tr>
+                <tr class="govuk-table__row">
+
+
+
+
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Injured persons rep details -->
+        <!-- <h2 class="govuk-heading-m" style="margin-bottom:10px">Task instructions</h2>
+        <p>
+          Check if the notes content require any changes to the treatment details provided by the NHS trust.</p>        <p class="govuk-body">
+                    <a href="case-view-main" class="govuk-link" target=”_blank”>Access full claim details (opens in new tab)</a>
+                  </p>
+<br> -->
+
+
+
+
+
+
+
+<br>
+        <!-- <div class="govuk-inset-text">
+          <p class="govuk-body">
+          Patient was diagnosed march 2020 Haemachromatosis and had fortnightly venesection at the hospital until they were suspended on the 19/11/2020
+        </p>
+        </div> -->
+  <form  class="form" action="confirmation" method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h3 class="govuk-fieldset__heading">
+            What is the next step?
+              </h3>
+            </legend>
+            <!-- <div id="changed-name-hint" class="govuk-hint">
+              Either changed or no change needed
+            </div> -->
+            <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="info-4" name="info" type="radio" value="Submitted information to calculate NHS charges" {{ checked("info", "Data ready") }}>
+                <label class="govuk-label govuk-radios__label" for="info-4">
+
+Mark task as complete
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="info" name="info" type="radio" data-aria-controls="conditional-contact" value="Task completed but informaton not submitted" {{ checked("info", "Reply with further info to the NHS") }}>
+                <label class="govuk-label govuk-radios__label" for="info">
+Set a reminder to complete task later
+                </label>
+              </div>
+
+
+
+
+          </fieldset>
+        </div>
+
+
+        <br>
+
+
+
+          <input type="hidden" name="checkanswers" value="true" />
+
+          <div class="govuk-button-group">
+            <button class="govuk-button" data-module="govuk-button">
+              Save and continue
+            </button>
+            <a class="govuk-link" href="#">Cancel</a>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
