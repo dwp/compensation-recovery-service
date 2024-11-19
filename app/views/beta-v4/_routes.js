@@ -142,7 +142,7 @@ router.post('/account-management-dsa2/org-tpa-route', function (req, res, next) 
   if (orgType == 'Third Party Administrator') {
     res.redirect('/beta-v4/account-management-dsa2/org-working-on-behalf')
   } else {
-    res.redirect('/beta-v4/account-management-dsa2/org-check-answers')
+    res.redirect('/beta-v4/account-management-dsa2/opt_in')
   }
 })
 
@@ -165,7 +165,7 @@ router.post('/account-management-dsa2/org-working-on-behalf-route', function (re
   if (onBehalfOf == 'Yes') {
     res.redirect('/beta-v4/account-management-dsa2/org-working-on-behalf-name')
   } else if (onBehalfOf == 'No') {
-    res.redirect('/beta-v4/account-management-dsa2/org-check-answers')
+    res.redirect('/beta-v4/account-management-dsa2/opt_in')
   }
 })
 
