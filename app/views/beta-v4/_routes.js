@@ -342,6 +342,18 @@ router.post('/cru-ops-service/claim-update3/answer', function (req, res, next) {
 
     })
 
+    router.post('/cru-ops-service/tasks-and-workflows2_0/note/add-note', function (req, res, next) {
+
+      const note = req.session.data['note']
+
+      if (note == 'nhs') {
+        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/note/2a-nhs')
+      } else if (note == 'comment') {
+        res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/note/2b-comment')
+      }
+
+    })
+
 // SCRUTINY E-PARTNER INJURY DESCRIPTION
 router.post('/cru-ops-service/tasks-and-workflows2_0/scrutiny_task_v2/injury-description', function (req, res, next) {
 
