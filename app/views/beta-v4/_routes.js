@@ -240,7 +240,7 @@ router.post('/cru-ops-service/nhs-hospitals/add-new-type-route', function (req, 
     if (tasktype == 'nonino') {
       res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows/action-task')
     } else if (tasktype == 'expiredcertificate') {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows/action-task-certs')
+      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows/certs-tasks')
     } else if (tasktype == 'existingclaim') {
       res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows/v2-action-task-da')
     } else if (tasktype == 'legacyclaim') {
