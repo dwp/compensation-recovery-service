@@ -5,27 +5,7 @@
 Agent dashboard
 {% endblock %}
 
-{% block header %}
-{# Set serviceName in config.js. #}
-{{ govukHeader({
-  homepageUrl: "/",
-  serviceName: serviceName,
-  serviceUrl: "/" + folder + "/",
-  containerClasses: "govuk-width-container"
-}) }}
 
-  <div class="govuk-width-container">
-    <div class="govuk-phase-banner">
-      <p class="govuk-phase-banner__content">
-        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
-          Prototype: Current
-        </strong>
-        <span>This is not production ready code</span>
-      </p>
-    </div>
-  </div>
-
-  {% endblock %}
 
 
 {% block content %}
@@ -70,11 +50,11 @@ Agent dashboard
          <p><a href="v2-tasks" class="govuk-link govuk-link--no-visited-state">Go to tasks</a></p>
         </form>
     </div>
-    
-    
+
+
     {% endif %}
 
-    
+
     <div class="govuk-grid-column-one-half">
         <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Claims</h2>
         <p class="govuk-body"><strong>18</strong> claims registered today</p>
@@ -95,8 +75,8 @@ Agent dashboard
         <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Reports</h2>
         <ul class="govuk-list">
           <li><a href="../mi" class="govuk-link govuk-link--no-visited-state">Claims</a></li>
-          <li><a href="../mi-tasks" class="govuk-link govuk-link--no-visited-state">Tasks</a></li> 
-          <li><a href="../mi-history" class="govuk-link govuk-link--no-visited-state">Cue history file</a></li> 
+          <li><a href="../mi-tasks" class="govuk-link govuk-link--no-visited-state">Tasks</a></li>
+          <li><a href="../mi-history" class="govuk-link govuk-link--no-visited-state">Cue history file</a></li>
         </ul>
     </div>
 
