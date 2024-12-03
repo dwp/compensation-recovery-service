@@ -2,7 +2,7 @@
 {% extends folder+ "/layout.html" %}
 
 {% block pageTitle %}
-Create an account
+Manage organisation - Organisation details
 {% endblock %}
 
 {% block content %}
@@ -10,9 +10,10 @@ Create an account
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
-    <form class="form" action="org-address" method="post">
+    <form class="form" action="admin-manage-org" method="post">
       <span class="govuk-caption-xl">{{ data['company-name'] }}</span>
-      <h1 class="govuk-heading-xl">Your organisation details</h1>
+      <h1 class="govuk-heading-xl">Organisation details</h1>
+
 <!--      <div class="govuk-form-group">-->
 <!--        <label class="govuk-label" for="type-of-org">-->
 <!--          Type of organisation-->
@@ -46,10 +47,6 @@ Create an account
         </fieldset>
       </div>
 
-
-      <p>We will use these if we need to contact your organisation about a claim.</p>
-
-
       <div class="govuk-form-group">
         <label class="govuk-label" for="tel-primary">
           Primary telephone number
@@ -57,18 +54,22 @@ Create an account
         <input class="govuk-input govuk-input--width-10" id="tel-primary" name="tel-primary" type="text" value="{{ data['tel-primary'] }}">
       </div>
 
-
-
       <div class="govuk-form-group">
-        <label class="govuk-label" for="tel-primary">
-          Email address for general enquiries
+        <label class="govuk-label" for="tel-secondary">
+          Secondary telephone number (optional)
         </label>
-        <input class="govuk-input govuk-!-width-one-half" id="email-enquiries" name="email-enquiries" type="text" value="{{ data['email-enquiries'] }}">
+        <input class="govuk-input govuk-input--width-10" id="tel-secondary" name="tel-secondary" type="text" value="{{ data['tel-secondary'] }}">
       </div>
 
-      {{ govukButton({
-      text: "Continue"
-      }) }}
+      <div class="govuk-button-group govuk-!-margin-top-7">
+        <button class="govuk-button" data-module="govuk-button">
+          Save
+        </button>
+
+        <a class="govuk-link" href="admin-manage-org">Cancel</a>
+      </div>
+
+
 
     </form>
 
