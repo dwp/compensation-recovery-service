@@ -10,7 +10,7 @@ Create an account
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
-    <form class="form" action="opt_in" method="post">
+    <form class="form" action="org-confirmation" method="post">
 <!--      <span class="govuk-caption-xl">{{ data['company-name'] }}</span>-->
       <h1 class="govuk-heading-xl">Check your answers</h1>
 
@@ -58,6 +58,18 @@ Create an account
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['user-full-name'] | default('Sam Smith') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="org-user-name">Change<span class="govuk-visually-hidden"> full name</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+          Research opt-in
+          </dt>
+          <dd class="govuk-summary-list__value">
+          
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="org-user-name">Change<span class="govuk-visually-hidden"> full name</span></a>

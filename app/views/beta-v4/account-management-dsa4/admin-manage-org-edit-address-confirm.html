@@ -2,7 +2,7 @@
 {% extends folder+ "/layout.html" %}
 
 {% block pageTitle %}
-Create an account
+Manage organisation - Organisation address
 {% endblock %}
 
 {% block content %}
@@ -10,9 +10,9 @@ Create an account
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
-    <form class="form" action="org-tpa-route" method="post">
+    <form class="form" action="admin-manage-org" method="post">
       <span class="govuk-caption-xl">{{ data['company-name'] }}</span>
-      <h1 class="govuk-heading-xl">Your organisation address</h1>
+      <h1 class="govuk-heading-xl">Organisation address</h1>
 
       <h2 class="govuk-heading-m">Postcode</h2>
       <p class="govuk-body">{{ data['company-address-postcode']}} <a href="org-address">Change</a></p>
@@ -29,11 +29,15 @@ Create an account
         </select>
       </div>
 
-      <p class="govuk-body"><a href="org-address-manual-entry">I can't find the address in the list</a></p>
+      <p class="govuk-body"><a href="">I can't find the address in the list</a></p>
 
-      {{ govukButton({
-      text: "Continue"
-      }) }}
+      <div class="govuk-button-group govuk-!-margin-top-7">
+        <button class="govuk-button" data-module="govuk-button">
+          Save
+        </button>
+
+        <a class="govuk-link" href="admin-manage-org">Cancel</a>
+      </div>
 
     </form>
 
