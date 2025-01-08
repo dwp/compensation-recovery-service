@@ -1,0 +1,75 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+About the injured person -  Does the injured person have a national insurance number
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+        <form class="form" action="hospital-list?manualHospital2=true&" method="post">
+
+            <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h1 class="govuk-heading-xl">
+                      <span class="govuk-caption-xl">NHS treatment details</span>
+                        What are the second hospital details?
+                    </h1>
+                </legend>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="m-hospital-2">
+                        Hospital name
+                    </label>
+                    <input class="govuk-input" id="m-hospital-2" name="m-hospital-2" type="text" autocomplete="m-hospital2" value="{{ data['m-hospital-2'] }}">
+                </div>
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="hos2-address-line-1">
+                        Address line 1
+                    </label>
+                    <input class="govuk-input" id="hos2-address-line-1" name="hos2-address-line-1" type="text" autocomplete="hos2-address-line1" value="{{ data['hos2-address-line-1'] }}">
+                </div>
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="hos2-address-line-2">
+                        Address line 2 (optional)
+                    </label>
+                    <input class="govuk-input" id="hos2-address-line-2" name="hos2-address-line-2" type="text" autocomplete="hos2-address-line2" value="{{ data['hos2-address-line-2'] }}">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="hos2-address-town">
+                        Town or city
+                    </label>
+                    <input class="govuk-input govuk-!-width-two-thirds" id="hos2-address-town" name="hos2-address-town" type="text" autocomplete="hos2-address-level2" value="{{ data['hos2-address-town'] }}">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="hos2-address-county">
+                        County (optional)
+                    </label>
+                    <input class="govuk-input govuk-!-width-two-thirds" id="hos2-address-county" name="hos2-address-county" type="text" value="{{ data['hos2-address-county'] }}">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="hos2-address-postcode">
+                        Postcode
+                    </label>
+                    <input class="govuk-input govuk-input--width-10" id="hos2-address-postcode" name="hos2-address-postcode" type="text" autocomplete="hos2-postal-code"  value="{{ data['hos2-address-postcode'] }}">
+                </div>
+
+            </fieldset>
+
+           <button class="govuk-button" data-module="govuk-button">
+             Continue
+           </button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

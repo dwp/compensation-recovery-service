@@ -1,0 +1,166 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Register a claim with the Compensation Recovery Unit
+{% endblock %}
+
+{% block content %}
+
+
+<style>
+	.govuk-notification-banner__content > * {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+</style>
+
+      <div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-full-from-desktop">
+          <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+          <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+            <div class="govuk-notification-banner__header">
+              <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                Important
+              </h2>
+            </div>
+            <div class="govuk-notification-banner__content">
+              <p class="govuk-notification-banner__heading ">
+                Compensation recovery claim reference has changed to CRU678.
+              </p>
+              <p>
+                Update your records. Use the new reference if you talk to CRU about this claim.
+              </p>
+              <p>
+                You can: </p>
+                <ul class="govuk-list govuk-list--bullet">
+    <li>request a certificate at cru.highvolumeareacertificates@dwp.gov.uk</li>
+    <li>tell CRU that you've settled the claim at: cru.highvolumeareasettlements@dwp.gov.uk</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="govuk-grid-column-full-from-desktop">
+
+
+            <h1 class="govuk-heading-xl">
+              <span class="govuk-caption-xl"> Claim reference</span>
+             CRU123
+            </h1>
+
+
+
+
+            {% if checked('case-settled','yes') %}
+              {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+              {% set html %}
+                <h3 class="govuk-notification-banner__heading">
+                  Case settled
+                </h3>
+                <p class="govuk-body">Contact <a href="mailto:cru.ebt@dwp.gov.uk" class="govuk-link">cru.ebt@dwp.gov.uk</a> if you think there's a problem.</p>
+              {% endset %}
+
+              {{ govukNotificationBanner({
+                html: html,
+                type: 'success'
+              }) }}
+
+            {% endif %}
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Liability type
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['liability'] | default('Motor') }}
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Name of injured person
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['first-name'] | default('Bojen') }}  {{ data['last-name'] | default('Westoros') }}
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Date of birth
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  9 April 1966
+                </dd>
+              </div>
+             <!-- <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  72 Guild Street<br>London<br>SE23 6FH
+                </dd>
+              </div> -->
+          <!--   <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Claim reference
+                </dt>
+                <dd class="govuk-summary-list__value">
+                 CRU123456
+                </dd>
+              </div> -->
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Date of claim registration
+                </dt>
+                <dd class="govuk-summary-list__value">
+                24 February 2022
+                </dd>
+              </div>
+              {% if checked('case-settled','yes') %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Date claim settled
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['settlement-date-day']}} {{ data['settlement-date-month']}} {{ data['settlement-date-year']}}
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Type of settlement
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['type-of-settlement']}}
+                </dd>
+              </div>
+              {% endif %}
+            </dl>
+
+           
+
+
+<div>
+  <h2 class="govuk-heading-m">Get help with this claim</h2>
+
+<ul class="govuk-list">
+  <li>Telephone: 0800 15 13197</li>
+  <li>Monday to Friday, 8am to 6pm (except public holidays)</li>
+  <li>Email: <a href="mailto:cru.ebt@dwp.gov.uk" class="govuk-link">cru.ebt@dwp.gov.uk</a>
+</li></ul>
+
+  </div>
+<br>
+
+
+        <a href="../compensator/compensator-dashboard" class="govuk-button govuk-button--secondary">Return to home</a></div>
+      </div>
+
+
+        </div>
+      </div>
+
+{% endblock %}

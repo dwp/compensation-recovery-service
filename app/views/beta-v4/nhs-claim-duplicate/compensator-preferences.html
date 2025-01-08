@@ -1,0 +1,62 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Insurance company -  Who is the insurance company paying the compensation?
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+        <form class="form" action="certificate-delivery-question" method="post">
+          <div class="govuk-form-group">
+            <span class="govuk-caption-xl">Compensator Ltd</span>
+            <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                <h1 class="govuk-fieldset__heading">
+                  How would you like the certificates to be delivered?
+                </h1>
+              </legend>
+              <div id="cert-prefs-hint" class="govuk-hint">
+                Select all that apply.
+              </div>
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="certPrefs1" name="cert-prefs" type="checkbox" value="Email">
+                  <label class="govuk-label govuk-checkboxes__label" for="certPrefs1">
+                    Email
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="certPrefs2" name="cert-prefs" type="checkbox" value="Post">
+                  <label class="govuk-label govuk-checkboxes__label" for="certPrefs2">
+                    Post
+                  </label>
+                </div>
+              </div>
+
+            </fieldset>
+          </div>
+
+
+
+      <div class="govuk-radios__item govuk-visually-hidden">
+        <input class="govuk-radios__input" id="injured-persons-details" name="compensator-details" type="radio" value="completed" checked>
+        <label class="govuk-label govuk-radios__label" for="injured-persons-details">
+         hidden radio for logic
+        </label>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

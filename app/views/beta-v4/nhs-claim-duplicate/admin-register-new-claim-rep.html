@@ -1,0 +1,54 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <nav class="navigation-secondary govuk-!-margin-bottom-6">
+      <ul>
+        <li><a href="admin-dashboard">Home</a></li>
+        <li><a href="admin-all-claims">All claims</a></li>
+        <li class="active"><a href="admin-register-new-claim">Register a new claim</a></li>
+        <li><a href="admin-take-over-claim">Take over a claim from another organisation</a></li>
+        <li><a href="admin-manage-org">Manage organisation</a></li>
+        <li><a href="admin-profile">My profile</a></li>
+      </ul>
+    </nav>
+
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl govuk-!-margin-top-5">
+      <span class="govuk-caption-xl">{{ data['company-name'] | default('Compensator Ltd') }}</span>
+        Register a new claim
+      </h1>
+
+      <p class="govuk-body">Register claims online and download your compensation recovery and NHS charges certificates in PDF format.</p>
+
+      <h2 class="govuk-heading-m">Before you start</h2>
+      <p class="govuk-body">You'll need the following information:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Injured person's details</li>
+        <li>Injury details</li>
+        <li>Names and addresses of any hospitals attended because of the incident</li>
+        <li>Injured person's representative details</li>
+      </ul>
+      <p class="govuk-body">Registering a claim takes around X minutes.</p>
+
+      {{ govukButton({
+      text: "Start now",
+      href: "../nhs-claim-duplicate/liability-guard",
+      classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-8",
+      isStartButton: true
+      }) }}
+
+    </div>
+  </div>
+
+
+
+
+{% endblock %}
