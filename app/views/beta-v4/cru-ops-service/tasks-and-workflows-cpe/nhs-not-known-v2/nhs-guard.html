@@ -1,0 +1,71 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+  About the injured person - Did they receive NHS hospital treatment?
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+        <form class="form" action="nhs-guard-route" method="post">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="treatment-hint">
+              <h1 class="govuk-heading-xl">
+<span class="govuk-caption-xl">NHS treatment details</span>
+                  Did the injured person receive NHS hospital treatment?
+                </h1>
+
+
+              <p class="govuk-body">This includes:</p>
+
+              <ul class="govuk-list govuk-list--bullet">
+                <li>treatment at any NHS hospital</li>
+                <li>treatment at any NHS urgent care centre</li>
+                <li>a trip in an NHS ambulance</li>
+              </ul>
+
+              <p class="govuk-body">This <strong>does not</strong> include:</p>
+
+              <ul class="govuk-list govuk-list--bullet">
+                <li>treatment at an NHS GP surgery</li>
+                <li>treatment at a private hospital</li>
+                <li>a trip in a private ambulance</li>
+              </ul>
+
+              <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="treatment-yes" name="treatment" type="radio" value="Yes" {{ checked("treatment", "Yes") }}>
+                  <label class="govuk-label govuk-radios__label" for="treatment-yes">
+                   Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="treatment-no" name="treatment" type="radio" value="No" {{ checked("treatment", "No") }}>
+                  <label class="govuk-label govuk-radios__label" for="treatment-no">
+                   No
+                  </label>
+                </div>
+               <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="treatment-nk" name="treatment" type="radio" value="Not yet known" {{ checked("treatment", "Not yet known") }}>
+                  <label class="govuk-label govuk-radios__label" for="treatment-nk">
+                   Not yet known
+                  </label>
+                </div>
+              </div>
+
+            </fieldset>
+          </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

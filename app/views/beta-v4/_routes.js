@@ -25,6 +25,18 @@ router.post('/nhs-claim/nn-guard', function (req, res, next) {
   }
 })
 
+router.post('/nhs-claim-duplicate/nn-guard', function (req, res, next) {
+
+  const nino = req.session.data['ni-number']
+
+  if (!nino) {
+    res.redirect('/beta-v4/nhs-claim-duplicate/about-the-injured-person-nn')
+  } else {
+    res.redirect('/beta-v4/nhs-claim-duplicate/date-of-claim')
+  }
+})
+
+
 
 router.post('/registration/confirmation-route', function (req, res, next) {
 
@@ -268,6 +280,21 @@ router.post('/cru-ops-service/nhs-hospitals/add-new-type-route', function (req, 
       res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows/v2-action-task-da')
     } else if (tasktype == 'legacyclaim') {
       res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows/action-legacy-task')
+    }
+  })
+
+  router.post('/cru-ops-service/tasks-and-workflows-cpe/tasks', function (req, res, next) {
+
+    const tasktype = req.session.data['tasktype']
+
+    if (tasktype == 'nonino') {
+      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows-cpe/cpe-tasks')
+    } else if (tasktype == 'expiredcertificate') {
+      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows-cpe/certs-tasks')
+    } else if (tasktype == 'existingclaim') {
+      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows-cpe/v2-action-task-da')
+    } else if (tasktype == 'legacyclaim') {
+      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows-cpe/action-legacy-task')
     }
   })
 
