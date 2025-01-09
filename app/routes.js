@@ -831,6 +831,15 @@ if (req.session.data['cpe1'] == 'approve') {
     }
 })
 
+router.post('/beta-v4/cru-ops-service/tasks-and-workflows-cpe/confirmed-check2', function (req, res) {
+
+if (req.session.data['cpe1'] == 'approve') {
+  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows-cpe/confirmation-approve')
+} else {
+      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows-cpe/confirmation-reject')
+    }
+})
+
 router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/scrutiny_task_v1_0/confirmed-check', function (req, res) {
 
 if (req.session.data['task_decision'] == 'reject') {

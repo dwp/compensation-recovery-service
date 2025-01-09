@@ -13,7 +13,7 @@ Check your answers before registering the claim
   <main class="govuk-main-wrapper " id="main-content" role="main">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <span class="govuk-caption-xl">CRU12345
+        <span class="govuk-caption-xl">		CRU73982
         </span>
 
         <h1 class="govuk-heading-xl" style="margin-bottom:10px">Task details</h1>
@@ -37,11 +37,18 @@ Check your answers before registering the claim
               Description
             </dt>
             <dd class="govuk-summary-list__value">
-              Duplicate claim detected
+        Name issues
             </dd>
           </div>
           <div class="govuk-summary-list__row">
-
+            <dt class="govuk-summary-list__key">
+          Claim reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+	CRU73982
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
             Liability type
             </dt>
@@ -49,8 +56,8 @@ Check your answers before registering the claim
               Motor
             </dd>
           </div>
-          <div class="govuk-summary-list__row">
 
+          <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
             Compensator
             </dt>
@@ -58,6 +65,55 @@ Check your answers before registering the claim
               Moto Insurances Ltd
             </dd>
           </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+    Injury date
+            </dt>
+            <dd class="govuk-summary-list__value">
+14 February 2024
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Associated names
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                  3 names found
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                <span class="govuk-body govuk-!-font-weight-bold">Jon Smith</span> | captured 12 September 2024 <br>
+                <span class="govuk-body govuk-!-font-weight-bold">J Smith</span> | captured 5 December 2023<br>
+                <span class="govuk-body govuk-!-font-weight-bold">John Smithe</span> | captured 3 December 2023
+              </details>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+    Linked claims
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                  5 claims found
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                <span class="govuk-body govuk-!-font-weight-bold"><a href="">CRS46243</a> </span>| registered 20 March 2023 <br>
+             <span class="govuk-body govuk-!-font-weight-bold"><a href="">PB23463</a></span> | registered 19 March 2023<br>
+             <span class="govuk-body govuk-!-font-weight-bold"><a href="">CRU11220</a></span> | registered 22 August 2019 <br>
+       <span class="govuk-body govuk-!-font-weight-bold"><a href="">CRU64576</a></span> | registered 31 October 2015<br>
+                <span class="govuk-body govuk-!-font-weight-bold"><a href="">C54332</a></span> | registered 10 August 2010
+              </details>
+            </dd>
+          </div>
+
+
 
 
           <!-- <div class="govuk-summary-list__row">
@@ -140,7 +196,7 @@ Check your answers before registering the claim
 <br>
         <h2 class="govuk-heading-m" style="margin-bottom:10px">Task instructions</h2>
         <p style="margin-bottom:15px">
-Check if this claim is a duplicate.</p>
+Check the details provided by the compensator to see if they are correct.</p>
  <p class="govuk-body">
                     <a href="case-view-history" class="govuk-link" target=”_blank”>Access full existing claim details (opens in new tab)</a>
                   </p>
@@ -162,22 +218,18 @@ Check if this claim is a duplicate.</p>
                   <thead class="govuk-table__head">
                     <tr class="govuk-table__row">
                       <th scope="col" class="govuk-table__header">Detail</th>
-                      <th scope="col" class="govuk-table__header">New claim</th>
-                        <th scope="col" class="govuk-table__header">Existing claim</th>
+                      <th scope="col" class="govuk-table__header">CRU details</th>
+                        <th scope="col" class="govuk-table__header">Searchlight/CIS</th>
                               <th scope="col" class="govuk-table__header"></th>
                     </tr>
                   </thead>
                   <tbody class="govuk-table__body">
-                    <tr class="govuk-table__row">
-                      <th scope="row" class="govuk-table__header">Claim reference</th>
-                      <td class="govuk-table__cell">		CRU12345</td>
-                          <td class="govuk-table__cell">CRU12345</td>
-                    </tr>
+
 
                     <tr class="govuk-table__row">
                       <th scope="row" class="govuk-table__header">Injured person's name</th>
-                      <td class="govuk-table__cell">	Bojen Westoros</td>
-                          <td class="govuk-table__cell">	Bojen Westoros</td>
+                      <td class="govuk-table__cell">	John Smythe</td>
+                          <td class="govuk-table__cell">	John Smith</td>
                     </tr>
                     <tr class="govuk-table__row">
                       <th scope="row" class="govuk-table__header">Date of birth</th>
@@ -191,18 +243,8 @@ Check if this claim is a duplicate.</p>
                           <td class="govuk-table__cell">AA 11 22 33 B</td>
 
                     </tr>
-                    <tr class="govuk-table__row">
-                      <th scope="row" class="govuk-table__header">Injury date</th>
-                      <td class="govuk-table__cell">14 February 2024</td>
-                          <td class="govuk-table__cell">14 February 2024</td>
 
-                    </tr>
 
-                    <tr class="govuk-table__row">
-                      <th scope="row" class="govuk-table__header">Compensator</th>
-                      <td class="govuk-table__cell">Moto Insurances Ltd</td>
-                          <td class="govuk-table__cell">Moto Insurances Ltd</td>
-                    </tr>
 
 
 
@@ -240,7 +282,7 @@ Check if this claim is a duplicate.</p>
           Patient was diagnosed march 2020 Haemachromatosis and had fortnightly venesection at the hospital until they were suspended on the 19/11/2020
         </p>
         </div> -->
-  <form  class="form" action="confirmed-check" method="post">
+  <form  class="form" action="confirmed-check2" method="post">
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -256,28 +298,18 @@ Check if this claim is a duplicate.</p>
                 <input class="govuk-radios__input" id="approve" name="cpe1" type="radio" value="approve" {{ checked("info", "Data ready") }}>
                 <label class="govuk-label govuk-radios__label" for="info-4">
 
-                Approve
+                Approve claim
                 </label>
               </div>
 
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="remove" name="cpe1" type="radio" data-aria-controls="conditional-contact" value="remove" {{ checked("info", "Reply with further info to the NHS") }}>
                 <label class="govuk-label govuk-radios__label" for="info">
-                      Remove new claim
+                      Reject claim
                 </label>
               </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="existing" name="cpe1" type="radio" data-aria-controls="conditional-contact" value="existing" {{ checked("info", "Reply with further info to the NHS") }}>
-                <label class="govuk-label govuk-radios__label" for="info">
-                      Remove existing claim
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="ask" name="cpe1" type="radio" data-aria-controls="conditional-contact" value="ask" {{ checked("info", "Reply with further info to the NHS") }}>
-                <label class="govuk-label govuk-radios__label" for="info">
-                    Ask the compensator to remove the claim
-                </label>
-              </div>
+
+
 
           </fieldset>
         </div>
