@@ -171,7 +171,7 @@ Check if this claim is a duplicate.</p>
                     <tr class="govuk-table__row">
                       <th scope="row" class="govuk-table__header">Claim reference</th>
                       <td class="govuk-table__cell">		CRU12345</td>
-                          <td class="govuk-table__cell">CRU12345</td>
+                          <td class="govuk-table__cell">CRU75332</td>
                     </tr>
 
                     <tr class="govuk-table__row">
@@ -240,7 +240,7 @@ Check if this claim is a duplicate.</p>
           Patient was diagnosed march 2020 Haemachromatosis and had fortnightly venesection at the hospital until they were suspended on the 19/11/2020
         </p>
         </div> -->
-  <form  class="form" action="confirmed-check" method="post">
+  <form  class="form" action="confirmed" method="post">
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -253,7 +253,7 @@ Check if this claim is a duplicate.</p>
             </div> -->
             <div class="govuk-radios govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="approve" name="cpe1" type="radio" value="approve" {{ checked("info", "Data ready") }}>
+                <input class="govuk-radios__input" id="info-4" name="info" type="radio" value="Submitted information to calculate NHS charges" {{ checked("info", "Data ready") }}>
                 <label class="govuk-label govuk-radios__label" for="info-4">
 
                 Approve
@@ -261,21 +261,21 @@ Check if this claim is a duplicate.</p>
               </div>
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="remove" name="cpe1" type="radio" data-aria-controls="conditional-contact" value="remove" {{ checked("info", "Reply with further info to the NHS") }}>
+                <input class="govuk-radios__input" id="info" name="info" type="radio" data-aria-controls="conditional-contact" value="Task completed but informaton not submitted" {{ checked("info", "Reply with further info to the NHS") }}>
                 <label class="govuk-label govuk-radios__label" for="info">
                       Remove new claim
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="existing" name="cpe1" type="radio" data-aria-controls="conditional-contact" value="existing" {{ checked("info", "Reply with further info to the NHS") }}>
+                <input class="govuk-radios__input" id="info" name="info" type="radio" data-aria-controls="conditional-contact" value="Task completed but informaton not submitted" {{ checked("info", "Reply with further info to the NHS") }}>
                 <label class="govuk-label govuk-radios__label" for="info">
-                      Remove existing claim
+                      Remove previous claim
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="ask" name="cpe1" type="radio" data-aria-controls="conditional-contact" value="ask" {{ checked("info", "Reply with further info to the NHS") }}>
+                <input class="govuk-radios__input" id="info" name="info" type="radio" data-aria-controls="conditional-contact" value="Task completed but informaton not submitted" {{ checked("info", "Reply with further info to the NHS") }}>
                 <label class="govuk-label govuk-radios__label" for="info">
-                    Ask the compensator to remove the claim
+                    Ask the comp to remove the claim
                 </label>
               </div>
 
