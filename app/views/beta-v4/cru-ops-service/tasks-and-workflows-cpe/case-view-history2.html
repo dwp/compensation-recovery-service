@@ -62,25 +62,17 @@ containerClasses: "govuk-width-container"
                   Name of injured person
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  {{ data['first-name'] | default('Bojen') }}  {{ data['last-name'] | default('Westoros') }}
+                  {{ data['first-name'] | default('Bojen') }}  {{ data['last-name'] | default('Westoros') }}  <strong class="govuk-tag govuk-tag--grey">
+        Requested name
+      </strong>
                 </dd>
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-              Associated names
+              Associated name
               </dt>
               <dd class="govuk-summary-list__value">
-                <details class="govuk-details">
-                  <summary class="govuk-details__summary">
-                    <span class="govuk-details__summary-text">
-                    3 names found
-                    </span>
-                  </summary>
-                  <div class="govuk-details__text">
-                  <span class="govuk-body govuk-!-font-weight-bold">Jon Smith</span> | captured 12 September 2024 <br>
-                  <span class="govuk-body govuk-!-font-weight-bold">J Smith</span> | captured 5 December 2023<br>
-                  <span class="govuk-body govuk-!-font-weight-bold">John Smithe</span> | captured 3 December 2023
-                </details>
+Jon Smith | captured on CIS on 12 September 2024 <br>
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -227,7 +219,9 @@ containerClasses: "govuk-width-container"
             Name
             </dt>
             <dd class="govuk-summary-list__value">
-            Bojen Westoros
+            Bojen Westoros <strong class="govuk-tag">
+  Requested name
+</strong>
             </dd>
             <dd class="govuk-summary-list__actions"></dd>
             </div>
