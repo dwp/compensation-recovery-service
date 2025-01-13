@@ -1,0 +1,46 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+    <form class="form" action="org-check-answers" method="post">
+      <h1 class="govuk-heading-xl">User agreement</h1>
+
+      <div class="govuk-form-group">
+        <p class="govuk-body">
+          To review the user agreement, please download the
+          <a href="" class="govuk-link">User terms and conditions agreement</a> (PDF)
+        </p>
+      </div>
+
+      {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+      {{ govukCheckboxes({
+        idPrefix: "user-agreement",
+        name: "user-agreement",
+        classes: "govuk-checkboxes--small",
+        items: [
+        {
+        value: "I have read and accept the terms of this agreement",
+        text: "I have read and accept the terms of this agreement"
+        }
+        ]
+      }) }}
+
+      {{ govukButton({
+      text: "Continue"
+      }) }}
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

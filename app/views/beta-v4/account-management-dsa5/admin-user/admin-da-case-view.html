@@ -1,0 +1,132 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Claim view
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full-from-desktop">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-2">
+      <span class="govuk-caption-xl"> Claim reference</span>
+      {{ data['da-crs-ref'] | default('CRS233450') }}
+    </h1>
+    <p class="govuk-body">
+      <strong class="govuk-tag govuk-tag--blue">Certificates pending</strong>
+    </p>
+
+    <br />
+
+    <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading">
+          The Compensation Recovery Service is checking this request. <br />Once approved, updated certificates will be issued.
+        </p>
+      </div>
+    </div>
+
+    {% set caseDetailsHtml %}
+
+    <dl class="govuk-summary-list govuk-!-margin-top-6 govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Type of claim
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Taking over a previously registered claim
+        </dd>
+      </div>
+    </dl>
+
+    <h2 class="govuk-heading-m">About the injured person</h2>
+    <dl class="govuk-summary-list govuk-!-margin-top-6 govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Last name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['da-ip-last-name'] | default('Westeros') }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Date of birth
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['da-ip-date-of-birth-day'] | default("28") }} {{ data['da-ip-date-of-birth-month'] | default("02") | toMonth }} {{ data['da-ip-date-of-birth-year'] | default("1978") }}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          National Insurance number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['da-ip-ni'] | default('QQ123456C') }}
+        </dd>
+      </div>
+    </dl>
+
+    <h2 class="govuk-heading-m">Compensator details</h2>
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Reference number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['da-comp-ref'] | default('XYZ33990') }}
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Company name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data['da-comp-name'] | default('Aviva') }}
+        </dd>
+      </div>
+    </dl>
+
+    {% endset -%}
+
+    {{ govukTabs({
+    items: [
+    {
+    label: "Details",
+    id: "case-details",
+    panel: {
+    html: caseDetailsHtml
+    }
+
+    }
+    ]
+    }) }}
+
+    <div>
+      <h2 class="govuk-heading-m">Get help with this claim</h2>
+      <ul class="govuk-list">
+        <li>Telephone: 0800 15 13197</li>
+        <li>Monday to Friday, 8am to 6pm (except public holidays)</li>
+        <li>Email: <a href="mailto:cru.ebt@dwp.gov.uk" class="govuk-link">cru.ebt@dwp.gov.uk</a>
+        </li>
+      </ul>
+    </div>
+    <br />
+    <a href="admin-all-claims" class="govuk-button govuk-button--secondary">Return to all claims</a>
+  </div>
+</div>
+
+
+
+{% endblock %}
