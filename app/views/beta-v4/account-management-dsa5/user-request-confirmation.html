@@ -1,0 +1,28 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-main-wrapper--auto-spacing">
+
+      {{ govukPanel({
+      titleText: "Access requested",
+      html: ""
+      }) }}
+
+      <p class="govuk-body">An email requesting access to create an account has been sent to your organisation administrator.</p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">You will receive an email asking you to create an individual account for your organisation.</p>
+      <p class="govuk-body">If you have not received an email within 7 days, check your Junk or Spam email folders. If the email is not there, you can request access again.</p>
+
+    </div>
+  </div>
+
+{% endblock %}
