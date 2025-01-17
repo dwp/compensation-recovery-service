@@ -13,7 +13,7 @@ Check your answers before registering the claim
   <main class="govuk-main-wrapper " id="main-content" role="main">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <span class="govuk-caption-xl">		CRU73982
+        <span class="govuk-caption-xl">		BBB327
         </span>
 
         <h1 class="govuk-heading-xl" style="margin-bottom:10px">Task details</h1>
@@ -37,7 +37,7 @@ Check your answers before registering the claim
               Description
             </dt>
             <dd class="govuk-summary-list__value">
-        Name issues
+      Missing or incorrect claim data
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -45,7 +45,7 @@ Check your answers before registering the claim
           Claim reference
             </dt>
             <dd class="govuk-summary-list__value">
-	CRU73982
+BBB327
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -76,7 +76,7 @@ Check your answers before registering the claim
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-            Associated name
+      Injured person name in Searchlight
             </dt>
             <dd class="govuk-summary-list__value">
 Jon Smith | captured on CIS on 12 September 2024 <br>
@@ -84,7 +84,7 @@ Jon Smith | captured on CIS on 12 September 2024 <br>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-    Linked claims
+    More claims by this person
             </dt>
             <dd class="govuk-summary-list__value">
               <details class="govuk-details">
@@ -94,11 +94,11 @@ Jon Smith | captured on CIS on 12 September 2024 <br>
                   </span>
                 </summary>
                 <div class="govuk-details__text">
-                <span class="govuk-body govuk-!-font-weight-bold"><a href="">CRS46243</a> </span>| registered 20 March 2023 <br>
-             <span class="govuk-body govuk-!-font-weight-bold"><a href="">PB23463</a></span> | registered 19 March 2023<br>
-             <span class="govuk-body govuk-!-font-weight-bold"><a href="">CRU11220</a></span> | registered 22 August 2019 <br>
-       <span class="govuk-body govuk-!-font-weight-bold"><a href="">CRU64576</a></span> | registered 31 October 2015<br>
-                <span class="govuk-body govuk-!-font-weight-bold"><a href="">C54332</a></span> | registered 10 August 2010
+                <span class="govuk-body govuk-!-font-weight-bold"><a href="">CRS462</a> </span>| registered 20 March 2023 <br>
+             <span class="govuk-body govuk-!-font-weight-bold"><a href="">PBA213</a></span> | registered 19 March 2023<br>
+             <span class="govuk-body govuk-!-font-weight-bold"><a href="">CRU112</a></span> | registered 22 August 2019 <br>
+       <span class="govuk-body govuk-!-font-weight-bold"><a href="">CRU345</a></span> | registered 31 October 2015<br>
+                <span class="govuk-body govuk-!-font-weight-bold"><a href="">CBD543</a></span> | registered 10 August 2010
               </details>
             </dd>
           </div>
@@ -186,9 +186,9 @@ Jon Smith | captured on CIS on 12 September 2024 <br>
 <br>
         <h2 class="govuk-heading-m" style="margin-bottom:10px">Task instructions</h2>
         <p style="margin-bottom:15px">
-Check the details provided by the compensator to see if they are correct.</p>
+Check the claim details and accept or reject the claim.</p>
  <p class="govuk-body">
-                    <a href="case-view-history" class="govuk-link" target=”_blank”>Access full existing claim details (opens in new tab)</a>
+                    <a href="case-view-history" class="govuk-link" target=”_blank”>Full existing claim details (opens in new tab)</a>
                   </p>
 
         <br> <br>
@@ -198,7 +198,7 @@ Check the details provided by the compensator to see if they are correct.</p>
   data-module="govuk-notification-banner">
   <div class="govuk-notification-banner__header">
     <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-      Details of conflicting claims
+      Claim details
     </h2>
   </div>
   <div class="govuk-notification-banner__content" style="padding-bottom:30px">
@@ -209,7 +209,7 @@ Check the details provided by the compensator to see if they are correct.</p>
                     <tr class="govuk-table__row">
                       <th scope="col" class="govuk-table__header">Detail</th>
                       <th scope="col" class="govuk-table__header">CRU details</th>
-                        <th scope="col" class="govuk-table__header">Searchlight/CIS</th>
+                        <th scope="col" class="govuk-table__header">Searchlight</th>
                               <th scope="col" class="govuk-table__header"></th>
                     </tr>
                   </thead>
@@ -218,8 +218,8 @@ Check the details provided by the compensator to see if they are correct.</p>
 
                     <tr class="govuk-table__row">
                       <th scope="row" class="govuk-table__header">Injured person's name</th>
-                      <td class="govuk-table__cell">	John Smythe</td>
-                          <td class="govuk-table__cell">	John Smith</td>
+                      <td class="govuk-table__cell">	John Alexander Smith</td>
+                          <td class="govuk-table__cell">	Janine Smith</td>
                     </tr>
                     <tr class="govuk-table__row">
                       <th scope="row" class="govuk-table__header">Date of birth</th>
@@ -288,7 +288,7 @@ Check the details provided by the compensator to see if they are correct.</p>
                 <input class="govuk-radios__input" id="approve" name="cpe1" type="radio" value="approve" {{ checked("info", "Data ready") }}>
                 <label class="govuk-label govuk-radios__label" for="info-4">
 
-                Approve claim
+               Accept claim
                 </label>
               </div>
 
