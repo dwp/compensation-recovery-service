@@ -13,7 +13,7 @@ Check your answers before registering the claim
   <main class="govuk-main-wrapper " id="main-content" role="main">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <span class="govuk-caption-xl">CRU12345
+        <span class="govuk-caption-xl">BCB418
         </span>
 
         <h1 class="govuk-heading-xl" style="margin-bottom:10px">Task details</h1>
@@ -37,7 +37,7 @@ Check your answers before registering the claim
               Description
             </dt>
             <dd class="govuk-summary-list__value">
-              Duplicate claim detected
+              Duplicate claim details
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -140,9 +140,9 @@ Check your answers before registering the claim
 <br>
         <h2 class="govuk-heading-m" style="margin-bottom:10px">Task instructions</h2>
         <p style="margin-bottom:15px">
-Check if this claim is a duplicate.</p>
+We have found 2 claims on the service with the same details. Check if the new claim is a duplicate of the existing claim and choose an action based on your decision.</p>
  <p class="govuk-body">
-                    <a href="case-view-history" class="govuk-link" target=”_blank”>Access full existing claim details (opens in new tab)</a>
+                    <a href="case-view-history" class="govuk-link" target=”_blank”>Full existing claim details (opens in new tab)</a>
                   </p>
 
         <br> <br>
@@ -152,7 +152,7 @@ Check if this claim is a duplicate.</p>
   data-module="govuk-notification-banner">
   <div class="govuk-notification-banner__header">
     <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-      Details of conflicting claims
+      Claim details
     </h2>
   </div>
   <div class="govuk-notification-banner__content" style="padding-bottom:30px">
@@ -162,16 +162,21 @@ Check if this claim is a duplicate.</p>
                   <thead class="govuk-table__head">
                     <tr class="govuk-table__row">
                       <th scope="col" class="govuk-table__header">Detail</th>
-                      <th scope="col" class="govuk-table__header">New claim</th>
-                        <th scope="col" class="govuk-table__header">Existing claim</th>
+                      <th scope="col" class="govuk-table__header">Existing claim  </th>
+                        <th scope="col" class="govuk-table__header">New claim</th>
                               <th scope="col" class="govuk-table__header"></th>
                     </tr>
                   </thead>
                   <tbody class="govuk-table__body">
                     <tr class="govuk-table__row">
                       <th scope="row" class="govuk-table__header">Claim reference</th>
-                      <td class="govuk-table__cell">		CRU12345</td>
-                          <td class="govuk-table__cell">CRU12345</td>
+                      <td class="govuk-table__cell">		BBB327</td>
+                          <td class="govuk-table__cell">BCB418</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Registration date</th>
+                      <td class="govuk-table__cell">		30 March 2024</td>
+                          <td class="govuk-table__cell">15 December 2024</td>
                     </tr>
 
                     <tr class="govuk-table__row">
@@ -201,7 +206,7 @@ Check if this claim is a duplicate.</p>
                     <tr class="govuk-table__row">
                       <th scope="row" class="govuk-table__header">Compensator</th>
                       <td class="govuk-table__cell">Moto Insurances Ltd</td>
-                          <td class="govuk-table__cell">Moto Insurances Ltd</td>
+                          <td class="govuk-table__cell">Dojo Health Limited</td>
                     </tr>
 
 
@@ -256,26 +261,26 @@ Check if this claim is a duplicate.</p>
                 <input class="govuk-radios__input" id="approve" name="cpe1" type="radio" value="approve" {{ checked("info", "Data ready") }}>
                 <label class="govuk-label govuk-radios__label" for="info-4">
 
-                Approve
+                Accept new claim
                 </label>
               </div>
 
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="remove" name="cpe1" type="radio" data-aria-controls="conditional-contact" value="remove" {{ checked("info", "Reply with further info to the NHS") }}>
                 <label class="govuk-label govuk-radios__label" for="info">
-                      Remove new claim
+                      Delete new claim
                 </label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="existing" name="cpe1" type="radio" data-aria-controls="conditional-contact" value="existing" {{ checked("info", "Reply with further info to the NHS") }}>
                 <label class="govuk-label govuk-radios__label" for="info">
-                      Remove existing claim
+                      Delete existing claim
                 </label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="ask" name="cpe1" type="radio" data-aria-controls="conditional-contact" value="ask" {{ checked("info", "Reply with further info to the NHS") }}>
                 <label class="govuk-label govuk-radios__label" for="info">
-                    Ask the compensator to remove the claim
+                    Ask the compensator to delete new claim
                 </label>
               </div>
 

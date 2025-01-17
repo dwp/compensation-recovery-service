@@ -17,11 +17,12 @@ About the injured person - Enter injured person's name and date of birth
 
             <h1 class="govuk-heading-xl">
                 <span class="govuk-caption-xl">The injured person</span>
-                Case detected with similar details
+            A claim with the same details already exists
             </h1>
 
+  <p class="govuk-body">We found a claim on our service with the same or similar details to those you have provided.</p>
 
-            <p class="govuk-body">We have detected a case with the details you have provided, to amend the details <a class="govuk-link" href="about-the-injured-person">go back to the injured person details</a>.</p>
+            <p class="govuk-body">Check and <a class="govuk-link" href="about-the-injured-person">change the injured person details</a> if you think they are incorrect.</p>
 
 
             <div class="govuk-inset-text">
@@ -64,7 +65,7 @@ About the injured person - Enter injured person's name and date of birth
                   <dd class="govuk-summary-list__value">
                     {{ data['claim-date-day'] | default("3") }} {{ data['claim-date-month'] | default("03") | toMonth }} {{ data['claim-date-year'] | default("2020") }}
                   </dd>
-          
+
                 </div>
               </dl>
 
