@@ -141,9 +141,10 @@ Check your answers before registering the claim
         <h2 class="govuk-heading-m" style="margin-bottom:10px">Task instructions</h2>
         <p style="margin-bottom:15px">
 We have found 2 claims on the service with the same details. Check if the new claim is a duplicate of the existing claim and choose an action based on your decision.</p>
- <p class="govuk-body">
-                    <a href="case-view-history" class="govuk-link" target=”_blank”>Full existing claim details (opens in new tab)</a>
-                  </p>
+ <!-- <p class="govuk-body">
+                    <a href="case-view-history" class="govuk-link" target=”_blank”>Existing claim details (opens in new tab)</a> </p>
+          <p class="govuk-body">          <a href="case-view-history" class="govuk-link" target=”_blank”>New claim details (opens in new tab)</a>
+                  </p> -->
 
         <br> <br>
 
@@ -173,11 +174,7 @@ We have found 2 claims on the service with the same details. Check if the new cl
                       <td class="govuk-table__cell">		BBB327</td>
                           <td class="govuk-table__cell">BCB418</td>
                     </tr>
-                    <tr class="govuk-table__row">
-                      <th scope="row" class="govuk-table__header">Registration date</th>
-                      <td class="govuk-table__cell">		30 March 2024</td>
-                          <td class="govuk-table__cell">15 December 2024</td>
-                    </tr>
+
 
                     <tr class="govuk-table__row">
                       <th scope="row" class="govuk-table__header">Injured person's name</th>
@@ -207,6 +204,11 @@ We have found 2 claims on the service with the same details. Check if the new cl
                       <th scope="row" class="govuk-table__header">Compensator</th>
                       <td class="govuk-table__cell">Moto Insurances Ltd</td>
                           <td class="govuk-table__cell">Dojo Health Limited</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Open claim in a new tab</th>
+                      <td class="govuk-table__cell">  <a class="govuk-link" href="#">View existing</a></td>
+                          <td class="govuk-table__cell">  <a class="govuk-link" href="case-view-history">View new</a></td>
                     </tr>
 
 
@@ -268,21 +270,16 @@ We have found 2 claims on the service with the same details. Check if the new cl
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="remove" name="cpe1" type="radio" data-aria-controls="conditional-contact" value="remove" {{ checked("info", "Reply with further info to the NHS") }}>
                 <label class="govuk-label govuk-radios__label" for="info">
-                      Delete new claim
+                      Withdraw new claim
                 </label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="existing" name="cpe1" type="radio" data-aria-controls="conditional-contact" value="existing" {{ checked("info", "Reply with further info to the NHS") }}>
                 <label class="govuk-label govuk-radios__label" for="info">
-                      Delete existing claim
+                      Withdraw existing claim
                 </label>
               </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="ask" name="cpe1" type="radio" data-aria-controls="conditional-contact" value="ask" {{ checked("info", "Reply with further info to the NHS") }}>
-                <label class="govuk-label govuk-radios__label" for="info">
-                    Ask the compensator to delete new claim
-                </label>
-              </div>
+
 
           </fieldset>
         </div>

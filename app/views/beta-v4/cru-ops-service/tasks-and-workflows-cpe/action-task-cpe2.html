@@ -205,7 +205,11 @@ Check the new claim details given by the compensator and approve or reject the c
                           <td class="govuk-table__cell">AA 11 22 33 B</td>
 
                     </tr>
-
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Open claim in a new tab</th>
+                      <td class="govuk-table__cell">  <a class="govuk-link" href="#">View existing</a></td>
+                          <td class="govuk-table__cell">  <a class="govuk-link" href="case-view-history">View new</a></td>
+                    </tr>
 
 
 
@@ -249,7 +253,7 @@ Check the new claim details given by the compensator and approve or reject the c
           <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
               <h3 class="govuk-fieldset__heading">
-              What do you want to do?
+              What do you want to do with the new claim?
               </h3>
             </legend>
             <!-- <div id="changed-name-hint" class="govuk-hint">
@@ -268,6 +272,12 @@ Check the new claim details given by the compensator and approve or reject the c
                 <input class="govuk-radios__input" id="remove" name="cpe1" type="radio" data-aria-controls="conditional-contact" value="remove" {{ checked("info", "Reply with further info to the NHS") }}>
                 <label class="govuk-label govuk-radios__label" for="info">
                       Reject claim
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="legacy" name="cpe1" type="radio" data-aria-controls="conditional-contact" value="legacy" {{ checked("info", "Reply with further info to the NHS") }}>
+                <label class="govuk-label govuk-radios__label" for="info">
+                    Move to legacy tasks
                 </label>
               </div>
 
