@@ -253,7 +253,7 @@ Check the new claim details given by the compensator and approve or reject the c
           <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
               <h3 class="govuk-fieldset__heading">
-              What do you want to do with the new claim?
+              What do you want to do?
               </h3>
             </legend>
             <!-- <div id="changed-name-hint" class="govuk-hint">
@@ -264,20 +264,20 @@ Check the new claim details given by the compensator and approve or reject the c
                 <input class="govuk-radios__input" id="approve" name="cpe1" type="radio" value="approve" {{ checked("info", "Data ready") }}>
                 <label class="govuk-label govuk-radios__label" for="info-4">
 
-                Accept claim
+                Accept new claim
                 </label>
               </div>
 
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="remove" name="cpe1" type="radio" data-aria-controls="conditional-contact" value="remove" {{ checked("info", "Reply with further info to the NHS") }}>
                 <label class="govuk-label govuk-radios__label" for="info">
-                      Reject claim
+                      Reject new claim
                 </label>
               </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="legacy" name="cpe1" type="radio" data-aria-controls="conditional-contact" value="legacy" {{ checked("info", "Reply with further info to the NHS") }}>
                 <label class="govuk-label govuk-radios__label" for="info">
-                    Move to legacy tasks
+                    Move claim to legacy CRU system
                 </label>
               </div>
 
