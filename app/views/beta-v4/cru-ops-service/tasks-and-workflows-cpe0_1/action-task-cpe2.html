@@ -159,7 +159,9 @@ BBB327
         <h2 class="govuk-heading-m" style="margin-bottom:10px">Task instructions</h2>
         <p style="margin-bottom:15px">
 Check the new claim details given by the compensator and approve or reject the claim. </p>
-
+ <p class="govuk-body">
+                    <a href="case-view-history" class="govuk-link" target=”_blank”>Full existing claim details (opens in new tab)</a>
+                  </p>
 
         <br> <br>
 
@@ -266,6 +268,12 @@ Check the new claim details given by the compensator and approve or reject the c
                 </label>
               </div>
 
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="remove" name="cpe1" type="radio" data-aria-controls="conditional-contact" value="remove" {{ checked("info", "Reply with further info to the NHS") }}>
+                <label class="govuk-label govuk-radios__label" for="info">
+                      Reject new claim
+                </label>
+              </div>
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="legacy" name="cpe1" type="radio" data-aria-controls="conditional-contact" value="legacy" {{ checked("info", "Reply with further info to the NHS") }}>
                 <label class="govuk-label govuk-radios__label" for="info">

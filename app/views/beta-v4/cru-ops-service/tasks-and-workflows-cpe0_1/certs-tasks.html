@@ -1,0 +1,182 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Current tasks
+{% endblock %}
+
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <nav class="navigation-secondary govuk-!-margin-bottom-7">
+      <ul>
+        <li><a href="./">Home</a></li>
+        <li class="active"><a href="current-tasks">Current tasks</a></li>
+        <li><a href="completed-tasks">Completed tasks</a></li>
+        <li><a href="legacy-tasks">Legacy tasks</a></li>
+        <li><a href="find-case">Find a claim</a></li>
+        <li><a href="">Download reports</a></li>
+      </ul>
+    </nav>
+
+    <div class="govuk-grid-column-full">
+
+      <span class="govuk-caption-l">Sam Smith</span>
+      <h1 class="govuk-heading-xl">Certificate requested</h1>
+
+      <p class="govuk-body"><a href="" class="govuk-link">Refresh list</a></p>
+
+      <!-- <div class="govuk-form-group">
+        <label class="govuk-label" for="sort">
+          Sort by
+        </label>
+        <select class="govuk-select" id="sort" name="sort">
+          <option value="date-oldest">Date received (oldest)</option>
+          <option value="date-newest">Date received (most recent)</option>
+          <option value="my-tasks">My tasks</option>
+          <option value="in-progress">Tasks in progress</option>
+          <option value="task-type">Task type</option>
+
+        </select>
+      </div> -->
+
+      <table class="govuk-table govuk-!-margin-top-2">
+        <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header app-custom-class">CRU reference</th>
+          <th scope="col" class="govuk-table__header app-custom-class">Date received</th>
+<!--          <th scope="col" class="govuk-table__header app-custom-class">IP name</th>-->
+          <th scope="col" class="govuk-table__header app-custom-class" style="width:20%;">Task type</th>
+          <th scope="col" class="govuk-table__header app-custom-class" style="width:20%;">Status</th>
+          <th scope="col" class="govuk-table__header app-custom-class">Assigned to</th>
+          <th scope="col" class="govuk-table__header app-custom-class" style="width:10%;">Actions</th>
+        </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">PAB994</td>
+          <td class="govuk-table__cell">5 November 2024</td>
+<!--          <td class="govuk-table__cell">Julian Painter</td>-->
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">CERT REQUEST</strong></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">new</strong></td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><a href="assign-task-certs" class="govuk-link">Assign</a></td>
+        </tr>
+
+<!--        <tr class="govuk-table__row">-->
+<!--          <td class="govuk-table__cell"><a href="case-view" class="govuk-link">PAB003</a></td>-->
+<!--          <td class="govuk-table__cell">11/10/2022</td>-->
+<!--          <td class="govuk-table__cell">Gemma Smith</td>-->
+<!--          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag&#45;&#45;grey">No NINO</strong></td>-->
+<!--          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag&#45;&#45;yellow">In progress</strong></td>-->
+<!--          <td class="govuk-table__cell">Sam Smith</td>-->
+<!--          <td class="govuk-table__cell"><a href="action-task?error=none&" class="govuk-link">Action task</a></td>-->
+<!--        </tr>-->
+<!--        <tr class="govuk-table__row">-->
+<!--          <td class="govuk-table__cell"><a href="case-view" class="govuk-link">PAB398</a></td>-->
+<!--          <td class="govuk-table__cell">11/10/2022</td>-->
+<!--          <td class="govuk-table__cell">Claire Roberts</td>-->
+<!--          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag&#45;&#45;grey">No NINO</strong></td>-->
+<!--          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag&#45;&#45;blue">New</strong></td>-->
+<!--          <td class="govuk-table__cell"></td>-->
+<!--          <td class="govuk-table__cell"><a href="assign-task" class="govuk-link">Assign</a></td>-->
+<!--        </tr>-->
+<!--        <tr class="govuk-table__row">-->
+<!--          <td class="govuk-table__cell"><a href="case-view" class="govuk-link">PAB384</a></td>-->
+<!--          <td class="govuk-table__cell">11/10/2022</td>-->
+<!--          <td class="govuk-table__cell">Jack Green</td>-->
+<!--          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag&#45;&#45;grey">No NINO</strong></td>-->
+<!--          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag&#45;&#45;blue">New</strong></td>-->
+<!--          <td class="govuk-table__cell"></td>-->
+<!--          <td class="govuk-table__cell"><a href="assign-task" class="govuk-link">Assign</a></td>-->
+<!--        </tr>-->
+<!--        <tr class="govuk-table__row">-->
+<!--          <td class="govuk-table__cell"><a href="case-view" class="govuk-link">PAB103</a></td>-->
+<!--          <td class="govuk-table__cell">11/10/2022</td>-->
+<!--          <td class="govuk-table__cell">David Thomas</td>-->
+<!--          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag&#45;&#45;grey">No NINO</strong></td>-->
+<!--          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag&#45;&#45;yellow">In progress</strong></td>-->
+<!--          <td class="govuk-table__cell">Kate G</td>-->
+<!--          <td class="govuk-table__cell"><a href="view-assigned-task" class="govuk-link">View</a></td>-->
+<!--        </tr>-->
+<!--        <tr class="govuk-table__row">-->
+<!--          <td class="govuk-table__cell"><a href="case-view" class="govuk-link">PAB373</a></td>-->
+<!--          <td class="govuk-table__cell">12/10/2022</td>-->
+<!--          <td class="govuk-table__cell">Jeff Smythe</td>-->
+<!--          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag&#45;&#45;grey">No NINO</strong></td>-->
+<!--          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag&#45;&#45;blue">New</strong></td>-->
+<!--          <td class="govuk-table__cell"></td>-->
+<!--          <td class="govuk-table__cell"><a href="assign-task" class="govuk-link">Assign</a></td>-->
+<!--        </tr>-->
+<!--        <tr class="govuk-table__row">-->
+<!--          <td class="govuk-table__cell"><a href="case-view" class="govuk-link">PAB283</a></td>-->
+<!--          <td class="govuk-table__cell">12/10/2022</td>-->
+<!--          <td class="govuk-table__cell">Rob Jackson</td>-->
+<!--          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag&#45;&#45;grey">No NINO</strong></td>-->
+<!--          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag&#45;&#45;yellow">In progress</strong></td>-->
+<!--          <td class="govuk-table__cell">Kate G</td>-->
+<!--          <td class="govuk-table__cell"><a href="view-assigned-task" class="govuk-link">View</a></td>-->
+<!--        </tr>-->
+<!--        <tr class="govuk-table__row">-->
+<!--          <td class="govuk-table__cell"><a href="case-view" class="govuk-link">PAB123</a></td>-->
+<!--          <td class="govuk-table__cell">12/10/2022</td>-->
+<!--          <td class="govuk-table__cell">Trudy Roberts</td>-->
+<!--          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag&#45;&#45;grey">No NINO</strong></td>-->
+<!--          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag&#45;&#45;blue">New</strong></td>-->
+<!--          <td class="govuk-table__cell"></td>-->
+<!--          <td class="govuk-table__cell"><a href="assign-task" class="govuk-link">Assign</a></td>-->
+<!--        </tr>-->
+<!--        <tr class="govuk-table__row">-->
+<!--          <td class="govuk-table__cell"><a href="case-view" class="govuk-link">PAB984</a></td>-->
+<!--          <td class="govuk-table__cell">12/10/2022</td>-->
+<!--          <td class="govuk-table__cell">Jamie Brown</td>-->
+<!--          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag&#45;&#45;grey">No NINO</strong></td>-->
+<!--          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag&#45;&#45;blue">New</strong></td>-->
+<!--          <td class="govuk-table__cell"></td>-->
+<!--          <td class="govuk-table__cell"><a href="assign-task" class="govuk-link">Assign</a></td>-->
+<!--        </tr>-->
+        </tbody>
+      </table>
+
+<!--      <nav class="govuk-pagination" role="navigation" aria-label="results">-->
+<!--        <div class="govuk-pagination__prev">-->
+<!--          <a class="govuk-link govuk-pagination__link" href="#" rel="prev">-->
+<!--            <svg class="govuk-pagination__icon govuk-pagination__icon&#45;&#45;prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">-->
+<!--              <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>-->
+<!--            </svg>-->
+<!--            <span class="govuk-pagination__link-title">Previous</span></a>-->
+<!--        </div>-->
+<!--        <ul class="govuk-pagination__list">-->
+<!--          <li class="govuk-pagination__item govuk-pagination__item&#45;&#45;current">-->
+<!--            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page">-->
+<!--              1-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li class="govuk-pagination__item">-->
+<!--            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">-->
+<!--              2-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li class="govuk-pagination__item">-->
+<!--            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">-->
+<!--              3-->
+<!--            </a>-->
+<!--          </li>-->
+<!--        </ul>-->
+<!--        <div class="govuk-pagination__next">-->
+<!--          <a class="govuk-link govuk-pagination__link" href="#" rel="next"> <span class="govuk-pagination__link-title">Next</span> <svg class="govuk-pagination__icon govuk-pagination__icon&#45;&#45;next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">-->
+<!--            <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>-->
+<!--          </svg></a>-->
+<!--        </div>-->
+<!--      </nav>-->
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

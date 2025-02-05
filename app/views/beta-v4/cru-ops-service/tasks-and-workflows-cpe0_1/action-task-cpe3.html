@@ -13,7 +13,7 @@ Check your answers before registering the claim
   <main class="govuk-main-wrapper " id="main-content" role="main">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <span class="govuk-caption-xl">	BBB327
+        <span class="govuk-caption-xl">		BBB327
         </span>
 
         <h1 class="govuk-heading-xl" style="margin-bottom:10px">Task details</h1>
@@ -37,7 +37,7 @@ Check your answers before registering the claim
               Description
             </dt>
             <dd class="govuk-summary-list__value">
-    Check missing or incorrect claim data
+      Missing or incorrect claim data
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -72,6 +72,34 @@ BBB327
             </dt>
             <dd class="govuk-summary-list__value">
 14 February 2024
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+      Name in Searchlight
+            </dt>
+            <dd class="govuk-summary-list__value">
+Janine Smith | captured on 12 September 2024 <br>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+    More claims by this person
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                  5 claims found
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                <span class="govuk-body govuk-!-font-weight-bold"><a href="">CRS462</a> </span>| Injury date - 20 March 2023 <br>
+             <span class="govuk-body govuk-!-font-weight-bold"><a href="">PBA213</a></span> | Injury date - 19 March 2023<br>
+             <span class="govuk-body govuk-!-font-weight-bold"><a href="">CRU112</a></span> | Injury date - 22 August 2019 <br>
+       <span class="govuk-body govuk-!-font-weight-bold"><a href="">CRU345</a></span> | Injury date - 31 October 2015<br>
+                <span class="govuk-body govuk-!-font-weight-bold"><a href="">CBD543</a></span> | Injury date - 10 August 2010
+              </details>
             </dd>
           </div>
 
@@ -158,8 +186,10 @@ BBB327
 <br>
         <h2 class="govuk-heading-m" style="margin-bottom:10px">Task instructions</h2>
         <p style="margin-bottom:15px">
-Check the new claim details given by the compensator and approve or reject the claim. </p>
-
+Check the claim details and accept or reject the claim.</p>
+ <p class="govuk-body">
+                    <a href="case-view-history" class="govuk-link" target=”_blank”>Full existing claim details (opens in new tab)</a>
+                  </p>
 
         <br> <br>
 
@@ -178,8 +208,8 @@ Check the new claim details given by the compensator and approve or reject the c
                   <thead class="govuk-table__head">
                     <tr class="govuk-table__row">
                       <th scope="col" class="govuk-table__header">Detail</th>
-                      <th scope="col" class="govuk-table__header">Existing details</th>
-                        <th scope="col" class="govuk-table__header">New details</th>
+                      <th scope="col" class="govuk-table__header">CRU details</th>
+                        <th scope="col" class="govuk-table__header">Searchlight</th>
                               <th scope="col" class="govuk-table__header"></th>
                     </tr>
                   </thead>
@@ -188,8 +218,8 @@ Check the new claim details given by the compensator and approve or reject the c
 
                     <tr class="govuk-table__row">
                       <th scope="row" class="govuk-table__header">Injured person's name</th>
-                      <td class="govuk-table__cell">	Bob Londis</td>
-                          <td class="govuk-table__cell">	Bojen Westoros</td>
+                      <td class="govuk-table__cell">	John Alexander Smith</td>
+                          <td class="govuk-table__cell">	Janine Smith</td>
                     </tr>
                     <tr class="govuk-table__row">
                       <th scope="row" class="govuk-table__header">Date of birth</th>
@@ -203,11 +233,7 @@ Check the new claim details given by the compensator and approve or reject the c
                           <td class="govuk-table__cell">AA 11 22 33 B</td>
 
                     </tr>
-                    <tr class="govuk-table__row">
-                      <th scope="row" class="govuk-table__header">Open claim in a new tab</th>
-                      <td class="govuk-table__cell">  <a class="govuk-link" href="#">View existing</a></td>
-                          <td class="govuk-table__cell">  <a class="govuk-link" href="case-view-history">View new</a></td>
-                    </tr>
+
 
 
 
@@ -262,14 +288,14 @@ Check the new claim details given by the compensator and approve or reject the c
                 <input class="govuk-radios__input" id="approve" name="cpe1" type="radio" value="approve" {{ checked("info", "Data ready") }}>
                 <label class="govuk-label govuk-radios__label" for="info-4">
 
-                Accept new claim
+               Accept claim
                 </label>
               </div>
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="legacy" name="cpe1" type="radio" data-aria-controls="conditional-contact" value="legacy" {{ checked("info", "Reply with further info to the NHS") }}>
+                <input class="govuk-radios__input" id="remove" name="cpe1" type="radio" data-aria-controls="conditional-contact" value="remove" {{ checked("info", "Reply with further info to the NHS") }}>
                 <label class="govuk-label govuk-radios__label" for="info">
-                    Move claim to legacy CRU system
+                      Reject claim
                 </label>
               </div>
 

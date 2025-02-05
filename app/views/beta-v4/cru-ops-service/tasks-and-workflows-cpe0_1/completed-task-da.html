@@ -1,0 +1,133 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Completed task summary
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+  {% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+<!--    <nav class="navigation-secondary govuk-!-margin-bottom-6">-->
+<!--      <ul>-->
+<!--        <li><a href="./">Home</a></li>-->
+<!--        <li class="active"><a href="current-tasks">Current tasks</a></li>-->
+<!--        <li><a href="completed-tasks">Completed tasks</a></li>-->
+<!--        <li><a href="">Find a claim</a></li>-->
+<!--        <li><a href="">Download reports</a></li>-->
+<!--      </ul>-->
+<!--    </nav>-->
+
+    <div class="govuk-grid-column-full">
+<!--      <a href="current-tasks" class="govuk-back-link govuk-!-margin-bottom-5">Back to completed tasks</a>-->
+
+      <form class="form" action="current-tasks" method="post">
+
+        <h1 class="govuk-heading-xl govuk-!-margin-top-9 govuk-!-margin-bottom-2">
+<!--          <span class="govuk-caption-l">CRS39488</span>-->
+          Task details
+        </h1>
+        <strong class="govuk-tag govuk-tag--green">Completed</strong>
+
+<!--        <p class="govuk-body govuk-!-margin-top-7"><a class="govuk-link" href="">View claim</a></p>-->
+
+        <dl class="govuk-summary-list govuk-!-margin-top-7">
+<!--          <div class="govuk-summary-list__row">-->
+<!--            <dt class="govuk-summary-list__key">-->
+<!--              Task type-->
+<!--            </dt>-->
+<!--            <dd class="govuk-summary-list__value">-->
+<!--              <strong class="govuk-tag govuk-tag&#45;&#45;grey">No NINO</strong>-->
+<!--            </dd>-->
+<!--          </div>-->
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Assigned to
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Sam Smith
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Description
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Request to take over a claim
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    CRU reference
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    PAB994
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Claim originally registered by
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Esure
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Take over requested by
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    Keoghs
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Email contact
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    ayana.lawrence@keoghs.com
+                </dd>
+            </div>
+        </dl>
+
+          <div class="govuk-button-group govuk-!-margin-top-9">
+              <button class="govuk-button" data-module="govuk-button">
+                  Go to next task
+              </button>
+              <a href="index" class="govuk-button govuk-button--secondary" data-module="govuk-button">Return to dashboard</a>
+          </div>
+
+      </form>
+
+
+
+
+      
+    </div>
+  </div>
+
+{% endblock %}

@@ -13,7 +13,7 @@ Check your answers before registering the claim
   <main class="govuk-main-wrapper " id="main-content" role="main">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <span class="govuk-caption-xl">	BBB327
+        <span class="govuk-caption-xl">BCB418
         </span>
 
         <h1 class="govuk-heading-xl" style="margin-bottom:10px">Task details</h1>
@@ -37,18 +37,11 @@ Check your answers before registering the claim
               Description
             </dt>
             <dd class="govuk-summary-list__value">
-    Check missing or incorrect claim data
+              Duplicate claim details
             </dd>
           </div>
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-          Claim reference
-            </dt>
-            <dd class="govuk-summary-list__value">
-BBB327
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
+
             <dt class="govuk-summary-list__key">
             Liability type
             </dt>
@@ -56,8 +49,8 @@ BBB327
               Motor
             </dd>
           </div>
-
           <div class="govuk-summary-list__row">
+
             <dt class="govuk-summary-list__key">
             Compensator
             </dt>
@@ -65,17 +58,6 @@ BBB327
               Moto Insurances Ltd
             </dd>
           </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-    Injury date
-            </dt>
-            <dd class="govuk-summary-list__value">
-14 February 2024
-            </dd>
-          </div>
-
-
 
 
           <!-- <div class="govuk-summary-list__row">
@@ -158,8 +140,11 @@ BBB327
 <br>
         <h2 class="govuk-heading-m" style="margin-bottom:10px">Task instructions</h2>
         <p style="margin-bottom:15px">
-Check the new claim details given by the compensator and approve or reject the claim. </p>
-
+We have found 2 claims on the service with the same details. Check if the new claim is a duplicate of the existing claim and choose an action based on your decision.</p>
+ <!-- <p class="govuk-body">
+                    <a href="case-view-history" class="govuk-link" target=”_blank”>Existing claim details (opens in new tab)</a> </p>
+          <p class="govuk-body">          <a href="case-view-history" class="govuk-link" target=”_blank”>New claim details (opens in new tab)</a>
+                  </p> -->
 
         <br> <br>
 
@@ -178,17 +163,22 @@ Check the new claim details given by the compensator and approve or reject the c
                   <thead class="govuk-table__head">
                     <tr class="govuk-table__row">
                       <th scope="col" class="govuk-table__header">Detail</th>
-                      <th scope="col" class="govuk-table__header">Existing details</th>
-                        <th scope="col" class="govuk-table__header">New details</th>
+                      <th scope="col" class="govuk-table__header">Existing claim  </th>
+                        <th scope="col" class="govuk-table__header">New claim</th>
                               <th scope="col" class="govuk-table__header"></th>
                     </tr>
                   </thead>
                   <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Claim reference</th>
+                      <td class="govuk-table__cell">		BBB327</td>
+                          <td class="govuk-table__cell">BCB418</td>
+                    </tr>
 
 
                     <tr class="govuk-table__row">
                       <th scope="row" class="govuk-table__header">Injured person's name</th>
-                      <td class="govuk-table__cell">	Bob Londis</td>
+                      <td class="govuk-table__cell">	Bojen Westoros</td>
                           <td class="govuk-table__cell">	Bojen Westoros</td>
                     </tr>
                     <tr class="govuk-table__row">
@@ -204,11 +194,22 @@ Check the new claim details given by the compensator and approve or reject the c
 
                     </tr>
                     <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Injury date</th>
+                      <td class="govuk-table__cell">14 February 2024</td>
+                          <td class="govuk-table__cell">14 February 2024</td>
+
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Compensator</th>
+                      <td class="govuk-table__cell">Moto Insurances Ltd</td>
+                          <td class="govuk-table__cell">Dojo Health Limited</td>
+                    </tr>
+                    <tr class="govuk-table__row">
                       <th scope="row" class="govuk-table__header">Open claim in a new tab</th>
                       <td class="govuk-table__cell">  <a class="govuk-link" href="#">View existing</a></td>
                           <td class="govuk-table__cell">  <a class="govuk-link" href="case-view-history">View new</a></td>
                     </tr>
-
 
 
 
@@ -246,7 +247,7 @@ Check the new claim details given by the compensator and approve or reject the c
           Patient was diagnosed march 2020 Haemachromatosis and had fortnightly venesection at the hospital until they were suspended on the 19/11/2020
         </p>
         </div> -->
-  <form  class="form" action="confirmed-check2" method="post">
+  <form  class="form" action="confirmed-check" method="post">
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -267,12 +268,17 @@ Check the new claim details given by the compensator and approve or reject the c
               </div>
 
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="legacy" name="cpe1" type="radio" data-aria-controls="conditional-contact" value="legacy" {{ checked("info", "Reply with further info to the NHS") }}>
+                <input class="govuk-radios__input" id="remove" name="cpe1" type="radio" data-aria-controls="conditional-contact" value="remove" {{ checked("info", "Reply with further info to the NHS") }}>
                 <label class="govuk-label govuk-radios__label" for="info">
-                    Move claim to legacy CRU system
+                      Withdraw new claim
                 </label>
               </div>
-
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="existing" name="cpe1" type="radio" data-aria-controls="conditional-contact" value="existing" {{ checked("info", "Reply with further info to the NHS") }}>
+                <label class="govuk-label govuk-radios__label" for="info">
+                      Withdraw existing claim
+                </label>
+              </div>
 
 
           </fieldset>
