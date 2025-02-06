@@ -894,18 +894,22 @@ if (req.session.data['change'] == 'Liability') {
 
 router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/action-options', function (req, res) {
 
-if (req.session.data['change'] == 'Liability') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/check-answers-update')
-} else if (req.session.data['change'] == 'Injured person') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/confirmation_message')
-} else if (req.session.data['change'] == 'Injury') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/confirmation_letter')
-} else if (req.session.data['change'] == 'Treatment') {
-  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/confirmation_reminder')
-  } else {
-      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/actions')
-    }
-})
+if (req.session.data['notification'] == 'CRU11') {
+  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/CRU11')
+    } else if (req.session.data['change'] == 'Liability') {
+      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/check-answers-update')
+    } else if (req.session.data['change'] == 'Injured person') {
+      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/confirmation_message')
+    } else if (req.session.data['change'] == 'Injury') {
+      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/CRU10')
+    } else if (req.session.data['change'] == 'Treatment') {
+      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/confirmation_reminder')
+    } else {
+          res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/actions')
+        }
+    })
+
+
 
 router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/reminder-route', function (req, res) {
 
