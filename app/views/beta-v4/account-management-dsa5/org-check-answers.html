@@ -63,18 +63,15 @@ Create an account
             <a class="govuk-link" href="org-user-name">Change<span class="govuk-visually-hidden"> full name</span></a>
           </dd>
         </div>
-
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-        Opt-in for user research
+            Job title
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['survey'] }} <br>
-              {{ data['interview'] }}
+            {{ data['job-title'] | default('Customer advisor') }}
           </dd>
           <dd class="govuk-summary-list__actions">
-
-            <a class="govuk-link" href="opt_in">Change<span class="govuk-visually-hidden"> full name</span></a>
+            <a class="govuk-link" href="org-user-name">Change<span class="govuk-visually-hidden">job title</span></a>
           </dd>
         </div>
 
@@ -135,19 +132,7 @@ Create an account
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Secondary telephone number
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['tel-secondary'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="org-details">Change<span class="govuk-visually-hidden"> secondary telephone number</span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            General enquiries email address
+            Email address for general enquiries
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['email-enquiries'] }}
