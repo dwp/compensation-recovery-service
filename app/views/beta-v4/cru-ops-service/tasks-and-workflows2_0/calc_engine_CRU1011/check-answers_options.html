@@ -138,100 +138,7 @@ Check your answers before registering the claim
     </h2>
   </div>
   <div class="govuk-notification-banner__content" style="padding-bottom:30px">
-    <dl class="govuk-summary-list govuk-!-margin-bottom-3" style="max-width:100%">
-      <div class="govuk-summary-list__row">
-        <dd class="govuk-summary-list__value" style="width:20%">
-        </dd>
-        <dd class="govuk-summary-list__value" style="width:7%">
-        <p></p>
-        </dd>
-              <dd class="govuk-summary-list__value" style="width:30%">
 
-
-        </dd>
-
-        <dd class="govuk-summary-list__value" style="width:14%">
-        <p></p>
-        </dd>
-
-
-      </div>
-      <div class="govuk-summary-list__row">
-        <dd class="govuk-summary-list__value" style="width:20%">
-        <p> From 10 January 2023</p>
-        </dd>
-
-        <dd class="govuk-summary-list__value" style="width:7%">
-        <p> 31 days</p>
-        </dd>
-              <dd class="govuk-summary-list__value" style="width:30%">
-
-          {{ data['hospitalOne'] | default('Manchester University NHS Foundation Trust') }}
-        </dd>
-
-        <dd class="govuk-summary-list__value" style="width:14%">
-        <p>Inpatient</p>
-        </dd>
-
-
-      </div>
-
-
-
-      <div class="govuk-summary-list__row">
-        <dd class="govuk-summary-list__value" >
-      From 9 January 2023
-
-        </dd>
-
-        <dd class="govuk-summary-list__value" style="width:1%">
-        <p> 1 trip</p>
-        </dd>
-        <dd class="govuk-summary-list__value" style="width:300px">
-
-              The North West Ambulance Service NHS Trust
-        </dd>
-
-
-        <dd class="govuk-summary-list__value" >
-
-
-           Ambulance
-
-        </dd>
-
-
-      </div>
-
-      <!-- <div class="govuk-summary-list__row">
-        <dd class="govuk-summary-list__value" >
-      Additional information
-
-        </dd>
-        <dd class="govuk-summary-list__value" style="width:1%">
-
-        </dd>
-        <dd class="govuk-summary-list__value" style="width:300px">
-
-              <p class="govuk-body govuk-!-font-weight-bold">  "Patient also attended out patient's at St Mary's Hospital (same trust) 10/02/23"
-        </dd>
-
-
-        <dd class="govuk-summary-list__value" >
-
-
-
-
-        </dd>
-
-
-      </div> -->
-
-
-    <br>
-
-
-    </dl>
     <div class="govuk-inset-text" style="max-width:100%;margin-top:10px">
     <p class="govuk-body govuk-!-font-weight-regular" style="margin-bottom:10px">Notes from NHS trust</p>
     <p class="govuk-body govuk-!-font-weight-bold">  "I can't trace the IP to confirm the treatment details"</p>
@@ -259,7 +166,7 @@ Check your answers before registering the claim
           Patient was diagnosed march 2020 Haemachromatosis and had fortnightly venesection at the hospital until they were suspended on the 19/11/2020
         </p>
         </div> -->
-  <form  class="form" action="confirmed" method="post">
+  <form  class="form" action="confirmation" method="post">
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -275,14 +182,14 @@ Check your answers before registering the claim
                 <input class="govuk-radios__input" id="info-4" name="info" type="radio" value="Submitted information to calculate NHS charges" {{ checked("info", "Data ready") }}>
                 <label class="govuk-label govuk-radios__label" for="info-4">
 
-                Submit information to calculate NHS charges
+              Complete task
                 </label>
               </div>
 
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="info" name="info" type="radio" data-aria-controls="conditional-contact" value="Task completed but informaton not submitted" {{ checked("info", "Reply with further info to the NHS") }}>
                 <label class="govuk-label govuk-radios__label" for="info">
-                      Mark task as complete but do not submit information
+                    Set a reminder
                 </label>
               </div>
 
@@ -305,7 +212,7 @@ Check your answers before registering the claim
             </button>
             <a class="govuk-link" href="#">Cancel</a>
           </div>
- 
+
         </form>
 
       </div>

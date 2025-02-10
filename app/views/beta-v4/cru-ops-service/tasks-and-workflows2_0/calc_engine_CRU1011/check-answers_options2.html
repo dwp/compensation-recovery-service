@@ -234,7 +234,7 @@ Check your answers before registering the claim
     </dl>
     <div class="govuk-inset-text" style="max-width:100%;margin-top:10px">
     <p class="govuk-body govuk-!-font-weight-regular" style="margin-bottom:10px">Notes from NHS trust</p>
-    <p class="govuk-body govuk-!-font-weight-bold">  "I can't trace the IP to confirm the treatment details"</p>
+    <p class="govuk-body govuk-!-font-weight-bold">  "I need to confirm whether the injury date was on 21 January 2024 or 22 January 2024"</p>
     </div>
   </div>
 </div>
@@ -259,7 +259,7 @@ Check your answers before registering the claim
           Patient was diagnosed march 2020 Haemachromatosis and had fortnightly venesection at the hospital until they were suspended on the 19/11/2020
         </p>
         </div> -->
-  <form  class="form" action="confirmed" method="post">
+  <form  class="form" action="confirmation" method="post">
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -275,14 +275,14 @@ Check your answers before registering the claim
                 <input class="govuk-radios__input" id="info-4" name="info" type="radio" value="Submitted information to calculate NHS charges" {{ checked("info", "Data ready") }}>
                 <label class="govuk-label govuk-radios__label" for="info-4">
 
-                Submit information to calculate NHS charges
+                  Complete task
                 </label>
               </div>
 
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="info" name="info" type="radio" data-aria-controls="conditional-contact" value="Task completed but informaton not submitted" {{ checked("info", "Reply with further info to the NHS") }}>
                 <label class="govuk-label govuk-radios__label" for="info">
-                      Mark task as complete but do not submit information
+              Set a reminder
                 </label>
               </div>
 
@@ -305,7 +305,7 @@ Check your answers before registering the claim
             </button>
             <a class="govuk-link" href="#">Cancel</a>
           </div>
- 
+
         </form>
 
       </div>
