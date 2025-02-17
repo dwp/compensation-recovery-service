@@ -14,7 +14,7 @@ Create an account
 <h1 class="govuk-heading-l">Find a claim</h1>
 <div class="govuk-form-group" style="margin-bottom:15px">
     <label class="govuk-label govuk-!-font-weight-bold" for="search-name">
-        Search by CRU reference
+        Search by CRU reference or injured persons name 
     </label>
     <input class="govuk-input govuk-input--width-20" id="company-name" name="company-name" type="text" value="{{ data['company-name'] }}">
     <button class="govuk-button" data-module="govuk-button">
@@ -86,6 +86,9 @@ Create an account
               <option value="views">Name Z - A</option>
               <option value="comments">Date of injury</option>
               <option value="comments">Date of certificate expiry</option>
+              <option value="comments">Valid certificates</option>
+              <option value="comments">Expired certificates</option>
+              <option value="comments">Legacy certificates</option>
             </select>
           </div>
 
@@ -109,9 +112,9 @@ Create an account
 
 
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">AVOVA and Associates</td>
+          <td class="govuk-table__cell">Alice Carter</td>
             <td class="govuk-table__cell">PAA035</td>
-          <td class="govuk-table__cell">Today</td>
+          <td class="govuk-table__cell">7 February 2025</td>
             <td class="govuk-table__cell">VALID</td>
           <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">active</strong></td>
 
@@ -119,9 +122,9 @@ Create an account
       <td class="govuk-table__cell"><a href="org-details">View</a></td>
         </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">VL Inc.</td>
+          <td class="govuk-table__cell">James Thornton</td>
             <td class="govuk-table__cell">PAA036</td>
-          <td class="govuk-table__cell">Today</td>
+          <td class="govuk-table__cell">2 Februrary 2025</td>
             <td class="govuk-table__cell">VALID</td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">active</strong></td>
 
@@ -129,9 +132,9 @@ Create an account
       <td class="govuk-table__cell"><a href="">View</a></td>
         </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">OXA and Partners</td>
+          <td class="govuk-table__cell">Olivia Bennett</td>
             <td class="govuk-table__cell">PAA150</td>
-          <td class="govuk-table__cell">Yesterday</td>
+          <td class="govuk-table__cell">29 January 2025</td>
                   <td class="govuk-table__cell">VALID</td>
                   <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">active</strong></td>
 
@@ -139,9 +142,9 @@ Create an account
       <td class="govuk-table__cell"><a href="">View</a></td>
         </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Lewis John Insurance</td>
+          <td class="govuk-table__cell">Daniel Foster</td>
             <td class="govuk-table__cell">PAA284</td>
-          <td class="govuk-table__cell">Yesterday</td>
+          <td class="govuk-table__cell">4 January 2025</td>
               <td class="govuk-table__cell">VALID</td>
               <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">active</strong></td>
 
@@ -149,9 +152,9 @@ Create an account
       <td class="govuk-table__cell"><a href="">View</a></td>
         </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Smith Insurance</td>
+          <td class="govuk-table__cell">Sophia Reynolds</td>
             <td class="govuk-table__cell">PAA593</td>
-          <td class="govuk-table__cell">2 January 2023</td>
+          <td class="govuk-table__cell">11 November 2024</td>
           <td class="govuk-table__cell">EXPIRED</td>
           <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">settled</strong></td>
 
@@ -159,9 +162,9 @@ Create an account
       <td class="govuk-table__cell"><a href="">View</a></td>
         </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Faringdon & Associates</td>
+          <td class="govuk-table__cell">Benjamin Hayes</td>
             <td class="govuk-table__cell">PAA742</td>
-          <td class="govuk-table__cell">2 January 2023</td>
+          <td class="govuk-table__cell">4 October 2024</td>
             <td class="govuk-table__cell">EXPIRED</td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">settled</strong></td>
 
@@ -169,9 +172,9 @@ Create an account
       <td class="govuk-table__cell"><a href="">View</a></td>
         </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Donny & Barnes</td>
+          <td class="govuk-table__cell">Emma Sinclair</td>
             <td class="govuk-table__cell">PAB048</td>
-          <td class="govuk-table__cell">30 November 2022</td>
+          <td class="govuk-table__cell">30 November 2023</td>
             <td class="govuk-table__cell">VALID</td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">active</strong></td>
 
@@ -179,9 +182,9 @@ Create an account
       <td class="govuk-table__cell"><a href="">View</a></td>
         </tr>
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Winderburg Cover</td>
+          <td class="govuk-table__cell">William Dawson</td>
             <td class="govuk-table__cell">PAB149</td>
-          <td class="govuk-table__cell">15 November 2022</td>
+          <td class="govuk-table__cell">15 November 2023</td>
             <td class="govuk-table__cell">EXPIRED</td>
             <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">legacy</strong></td>
       <td class="govuk-table__cell"><a href="">View</a></td>
@@ -189,9 +192,9 @@ Create an account
 
 
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Reading Cover&Away</td>
+          <td class="govuk-table__cell">Henry Lawson</td>
             <td class="govuk-table__cell">PAB363</td>
-          <td class="govuk-table__cell">4 November 2022</td>
+          <td class="govuk-table__cell">20 September 2022</td>
               <td class="govuk-table__cell">VALID</td>
               <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">active</strong></td>
       <td class="govuk-table__cell"><a href="">View</a></td>
@@ -199,9 +202,9 @@ Create an account
 
 
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">Rolls Royce</td>
+          <td class="govuk-table__cell">James Dyson</td>
             <td class="govuk-table__cell">PAB503</td>
-          <td class="govuk-table__cell">1 November 2022</td>
+          <td class="govuk-table__cell">3 March 2022</td>
               <td class="govuk-table__cell">VALID</td>
               <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">active</strong></td>
       <td class="govuk-table__cell"><a href="">View</a></td>
