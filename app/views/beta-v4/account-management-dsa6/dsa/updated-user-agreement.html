@@ -1,0 +1,84 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+    <form class="form" action="person-responsible1" method="post">
+      <h1 class="govuk-heading-xl">We have updated the User Agreement </h1>
+
+      <div class="govuk-form-group">
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
+            You need to accept the updated User Agreement by 1 February 2025 to maintain full access to your account.
+          </strong>
+        </div>
+        
+
+        <p class="govuk-body">After this date, you will not be able to register new claims or manage existing ones until you have accepted it.</p>
+
+        <p class="govuk-body">The User Agreement must be accepted by a person with authority to make decisions about personal data processes on behalf of your organisation.
+          It sets out our terms and conditions for the use of the digital service. It outlines the rights and responsibilities of both ourselves and user organisations.
+          </p>
+
+      <p class="govuk-body">It contains:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+                <li>principles and guidelines around sharing data with DWP </li>
+                <li>data items and how they will be shared </li>
+                <li>information about personal data breaches and dispute resolution</li>
+            </ul>
+          </div>
+
+          <h2 class="govuk-heading-m">Review, share or accept the User Agreement</h2>
+
+  <p class="govuk-body govuk-!-font-weight-bold">
+    As organisation administrator, you should review the
+    <a href="" class="govuk-link">User Agreement (accessible PDF)</a> and be familiar with its contents.
+  </p>
+
+  <p class="govuk-body">On the next screen, we will ask for contact details of the person in your organisation 
+    responsible for accepting it.</p>
+
+  <p class="govuk-body">
+    You should
+     <a class="govuk-link" href="forward-dsa">share the User Agreement</a> with your organisation if you:</p>
+
+     <ul class="govuk-list govuk-list--bullet">
+      <li>do not think you're the right person to accept it</li>
+      <li>need to discuss it more widely </li>
+    </ul>
+
+
+<br>
+
+<div class="govuk-button-group">
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Accept User Agreement
+  </button>
+  <a class="govuk-link" href="/beta-v4/account-management-dsa5/admin-dashboard">Continue to your organisation account</a>
+</div>
+
+
+
+      </div>
+
+
+
+
+    </form>
+
+
+
+    </div>
+  </div>
+
+{% endblock %}
