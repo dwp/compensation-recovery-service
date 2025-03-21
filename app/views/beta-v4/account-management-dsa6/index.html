@@ -1,0 +1,106 @@
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Insurance company -  Who is the insurance company paying the compensation?
+{% endblock %}
+
+
+{% block globalnav %}
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Section</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item" aria-current="page">Subsection</li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+  <div class="govuk-grid-row govuk-!-margin-top-7">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Register compensation recovery claims</h1>
+
+  <p class="govuk-body">This service is for organisations that register compensation claims with the Compensation Recovery Unit (CRU). </p>
+
+        <p class="govuk-body">Register a claim online if:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>it is for motor or public liability</li>
+            <li>the injured person is represented and can provide an email address for their representative</li>
+            <li>the injured person did not receive hospital treatment as a result of the incident</li>
+        </ul>
+
+        <p class="govuk-body">It may be used by:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>insurance companies</li>
+            <li>other compensators such as councils and government departments</li>
+            <li>claim handlers</li>
+            <li>solicitors and loss adjusters</li>
+        </ul>
+
+    <h2 class="govuk-heading-l">Create an administrator account for your organisation to register compensation claims</h2>
+
+        <p class="govuk-body">Your organisation must have an administrator account to register claims on this service. </p>
+
+        <p class="govuk-body">You should check within your organisation to find out:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>if it already has an administrator account on this service</li>
+            <li>if you’re the right person to be an administrator</li>
+        </ul>
+
+        <p class="govuk-body">After creating an administrator account, you can:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>register and manage claims</li>
+            <li>take over existing claims from other organisations</li>
+            <li>manage user accounts for people from your organisation who need to register compensation claims</li>
+        </ul>
+
+        <p class="govuk-body">You can sign in, if you already have an account for this service.</p>
+
+        {{ govukButton({
+          text: "Create an account",
+          href: "2step-1",
+          classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-8",
+          isStartButton: true
+        }) }}
+
+    <h2 class="govuk-heading-l">Other ways to register</h2>
+        <p class="govuk-body">If a claim does not meet all of the above criteria, you will need to register it by post using a <a href="https://assets.publishing.service.gov.uk/media/5ff7422ed3bf7f65d209c767/cru1.pdf">CRU1 form</a>. </p>
+
+        <h2 class="govuk-heading-l">If you currently register claims through third party software</h2>
+            <p class="govuk-body">If your organisation manages compensation claims using software from CRIF, Direct Line Group or Experian, you should continue to register and manage claims through those. </p>
+
+
+
+
+      <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+
+      <!-- <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Related content
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a class="govuk-link" href="https://www.gov.uk/government/publications/compensation-and-repaying-dwp-if-you-think-our-decision-is-wrong">
+                Compensation and repaying DWP: if you think our decision is wrong
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link" href="https://www.gov.uk/government/collections/cru#contact-cru">
+                Contact the Compensation Recovery Service
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+      </aside> -->
+
+    </div>
+  </div>
+{% endblock %}

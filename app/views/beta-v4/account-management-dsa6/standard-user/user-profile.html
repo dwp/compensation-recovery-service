@@ -1,0 +1,90 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+My profile
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <nav class="navigation-secondary govuk-!-margin-bottom-6">
+      <ul>
+        <li><a href="user-dashboard">Home</a></li>
+        <li><a href="user-all-claims">All claims</a></li>
+        <li><a href="user-register-new-claim">Register a new claim</a></li>
+        <li><a href="user-take-over-claim">Take over a claim from another organisation</a></li>
+        <li class="active"><a href="user-profile">My profile</a></li>
+      </ul>
+    </nav>
+
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl govuk-!-margin-top-5">
+      <span class="govuk-caption-xl">{{ data['company-name'] | default('Compensator Ltd') }}</span>
+        My profile
+      </h1>
+
+      {% if data['user-profile-updated'] == 'true' %}
+      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Success
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <h3 class="govuk-notification-banner__heading">
+            Your details have been updated
+          </h3>
+<!--          <p class="govuk-body">Email sent to <a class="govuk-notification-banner__link" href="#">{{ data['new-user-email'] }}</a> with updated details.</p>-->
+        </div>
+      </div>
+      {% endif %}
+
+      <h2 class="govuk-heading-m">Account details</h2>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Full name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['new-user-full-name'] | default('Sam Smith') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="user-edit-profile">
+              Change<span class="govuk-visually-hidden"> full name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Email
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['new-user-email'] | default('ayana.lawrence@compensatorltd.com') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="user-edit-profile">
+              Change<span class="govuk-visually-hidden"> email</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Password
+          </dt>
+          <dd class="govuk-summary-list__value">
+            ********
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="user-change-password">
+              Change<span class="govuk-visually-hidden"> password</span>
+            </a>
+          </dd>
+        </div>
+
+    </div>
+  </div>
+
+{% endblock %}
+

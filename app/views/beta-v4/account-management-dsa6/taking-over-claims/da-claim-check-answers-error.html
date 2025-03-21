@@ -1,0 +1,168 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Take over an existing claim - Check your answers
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+    <form class="form" action="da-confirmation" method="post">
+
+      <div class="govuk-error-summary" data-module="govuk-error-summary">
+        <div role="alert">
+          <h2 class="govuk-error-summary__title">
+            There is a problem
+          </h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li>
+                <a href="#da-crs-ref">There is a problem with the CRU reference</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="govuk-heading-xl">Check your answers</h1>
+
+      <h2 class="govuk-heading-m">Claim references</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9" >
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            CRU reference
+          </dt>
+          <dd class="govuk-summary-list__value">
+            SY700IPP23C
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="da-crs-reference">Change<span class="govuk-visually-hidden"> CRS reference</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Your reference
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['da-your-ref'] | default('RR0837') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="da-crs-reference">Change<span class="govuk-visually-hidden"> your reference</span></a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">About the injured person</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            First name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['da-ip-first-name'] | default('Lawrence') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="da-injured-person">Change<span class="govuk-visually-hidden"> First name</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Last name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['da-ip-last-name'] | default('Westeros') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="da-injured-person">Change<span class="govuk-visually-hidden"> First name</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date of birth
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['da-ip-date-of-birth-day'] | default("28") }} {{ data['da-ip-date-of-birth-month'] | default("02") | toMonth }} {{ data['da-ip-date-of-birth-year'] | default("1978") }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="da-injured-person">
+              Change<span class="govuk-visually-hidden"> date of birth</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            National Insurance number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['da-ip-ni'] | default('QQ123456C') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="da-injured-person">Change<span class="govuk-visually-hidden"> National Insurance number</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date of injury
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['da-injury-date-day'] | default("15") }} {{ data['da-injury-date-month'] | default("11") | toMonth }} {{ data['da-injury-date-year'] | default("2021") }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="da-incident-date">
+              Change<span class="govuk-visually-hidden"> date of injury</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">Compensator details</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Reference number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['da-comp-ref'] | default('XYZ33990') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="da-compensator-details">Change<span class="govuk-visually-hidden"> compensator's reference number</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Organisation name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['da-comp-name'] | default('Aviva') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="da-compensator-details">Change<span class="govuk-visually-hidden"> compensator's company name</span></a>
+          </dd>
+        </div>
+      </dl>
+      <!-- end -->
+
+
+      {{ govukButton({
+      text: "Submit"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
