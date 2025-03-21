@@ -961,6 +961,26 @@ if (req.session.data['change'] == 'Liability') {
     }
 })
 
+
+router.post('/beta-v4/cru-ops-service/tasks-and-workflows-settle/action-options2', function (req, res) {
+
+if (req.session.data['change'] == 'Liability') {
+  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/check-answers-update')
+} else if (req.session.data['change'] == 'Injured person') {
+  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/confirmation_message')
+} else if (req.session.data['change'] == 'Injury') {
+  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/confirmation_letter')
+} else if (req.session.data['change'] == 'Treatment') {
+  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/confirmation_reminder')
+} else if (req.session.data['change'] == 'new') {
+  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_0/actions')
+} else if (req.session.data['change'] == 'settle') {
+  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows-settle/settle')
+  } else {
+      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/actions')
+    }
+})
+
 router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_0/result-route', function (req, res) {
 
 if (req.session.data['result'] == 'fully') {
@@ -1069,6 +1089,17 @@ if (req.session.data['change'] == 'Liability') {
     res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_2/confirmation-message')
     } else {
       res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_2/result')
+    }
+})
+
+router.post('/beta-v4/cru-ops-service/tasks-and-workflows-settle/action-options', function (req, res) {
+
+if (req.session.data['change'] == 'Liability') {
+  res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows-settle/confirmation-interim')
+} else if (req.session.data['change'] == 'message') {
+    res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows-settle/confirmation-final')
+    } else {
+      res.redirect('/beta-v4/cru-ops-service/tasks-and-workflows-settle/confirmation-withdrawn')
     }
 })
 

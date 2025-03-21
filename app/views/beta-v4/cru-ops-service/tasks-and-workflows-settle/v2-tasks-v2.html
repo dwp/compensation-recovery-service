@@ -1,0 +1,130 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Current tasks
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+  {% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <nav class="navigation-secondary">
+      <ul>
+        <li><a href="v2-dashboard">Home</a></li>
+        <li class="active"><a href="v2-tasks">Tasks</a></li>
+        <li><a href="">Find a claim</a></li>
+        <li><a href="">Organisation list</a></li>
+        <li><a href="">NHS tools</a></li>
+        <li><a href="">Download reports</a></li>
+      </ul>
+    </nav>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <a href="v2-dashboard" class="govuk-back-link govuk-!-margin-bottom-7">Back</a>
+
+      <span class="govuk-caption-l">Sam Smith</span>
+      <h1 class="govuk-heading-xl">Tasks</h1>
+
+          {% if data['task-started'] == 'true' %}
+
+          <div class="govuk-inset-text">
+            <strong class="govuk-tag govuk-tag--yellow">In progress</strong>
+            <h2 class="govuk-heading-s govuk-!-margin-top-3 govuk-!-margin-bottom-0">Request to take over a claim</h2>
+            <p class="govuk-body">Assigned to Sam Smith</p>
+            <form class="form" action="v2-action-task-da" method="post">
+              <div class="govuk-button-group">
+                <button class="govuk-!-margin-bottom-0 govuk-button" data-module="govuk-button">
+                  Go to task
+                </button>
+                <a class="govuk-link" href="v2-tasks?task-started=false&">Cancel task</a>
+                </div>
+            </form>
+
+
+
+          </div>
+
+          {% else %}
+
+          <!-- <p class="govuk-body">You're not currently working on a task.</p>
+          <form class="form" action="v2-action-task-da" method="post">
+            <button class="govuk-button" data-module="govuk-button">
+              Get my next task
+            </button>
+          </form> -->
+
+          <div class="govuk-form-group">
+            <div class="govuk-radios" data-module="govuk-radios">
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="task-type" name="task-type" type="radio" value="government-gateway" aria-describedby="task-type-item-hint">
+                <label class="govuk-label govuk-radios__label" for="task-type">
+                  Trace National Insurance number <b>(10 to do)</b>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="task-type-2" name="task-type" type="radio" value="govuk-verify" aria-describedby="task-type-2-item-hint">
+                <label class="govuk-label govuk-radios__label" for="task-type-2">
+                  Check benefits on expired certificates <b>(23 to do)</b>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="task-type-3" name="task-type" type="radio" value="govuk-verify" aria-describedby="task-type-3-item-hint">
+                <label class="govuk-label govuk-radios__label" for="task-type-3">
+                  Check third party details when taking over an existing claim <br><b>(47 to do)</b>
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="task-type-4" name="task-type" type="radio" value="govuk-verify" aria-describedby="task-type-4-item-hint">
+                <label class="govuk-label govuk-radios__label" for="task-type-4">
+                  Add claim to legacy CRU system <b>(1 to do)</b>
+                </label>
+              </div>
+
+            </div>
+          </div>
+
+          <form class="form" action="v2-action-task-da" method="post">
+            <button class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
+              Get task
+            </button>
+          </form>
+
+
+
+          {% endif %}
+
+        </div>
+        
+    </div>
+  </div>
+
+{% endblock %}
