@@ -1,0 +1,347 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Task details
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+  {% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+<!--    <nav class="navigation-secondary govuk-!-margin-bottom-6">-->
+<!--      <ul>-->
+<!--        <li><a href="./">Home</a></li>-->
+<!--        <li class="active"><a href="current-tasks">Current tasks</a></li>-->
+<!--        <li><a href="completed-tasks">Completed tasks</a></li>-->
+<!--        <li><a href="">Find a claim</a></li>-->
+<!--        <li><a href="">Download reports</a></li>-->
+<!--      </ul>-->
+<!--    </nav>-->
+
+    <div class="govuk-grid-column-full">
+      <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+      {% if data['error'] == 'nino' %}
+      <div class="govuk-error-summary" data-module="govuk-error-summary">
+        <div role="alert">
+          <h2 class="govuk-error-summary__title">
+            There is a problem
+          </h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li>
+                <a href="#updated-ni-number">National Insurance number cannot be found.</a>
+                <br /><br />If you are unable to complete this task, click the 'Unable to complete task' button.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      {% elseif data['error'] == 'dob' %}
+      <div class="govuk-error-summary" data-module="govuk-error-summary">
+        <div role="alert">
+          <h2 class="govuk-error-summary__title">
+            There is a problem
+          </h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li>
+                <a href="#updated-dob">Date of birth does not match CIS record.</a>
+                <br /><br />If you are unable to complete this task, click the 'Unable to complete task' button.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      {% elseif data['error'] == 'benefit' %}
+      <div class="govuk-error-summary" data-module="govuk-error-summary">
+        <div role="alert">
+          <h2 class="govuk-error-summary__title">
+            There is a problem
+          </h2>
+          <div class="govuk-error-summary__body">
+            <ul class="govuk-list govuk-error-summary__list">
+              <li>
+                Benefits have been returned on this claim. It cannot be completed.<br /><br />
+                Click the 'Unable to complete task' button.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <form class="form" action="completed-task-route" method="post">
+
+        <h1 class="govuk-heading-xl govuk-!-margin-top-5 govuk-!-margin-bottom-2">
+<!--          <span class="govuk-caption-l">CRS39488</span>-->
+          Task details
+        </h1>
+        <strong class="govuk-tag govuk-tag--yellow">In progress</strong>
+
+        <dl class="govuk-summary-list govuk-!-margin-top-7">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Assigned to
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Sam Smith
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Description
+            </dt>
+            <dd class="govuk-summary-list__value">
+              No National Insurance number
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              CRU reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+              PAB283
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name of injured person
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Sitaram Aslan
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+              23 July 1982
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              32 Fulwick Avenue<br />
+              Brighton<br />
+              BR1 1MS
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of injury
+            </dt>
+            <dd class="govuk-summary-list__value">
+              19 June 2022
+            </dd>
+          </div>
+        </dl>
+
+        <p class="govuk-body">
+          <a href="case-view-task" class="govuk-link">View claim</a>
+        </p>
+
+        <h2 class="govuk-heading-m govuk-!-margin-top-7">Action task</h2>
+
+        {% if data['error'] == 'nino' %}
+        <div class="govuk-form-group govuk-form-group--error">
+          <label class="govuk-label" for="updated-ni-number">
+            National Insurance number
+          </label>
+          <p id="national-insurance-number-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Enter a National Insurance number in the correct format
+          </p>
+          <input class="govuk-input govuk-!-width-one-half" id="updated-ni-number" name="updated-ni-number" type="text" value="{{ data['updated-ni-number'] }}">
+        </div>
+        {% else %}
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="updated-ni-number">
+            National Insurance number
+          </label>
+          <input class="govuk-input govuk-!-width-one-half" id="updated-ni-number" name="updated-ni-number" type="text" value="{{ data['updated-ni-number'] }}">
+        </div>
+        {% endif %}
+
+        {% if data['error'] != 'dob' %}
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend">
+              Update date of birth?
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="update-dob-yes" name="update-dob" type="radio" value="yes" data-aria-controls="conditional-contact" {% if data['update-dob'] == 'yes' %} checked {% endif %}>
+                <label class="govuk-label govuk-radios__label" for="update-dob-yes">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" role="group" aria-describedby="updated-dob-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                      <h1 class="govuk-fieldset__heading">
+                        Date of birth
+                      </h1>
+                    </legend>
+                    <div id="updated-dob-hint" class="govuk-hint">
+                      For example, 27 3 2007
+                    </div>
+                    <div class="govuk-date-input" id="updated-dob">
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="updated-dob-day">
+                            Day
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="updated-dob-day" name="updated-dob-day" type="text" inputmode="numeric" value="{{ data['updated-dob-day'] }}">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="updated-dob-month">
+                            Month
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="updated-dob-month" name="updated-dob-month" type="text" inputmode="numeric" value="{{ data['updated-dob-month'] }}">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="updated-dob-year">
+                            Year
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="updated-dob-year" name="updated-dob-year" type="text" inputmode="numeric" value="{{ data['updated-dob-year'] }}">
+                        </div>
+                      </div>
+                    </div>
+
+                  </fieldset>
+                </div>
+
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="update-dob-no" name="update-dob" type="radio" value="no" {% if data['update-dob'] == 'no' %} checked {% endif %}>
+                <label class="govuk-label govuk-radios__label" for="update-dob-no">
+                  No
+                </label>
+              </div>
+            </div>
+
+          </fieldset>
+        </div>
+        {% else %}
+        <div class="govuk-form-group govuk-form-group--error">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend">
+              Update date of birth?
+            </legend>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="update-dob-yes" name="update-dob" type="radio" value="yes" data-aria-controls="conditional-contact" checked>
+                <label class="govuk-label govuk-radios__label" for="update-dob-yes">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" role="group" aria-describedby="updated-dob-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                      <h1 class="govuk-fieldset__heading">
+                        Date of birth
+                      </h1>
+                    </legend>
+                    <div id="updated-dob-hint" class="govuk-hint">
+                      For example, 27 3 2007
+                    </div>
+                    <p id="dob-error" class="govuk-error-message">
+                      <span class="govuk-visually-hidden">Error:</span> Date of birth does not match CIS record
+                    </p>
+                    <div class="govuk-date-input" id="updated-dob">
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="updated-dob-day">
+                            Day
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="updated-dob-day" name="updated-dob-day" type="text" inputmode="numeric" value="{{ data['updated-dob-day'] }}">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="updated-dob-month">
+                            Month
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="updated-dob-month" name="updated-dob-month" type="text" inputmode="numeric" value="{{ data['updated-dob-month'] }}">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="updated-dob-year">
+                            Year
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="updated-dob-year" name="updated-dob-year" type="text" inputmode="numeric" value="{{ data['updated-dob-year'] }}">
+                        </div>
+                      </div>
+                    </div>
+
+                  </fieldset>
+                </div>
+
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="update-dob-no" name="update-dob" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="update-dob-no">
+                  No
+                </label>
+              </div>
+            </div>
+
+          </fieldset>
+        </div>
+        {% endif %}
+
+        <div class="govuk-button-group govuk-!-margin-top-9">
+          <button class="govuk-button" data-module="govuk-button">
+            Save and complete task
+          </button>
+          <a href="close-task" class="govuk-button govuk-button--secondary" data-module="govuk-button">Unable to complete task</a>
+        </div>
+
+
+
+      </form>
+
+
+
+
+      
+    </div>
+  </div>
+
+{% endblock %}

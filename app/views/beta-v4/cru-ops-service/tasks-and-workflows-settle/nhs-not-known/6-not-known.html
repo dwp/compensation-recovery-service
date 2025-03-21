@@ -1,0 +1,77 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Current tasks
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+  {% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-7">Back</a>
+
+      <h1 class="govuk-heading-xl">What do you want to do next?</h1>
+
+
+          <form class="form" action="tasks" method="post">
+
+            <div class="govuk-form-group">
+              <div class="govuk-radios" data-module="govuk-radios">
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="task-type" name="tasktype" type="radio" value="letter" aria-describedby="task-type-item-hint">
+                  <label class="govuk-label govuk-radios__label" for="task-type">
+                    Send a letter to the injured person to ask them about their NHS treatment status
+                  </label>
+                </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="task-type-2" name="tasktype" type="radio" value="closetask" aria-describedby="task-type-2-item-hint">
+                  <label class="govuk-label govuk-radios__label" for="task-type-2">
+                  Close task and send NIL NHS certificate of charges
+                  </label>
+                </div>
+
+
+              </div>
+            </div>
+
+              <button class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
+                Save
+              </button>
+
+            </form>
+
+
+
+        </div>
+
+    </div>
+  </div>
+
+{% endblock %}
