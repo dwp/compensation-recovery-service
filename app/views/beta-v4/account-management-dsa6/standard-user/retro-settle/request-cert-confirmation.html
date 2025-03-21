@@ -1,0 +1,52 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Request updated certificate - Confirmation
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-main-wrapper--auto-spacing">
+
+      {{ govukPanel({
+      titleText: "Request sent to the Compensation Recovery Unit",
+      html: ""
+      }) }}
+
+      <p class="govuk-body">We will send you an email to confirm this.</p>
+
+      <div class="govuk-inset-text">
+          <h2 class="govuk-heading-s">Amount to pay</h2>
+          <p class="govuk-body">
+              <span class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold govuk-!-display-block">NIL</span>
+              There is nothing for the Compensation Recovery Service (CRU) to recover based on the information you have provided.
+          </p>
+      </div>
+      <div>
+          <h2 class="govuk-heading-m">What this means</h2>
+          <p class="govuk-body">{{ data['first-name'] | default('Bojen') }}  {{ data['last-name'] | default('Westoros') }} has not received any benefit payments as a result of their injury.</p>
+          <p class="govuk-body">The amount to pay could change if the injured person later claims a social security benefit in relation to their injury.</p>
+          <h2 class="govuk-heading-m">What happens next</h2>
+          <p class="govuk-body">Your updated certificate is ready to download.</p>
+          <p class="govuk-body">You can also download it using the link we will send in your confirmation email.  </p>
+          <h3 class="govuk-heading-s">Download certificates</h3>
+          <ul class="govuk-list govuk-list--bullet">
+              <li><a href="/public/downloads/CRU-nil-cert-generic-24-feb.pdf" class="govuk-link">Compensation Recovery (CRU) Certificate</a></li>
+          </ul>
+          <p class="gov-body">CRU certificates are valid for 6 months.</p>
+          <p class="gov-body"> We will send you a reminder by email when this certificate is due to expire.</p>
+      </div>
+
+      <p class="govuk-body govuk-!-margin-top-7">
+        <a class="govuk-link" href="/beta-v4/account-management/standard-user/user-case-view">View claim</a>
+      </p>
+      <p class="govuk-body">
+          <a class="govuk-link" href="/beta-v4/account-management/standard-user/user-dashboard">Go to your dashboard</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

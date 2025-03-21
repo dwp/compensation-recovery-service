@@ -33,8 +33,11 @@ Create an account
 <!--        <caption class="govuk-table__caption govuk-table__caption&#45;&#45;m">Organisation users</caption>-->
   <thead class="govuk-table__head">
   <tr class="govuk-table__row">
-    <th scope="col" class="govuk-table__header">CRU Reference</th>
     <th scope="col" class="govuk-table__header">Name</th>
+    <th scope="col" class="govuk-table__header">CRU Reference</th>
+    <th scope="col" class="govuk-table__header">Date of injury</th>
+    <th scope="col" class="govuk-table__header">DWP Cert status</th>
+    <th scope="col" class="govuk-table__header">Claim status</th>
     <th scope="col" class="govuk-table__header"></th>
   </tr>
   </thead>
@@ -73,8 +76,20 @@ Create an account
               Sort by
             </label>
             <select class="govuk-select" id="sort" name="sort">
+              <option value="comments">Date of registration</option>
+              <option value="views">Name A - Z</option>
+              <option value="views">Name Z - A</option>
               <option value="comments">CRU Reference - newest first</option>
               <option value="comments">CRU Reference - oldest first</option>
+              <option value="comments">Date of injury - newest first</option>
+              <option value="comments">Date of injury - oldest first</option>
+              <option value="comments">Claim status - Active</option>
+              <option value="comments">Claim status - Incomplete</option>
+              <option value="comments">Claim status - Benefit check</option>
+              <option value="comments">Claim status - Certificate issued</option>
+              <option value="comments">Claim status - Review</option>
+              <option value="comments">Claim status - Settled</option>
+              <option value="comments">Claim status - Legacy</option>
             </select>
           </div>
 
@@ -85,8 +100,11 @@ Create an account
 
         <thead class="govuk-table__head">
         <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">CRU Reference</th>
           <th scope="col" class="govuk-table__header">Name</th>
+          <th scope="col" class="govuk-table__header">CRU Reference</th>
+          <th scope="col" class="govuk-table__header">Date of injury</th>
+          <th scope="col" class="govuk-table__header">Date of registration</th>
+          <th scope="col" class="govuk-table__header">Claim status</th>
           <th scope="col" class="govuk-table__header">Action</th>
         </tr>
         </thead>
@@ -95,71 +113,101 @@ Create an account
 
 
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">PAA035</td>
           <td class="govuk-table__cell">Alice Bennett</td>
+            <td class="govuk-table__cell">PAA035</td>
+          <td class="govuk-table__cell">21 February 2025</td>
+            <td class="govuk-table__cell">21 August 2025</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">active</strong></td>
+
+
       <td class="govuk-table__cell"><a href="/beta-v3-mvp/registration/case-view">View</a></td>
         </tr>
-
-
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">PAA036</td>
           <td class="govuk-table__cell">James Carter</td>
+            <td class="govuk-table__cell">PAA036</td>
+          <td class="govuk-table__cell">10 February 2025</td>
+            <td class="govuk-table__cell">10 August 2025</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">certificate issued</strong></td>
+
+
       <td class="govuk-table__cell"><a href="/beta-v3-mvp/registration/case-view">View</a></td>
         </tr>
-
-
         <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Olivia Dawson</td>
             <td class="govuk-table__cell">PAA150</td>
-            <td class="govuk-table__cell">Olivia Henrietta Dawson</td>
+          <td class="govuk-table__cell">29 January 2025</td>
+                  <td class="govuk-table__cell">29 July 2025</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">settled</strong></td>
+
+
       <td class="govuk-table__cell"><a href="/beta-v3-mvp/registration/case-view">View</a></td>
         </tr>
-
-
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">PAA284</td>
           <td class="govuk-table__cell">Daniel Foster</td>
+            <td class="govuk-table__cell">PAA284</td>
+          <td class="govuk-table__cell">4 January 2025</td>
+              <td class="govuk-table__cell">4 July 2025</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--orange">benefit check</strong></td>
+
+
       <td class="govuk-table__cell"><a href="/beta-v3-mvp/registration/case-view">View</a></td>
         </tr>
-
-
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">PAA593</td>
-          <td class="govuk-table__cell">Sophia Michelle Hayes</td>
+          <td class="govuk-table__cell">Sophia Hayes</td>
+            <td class="govuk-table__cell">PAA593</td>
+          <td class="govuk-table__cell">11 November 2024</td>
+          <td class="govuk-table__cell">15 June 2025</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">legacy</strong></td>
+
+
       <td class="govuk-table__cell"><a href="/beta-v3-mvp/registration/case-view">View</a></td>
         </tr>
-
-
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">PAA742</td>
           <td class="govuk-table__cell">Benjamin Lawson</td>
+            <td class="govuk-table__cell">PAA742</td>
+          <td class="govuk-table__cell">4 October 2024</td>
+            <td class="govuk-table__cell">6 May 2025</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">INCOMPLETE</strong></td>
+
+
       <td class="govuk-table__cell"><a href="/beta-v3-mvp/registration/case-view">View</a></td>
         </tr>
-
-
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">PAB048</td>
           <td class="govuk-table__cell">Emma Mercer</td>
+            <td class="govuk-table__cell">PAB048</td>
+          <td class="govuk-table__cell">30 November 2023</td>
+            <td class="govuk-table__cell">8 April 2025</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--pink">REVIEW</strong></td>
+
+
       <td class="govuk-table__cell"><a href="/beta-v3-mvp/registration/case-view">View</a></td>
         </tr>
-
-
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">PAB149</td>
-          <td class="govuk-table__cell">Juan Carlos Quintero-Dominguez</td>
+          <td class="govuk-table__cell">William Reynolds</td>
+            <td class="govuk-table__cell">PAB149</td>
+          <td class="govuk-table__cell">15 November 2023</td>
+            <td class="govuk-table__cell">11 March 2025</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">legacy</strong></td>
       <td class="govuk-table__cell"><a href="">View</a></td>
         </tr>
 
 
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">PAB363</td>
           <td class="govuk-table__cell">Henry Sinclair</td>
+            <td class="govuk-table__cell">PAB363</td>
+          <td class="govuk-table__cell">20 September 2022</td>
+              <td class="govuk-table__cell">2 March 2025</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">active</strong></td>
       <td class="govuk-table__cell"><a href="/beta-v3-mvp/registration/case-view">View</a></td>
         </tr>
 
 
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">PAB503</td>
-          <td class="govuk-table__cell">James Michael Thornton-Smith</td>
+          <td class="govuk-table__cell">James Thornton</td>
+            <td class="govuk-table__cell">PAB503</td>
+          <td class="govuk-table__cell">3 March 2022</td>
+              <td class="govuk-table__cell">2 January 2025</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">incomplete</strong></td>
       <td class="govuk-table__cell"><a href="/beta-v3-mvp/registration/case-view">View</a></td>
         </tr>
 

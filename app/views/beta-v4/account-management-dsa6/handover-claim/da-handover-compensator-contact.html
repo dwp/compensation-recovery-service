@@ -1,0 +1,57 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Transfer claim - Compensator contact details
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+        <form class="form" action="da-handover-check-answers" method="post">
+
+            <h1 class="govuk-heading-xl">
+                <span class="govuk-caption-xl">Handover claim: {{ data['da-crs-ref'] | default('CRS233450') }}</span>
+                Compensator contact details
+            </h1>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="da-comp-contact-name">
+                    Contact name (if known)
+                </label>
+                <input class="govuk-input govuk-input--width-20" id="da-comp-contact-name" name="da-comp-contact-name" type="text" value="{{ data['da-comp-contact-name'] }}">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="da-comp-contact-email">
+                    Contact email address (if known)
+                </label>
+                <input class="govuk-input govuk-input--width-20" id="da-comp-contact-email" name="da-comp-contact-email" type="text" value="{{ data['da-comp-contact-email'] }}">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="da-comp-contact-number">
+                    Contact telephone number (if known)
+                </label>
+                <input class="govuk-input govuk-input--width-20" id="da-comp-contact-number" name="da-comp-contact-number" type="text" value="{{ data['da-comp-contact-number'] }}">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="da-comp-policy-holder">
+                    Name of policy holder
+                </label>
+                <input class="govuk-input govuk-input--width-20" id="da-comp-policy-holder" name="da-comp-policy-holder" type="text" value="{{ data['da-comp-policy-holder'] }}">
+            </div>
+
+          {{ govukButton({
+          text: "Continue"
+          }) }}
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
