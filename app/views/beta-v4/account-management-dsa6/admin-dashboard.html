@@ -16,25 +16,7 @@ Dashboard
       </ul>
     </nav>
 
-    <div class="govuk-grid-column-full">
-      <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-        <div class="govuk-notification-banner__header">
-          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-            Important
-          </h2>
-        </div>
-        <div class="govuk-notification-banner__content">
-          <p class="govuk-notification-banner__heading">
-          You cannot manage claims in your account until you accept the <a class="govuk-notification-banner__link" href="dsa">User Agreement</a>.
-          </p>
-        </div>
-      </div>
-      <h1 class="govuk-heading-xl govuk-!-margin-top-5">
-      <span class="govuk-caption-xl">{{ data['company-name'] | default('Compensator Ltd') }}</span>
-        {{ data['user-full-name'] | default('Sam Smith') }}
-      </h1>
 
-    </div>
   </div>
 
 <!--   onboarding? -->
@@ -62,18 +44,46 @@ Dashboard
       Use this to:
     </p>
     <ul class="govuk-list govuk-list--bullet">
-      <li>register claims</li>
-      <li>download CRS and NHS charges certificates in PDF format</li>
+      <li>register a claim </li>
+      <li>download certificates for claims registered on this service without Recoverable Benefits or NHS charges (HS charges in Northern Ireland)</li>
     </ul>
-    <strong class="govuk-tag govuk-tag--red">
-      Access restricted
-    </strong>
-    <!-- <p class="govuk-body">
-      <a href="../../nhs-claim/admin-register-new-claim" class="govuk-link">Register a new claim</a>
-    </p> -->
+    <p class="govuk-body"><a href="../../nhs-claim/admin-register-new-claim" class="govuk-link">Register a new claim</a></p>
   </div>
 
+
   <div class="govuk-grid-column-one-half">
+    <h2 class="govuk-heading-m">
+      Manage and settle claims
+    </h2>
+    <p class="govuk-body">
+      Use this to:
+    </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>search all claims registered by your organisation</li>
+      <li>request certificates for claims registered using this service without Recoverable Benefits or NHS charges (HS charges in Northern Ireland</li>
+      <li>view and settle individual claims</li>
+    </ul>
+    <p class="govuk-body">
+      <a href="admin-take-over-claim" class="govuk-link">Manage and settle a claim</a>
+    </p>
+  </div>
+
+  <div class="govuk-grid-column-one-half govuk-!-margin-top-7">
+    <h2 class="govuk-heading-m">
+      Requesting certificates
+    </h2>
+    <p class="govuk-body">You can only request a certificate using this service for claims registered online.</p>
+
+    <p class="govuk-body">If you use a third party software to register claims, you can use the CRU e-service to request a certificate.</p>
+
+    <p class="govuk-body">For claims registered by post, send an email to cru.highvolumeareacertificates@dwp.gov.uk to request a certificate.You must include the CRU reference (3 letters followed by 3 numbers) in your email.</p>
+
+    <p class="govuk-body">
+      <a href="admin-all-claims" class="govuk-link">View all current claims for your organisation</a>
+    </p>
+  </div>
+
+  <div class="govuk-grid-column-one-half govuk-!-margin-top-7">
     <h2 class="govuk-heading-m">
       Take over claims registered by another organisation
     </h2>
@@ -84,46 +94,8 @@ Dashboard
       <li>tell the Compensation Recovery Unit that you are taking over a claim registered by another organisation</li>
       <li>get notified when updated certificates are issued</li>
     </ul>
-    <strong class="govuk-tag govuk-tag--red">
-      Access restricted
-    </strong>
-    <!-- <p class="govuk-body">
-      <a href="admin-take-over-claim" class="govuk-link">Take over a claim from another organisation</a>
-    </p> -->
-  </div>
-
-  <div class="govuk-grid-column-one-half govuk-!-margin-top-7">
-    <h2 class="govuk-heading-m">
-      Manage and settle claims
-    </h2>
     <p class="govuk-body">
-      Use this to:
-    </p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>search all claims registered by your organisation</li>
-      <li>view and settle individual claims</li>
-    </ul>
-    <strong class="govuk-tag govuk-tag--red">
-      Access restricted
-    </strong>
-    <!-- <p class="govuk-body">
-      <a href="admin-all-claims" class="govuk-link">View all current claims for your organisation</a>
-    </p> -->
-  </div>
-
-  <div class="govuk-grid-column-one-half govuk-!-margin-top-7">
-    <h2 class="govuk-heading-m">
-      Manage your organisation account
-    </h2>
-    <p class="govuk-body">
-      Use this to:
-    </p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>ask employees from your organisation to create individual accounts to register and settle claims</li>
-      <li>add details for people we can contact in the event of a data breach</li>
-    </ul>
-    <p class="govuk-body">
-      <a href="admin-user/admin-manage-org" class="govuk-link">View and edit your organisation’s details</a>
+      <a href="admin-user/admin-manage-org" class="govuk-link">Take over a claim from another organisation</a>
     </p>
   </div>
 
