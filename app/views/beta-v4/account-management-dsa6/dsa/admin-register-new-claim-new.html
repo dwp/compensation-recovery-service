@@ -1,0 +1,64 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Register a new claim
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <nav class="navigation-secondary govuk-!-margin-bottom-6">
+      <ul>
+        <li><a href="admin-dashboard">Home</a></li>
+        <li><a href="admin-all-claims">All claims</a></li>
+        <li class="active"><a href="admin-register-new-claim">Register a new claim</a></li>
+        <li><a href="admin-take-over-claim">Take over a claim from another organisation</a></li>
+        <li><a href="admin-manage-org">Manage organisation</a></li>
+        <li><a href="admin-profile">My profile</a></li>
+      </ul>
+    </nav>
+
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl govuk-!-margin-top-5">Register a new claim</h1>
+     <!--  <span class="govuk-caption-xl">{{ data['company-name'] | default('Compensator Ltd') }}</span>
+        Register a new claim
+      </h1> -->
+
+      <p class="govuk-body">Register claims online to download your certificates of recoverable benefits and certificates of NHS charges (HS charges in Northern Ireland).</p>
+
+
+      <p class="govuk-body">Register a claim online if:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>it is for motor or public liability</li>
+        <li>the injured person is represented and can provide an email address for their representative</li>
+        <li>the injured person did not receive NHS hospital treatment (HSC in Northern Ireland) as a result of the incident</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Before you start</h2>
+
+      <p class="govuk-body">You’ll need:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>injured person’s details</li>
+        <li>injury details</li>
+        <li>names and addresses of any hospitals attended because of the incident</li>
+        <li>injured person’s representative details</li>
+      </ul>
+
+      <p class="govuk-body">Registering a claim takes around 5 minutes.</p>
+
+      {{ govukButton({
+      text: "Start now",
+      href: "../../registration/nhs-guard",
+      classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-8",
+      isStartButton: true
+      }) }}
+
+    </div>
+  </div>
+
+
+
+
+{% endblock %}
