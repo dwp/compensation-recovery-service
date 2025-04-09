@@ -9,6 +9,7 @@ Create an account
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds govuk-main-wrapper--auto-spacing">
+    <form class="form" action="/beta-v4/account-management/standard-user/user-dashboard" method="post">
 
       {{ govukPanel({
       titleText: "Account created",
@@ -32,12 +33,19 @@ Create an account
 
       <p class="govuk-body">You can only request a certificate using this service for claims registered online.</p>
 
-      <p class="govuk-body">If you use a third party software to register claims, you can use the CRU e-service to request a certificate.</p>
+      <p class="govuk-body">If you use a third party software to register claims, you can use the CRU 
+        <br>e-service to request a certificate.</p>
 
-      <p class="govuk-body">For claims registered by post, send an email to cru.highvolumeareacertificates@dwp.gov.uk to request a certificate. You must include the CRU reference (3 letters followed by 3 numbers) in your email.</p>
+      <p class="govuk-body">For claims registered by post, send an email to 
+        <a href="mailto:cru.highvolumeareacertificates@dwp.gov.uk">cru.highvolumeareacertificates@dwp.gov.uk</a> to request a certificate. You must include the CRU reference (3 letters followed by 3 numbers) in your email.</p>
 
       <p class="govuk-body govuk-!-margin-top-7">
-          <a class="govuk-link" href="/beta-v4/account-management/standard-user/user-dashboard">Go to your dashboard</a>
+
+        {{ govukButton({
+          text: "Go to your dashboard"
+          }) }}
+    
+        </form>
       </p>
 
 <!--      <p class="govuk-body">-->
