@@ -1,0 +1,939 @@
+
+{% extends folder+ "/layout.html" %}
+
+{% block pageTitle %}
+Claim view
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+homepageUrl: "/",
+serviceName: serviceName,
+serviceUrl: "/" + folder + "/",
+containerClasses: "govuk-width-container"
+}) }}
+
+<div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+        <p class="govuk-phase-banner__content">
+            <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+                Prototype: Current
+            </strong>
+            <span>This is not production ready code</span>
+        </p>
+    </div>
+</div>
+
+{% endblock %}
+
+{% set checksystem = data['benefit-type'] and data['benefit-type'].includes('system') %}
+  {% set checknhs = data['benefit-type'] and data['benefit-type'].includes('nhs') %}
+  {% set checkcomment = data['benefit-type'] and data['benefit-type'].includes('comment') %}
+
+  {% set showAll = true if not data['benefit-type'] or (not data['benefit-type'].includes('system') and not data['benefit-type'].includes('nhs') and not data['benefit-type'].includes('comment')) %}
+
+  {% set showsystem = true if data['benefit-type'] and data['benefit-type'].includes('system') or showAll %}
+  {% set shownhs = true if data['benefit-type'] and data['benefit-type'].includes('nhs') or showAll %}
+  {% set showcomment = true if data['benefit-type'] and data['benefit-type'].includes('comment') or showAll %}
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+        <a href="find-case" class="govuk-back-link govuk-!-margin-bottom-7">Back to Find a claim</a>
+
+        <h1 class="govuk-heading-xl">
+            <span class="govuk-caption-xl"> Claim reference</span>
+            BBB327
+        </h1>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-5">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Liability type
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['liability'] | default('Motor') }}
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Name of injured person
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['first-name'] | default('Bojen') }}  {{ data['last-name'] | default('Westoros') }}
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+              Name in Searchlight
+              </dt>
+              <dd class="govuk-summary-list__value">
+Jon Smith | captured on CIS on 12 September 2024 <br>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Date of birth
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  9 April 1966
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  National insurance number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  NY 57 63 36 A
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                 Benefit interest
+                </dt>
+                <dd class="govuk-summary-list__value">
+                None
+                </dd>
+            </div>
+
+            <!--<div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Claim status
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Certificate issued
+            </dd>
+            </div> -->
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Date of claim registration
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ 'D MMMM YYYY' | baseDate(1) }}
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+  More claims by this person
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <details class="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                    5 claims found
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    <span class="govuk-body govuk-!-font-weight-bold"><a href="">CRS462</a> </span>| Injury date - 20 March 2023 <br>
+                 <span class="govuk-body govuk-!-font-weight-bold"><a href="">PBA213</a></span> | Injury date - 19 March 2023<br>
+                 <span class="govuk-body govuk-!-font-weight-bold"><a href="">CRU112</a></span> | Injury date - 22 August 2019 <br>
+           <span class="govuk-body govuk-!-font-weight-bold"><a href="">CRU345</a></span> | Injury date - 31 October 2015<br>
+                    <span class="govuk-body govuk-!-font-weight-bold"><a href="">CBD543</a></span> | Injury date - 10 August 2010
+                </details>
+              </dd>
+            </div>
+        </dl>
+
+
+        <div class="govuk-inset-text">
+          <p class="govuk-body"><a href="actions_all-unhp" class="govuk-link">Claim options</a></p>
+        </div>
+        <br>
+
+        {% from "govuk/components/tabs/macro.njk" import govukTabs %}
+
+        {% set caseActionHtml %}
+
+        <form class="form" action="certificate" method="post">
+            <h2 class="govuk-heading-l">Certificates</h2>
+            <p><strong class="govuk-tag govuk-tag--green">Certificate issued</strong></p>
+
+            <div class="govuk-inset-text">
+                <h2 class="govuk-heading-s">Amount to pay</h2>
+
+                <p class="govuk-body">
+                    <span class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold govuk-!-display-block">NIL</span>
+                </p>
+
+                <dl class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key" style="width: 35%;">
+                            Compensator CRU Certificate
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            Expires 24 November 2022
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="/public/downloads/CRU-nil-cert-generic-24-feb.pdf">
+                                Download copy<span class="govuk-visually-hidden"> name</span>
+                            </a>
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Compensator NHS Certificate
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            No expiry
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="/public/downloads/NHS-nil-cert-generic-24feb.pdf">
+                                Download copy<span class="govuk-visually-hidden"> name</span>
+                            </a>
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            IP Rep CRU Certificate
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            Expires 24 November 2022
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="/public/downloads/CRU-nil-cert-generic-24-feb.pdf">
+                                Download copy<span class="govuk-visually-hidden"> name</span>
+                            </a>
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </form>
+
+        {% endset -%}
+
+        {% set caseInformationHtml %}
+
+        <h2 class="govuk-heading-l">Details</h2>
+        <!-- <div class="govuk-inset-text">
+          <p class="govuk-body"><a href="change1" class="govuk-link">Update case details</a></p>
+        </div> -->
+        <h2 class="govuk-heading-m">The injured person</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+            Bojen Westoros <strong class="govuk-tag">
+  Requested name
+</strong>
+            </dd>
+            <dd class="govuk-summary-list__actions"></dd>
+            </div>
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Date of birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+            9 April 1966
+            </dd>
+            <dd class="govuk-summary-list__actions"></dd>
+            </div>
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            National Insurance number
+            </dt>
+            <dd class="govuk-summary-list__value">
+            <p class="govuk-body"> NY 57 63 36 A</p>
+            </dd>
+            <dd class="govuk-summary-list__actions"></dd>
+            </div>
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+            {{ data['choose-ip-address'] | default('4 High Street') }}<br>Thrupp<br>{{ data['addresspostcode'] | default('SW11 4DY') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+<!--            <a class="govuk-link" href="#">-->
+<!--              Change<span class="govuk-visually-hidden"> address</span>-->
+<!--            </a>-->
+            </dd>
+            </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">Injury details</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Injury date
+                </dt>
+                <dd class="govuk-summary-list__value">
+                11 May 2023
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                <!-- <a class="govuk-link" href="#">
+                  Change<span class="govuk-visually-hidden"> date</span>
+                </a> -->
+                </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Whiplash
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  Yes
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                  <!--                <a class="govuk-link" href="whiplash-guard?backtocheckanswers=true&">-->
+                  <!--                  Change<span class="govuk-visually-hidden"> whiplash</span>-->
+                  <!--                </a>-->
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Other injuries
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  Yes
+              </dd>
+              <dd class="govuk-summary-list__actions">
+            <!--                      <a class="govuk-link" href="injury-guard?backtocheckanswers=true&">-->
+            <!--                          Change<span class="govuk-visually-hidden"> other injuries</span>-->
+            <!--                      </a>-->
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Injury types
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  Physical injury other than whiplash<br />
+                  Psychological injuries<br />
+                  Neurological injuries
+              </dd>
+              <dd class="govuk-summary-list__actions">
+            <!--                      <a class="govuk-link" href="other-injuries?backtocheckanswers=true&">-->
+            <!--                          Change<span class="govuk-visually-hidden"> types of injury</span>-->
+            <!--                      </a>-->
+              </dd>
+            </div>
+
+            <!-- Physical injuries -->
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Physical injury other than whiplash
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+                  <!-- start Ribs, chest or torso injuries -->
+                  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Ribs, chest or torso injuries</h3><br />
+                  <p>Details</p>
+                  <ul class="govuk-list govuk-list--bullet">
+                      <li>
+                          Pain or discomfort
+                      </li>
+                  </ul>
+                  <p>Injury location</p>
+                  <ul class="govuk-list govuk-list--bullet">
+                      <li>Left side</li>
+                  </ul>
+                  <!-- end Ribs, chest or torso injuries -->
+
+                  <!-- start Leg, knee or ankle injuries -->
+                  <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Leg, knee or ankle injuries</h3><br />
+                  <p>Details</p>
+                  <ul class="govuk-list govuk-list--bullet">
+                      <li>
+                          Pain or discomfort
+                      </li>
+                      <li>
+                          Fracture
+                      </li>
+                  </ul>
+                  <p>Injury location</p>
+                  <ul class="govuk-list govuk-list--bullet">
+                      <li>Left leg</li>
+                  </ul>
+                  <!-- end Leg, knee, ankle or foot -->
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                  <!--                <a class="govuk-link" href="where-is-the-injury?backtocheckanswers=true&">-->
+                  <!--                  Change<span class="govuk-visually-hidden"> physical injuries</span>-->
+                  <!--                </a>-->
+              </dd>
+            </div>
+
+            <!-- Psychological injuries -->
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Psychological injuries
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  Travel anxiety
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                  <!--                <a class="govuk-link" href="psychological?backtocheckanswers=true&">-->
+                  <!--                  Change<span class="govuk-visually-hidden"> psychological injury</span>-->
+                  <!--                </a>-->
+              </dd>
+            </div>
+
+            <!-- Neurological injuries -->
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Neurological injuries
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  Change to senses
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                  <!--                <a class="govuk-link" href="neurological?backtocheckanswers=true&">-->
+                  <!--                  Change<span class="govuk-visually-hidden"> neurological injury</span>-->
+                  <!--                </a>-->
+              </dd>
+            </div>
+
+            </dl>
+
+            <h2 class="govuk-heading-m">Compensator</h2>
+
+            <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+            Insure Co Ltd
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            <!-- <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> name</span>
+            </a> -->
+            </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+            Alexander house<br> Talbot Road<br> Manchester<br> M16 0SP
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            <!-- <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> Address</span>
+            </a> -->
+            </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Email address
+            </dt>
+            <dd class="govuk-summary-list__value">
+            cruliability@insureco.com
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            <!-- <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> email address</span>
+            </a> -->
+            </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key no-border">
+            Telephone
+            </dt>
+            <dd class="govuk-summary-list__value no-border">
+            0161 123 4567
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            <!-- <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden">telephone</span>
+            </a> -->
+            </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key no-border">
+            Reference
+            </dt>
+            <dd class="govuk-summary-list__value no-border">
+            4567890/02
+            </dd>
+            <dd class="govuk-summary-list__actions no-border">
+            <!-- <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden">reference</span>
+            </a> -->
+            </dd>
+            </div>
+            </dl>
+
+            <h2 class="govuk-heading-m">Injured person's representative</h2>
+
+
+            <dl class="govuk-summary-list govuk-!-margin-bottom-0">
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Company name
+            </dt>
+            <dd class="govuk-summary-list__value">
+            {{ data['represesntative-name'] | default('McAdar Solicitors') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            <!-- <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden">Solictor name</span>
+            </a> -->
+            </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Email address
+            </dt>
+            <dd class="govuk-summary-list__value">
+            {{ data['email-solicitor'] | default('claims@mcadarx.co.uk') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            <!-- <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden">email address</span>
+            </a> -->
+            </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Reference number
+            </dt>
+            <dd class="govuk-summary-list__value">
+            {{ data['represesntative-reference'] | default('Cr1234567') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            <!-- <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> About the accident or incident</span>
+            </a> -->
+            </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Telephone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+            {{ data['represesntative-phone-number'] | default('07880109642') }}
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            <!-- <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden">telephone</span>
+            </a> -->
+            </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+            {{ data['solicitor-address'] | default('Ivy House, Ivy Lane') }}<br>Warehorne<br>{{ data['representativepostcode'] | default('TN26 9XE') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            <!-- <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> address</span>
+            </a> -->
+            </dd>
+            </div>
+            </dl>
+
+            {% endset -%}
+
+            {% set caseChargesHtml %}
+            <h2 class="govuk-heading-l">Charges</h2>
+            <h2 class="govuk-heading-m">NHS charges</h2>
+
+            <table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header app-custom-class">Treatment started</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Treatment ended</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Trust attended</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Charge type</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Ambulance trips/days in hospitals</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Gross treatment total</th>
+        <th scope="col" class="govuk-table__header app-custom-class">Net treatment total</th>
+    </tr>
+
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+
+      <td class="govuk-table__cell">08.01.2023</td>
+      <td class="govuk-table__cell">08.01.2023</td>
+      <td class="govuk-table__cell">The North West Ambulance Service NHS Trust</td>
+      <td class="govuk-table__cell">Ambulance</td>
+      <td class="govuk-table__cell">1</td>
+      <td class="govuk-table__cell">£225</td>
+        <td class="govuk-table__cell">£225</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">09.01.2023</td>
+      <td class="govuk-table__cell">26.02.2023</td>
+      <td class="govuk-table__cell">Manchester University NHS Foundation Trust</td>
+      <td class="govuk-table__cell">Inpatient</td>
+      <td class="govuk-table__cell">65</td>
+      <td class="govuk-table__cell">£59,475</td>
+        <td class="govuk-table__cell">£54,260<strong class="govuk-tag govuk-tag--blue">
+          capped
+        </strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">09.02.2023</td>
+      <td class="govuk-table__cell">09.02.2023</td>
+      <td class="govuk-table__cell">Manchester University NHS Foundation Trust</td>
+      <td class="govuk-table__cell">Outpatient</td>
+      <td class="govuk-table__cell">1</td>
+      <td class="govuk-table__cell">£744</td>
+        <td class="govuk-table__cell">£0 <strong class="govuk-tag govuk-tag--blue">
+          capped
+        </strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">14.02.2023</td>
+      <td class="govuk-table__cell">14.02.2023</td>
+      <td class="govuk-table__cell">Manchester University NHS Foundation Trust</td>
+      <td class="govuk-table__cell">Outpatient</td>
+      <td class="govuk-table__cell">1</td>
+      <td class="govuk-table__cell">	£744</td>
+        <td class="govuk-table__cell">£0 <strong class="govuk-tag govuk-tag--blue">
+          capped
+        </strong></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Total NHS charges</td>
+      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell">£59,700</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell govuk-!-font-weight-bold">Net amount to be paid</td>
+      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell govuk-!-font-weight-bold">£54,485</td>
+    </tr>
+  </tbody>
+</table>
+
+            {% endset -%}
+
+            {% set caseTimelineHtml %}
+
+            <h2 class="govuk-heading-l">History</h2>
+
+            <p class="govuk-body govuk-!-margin-bottom-7"><a href="../note/1-add-note" class="govuk-link">Add note</a></p>
+
+
+
+<!-- timeline start -->
+            <div class="timeline govuk-!-margin-top-7">
+
+
+{% if showcomment %}
+              <span class="line"></span>
+              <div class="timeline__event">
+                <strong class="govuk-tag govuk-tag--turquoise govuk-!-margin-bottom-1">
+                  Agent note
+                  </strong>
+                <p class="govuk-body"> cont neg query </p>
+
+              <p class="timeline_datetime"> 1:02pm, 2 February 2023, Daniel Farrington</p>
+              </div>
+{% endif %}
+
+{% if showcomment %}
+              <span class="line"></span>
+              <div class="timeline__event">
+                <strong class="govuk-tag govuk-tag--turquoise govuk-!-margin-bottom-1">
+                  Agent note
+                  </strong>
+                <p class="govuk-body"> email to reviews to check if latest docs in drs indicate </p>
+
+              <p class="timeline_datetime"> 1:02pm, 2 February 2023, Daniel Farrington</p>
+              </div>
+{% endif %}
+
+<!-- {% if shownhs %}
+              <span class="line"></span>
+              <div class="timeline__event" style="background-color: #EEEEEE;">
+                <div style="padding:10px;">
+                  <strong class="govuk-tag govuk-tag--red govuk-!-margin-bottom-1">
+                    NHS note
+                  </strong>
+              <p class="govuk-body">
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+                <li>Apportionment case - DRS docs held</li>
+                </ul>
+              </p>
+              <p class="timeline_datetime"> 11:29am, 26 January 2023, Sam Smith</p>
+              </div>
+              </div>
+{% endif %} -->
+
+{% if showcomment %}
+              <span class="line"></span>
+              <div class="timeline__event">
+                <strong class="govuk-tag govuk-tag--turquoise govuk-!-margin-bottom-1">
+                  Agent note
+                  </strong>
+                <p class="govuk-body"> chase up with manager re: apportionment </p>
+
+              <p class="timeline_datetime"> 10:02am, 22 December 2022, Daniel Farrington</p>
+              </div>
+{% endif %}
+
+{% if showcomment %}
+              <span class="line"></span>
+              <div class="timeline__event">
+                <strong class="govuk-tag govuk-tag--turquoise govuk-!-margin-bottom-1">
+                  Agent note
+                  </strong>
+                <p class="govuk-body"> referred to manager re: apportionment query</p>
+
+              <p class="timeline_datetime"> 10:34am, 17 October 2022, Daniel Farrington</p>
+              </div>
+{% endif %}
+
+{% if showsystem %}
+                <span class="line"></span>
+                <div class="timeline__event">
+                  <h3 class="timeline__heading govuk-heading-s"><strong class="govuk-tag govuk-tag--purple govuk-!-margin-bottom-1">
+                  Claim actions
+                </strong> Take over claim request approved </h3>
+                <p class="govuk-body">Insure co Ltd has taken over the claim from Assurance Ltd</p>
+                <p class="timeline_datetime"> 11:25am, 18 August 2022, Sam Smith</p>
+                </div>
+{% endif %}
+
+{% if showsystem %}
+            <span class="line"></span>
+            <div class="timeline__event">
+            <h3 class="timeline__heading govuk-heading-s"><strong class="govuk-tag govuk-tag--purple govuk-!-margin-bottom-1">
+              Claim actions
+            </strong> Take over claim request submitted</h3>
+            <p class="govuk-body"> Insure co Ltd</p>
+            <p class="timeline_datetime">10:30am, 9 August 2022, Jane Smith, Insure co ltd</p>
+            </div>
+{% endif %}
+
+{% if showcomment %}
+              <span class="line"></span>
+              <div class="timeline__event">
+                <strong class="govuk-tag govuk-tag--turquoise govuk-!-margin-bottom-1">
+                  Agent note
+                  </strong>
+                <p class="govuk-body">Sent to CDCU - DND </p>
+
+              <p class="timeline_datetime"> 11:02am, 27 June 2022, Neil Perry</p>
+              </div>
+{% endif %}
+
+{% if showcomment %}
+              <span class="line"></span>
+              <div class="timeline__event">
+                <strong class="govuk-tag govuk-tag--turquoise govuk-!-margin-bottom-1">
+                  Agent note
+                  </strong>
+                <p class="govuk-body"> Added to C/B log to email @ Keoghs IRO £344 </p>
+
+              <p class="timeline_datetime"> 1:02pm, 7 April 2022, Chris Langford</p>
+              </div>
+{% endif %}
+
+<!-- {% if shownhs %}
+              <span class="line"></span>
+              <div class="timeline__event" style="background-color: #EEEEEE;">
+                <div style="padding:10px;">
+                  <strong class="govuk-tag govuk-tag--red govuk-!-margin-bottom-1">
+                    NHS note
+                  </strong>
+              <p class="govuk-body">
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+                <li>Camlite</li>
+                </ul>
+              </p>
+              <p class="timeline_datetime"> 11:29am, 26 March 2022, Sam Smith</p>
+              </div>
+              </div>
+{% endif %} -->
+
+<!-- {% if shownhs %}
+              <span class="line"></span>
+              <div class="timeline__event" style="background-color: #EEEEEE;">
+                <div style="padding:10px;">
+                  <strong class="govuk-tag govuk-tag--red govuk-!-margin-bottom-1">
+                    NHS note
+                  </strong>
+              <p class="govuk-body">
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+                <li>Cont Neg work to Reviews</li>
+                <li>Cont neg review disallowed - reduced liability not confirmed</li>
+                <li>Camlite</li>
+                </ul>
+              </p>
+              <p class="timeline_datetime"> 11:29am, 22 January 2022, Sam Smith</p>
+              </div>
+              </div>
+{% endif %} -->
+
+{% if showcomment %}
+              <span class="line"></span>
+              <div class="timeline__event">
+                <strong class="govuk-tag govuk-tag--turquoise govuk-!-margin-bottom-1">
+                  Agent note
+                  </strong>
+                <p class="govuk-body"> UC workaround </p>
+
+              <p class="timeline_datetime"> 1:02pm, 4 Septemeber 2020, Sara Ward</p>
+              </div>
+{% endif %}
+
+{% if showcomment %}
+              <span class="line"></span>
+              <div class="timeline__event">
+                <strong class="govuk-tag govuk-tag--turquoise govuk-!-margin-bottom-1">
+                  Agent note
+                  </strong>
+                <p class="govuk-body"> T/C from Keoghs, copy NHS issd </p>
+
+              <p class="timeline_datetime"> 4:13pm, 4 June 2020, Anish Patel</p>
+              </div>
+{% endif %}
+
+{% if showcomment %}
+              <span class="line"></span>
+              <div class="timeline__event">
+                <strong class="govuk-tag govuk-tag--turquoise govuk-!-margin-bottom-1">
+                  Agent note
+                  </strong>
+                <p class="govuk-body"> Comps Rep added (Keoghs), copy cert issued DRS </p>
+
+              <p class="timeline_datetime"> 1:25pm, 22 April 2020, John Collins</p>
+              </div>
+{% endif %}
+
+{% if showcomment %}
+              <span class="line"></span>
+              <div class="timeline__event">
+                <strong class="govuk-tag govuk-tag--turquoise govuk-!-margin-bottom-1">
+                  Agent note
+                  </strong>
+                <p class="govuk-body"> UC workaround </p>
+              <p class="timeline_datetime"> 11:25am, 24 March 2020, Hima Agrawal</p>
+              </div>
+{% endif %}
+
+<!-- {% if shownhs %}
+              <span class="line"></span>
+              <div class="timeline__event" style="background-color: #EEEEEE;">
+                <div style="padding:10px;">
+                  <strong class="govuk-tag govuk-tag--red govuk-!-margin-bottom-1">
+                    NHS note
+                  </strong>
+              <p class="govuk-body">
+                <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-0">
+                <li>Ip address amended re cis</li>
+                <li>IP received. Notes issued re new info. CIS checked</li>
+                </ul>
+              </p>
+              <p class="timeline_datetime"> 11:29am, 18 June 2019, Sam Smith</p>
+              </div>
+              </div>
+{% endif %} -->
+
+{% if showsystem %}
+                <span class="line"></span>
+                <div class="timeline__event">
+                  <h3 class="timeline__heading govuk-heading-s"><strong class="govuk-tag govuk-tag--purple govuk-!-margin-bottom-1">
+                  Claim actions
+                </strong> Claim details updated </h3>
+                <p class="govuk-body">Address changed from 4 High Street, Thrupp, SW11 4DY to 11 Station Road, Coventry, CV1 4TG</p>
+                <p class="timeline_datetime"> 11:25am, 18 June 2019, Sam Smith</p>
+                </div>
+{% endif %}
+
+{% if showsystem %}
+            <span class="line"></span>
+            <div class="timeline__event">
+            <h3 class="timeline__heading govuk-heading-s"> <strong class="govuk-tag govuk-tag--purple govuk-!-margin-bottom-1">
+              Claim actions
+            </strong> Certificate requested</h3>
+            <p class="timeline_datetime">10:30am, 9 June 2019, Paul Smith, Assurance Ltd</p>
+            </div>
+{% endif %}
+
+{% if showsystem %}
+            <span class="line"></span>
+            <div class="timeline__event">
+            <h3 class="timeline__heading govuk-heading-s"><strong class="govuk-tag govuk-tag--purple govuk-!-margin-bottom-1">
+              Claim actions
+            </strong> Claim registered</h3>
+            <p class="timeline_datetime">10:30am, 9 June 2019, Paul Smith, Assurance Ltd</p>
+            </div>
+{% endif %}
+            <div style="clear:both"></div>
+
+            </div><!-- timeline -->
+            {% endset -%}
+
+
+{{ govukTabs({
+  items: [
+  {
+  label: "History",
+  id: "case-timeline",
+  panel: {
+  html: caseTimelineHtml
+  }
+  },
+  {
+    label: "Certificates",
+    id: "case-action",
+    panel: {
+    html: caseActionHtml
+  }
+  },
+  {
+    label: "Details",
+    id: "case-information",
+    panel: {
+    html: caseInformationHtml
+  }
+  },
+  {
+    label: "Charges",
+    id: "case-charges",
+    panel: {
+      html: caseChargesHtml
+    }
+  }
+
+  ]
+  }) }}
+
+</div>
+    </div>
+</div>
+
+<!--&lt;!&ndash; code for demo only&ndash;&gt;-->
+<!--<style>-->
+<!--  a.timemachine{-->
+<!--    position:absolute;-->
+<!--    top:0px;-->
+<!--    right:0px;-->
+<!--    background:black;-->
+<!--    padding:0.8em;-->
+<!--    color:white;-->
+<!--    }-->
+<!--</style>-->
+
+
+<!--<a href ='case-view-benefits' class="timemachine">Alternate view</a>-->
+
+
+{% endblock %}
