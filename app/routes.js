@@ -21,17 +21,6 @@ router.use('/', (req, res, next) => {
     next();
   });
 
-// Old routes, no longer used? (will need backslash in path to work)
-router.use('/current', require('./views/current/_routes'));
-router.use('/v4', require('./views/v4/_routes'));
-router.use('/v3', require('./views/v3/_routes'));
-router.use('/v2-compensators', require('./views/v2-compensators/_routes'));
-router.use('/v1-compensators', require('./views/v1-compensators/_routes'));
-router.use('/v1-staff', require('./views/v1-staff/_routes'));
-router.use('/mvp', require('./views/mvp/_routes'));
-router.use('/mvp-01', require('./views/mvp-01/_routes'));
-router.use('/beta-v3-mvp', require('./views/beta-v3-mvp/_routes'));
-
 // This route in use
 router.use('/beta-v4', require('./views/beta-v4/\_routes'));
 
