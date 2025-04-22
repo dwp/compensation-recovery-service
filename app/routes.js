@@ -1,15 +1,12 @@
-const express = require('express')
-const router = express.Router()
+//
+// For guidance on how to create routes see:
+// https://prototype-kit.service.gov.uk/docs/create-routes
+//
 
-// Add your routes here - above the module.exports line
+const govukPrototypeKit = require('govuk-prototype-kit')
+const router = govukPrototypeKit.requests.setupRouter()
 
-const radioButtonRedirect = require('radio-button-redirect')
-const { NULL } = require('node-sass')
-router.use(radioButtonRedirect)
-
-
-
-
+// Add your routes here
 
 // GET SPRINT NAME - useful for relative templates
 router.use('/', (req, res, next) => {
@@ -1456,4 +1453,3 @@ if (req.session.data['change'] == 'Liability') {
 // })
 
 //
-module.exports = router
