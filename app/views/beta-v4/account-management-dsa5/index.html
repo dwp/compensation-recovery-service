@@ -1,4 +1,5 @@
-{% extends folder+ "/layout.html" %}
+{% extends "../../index.html" %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% block pageTitle %}
 Insurance company -  Who is the insurance company paying the compensation?
@@ -20,7 +21,6 @@ Insurance company -  Who is the insurance company paying the compensation?
 {% endblock %}
 
 {% block content %}
-{% from "govuk/components/button/macro.njk" import govukButton %}
 
   <div class="govuk-grid-row govuk-!-margin-top-7">
       <div class="govuk-grid-column-two-thirds">
