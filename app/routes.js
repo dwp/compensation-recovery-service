@@ -1,15 +1,12 @@
-const express = require('express')
-const router = express.Router()
+//
+// For guidance on how to create routes see:
+// https://prototype-kit.service.gov.uk/docs/create-routes
+//
 
-// Add your routes here - above the module.exports line
+const govukPrototypeKit = require('govuk-prototype-kit')
+const router = govukPrototypeKit.requests.setupRouter()
 
-const radioButtonRedirect = require('radio-button-redirect')
-const { NULL } = require('node-sass')
-router.use(radioButtonRedirect)
-
-
-
-
+// Add your routes here
 
 // GET SPRINT NAME - useful for relative templates
 router.use('/', (req, res, next) => {
@@ -23,17 +20,6 @@ router.use('/', (req, res, next) => {
     console.log('previous page is: ' + res.locals.prevURL + " and current page is " + req.url + " " + res.locals.currentURL );
     next();
   });
-
-// Old routes, no longer used? (will need backslash in path to work)
-router.use('/current', require('./views/current/_routes'));
-router.use('/v4', require('./views/v4/_routes'));
-router.use('/v3', require('./views/v3/_routes'));
-router.use('/v2-compensators', require('./views/v2-compensators/_routes'));
-router.use('/v1-compensators', require('./views/v1-compensators/_routes'));
-router.use('/v1-staff', require('./views/v1-staff/_routes'));
-router.use('/mvp', require('./views/mvp/_routes'));
-router.use('/mvp-01', require('./views/mvp-01/_routes'));
-router.use('/beta-v3-mvp', require('./views/beta-v3-mvp/_routes'));
 
 // This route in use
 router.use('/beta-v4', require('./views/beta-v4/\_routes'));
@@ -1456,4 +1442,3 @@ if (req.session.data['change'] == 'Liability') {
 // })
 
 //
-module.exports = router
