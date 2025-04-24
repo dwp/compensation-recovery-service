@@ -1,0 +1,446 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">Compensation Recovery Service</span>
+      April 2025
+      </h1>
+      {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+      <h2 class="govuk-heading-m">
+    Letters
+      </h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="/public/downloads/jane-test.png" target="_blank">Compensation claim</a></li>
+        </ul>
+
+        </div>
+        </div>
+
+
+
+        <br /><br />
+        <br /><br />
+        <br /><br />
+
+        <!-- OLD INDEX PAGE LAYOUT -->
+
+<!--        <div class="card-container">-->
+
+            <!-- Beta v3 start version  -->
+            <!--
+            <div class="card full">
+              <h2 class="govuk-heading-m">
+              <span class="govuk-caption-l">Version 3: Beta</span>
+              </h2>
+               <div class="card-inner-panel">
+                 <p><strong class="govuk-tag govuk-tag--red">NOT TESTED</strong></p>
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                <div class="govuk-grid-row">
+
+
+
+          <details class="govuk-details" data-module="govuk-details" open>
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                New Journey
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <h3 class="govuk-heading-s">New User: Compensator registration</h3>
+              <ul class="govuk-list">
+                <li><a href="/beta-v3/compensator-registration/start-page">Start page</a></li>
+                <li><a href="/beta-v3/compensator-registration/triage">Triage</a></li>
+                <li><a href="/beta-v3/compensator-registration/account-registration">Create an account</a></li>
+                <li><a href="/beta-v3/compensator-registration/passcode-sent">Enter Passcode</a></li>
+                <li><a href="/beta-v3/compensator-registration/create-password">Create password</a></li>
+                <li><a href="/beta-v3/compensator/account-created">Create password</a></li>
+                <li><a href="/beta-v3/compensator/compensator-dashboard-empty">Dashboard</a></li>
+                <li><a href="/beta-v3/compensator/my-account-empty">My account</a></li>
+
+              </ul>
+            </div>
+
+            <div class="govuk-details__text">
+              <h3 class="govuk-heading-s">Existing User: Sign in Journey</h3>
+              <ul class="govuk-list">
+                <li><a href="/beta-v3/compensator-registration/start-page">Start page</a></li>
+                <li><a href="/beta-v3/compensator-registration/triage">Triage</a></li>
+                <li><a href="/beta-v3/sign-in/sign-in">Sign in</a></li>
+                <li><a href="/beta-v3/sign-in/passcode-sent">Enter passcode</a></li>
+
+              </ul>
+            </div>
+
+            <div class="govuk-details__text">
+              <h3 class="govuk-heading-s">Account recovery: forgotten password</h3>
+              <ul class="govuk-list">
+                <li><a href="/beta-v3/compensator-registration/start-page">Start page</a></li>
+                <li><a href="/beta-v3/compensator-registration/triage">Triage</a></li>
+                <li><a href="/beta-v3/sign-in/sign-in">Sign in</a></li>
+                <li><a href="/beta-v3/sign-in/forgotten-password">Fogotten password</a></li>
+                <li><a href="/beta-v3/sign-in/reset-passcode-sent">Passcode</a></li>
+                <li><a href="/beta-v3/sign-in/new-password">Enter new password</a></li>
+                <li><a href="/beta-v3/sign-in/password-updated">Password changed</a></li>
+
+              </ul>
+            </div>
+
+            <div class="govuk-details__text">
+              <h3 class="govuk-heading-s">Settle a claim</h3>
+              <ul class="govuk-list">
+                <li><a href="/beta-v3/compensator-registration/start-page">Start page</a></li>
+                <li><a href="/beta-v3/compensator-registration/triage">Triage</a></li>
+                <li><a href="/beta-v3/settle-claim/verify-details">Settle a claim</a></li>
+                <li><a href="/beta-v3/registration/case-view">Case overview</a></li>
+                <li><a href="/beta-v3/registration/settlement-date">Date of settlement</a></li>
+                <li><a href="/beta-v3/registration/settlement-type">Type of settlement</a></li>
+                <li><a href="/beta-v3/registration/settlement-confirm">Confirm settlement</a></li>
+
+              </ul>
+            </div>
+
+            <div class="govuk-details__text">
+              <h3 class="govuk-heading-s">Compensator Dashboard</h3>
+              <ul class="govuk-list">
+                <li><a href="/beta-v3/compensator/compensator-dashboard-empty">No claims</a></li>
+                <li><a href="/beta-v3/compensator/compensator-dashboard">Claimsed registered</a></li>
+
+              </ul>
+            </div>
+
+            <div class="govuk-details__text">
+              <h3 class="govuk-heading-s">Find a claim</h3>
+              <ul class="govuk-list">
+                <li><a href="/beta-v3/compensator/compensator-dashboard">Search</a></li>
+                <li><a href="/beta-v3/compensator/cases-search-results">Results</a></li>
+                <li><a href="/beta-v3/registration/case-view">Case view</a></li>
+
+              </ul>
+            </div>
+
+            <div class="govuk-details__text">
+              <h3 class="govuk-heading-s">Cru Ops (Public Beta Registration)</h3>
+              <ul class="govuk-list">
+                <li><a href="/beta-v3/cru-ops-service/approve-compensators">Approve</a></li>
+                <li><a href="/beta-v3/cru-ops-service/approve-compensators-empty">No approvals</a></li>
+                <li><a href="/beta-v3/cru-ops-service/approve-user-details">Approve user details</a> </li>
+                <li><a href="/beta-v3/cru-ops-service/rejected-compensators">Rejected</a> </li>
+                <li><a href="/beta-v3/cru-ops-service/rejected-user-details">Rejected user details</a></li>
+                <li><a href="/beta-v3/cru-ops-service/user-deleted">User deleted </a> </li>
+                <li><a href="/beta-v3/cru-ops-service/registered-compensators">Registred</a></li>
+              </ul>
+            </div>
+
+          </details>
+
+        </div>
+      </div>
+    </div>
+            -->
+            <!-- end version -->
+
+            <!-- Beta v2 start version  -->
+            <!--
+            <div class="card full">
+              <h2 class="govuk-heading-m">
+              <span class="govuk-caption-l">Version 2: Beta</span>
+              </h2>
+               <div class="card-inner-panel">
+                 <p><strong class="govuk-tag govuk-tag--green">TESTED</strong></p>
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                <div class="govuk-grid-row">
+
+          <details class="govuk-details" data-module="govuk-details" open>
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Registration / Authorisation code
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+            <h3 class="govuk-heading-s">Compensator registration</h3>
+                <ul class="govuk-list">
+                  <li><a href="/beta-v2/compensator-registration/start-page">Start page</a></li>
+                  <li><a href="/beta-v2/compensator-registration/triage">Triage</a></li>
+                  <li><a href="/beta-v2/settle-claim/verify-details">Settle a claim</a></li>
+                   <li><a href="/beta-v2/compensator/account-created">Account created</a></li>
+                </ul>
+                <h3 class="govuk-heading-s">Registration sad path</h3>
+                <ul class="govuk-list">
+                  <li><a href="/beta-v1/compensator-registration/not-admin">Not administrator</a></li>
+                  <li><a href="/beta-v1/compensator-registration/invite-administrator">Send Admin an invite</a></li>
+                  <li><a href="/beta-v1/compensator-registration/admin-invite-sent">Admin invite sent</a></li>
+                  <li><a href="/beta-v1/compensator-registration/account-already-created">Account already created</a></li>
+                  <li><a href="/beta-v1/compensator-registration/cant-register">Not Private Beta user</a> </li>
+                </ul>
+            </div>
+          </details>
+          -->
+            <!-- <details class="govuk-details" data-module="govuk-details" open>
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Sign in
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+            <h3 class="govuk-heading-s">Private Beta Registration</h3>
+                <ul class="govuk-list">
+                  <li><a href="/beta-v1/sign-in/sign-in">Sign in </a></li>
+                  <li><a href="/beta-v1/sign-in/passcode-sent">Email: passcode</a></li>
+                  <li><a href="/beta-v1/sign-in/2fa-email">2FA email</a></li>
+                  <li><a href="/beta-v1/sign-in/link-expired">2FA link expired (sign and forgotten PW)</a></li>
+
+                </ul>
+                <h3 class="govuk-heading-s">Forgotten password</h3>
+                <ul class="govuk-list">
+                  <li><a href="/beta-v1/sign-in/forgotten-password">Forgotten password</a></li>
+                  <li><a href="/beta-v1/sign-in/reset-passcode-sent">Email: Passcode sent</a></li>
+                  <li><a href="/beta-v1/sign-in/reset-email">Reset email</a></li>
+                  <li><a href="/beta-v1/sign-in/new-password">Create new password</a></li>
+                  <li><a href="/beta-v1/sign-in/password-updated">Password updated</a></li>
+                </ul>
+          </div>
+        </details> -->
+            <!-- <details class="govuk-details" data-module="govuk-details" open>
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Compensator add a new claim
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+            <h3 class="govuk-heading-s">Compensator add a new claim </h3>
+                <ul class="govuk-list">
+                  <li><a href="/alpha/registration/start-page">Start page (sign in)</a></li>
+                  <li><a href="/alpha/compensator/compensator-dashboard-empty">Compensator Dashboard (no entry)</a></li>
+                  <li><a href="/alpha/compensator/compensator-dashboard">Compensator Dashboard (with entry)</a></li>
+                  <li><a href="/alpha/registration/task-list">Task list</a></li>
+                  <li><a href="/alpha/registration/date-of-claim">Date of injury</a></li>
+                  <li><a href="/alpha/registration/injury-gaurd">Injury guard question</a></li>
+                  <li><a href="/alpha/registration/where-is-the-injury">Physical injury</a></li>
+                  <li><a href="/alpha/registration/psychological">Psychological injury</a></li>
+                  <li><a href="/alpha/registration/neurological">Neurological injury</a></li>
+                  <li><a href="/alpha/registration/about-the-injured-persons-rep">IP representative's details</a></li>
+                  <li><a href="/alpha/registration/check-answers">Check your answers</a></li>
+                  <li><a href="/alpha/registration/confirmation">Confirmation</a></li>
+                  <li><a href="/alpha/compensator-registration/claim-registered-email">Email: Download certificates</a></li>
+                  <li><a href="/public/downloads/CRU-nil-cert-generic-17nov.pdf">Download CRU certificate</a></li>
+                  <li><a href="/public/downloads/NHS-nil-cert-generic-17nov.pdf">Download NHS certificate</a></li>
+                  <li><a href="/alpha/registration/enter-service-no">You can't use this service</a></li>
+                </ul>
+          </div>
+
+        </details>-->
+            <!-- <details class="govuk-details" data-module="govuk-details" open>
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                Public Beta Registration
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+          <h3 class="govuk-heading-s">Public Beta Registration</h3>
+          <ul class="govuk-list">
+                  <li><a href="/alpha/compensator-registration/start-page-public">Start page (Public Beta route)</a></li>
+            <li><a href="/alpha/compensator-registration-verify/account-under-review">Comp Account Under Review</a> <strong class="govuk-tag govuk-tag--yellow">NEW</strong></li>
+            <li><a href="/alpha/compensator-registration-verify/email-account-under-review">Email: Account under review</a> <strong class="govuk-tag govuk-tag--yellow">NEW</strong></li>
+            <li><a href="/alpha/compensator-registration-verify/email-account-verified">Email: verified</a> <strong class="govuk-tag govuk-tag--yellow">NEW</strong></li>
+            <li><a href="/alpha/compensator-registration-verify/email-account-rejected">Emai: rejected</a> <strong class="govuk-tag govuk-tag--yellow">NEW</strong></li>
+            <li><a href="/alpha/compensator-registration-verify/email-account-rejected">Email: need further evidence</a> <strong class="govuk-tag govuk-tag--yellow">NEW</strong></li>
+          </ul>
+          <h3 class="govuk-heading-s">Cru Ops (Public Beta Registration)</h3>
+          <ul class="govuk-list">
+            <li><a href="/alpha/cru-ops-service/approve-compensators">Approve</a> <strong class="govuk-tag govuk-tag--yellow">NEW</strong></li>
+            <li><a href="/alpha/cru-ops-service/approve-compensators-empty">No approvals</a> <strong class="govuk-tag govuk-tag--yellow">NEW</strong></li>
+            <li><a href="/alpha/cru-ops-service/approve-user-details">Approve user details</a> <strong class="govuk-tag govuk-tag--yellow">NEW</strong></li>
+
+            <li><a href="/alpha/cru-ops-service/rejected-compensators">Rejected</a> <strong class="govuk-tag govuk-tag--yellow">NEW</strong></li>
+            <li><a href="/alpha/cru-ops-service/rejected-user-details">Rejected user details</a> <strong class="govuk-tag govuk-tag--yellow">NEW</strong></li>
+            <li><a href="/alpha/cru-ops-service/user-deleted">User deleted </a> <strong class="govuk-tag govuk-tag--yellow">NEW</strong></li>
+
+            <li><a href="/alpha/cru-ops-service/registered-compensators">Registred</a> <strong class="govuk-tag govuk-tag--yellow">NEW</strong></li>
+          </ul>
+
+
+          </div>
+        </details>
+        </div>
+      </div>
+    </div>-->
+            <!-- end version -->
+
+            <!-- Beta v1 start version  -->
+            <!--
+            <div class="card full">
+                  <h2 class="govuk-heading-m">
+                  <span class="govuk-caption-l">Version 1: Beta</span>
+                  </h2>
+                   <div class="card-inner-panel">
+                     <p><strong class="govuk-tag govuk-tag--red">NOT TESTED</strong></p>
+                    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                    <div class="govuk-grid-row">
+
+
+
+                      <details class="govuk-details" data-module="govuk-details" open>
+                        <summary class="govuk-details__summary">
+                          <span class="govuk-details__summary-text">
+                            Registration (Private Beta)
+                          </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                        <h3 class="govuk-heading-s">Compensator registration</h3>
+                            <ul class="govuk-list">
+                              <li><a href="/beta-v1/compensator-registration/start-page">Start page</a></li>
+                              <li><a href="/beta-v1/compensator-registration/company-administrator">Administrator</a></li>
+                              <li><a href="/beta-v1/compensator-registration/account-registration">Account registration</a></li>
+                              <li><a href="/beta-v1/compensator-registration/passcode-sent">Enter passcode</a></li>
+                              <li><a href="/beta-v1/compensator-registration/email-passcode">Email: passcode</a></li>
+                              <li><a href="/beta-v1/compensator-registration/create-password">Create password</a></li>
+                              <li><a href="/beta-v1/compensator-registration/your-name">Your name</a></li>
+                              <li><a href="/beta-v1/compensator-registration/company-name">Company name</a></li>
+                              <li><a href="/beta-v1/compensator-registration/company-postcode">Company postcode</a></li>
+                              <li><a href="/beta-v1/compensator-registration/company-address-manual-entry">Company code (manual entry)</a></li>
+                              <li><a href="/beta-v1/compensator-registration/select-company-address">Company postcode look-up</a></li>
+                              <li><a href="/beta-v1/compensator-registration/company-tel">Company contact number</a></li>
+                              <li><a href="/beta-v1/compensator/account-created">Account created</a></li>
+                            </ul>
+                            <h3 class="govuk-heading-s">Registration sad path</h3>
+                            <ul class="govuk-list">
+                              <li><a href="/beta-v1/compensator-registration/not-admin">Not administrator</a></li>
+                              <li><a href="/beta-v1/compensator-registration/invite-administrator">Send Admin an invite</a></li>
+                              <li><a href="/beta-v1/compensator-registration/admin-invite-sent">Admin invite sent</a></li>
+                              <li><a href="/beta-v1/compensator-registration/account-already-created">Account already created</a></li>
+                              <li><a href="/beta-v1/compensator-registration/cant-register">Not Private Beta user</a> </li>
+                            </ul>
+                        </div>
+                      </details>
+
+                      <details class="govuk-details" data-module="govuk-details" open>
+                        <summary class="govuk-details__summary">
+                          <span class="govuk-details__summary-text">
+                            Sign in
+                          </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                        <h3 class="govuk-heading-s">Private Beta Registration</h3>
+                            <ul class="govuk-list">
+                              <li><a href="/beta-v1/sign-in/sign-in">Sign in </a></li>
+                              <li><a href="/beta-v1/sign-in/passcode-sent">Email: passcode</a></li>
+                              <li><a href="/beta-v1/sign-in/2fa-email">2FA email</a></li>
+                              <li><a href="/beta-v1/sign-in/link-expired">2FA link expired (sign and forgotten PW)</a></li>
+
+                            </ul>
+                            <h3 class="govuk-heading-s">Forgotten password</h3>
+                            <ul class="govuk-list">
+                              <li><a href="/beta-v1/sign-in/forgotten-password">Forgotten password</a></li>
+                              <li><a href="/beta-v1/sign-in/reset-passcode-sent">Email: Passcode sent</a></li>
+                              <li><a href="/beta-v1/sign-in/reset-email">Reset email</a></li>
+                              <li><a href="/beta-v1/sign-in/new-password">Create new password</a></li>
+                              <li><a href="/beta-v1/sign-in/password-updated">Password updated</a></li>
+                            </ul>
+                      </div>
+                    </details>
+
+                      <details class="govuk-details" data-module="govuk-details" open>
+                        <summary class="govuk-details__summary">
+                          <span class="govuk-details__summary-text">
+                            Compensator add a new claim
+                          </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                        <h3 class="govuk-heading-s">Compensator add a new claim </h3>
+                            <ul class="govuk-list">
+                              <li><a href="/alpha/registration/start-page">Start page (sign in)</a></li>
+                              <li><a href="/alpha/compensator/compensator-dashboard-empty">Compensator Dashboard (no entry)</a></li>
+                              <li><a href="/alpha/compensator/compensator-dashboard">Compensator Dashboard (with entry)</a></li>
+                              <li><a href="/alpha/registration/task-list">Task list</a></li>
+                              <li><a href="/alpha/registration/date-of-claim">Date of injury</a></li>
+                              <li><a href="/alpha/registration/injury-gaurd">Injury guard question</a></li>
+                              <li><a href="/alpha/registration/where-is-the-injury">Physical injury</a></li>
+                              <li><a href="/alpha/registration/psychological">Psychological injury</a></li>
+                              <li><a href="/alpha/registration/neurological">Neurological injury</a></li>
+                              <li><a href="/alpha/registration/about-the-injured-persons-rep">IP representative's details</a></li>
+                              <li><a href="/alpha/registration/check-answers">Check your answers</a></li>
+                              <li><a href="/alpha/registration/confirmation">Confirmation</a></li>
+                              <li><a href="/alpha/compensator-registration/claim-registered-email">Email: Download certificates</a></li>
+                              <li><a href="/public/downloads/CRU-nil-cert-generic-17nov.pdf">Download CRU certificate</a></li>
+                              <li><a href="/public/downloads/NHS-nil-cert-generic-17nov.pdf">Download NHS certificate</a></li>
+                              <li><a href="/alpha/registration/enter-service-no">You can't use this service</a></li>
+                            </ul>
+                      </div>
+
+                    </details>
+
+                      <details class="govuk-details" data-module="govuk-details" open>
+                        <summary class="govuk-details__summary">
+                          <span class="govuk-details__summary-text">
+                            Public Beta Registration
+                          </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                      <h3 class="govuk-heading-s">Public Beta Registration</h3>
+                      <ul class="govuk-list">
+                              <li><a href="/alpha/compensator-registration/start-page-public">Start page (Public Beta route)</a></li>
+                        <li><a href="/alpha/compensator-registration-verify/account-under-review">Comp Account Under Review</a> <strong class="govuk-tag govuk-tag--yellow">NEW</strong></li>
+                        <li><a href="/alpha/compensator-registration-verify/email-account-under-review">Email: Account under review</a> <strong class="govuk-tag govuk-tag--yellow">NEW</strong></li>
+                        <li><a href="/alpha/compensator-registration-verify/email-account-verified">Email: verified</a> <strong class="govuk-tag govuk-tag--yellow">NEW</strong></li>
+                        <li><a href="/alpha/compensator-registration-verify/email-account-rejected">Emai: rejected</a> <strong class="govuk-tag govuk-tag--yellow">NEW</strong></li>
+                        <li><a href="/alpha/compensator-registration-verify/email-account-rejected">Email: need further evidence</a> <strong class="govuk-tag govuk-tag--yellow">NEW</strong></li>
+                      </ul>
+                      <h3 class="govuk-heading-s">Cru Ops (Public Beta Registration)</h3>
+                      <ul class="govuk-list">
+                        <li><a href="/alpha/cru-ops-service/approve-compensators">Approve</a> <strong class="govuk-tag govuk-tag--yellow">NEW</strong></li>
+                        <li><a href="/alpha/cru-ops-service/approve-compensators-empty">No approvals</a> <strong class="govuk-tag govuk-tag--yellow">NEW</strong></li>
+                        <li><a href="/alpha/cru-ops-service/approve-user-details">Approve user details</a> <strong class="govuk-tag govuk-tag--yellow">NEW</strong></li>
+
+                        <li><a href="/alpha/cru-ops-service/rejected-compensators">Rejected</a> <strong class="govuk-tag govuk-tag--yellow">NEW</strong></li>
+                        <li><a href="/alpha/cru-ops-service/rejected-user-details">Rejected user details</a> <strong class="govuk-tag govuk-tag--yellow">NEW</strong></li>
+                        <li><a href="/alpha/cru-ops-service/user-deleted">User deleted </a> <strong class="govuk-tag govuk-tag--yellow">NEW</strong></li>
+
+                        <li><a href="/alpha/cru-ops-service/registered-compensators">Registred</a> <strong class="govuk-tag govuk-tag--yellow">NEW</strong></li>
+                      </ul>
+
+
+                      </div>
+                    </details>
+                    </div>
+                  </div>
+                </div>
+            -->
+            <!-- end version -->
+
+            <!-- Archive start version  -->
+            <!--
+            <div class="card full">
+              <h2 class="govuk-heading-m">
+              <span class="govuk-caption-l">Archived</span>
+              </h2>
+               <div class="card-inner-panel">
+                 <p><strong class="govuk-tag govuk-tag--yellow">Archived</strong></p>
+                <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-full">
+                    <h3 class="govuk-heading-s">
+                      Compensator registration </h3>
+                        <ul class="govuk-list">
+                          <li><a href="alpha">Alpha prototypes</a></li>
+                        </ul>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            -->
+            <!-- end version -->
+
+<!--        </div>-->
+
+
+{% endblock %}
