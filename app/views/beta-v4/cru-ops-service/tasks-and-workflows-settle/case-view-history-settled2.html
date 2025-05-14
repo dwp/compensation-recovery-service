@@ -49,63 +49,76 @@ containerClasses: "govuk-width-container"
         </h1>
 
 
-                <dl class="govuk-summary-list govuk-!-margin-bottom-5">
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Liability type
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                            {{ data['liability'] | default('Motor') }}
-                        </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                          Name of injured person
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                          {{ data['first-name'] | default('Bojen') }}  {{ data['last-name'] | default('Westoros') }}
-                        </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                          Date of birth
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                          9 April 1966
-                        </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                          National insurance number
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                          NY 57 63 36 A
-                        </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                         Benefit interest
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                        None
-                        </dd>
-                    </div>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-5">
+          <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Claim status
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <strong class="govuk-tag govuk-tag--green">Claim settled</strong>
+              </dd>
+          </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Liability type
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['liability'] | default('Motor') }}
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Name of injured person
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  {{ data['first-name'] | default('Bojen') }}  {{ data['last-name'] | default('Westoros') }}
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Date of birth
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  9 April 1966
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  National insurance number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  NY 57 63 36 A
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                 Benefit interest
+                </dt>
+                <dd class="govuk-summary-list__value">
+                None
+                </dd>
+            </div>
 
-                    <div class="govuk-summary-list__row">
-                        <dt class="govuk-summary-list__key">
-                            Date of claim registration
-                        </dt>
-                        <dd class="govuk-summary-list__value">
-                          30 April 2022
-                        </dd>
-                    </div>
-                </dl>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Date of claim registration
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  30 April 2022
+                </dd>
+            </div>
+        </dl>
 
 
-        <div class="govuk-inset-text">
-          <p class="govuk-body"><a href="actions_all" class="govuk-link">Claim options</a></p>
-        </div>
-        <br>
+
+  <form class="form" action="claim_reopen" method="post">
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Reopen claim
+        </button>
+        </form>
+
+
+<br><br>
 
         {% from "govuk/components/tabs/macro.njk" import govukTabs %}
 
@@ -113,7 +126,7 @@ containerClasses: "govuk-width-container"
 
         <form class="form" action="certificate" method="post">
             <h2 class="govuk-heading-l">Certificates</h2>
-            <p><strong class="govuk-tag govuk-tag--green">Certificate issued</strong></p>
+            <!-- <p><strong class="govuk-tag govuk-tag--green">Certificate issued</strong></p> -->
 
             <div class="govuk-inset-text">
                 <h2 class="govuk-heading-s">Amount to pay</h2>
@@ -182,9 +195,7 @@ containerClasses: "govuk-width-container"
             Name
             </dt>
             <dd class="govuk-summary-list__value">
-            Bojen Westoros <strong class="govuk-tag">
-  Requested name
-</strong>
+            Bojen Westoros
             </dd>
             <dd class="govuk-summary-list__actions"></dd>
             </div>
@@ -600,6 +611,15 @@ containerClasses: "govuk-width-container"
 
 
 {% if showcomment %}
+
+<span class="line"></span>
+<div class="timeline__event">
+  <h3 class="timeline__heading govuk-heading-s"><strong class="govuk-tag govuk-tag--purple govuk-!-margin-bottom-1">
+  Claim actions
+</strong> Claim setttled </h3>
+<p class="govuk-body">Final settlement details have been entered</p>
+<p class="timeline_datetime"> 11:25am, 12 July 2024, Sam Smith</p>
+</div>
               <span class="line"></span>
               <div class="timeline__event">
                 <strong class="govuk-tag govuk-tag--turquoise govuk-!-margin-bottom-1">
