@@ -48,93 +48,58 @@ containerClasses: "govuk-width-container"
             BBB327
         </h1>
 
-        <dl class="govuk-summary-list govuk-!-margin-bottom-5">
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    Liability type
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    {{ data['liability'] | default('Motor') }}
-                </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Name of injured person
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {{ data['first-name'] | default('Bojen') }}  {{ data['last-name'] | default('Westoros') }}
-                </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-              Name in Searchlight
-              </dt>
-              <dd class="govuk-summary-list__value">
-Jon Smith | captured on CIS on 12 September 2024 <br>
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Date of birth
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  9 April 1966
-                </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  National insurance number
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  NY 57 63 36 A
-                </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                 Benefit interest
-                </dt>
-                <dd class="govuk-summary-list__value">
-                None
-                </dd>
-            </div>
 
-            <!--<div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Claim status
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Certificate issued
-            </dd>
-            </div> -->
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    Date of claim registration
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  {{ 'D MMMM YYYY' | baseDate(1) }}
-                </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-  More claims by this person
-              </dt>
-              <dd class="govuk-summary-list__value">
-                <details class="govuk-details">
-                  <summary class="govuk-details__summary">
-                    <span class="govuk-details__summary-text">
-                    5 claims found
-                    </span>
-                  </summary>
-                  <div class="govuk-details__text">
-                    <span class="govuk-body govuk-!-font-weight-bold"><a href="">CRS462</a> </span>| Injury date - 20 March 2023 <br>
-                 <span class="govuk-body govuk-!-font-weight-bold"><a href="">PBA213</a></span> | Injury date - 19 March 2023<br>
-                 <span class="govuk-body govuk-!-font-weight-bold"><a href="">CRU112</a></span> | Injury date - 22 August 2019 <br>
-           <span class="govuk-body govuk-!-font-weight-bold"><a href="">CRU345</a></span> | Injury date - 31 October 2015<br>
-                    <span class="govuk-body govuk-!-font-weight-bold"><a href="">CBD543</a></span> | Injury date - 10 August 2010
-                </details>
-              </dd>
-            </div>
-        </dl>
+                <dl class="govuk-summary-list govuk-!-margin-bottom-5">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Liability type
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{ data['liability'] | default('Motor') }}
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          Name of injured person
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          {{ data['first-name'] | default('Bojen') }}  {{ data['last-name'] | default('Westoros') }}
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          Date of birth
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          9 April 1966
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          National insurance number
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          NY 57 63 36 A
+                        </dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                         Benefit interest
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                        None
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Date of claim registration
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          30 April 2022
+                        </dd>
+                    </div>
+                </dl>
 
 
         <div class="govuk-inset-text">
