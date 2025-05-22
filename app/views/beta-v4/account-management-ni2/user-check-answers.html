@@ -1,0 +1,100 @@
+
+{% extends "../../index.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+    <form class="form" action="user-confirmation" method="post">
+<!--      <span class="govuk-caption-xl">{{ data['company-name'] }}</span>-->
+      <h1 class="govuk-heading-xl">Check your answers</h1>
+
+      <!-- your details -->
+      <h2 class="govuk-heading-m">Your details</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Your email
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['ind-email-address'] | default('ayana.lawrence@comps.com') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <strong class="govuk-tag govuk-tag--blue">VERIFIED</strong>
+          </dd>
+        </div>
+<!--        <div class="govuk-summary-list__row">-->
+<!--          <dt class="govuk-summary-list__key">-->
+<!--            Administrator-->
+<!--          </dt>-->
+<!--          <dd class="govuk-summary-list__value">-->
+<!--            {{ data['yes-admin'] | default('Yes') }}-->
+<!--          </dd>-->
+<!--          <dd class="govuk-summary-list__actions">-->
+<!--            <a class="govuk-link" href="">Change<span class="govuk-visually-hidden"> Administrator</span></a>-->
+<!--          </dd>-->
+<!--        </div>-->
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Your password
+          </dt>
+          <dd class="govuk-summary-list__value">
+            *********
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="create-password">Change<span class="govuk-visually-hidden"> password</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Full name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['new-user-full-name'] | default('Ayana Lawrence') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="user-edit-name">Change<span class="govuk-visually-hidden"> full name</span></a>
+          </dd>
+        </div>
+
+<!--        <div class="govuk-summary-list__row">-->
+<!--          <dt class="govuk-summary-list__key">-->
+<!--            Last name-->
+<!--          </dt>-->
+<!--          <dd class="govuk-summary-list__value">-->
+<!--            {{ data['new-user-last-name'] | default('Lawrence') }}-->
+<!--          </dd>-->
+<!--          <dd class="govuk-summary-list__actions">-->
+<!--            <a class="govuk-link" href="user-edit-name">Change<span class="govuk-visually-hidden"> Last name</span></a>-->
+<!--          </dd>-->
+<!--        </div>-->
+      </dl>
+      <!-- end -->
+
+
+      <h2 class="govuk-heading-m">Complete your registration</h2>
+
+      <p class="govuk-body">By registering with Compensation Recovery Service, you are confirming that to the best of your knowledge, the details you are providing are correct.</p>
+
+
+
+
+
+
+      {{ govukButton({
+      text: "Accept and register"
+      }) }}
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,47 @@
+
+{% extends "../../../index.html" %}
+
+{% block pageTitle %}
+Edit my profile
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+    <form class="form" action="user-profile?user-profile-updated=true&" method="post">
+<!--      <span class="govuk-caption-xl">{{ data['company-name'] }}</span>-->
+      <h1 class="govuk-heading-xl">Your profile</h1>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="ind-user-full-name">
+          Full name
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="ind-user-full-name" name="new-user-full-name" type="text" value="{{ data['new-user-full-name'] | default('Sam Smith') }}">
+      </div>
+
+<!--      <div class="govuk-form-group">-->
+<!--        <label class="govuk-label" for="ind-user-last-name">-->
+<!--          Last name-->
+<!--        </label>-->
+<!--        <input class="govuk-input govuk-input&#45;&#45;width-20" id="ind-user-last-name" name="new-user-last-name" type="text" value="{{ data['new-user-last-name'] | default('Lawrence') }}">-->
+<!--      </div>-->
+
+    <div class="govuk-form-group govuk-!-margin-bottom-7">
+        <label class="govuk-label" for="ind-email-address">
+            Email address
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="ind-email-address" name="ind-email-address" type="email" value="{{ data['new-user-email'] | default('ayana.lawrence@compensatorltd.com') }}">
+    </div>
+
+      {{ govukButton({
+      text: "Save"
+      }) }}
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

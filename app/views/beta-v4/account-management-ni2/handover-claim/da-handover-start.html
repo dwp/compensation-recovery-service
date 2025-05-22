@@ -1,0 +1,35 @@
+
+{% extends "../../../index.html" %}
+
+{% block pageTitle %}
+Transfer claim
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+        <h1 class="govuk-heading-xl">
+<!--            <span class="govuk-caption-xl">Transfer claim: {{ data['da-crs-ref'] | default('PAB283') }}</span>-->
+            Transfer claim: {{ data['da-crs-ref'] | default('PAB283') }} back to the original compensator
+        </h1>
+
+        <p class="govuk-body">
+          Both CRU and the original compensator will be notified when you transfer this claim.
+        </p>
+
+<!--        <p class="govuk-body">Provide details of the compensator you're transferring this claim to.</p>-->
+<!--        <p class="govuk-body">This will take around 2 minutes.</p>-->
+
+        {{ govukButton({
+        text: "Transfer claim",
+        href: "../handover-claim/da-handover-confirmation",
+        classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-8",
+        isStartButton: false
+        }) }}
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+
+{% extends "../../index.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+  <br>
+    <form class="form" action="dsa" method="post">
+
+      <h1 class="govuk-heading-l">Step 2 of 2</h1>
+
+      <p class="govuk-body">You have created an account for your organisation. Now review, share or accept the User Agreement. </p>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col"> Step </th>
+            <th class="govuk-table__header" scope="col"> Progress </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              Create account
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--green">
+                Completed
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              Review, share or accept User Agreement 
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--grey">
+                Not started
+              </strong>
+            </td>
+          </tr>
+
+
+        </tbody>
+      </table>
+
+
+      {{ govukButton({
+        text: "Continue"
+        }) }}
+
+      </div>
+
+
+
+    </form>
+
+    </div>
+  </div>
+
+
+
+{% endblock %}

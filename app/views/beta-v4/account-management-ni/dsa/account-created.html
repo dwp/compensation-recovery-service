@@ -1,0 +1,45 @@
+
+{% extends "../../../index.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <form class="form" action="admin-dashboard" method="post">
+  <div class="govuk-grid-column-two-thirds govuk-main-wrapper--auto-spacing">
+    <div class="govuk-panel govuk-panel--confirmation" style="background-color:	#1d70b8">
+              <h1 class="govuk-panel__title">
+          Account created
+              </h1>
+            </div>
+
+      <p class="govuk-body">You have created an organisation administrator account to manage your compensation claims. We have sent you a confirmation email. </p>
+      <p class="govuk-body">You should invite at least one other person from your organisation to be an administrator. This is so your organisation can maintain access to user accounts without relying on one person.  </p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">
+You can now access your account dashboard to:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+          <li>register new claims</li>
+          <li>request certificates</li>
+          <li>tell us about settlement dates for claims</li>
+          <li>tell  us that you are taking over an existing claim from another organisation</li>
+      </ul>
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Go to your dashboard
+      </button>
+
+<!--      <p class="govuk-body">-->
+<!--        <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)-->
+<!--      </p>-->
+
+    </div>
+    </form>
+  </div>
+
+{% endblock %}

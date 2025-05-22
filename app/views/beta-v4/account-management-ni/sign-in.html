@@ -1,0 +1,74 @@
+
+{% extends "../../index.html" %}
+
+{% block pageTitle %}
+Signin in to your Compensation Recovery Unit (CRU) account
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <!--        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>-->
+        <form class="form" action="sign-in-passcode?standard-user=false&" method="post">
+            <h1 class="govuk-heading-xl govuk-!-margin-top-9">
+                Sign in
+            </h1>
+            <p class="govuk-body">Sign in to your Compensation Recovery Service (CRS) account.</p>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-!-font-weight-bold" for="email">
+                Email address
+                </label>
+                <input class="govuk-input govuk-input--width-20" id="email" name="email" type="text">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-!-font-weight-bold" for="password">
+                    Your password
+                </label>
+                <input class="govuk-input govuk-input--width-20" id="password" name="password" type="password">
+            </div>
+
+            <div class="govuk-form-group">
+                <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+                    <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="showPW" name="showPW" type="checkbox" value="showPW" onclick="showPassword()">
+                        <label class="govuk-label govuk-checkboxes__label" for="showPW">
+                            Show password
+                        </label>
+                    </div>
+                </div>
+
+                <script type="text/javascript">
+                    function showPassword() {
+                        var x = document.getElementById("password");
+                        if (x.type === "password") {
+                            x.type = "text";
+                        } else {
+                            x.type = "password";
+                        }
+                    }
+                </script>
+
+            </div>
+
+          {{ govukButton({
+            text: "Sign in"
+          }) }}
+
+            <div class="govuk-form-group govuk-!-margin-bottom-7">
+                <p class="govuk-body">
+                    <a class="govuk-link" href="forgotten-password">Forgotten your password?</a>
+                </p>
+            </div>
+
+            <h2 class="govuk-heading-m">If you have not used this service before</h2>
+            <p class="govuk-body">You can <a href="org-company-name" class="govuk-link">create an account</a> for your organisation.</p>
+            <p class="govuk-body">If one already exists, the account administrator can add you to it. You will receive an email from Compensation Recovery Service inviting you to create an individual account.</p>
+
+        </form>
+    </div>
+  </div>
+
+{% endblock %}

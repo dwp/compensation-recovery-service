@@ -1,0 +1,39 @@
+
+{% extends "../../../index.html" %}
+
+{% block pageTitle %}
+About the injured person - Enter injured person's name and date of birth
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+        <!--        <form class="form" action="check-answers-ip" method="post">-->
+
+        <form class="form" action="date-of-claim" method="post">
+
+
+            <h1 class="govuk-heading-xl">
+
+                You do not have an up to date certificate
+            </h1>
+
+            <div class="govuk-warning-text">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                    <span class="govuk-warning-text__assistive">Warning</span>
+                    You needed a certificate that was up to date when you settled, and we can't find one. There may be outstanding money for DWP to recover from this claim.
+                </strong>
+            </div>
+
+            <p class="govuk-body"><a class="govuk-link" href="request-cert-confirmation">Request an updated certificate</a></p>
+
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

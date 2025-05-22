@@ -1,0 +1,226 @@
+
+{% extends "../../../index.html" %}
+
+{% block pageTitle %}
+All claims
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <nav class="navigation-secondary govuk-!-margin-bottom-6">
+      <ul>
+        <li><a href="user-dashboard">Home</a></li>
+        <li class="active"><a href="user-all-claims">All claims</a></li>
+        <li><a href="user-register-new-claim">Register a new claim</a></li>
+        <li><a href="user-take-over-claim">Take over a claim from another organisation</a></li>
+        <li><a href="user-profile">My profile</a></li>
+      </ul>
+    </nav>
+
+    <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" action="user-all-claims?search=true&" method="post">
+
+            <h1 class="govuk-heading-xl govuk-!-margin-top-5">
+                <span class="govuk-caption-xl">{{ data['company-name'] | default('Compensator Ltd') }}</span>
+                All claims
+            </h1>
+
+<!--        <p class="govuk-body">-->
+<!--            Search all claims registered by your organisation.-->
+<!--        </p>-->
+<!--        <br />-->
+
+            <!-- Filters -->
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-!-font-weight-bold" for="search-name">
+                    Search all claims registered by your organisation
+                </label>
+                <div id="event-name-hint" class="govuk-hint">
+                    Enter a reference or the name of the injured person
+                </div>
+                <input class="govuk-input govuk-input--width-20" id="search-name" name="search-name" type="text" value="{{ data['da-crs-ref'] | default('CRS233450') }}">
+                <button class="govuk-button" data-module="govuk-button">
+                    Search
+                </button>
+            </div>
+
+            {% if data['search'] == 'true' %}
+            <ul class="govuk-list">
+                <li>
+                    <div class="card full">
+                        <h2 class="govuk-heading-s">
+                            <a href="user-case-view-v1-taken-over-pending" class="govuk-body govuk-link govuk-!-margin-bottom-0">
+                                {{ data['da-ip-first-name'] | default('Lawrence') }} {{ data['da-ip-last-name'] | default('Westeros') }}
+                            </a>
+                            <strong class="govuk-tag govuk-tag--blue" style="float: right;">Certificates pending</strong>
+                        </h2>
+                        <div class="card-inner-panel">
+                            <ul class="govuk-list govuk-!-margin-bottom-0 govuk-!-margin-top-0">
+                                <li><strong>CRS reference:</strong> {{ data['da-crs-ref'] | default('CRS233450') }}</li>
+                                <li><strong>National insurance number:</strong> {{ data['da-ip-ni'] | default('QQ123456C') }}</li>
+                                <li><strong>Date of birth:</strong> {{ data['da-ip-date-of-birth-day'] | default("28") }} {{ data['da-ip-date-of-birth-month'] | default("02") | toMonth }} {{ data['da-ip-date-of-birth-year'] | default("1978") }}</li>
+    <!--                            <li><strong>Date of injury:</strong> {{ data['da-injury-date-day'] | default("15") }} {{ data['da-injury-date-month'] | default("11") | toMonth }} {{ data['da-injury-date-year'] | default("2021") }}</li>-->
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            {% endif %}
+
+
+        </form>
+
+
+
+
+
+
+
+
+
+
+        <!-- All claims table -->
+<!--        <table class="govuk-table">-->
+<!--&lt;!&ndash;        <caption class="govuk-table__caption govuk-table__caption&#45;&#45;m">Month you apply</caption>&ndash;&gt;-->
+<!--        <thead class="govuk-table__head">-->
+<!--        <tr class="govuk-table__row">-->
+<!--          <th scope="col" class="govuk-table__header">CRS reference</th>-->
+<!--          <th scope="col" class="govuk-table__header">Reference</th>-->
+<!--          <th scope="col" class="govuk-table__header">Date registered</th>-->
+<!--          <th scope="col" class="govuk-table__header">Name of injured person</th>-->
+<!--          <th scope="col" class="govuk-table__header">Status</th>-->
+<!--          <th scope="col" class="govuk-table__header"></th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody class="govuk-table__body">-->
+<!--        {% if data['da-standard-request-sent'] == 'true' %}-->
+<!--        <tr class="govuk-table__row">-->
+<!--            <td class="govuk-table__cell">{{ data['da-crs-ref'] | default('CRS233450') }}</td>-->
+<!--            <td class="govuk-table__cell">{{ data['da-comp-ref'] | default('ABD7238') }}</td>-->
+<!--            <td class="govuk-table__cell">04/10/22</td>-->
+<!--            <td class="govuk-table__cell">{{ data['da-ip-last-name'] | default('Westeros') }}</td>-->
+<!--            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag&#45;&#45;blue">Certificates pending</strong></td>-->
+<!--            <td class="govuk-table__cell"><a href="user-da-case-view">View</a></td>-->
+<!--        </tr>-->
+<!--        {% endif %}-->
+<!--        <tr class="govuk-table__row">-->
+<!--          <td class="govuk-table__cell">CRS12345</td>-->
+<!--          <td class="govuk-table__cell">AAC2003</td>-->
+<!--          <td class="govuk-table__cell">22/08/2022</td>-->
+<!--          <td class="govuk-table__cell">James Stephen</td>-->
+<!--          <td class="govuk-table__cell">Awaiting settlement</td>-->
+<!--          <td class="govuk-table__cell"><a href="user-case-view">View</a></td>-->
+<!--        </tr>-->
+<!--        <tr class="govuk-table__row">-->
+<!--          <td class="govuk-table__cell">CRS99432</td>-->
+<!--            <td class="govuk-table__cell">MMS8831</td>-->
+<!--          <td class="govuk-table__cell">21/08/2022</td>-->
+<!--          <td class="govuk-table__cell">Jane Smith</td>-->
+<!--          <td class="govuk-table__cell">Awaiting settlement</td>-->
+<!--          <td class="govuk-table__cell"><a href="">View</a></td>-->
+<!--        </tr>-->
+<!--        <tr class="govuk-table__row">-->
+<!--          <td class="govuk-table__cell">CRS11002</td>-->
+<!--            <td class="govuk-table__cell">RRW9023</td>-->
+<!--          <td class="govuk-table__cell">17/08/2022</td>-->
+<!--          <td class="govuk-table__cell">Robin Jones</td>-->
+<!--          <td class="govuk-table__cell">Being processed</td>-->
+<!--          <td class="govuk-table__cell"><a href="">View</a></td>-->
+<!--        </tr>-->
+<!--        <tr class="govuk-table__row">-->
+<!--          <td class="govuk-table__cell">CRS04402</td>-->
+<!--            <td class="govuk-table__cell">PPF9304</td>-->
+<!--          <td class="govuk-table__cell">15/07/2022</td>-->
+<!--          <td class="govuk-table__cell">Ernie Roberts</td>-->
+<!--          <td class="govuk-table__cell">Awaiting payment</td>-->
+<!--          <td class="govuk-table__cell"><a href="">View</a></td>-->
+<!--        </tr>-->
+<!--        <tr class="govuk-table__row">-->
+<!--          <td class="govuk-table__cell">CRS22342</td>-->
+<!--            <td class="govuk-table__cell">PLA0024</td>-->
+<!--          <td class="govuk-table__cell">04/06/2022</td>-->
+<!--          <td class="govuk-table__cell">George Lake</td>-->
+<!--          <td class="govuk-table__cell">Closed</td>-->
+<!--          <td class="govuk-table__cell"><a href="">View</a></td>-->
+<!--        </tr>-->
+<!--        <tr class="govuk-table__row">-->
+<!--          <td class="govuk-table__cell">CRS71944</td>-->
+<!--            <td class="govuk-table__cell">JJF0029</td>-->
+<!--          <td class="govuk-table__cell">02/06/2022</td>-->
+<!--          <td class="govuk-table__cell">John Davis</td>-->
+<!--          <td class="govuk-table__cell">Certificates updated</td>-->
+<!--          <td class="govuk-table__cell"><a href="">View</a></td>-->
+<!--        </tr>-->
+<!--        <tr class="govuk-table__row">-->
+<!--          <td class="govuk-table__cell">CRS44567</td>-->
+<!--            <td class="govuk-table__cell">DFP2902</td>-->
+<!--          <td class="govuk-table__cell">19/05/2022</td>-->
+<!--          <td class="govuk-table__cell">Susan Brown</td>-->
+<!--          <td class="govuk-table__cell">Awaiting settlement</td>-->
+<!--          <td class="govuk-table__cell"><a href="">View</a></td>-->
+<!--        </tr>-->
+<!--        <tr class="govuk-table__row">-->
+<!--          <td class="govuk-table__cell">CRS12000</td>-->
+<!--            <td class="govuk-table__cell">CCF0029</td>-->
+<!--          <td class="govuk-table__cell">12/05/2022</td>-->
+<!--          <td class="govuk-table__cell">Claire Stephen</td>-->
+<!--          <td class="govuk-table__cell">Awaiting payment</td>-->
+<!--          <td class="govuk-table__cell"><a href="">View</a></td>-->
+<!--        </tr>-->
+<!--        <tr class="govuk-table__row">-->
+<!--          <td class="govuk-table__cell">CRS22563</td>-->
+<!--            <td class="govuk-table__cell">AAJ1209</td>-->
+<!--          <td class="govuk-table__cell">11/05/2022</td>-->
+<!--          <td class="govuk-table__cell">Gareth Jones</td>-->
+<!--          <td class="govuk-table__cell">Awaiting settlement</td>-->
+<!--          <td class="govuk-table__cell"><a href="">View</a></td>-->
+<!--        </tr>-->
+<!--        <tr class="govuk-table__row">-->
+<!--          <td class="govuk-table__cell">CRS22223</td>-->
+<!--            <td class="govuk-table__cell">DDF3389</td>-->
+<!--          <td class="govuk-table__cell">29/04/2022</td>-->
+<!--          <td class="govuk-table__cell">Kristoff Beard</td>-->
+<!--          <td class="govuk-table__cell">Closed</td>-->
+<!--          <td class="govuk-table__cell"><a href="">View</a></td>-->
+<!--        </tr>-->
+
+<!--        </tbody>-->
+<!--      </table>-->
+
+<!--        <nav class="govuk-pagination" role="navigation" aria-label="results">-->
+<!--            <div class="govuk-pagination__prev">-->
+<!--                <a class="govuk-link govuk-pagination__link" href="#" rel="prev">-->
+<!--                    <svg class="govuk-pagination__icon govuk-pagination__icon&#45;&#45;prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">-->
+<!--                        <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>-->
+<!--                    </svg>-->
+<!--                    <span class="govuk-pagination__link-title">Previous</span></a>-->
+<!--            </div>-->
+<!--            <ul class="govuk-pagination__list">-->
+<!--                <li class="govuk-pagination__item govuk-pagination__item&#45;&#45;current"">-->
+<!--                    <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page">-->
+<!--                        1-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--                <li class="govuk-pagination__item">-->
+<!--                    <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">-->
+<!--                        2-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--                <li class="govuk-pagination__item">-->
+<!--                    <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">-->
+<!--                        3-->
+<!--                    </a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--            <div class="govuk-pagination__next">-->
+<!--                <a class="govuk-link govuk-pagination__link" href="#" rel="next"> <span class="govuk-pagination__link-title">Next</span> <svg class="govuk-pagination__icon govuk-pagination__icon&#45;&#45;next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">-->
+<!--                    <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>-->
+<!--                </svg></a>-->
+<!--            </div>-->
+<!--        </nav>-->
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,63 @@
+
+{% extends "../../index.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+    <form class="form" action="passcode" method="post">
+      <h1 class="govuk-heading-xl">Create a new organisation administrator account for  {{ data['company-name'] | default('Geneva') }}</h1>
+
+<!--      <div class="govuk-inset-text">-->
+<!--        If your organisation already has an account, you’ll need to ask the account administrator to add you as a new user.-->
+<!--      </div>-->
+
+<div class="govuk-form-group">
+  <p class="govuk-body">When you have created an account and accepted our User Agreement, you’ll be able to:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>register new claims</li>
+    <li>get Certificates of Recoverable Benefits and Certificates of NHS Charges (HS Charges in Northern Ireland) with nil charges for claims registered on the service</li>
+    <li>invite people from your organisation to create individual user accounts</li>
+  </ul>
+
+  <p class="govuk-body">You will need:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>access to the email address you want to use for the administrator account</li>
+    <li>to create a memorable password</li>
+    <li>your organisation details, including contact details of up to 8 people we can contact in the event of a data breach</li>
+  </ul>
+
+</div>
+
+<div class="govuk-form-group">
+  <label class="govuk-label govuk-label--s" for="email-address">
+    Email address
+  </label>
+  <input class="govuk-input govuk-input--width-20" id="email-address" name="email-address" type="email">
+</div>
+
+<!--      <div class="govuk-form-group">-->
+<!--        <label class="govuk-label govuk-label&#45;&#45;s" for="user-full-name">-->
+<!--          Full name-->
+<!--        </label>-->
+<!--        <input class="govuk-input govuk-input&#45;&#45;width-20" id="user-full-name" name="user-full-name" type="text" value="{{ data['user-full-name'] }}">-->
+<!--      </div>-->
+
+<!-- hidden field to set account type -->
+<input style="display: none;" id="account-type-org" name="account-type" type="text" value="org" />
+
+{{ govukButton({
+text: "Continue"
+}) }}
+
+</form>
+
+</div>
+</div>
+
+{% endblock %}

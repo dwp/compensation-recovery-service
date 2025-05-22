@@ -1,0 +1,51 @@
+
+{% extends "../../index.html" %}
+
+{% block pageTitle %}
+Organisations you manage claims for
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="admin-manage-org" class="govuk-back-link govuk-!-margin-bottom-5">Back to Manage organisation</a>
+      <h1 class="govuk-heading-xl">Organisations you manage claims for</h1>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Organisation name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['on-behalf-of-org1'] | default('esure') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> this organisation working on behalf of</span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Organisation name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['on-behalf-of-org2'] | default('Aviva') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> this organisation working on behalf of</span></a>
+          </dd>
+        </div>
+      </dl>
+
+        <div class="govuk-button-group">
+          <a class="govuk-button govuk-link" href="admin-manage-org">Save</a>
+          <a class="govuk-button govuk-button--secondary govuk-link" href="">Add an organisation</a>
+<!--          <a class="govuk-link" href="admin-manage-org">Cancel</a>-->
+        </div>
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,147 @@
+
+{% extends "../../../index.html" %}
+
+{% block pageTitle %}
+Manage organisation - User details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+<!--    <nav class="navigation-secondary govuk-!-margin-bottom-6">-->
+<!--      <ul>-->
+<!--        <li><a href="admin-dashboard">Home</a></li>-->
+<!--        <li><a href="admin-all-claims">All claims</a></li>-->
+<!--        <li><a href="admin-register-new-claim">Register a new claim</a></li>-->
+<!--        <li><a href="admin-take-over-claim">Take over an existing claim</a></li>-->
+<!--        <li class="active"><a href="admin-manage-org">Manage organisation</a></li>-->
+<!--        <li><a href="admin-profile">My profile</a></li>-->
+<!--      </ul>-->
+<!--    </nav>-->
+
+    <div class="govuk-grid-column-three-quarters">
+      <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+      <form class="form" action="admin-manage-org?user-approved=true&" method="post">
+
+        <h1 class="govuk-heading-xl govuk-!-margin-top-3">
+<!--        <span class="govuk-caption-xl">{{ data['company-name'] | default('Compensator Ltd') }}</span>-->
+          User details
+        </h1>
+
+        <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Status
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    <strong class="govuk-tag govuk-tag--yellow">
+                        Access requested
+                    </strong>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <!--              <a class="govuk-link" href="admin-manage-org-edit-user">-->
+                    <!--                  Change<span class="govuk-visually-hidden"> full name</span>-->
+                    <!--              </a>-->
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Full name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Claire Jones
+              </dd>
+              <dd class="govuk-summary-list__actions">
+    <!--            <a class="govuk-link" href="admin-manage-org-edit-user">-->
+    <!--              Change<span class="govuk-visually-hidden"> full name</span>-->
+    <!--            </a>-->
+              </dd>
+            </div>
+<!--        <div class="govuk-summary-list__row">-->
+<!--          <dt class="govuk-summary-list__key">-->
+<!--            Last name-->
+<!--          </dt>-->
+<!--          <dd class="govuk-summary-list__value">-->
+<!--            {{ data['new-user-last-name'] | default('Brown') }}-->
+<!--          </dd>-->
+<!--          <dd class="govuk-summary-list__actions">-->
+<!--            <a class="govuk-link" href="admin-manage-org-edit-user">-->
+<!--              Change<span class="govuk-visually-hidden"> last name</span>-->
+<!--            </a>-->
+<!--          </dd>-->
+<!--        </div>-->
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            claire.jones@comps.com
+          </dd>
+          <dd class="govuk-summary-list__actions">
+<!--            <a class="govuk-link" href="admin-manage-org-edit-user">-->
+<!--              Change<span class="govuk-visually-hidden"> email address</span>-->
+<!--            </a>-->
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Access type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Standard user
+          </dd>
+          <dd class="govuk-summary-list__actions">
+<!--            <a class="govuk-link" href="admin-manage-org-edit-user">-->
+<!--              Change<span class="govuk-visually-hidden"> access type</span>-->
+<!--            </a>-->
+          </dd>
+        </div>
+      </dl>
+
+<!--        <div class="govuk-form-group">-->
+<!--        <fieldset class="govuk-fieldset">-->
+<!--          <legend class="govuk-fieldset__legend">-->
+<!--            Access type-->
+<!--          </legend>-->
+<!--          &lt;!&ndash;          <div id="sign-in-hint" class="govuk-hint">&ndash;&gt;-->
+<!--          &lt;!&ndash;            You’ll need an account to prove your identity and complete your Self Assessment.&ndash;&gt;-->
+<!--          &lt;!&ndash;          </div>&ndash;&gt;-->
+<!--          <div class="govuk-radios" data-module="govuk-radios">-->
+<!--            <div class="govuk-radios__item">-->
+<!--              <input class="govuk-radios__input" id="requested-user-access-type-standard" name="requested-user-access-type" type="radio" value="Standard user" aria-describedby="requested-user-access-type-standard-hint" {% if data['requested-user-access-type'] == "Standard user" %}checked{% endif %} />-->
+<!--              <label class="govuk-label govuk-radios__label" for="requested-user-access-type-standard">-->
+<!--                Standard user-->
+<!--              </label>-->
+<!--              <div id="requested-user-access-type-standard-hint" class="govuk-hint govuk-radios__hint">-->
+<!--                Standard users only have full access to claims.-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="govuk-radios__item">-->
+<!--              <input class="govuk-radios__input" id="requested-user-access-type-admin" name="requested-user-access-type" type="radio" value="Admin user" aria-describedby="requested-user-access-type-admin-hint" {% if data['requested-user-access-type'] == "Admin user" %}checked{% endif %} />-->
+<!--              <label class="govuk-label govuk-radios__label" for="requested-user-access-type-admin">-->
+<!--                Admin user-->
+<!--              </label>-->
+<!--              <div id="requested-user-access-type-admin-hint" class="govuk-hint govuk-radios__hint">-->
+<!--                Admin users are able to manage users and claims.-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+
+<!--        </fieldset>-->
+<!--      </div>-->
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+            <button class="govuk-button" data-module="govuk-button">
+                Accept & send email
+            </button>
+            <a href="admin-manage-org-declined-user-check" class="govuk-button govuk-button--warning" data-module="govuk-button">
+                Decline request
+            </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+{% endblock %}

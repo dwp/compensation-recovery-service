@@ -1,0 +1,56 @@
+
+{% extends "../../index.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+    <form class="form" action="passcode" method="post">
+      <h1 class="govuk-heading-xl">Create a new organisation account for {{ data['company-name'] | default('Geneva') }}</h1>
+
+<!--      <div class="govuk-inset-text">-->
+<!--        If your organisation already has an account, you’ll need to ask the account administrator to add you as a new user.-->
+<!--      </div>-->
+
+      <div class="govuk-form-group">
+        <p class="govuk-body">You’ll only need to go through this once. After you create an account, you will be able to register claims and ask people from your organisation to create individual accounts.</p>
+        <p class="govuk-body">You'll need:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>access to your email address to activate your account</li>
+          <li>to create a memorable password</li>
+          <li>your company details</li>
+        </ul>
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="email-address">
+          Email address
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="email-address" name="email-address" type="email">
+      </div>
+
+<!--      <div class="govuk-form-group">-->
+<!--        <label class="govuk-label govuk-label&#45;&#45;s" for="user-full-name">-->
+<!--          Full name-->
+<!--        </label>-->
+<!--        <input class="govuk-input govuk-input&#45;&#45;width-20" id="user-full-name" name="user-full-name" type="text" value="{{ data['user-full-name'] }}">-->
+<!--      </div>-->
+
+      <!-- hidden field to set account type -->
+      <input style="display: none;" id="account-type-org" name="account-type" type="text" value="org" />
+
+      {{ govukButton({
+      text: "Continue"
+      }) }}
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

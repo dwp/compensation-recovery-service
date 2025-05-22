@@ -1,0 +1,249 @@
+
+{% extends "../../../index.html" %}
+
+{% block pageTitle %}
+Manage organisation
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <nav class="navigation-secondary govuk-!-margin-bottom-6">
+      <ul>
+        <li><a href="admin-dashboard">Home</a></li>
+        <li><a href="admin-all-claims">All claims</a></li>
+        <li><a href="admin-register-new-claim">Register a new claim</a></li>
+        <li><a href="admin-take-over-claim">Take over a claim from another organisation</a></li>
+        <li class="active"><a href="admin-manage-org">Manage organisation</a></li>
+        <li><a href="admin-profile">My profile</a></li>
+      </ul>
+    </nav>
+
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl govuk-!-margin-top-5">
+      <span class="govuk-caption-xl">{{ data['company-name'] | default('Compensator Ltd') }}</span>
+        Manage organisation
+      </h1>
+
+      <h2 class="govuk-heading-m">Organisation details</h2>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Organisation name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['company-name'] | default('Compensator Ltd') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+<!--            <a class="govuk-link" href="#">-->
+<!--              Change<span class="govuk-visually-hidden"> name</span>-->
+<!--            </a>-->
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Type of organisation
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['type-of-org'] | default('Compensator') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="admin-manage-org-edit-details">
+              Change<span class="govuk-visually-hidden"> organisation type</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Primary telephone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['tel-primary'] | default('0117 9123 345') }}
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="admin-manage-org-edit-details">
+              Change<span class="govuk-visually-hidden"> primary telephone number</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Secondary telephone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['tel-secondary'] | default('07771 123737') }}
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="admin-manage-org-edit-details">
+              Change<span class="govuk-visually-hidden"> secondary telephone number</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Organisation address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['company-address-lookup'] | default('4 High Street') }}, {{ data['company-address-postcode'] | default('SW11 4DY') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="admin-manage-org-edit-address">
+              Change<span class="govuk-visually-hidden"> company address</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Data contacts
+          </dt>
+          <dd class="govuk-summary-list__value">
+            John Smith <br>
+            Jane Data
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="../contacts/data-contact-list2">
+              Change<span class="govuk-visually-hidden"> company address</span>
+            </a>
+          </dd>
+        </div>
+          <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Organisations you manage claims for
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  {{ data['on-behalf-of-org1'] | default('Aviva') }}<br />
+                  {{ data['on-behalf-of-org2'] | default('Direct Line') }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="admin-working-on-behalf-check">Change<span class="govuk-visually-hidden"> organisations working on behalf of</span>
+                  </a>
+              </dd>
+          </div>
+      </dl>
+
+      <br /><br />
+
+<!--      {% if data['show-notification'] == 'true' %}-->
+<!--      <div class="govuk-notification-banner govuk-notification-banner&#45;&#45;success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">-->
+<!--        <div class="govuk-notification-banner__header">-->
+<!--          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">-->
+<!--            Success-->
+<!--          </h2>-->
+<!--        </div>-->
+<!--        <div class="govuk-notification-banner__content">-->
+<!--          <h3 class="govuk-notification-banner__heading">-->
+<!--            {% if (data['user-added'] == 'true') and (data['user-amended'] == 'false')  %}-->
+<!--              New user added-->
+<!--            {% elseif (data['user-added'] == 'false') and (data['user-amended'] == 'true')  %}-->
+<!--              User details changed-->
+<!--            {% endif %}-->
+<!--          </h3>-->
+<!--          {% if (data['user-added'] == 'true') and (data['user-amended'] == 'false')  %}-->
+<!--            <p class="govuk-body">Invitation email sent to <a class="govuk-notification-banner__link" href="#">{{ data['new-user-email'] }}</a>.</p>-->
+<!--          {% elseif (data['user-added'] == 'false') and (data['user-amended'] == 'true')  %}-->
+<!--            <p class="govuk-body">Email sent to <a class="govuk-notification-banner__link" href="#">{{ data['new-user-email'] }}</a> with updated details.</p>-->
+<!--          {% endif %}-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      {% endif %}-->
+
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-6">Organisation users</h2>
+
+      <form class="form" action="admin-manage-org-add-user?clear-fields=true&" method="post">
+        <button class="govuk-button" data-module="govuk-button">Add a new user</button>
+      </form>
+
+      <table class="govuk-table gov">
+<!--        <caption class="govuk-table__caption govuk-table__caption&#45;&#45;m">Organisation users</caption>-->
+        <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Name</th>
+          <th scope="col" class="govuk-table__header">Email</th>
+          <th scope="col" class="govuk-table__header">Access type</th>
+          <th scope="col" class="govuk-table__header">Status</th>
+          <th scope="col" class="govuk-table__header"></th>
+        </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+
+        {% if data['show-notification'] == 'true' %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ data['new-user-full-name'] }}</td>
+          <td class="govuk-table__cell">{{ data['new-user-email'] }}</td>
+          <td class="govuk-table__cell">{{ data['new-user-access-type'] }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">
+            Email sent
+          </strong></td>
+          <td class="govuk-table__cell"><a href="admin-manage-org-view-user">View / Change</a></td>
+        </tr>
+        {% endif %}
+
+        {% if data['show-notification'] == 'removed' %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ data['new-user-full-name'] }}</td>
+          <td class="govuk-table__cell">{{ data['new-user-email'] }}</td>
+          <td class="govuk-table__cell">{{ data['new-user-access-type'] }}</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">Removed</strong></td>
+          <td class="govuk-table__cell"></td>
+        </tr>
+        {% endif %}
+
+        {% if data['user-approved'] == 'true' %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Claire Jones</td>
+          <td class="govuk-table__cell">claire.jones@comps.com</td>
+          <td class="govuk-table__cell">Standard user</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">
+            Email sent
+          </strong></td>
+          <td class="govuk-table__cell"><a href="admin-manage-org-view-approved-user">View / Change</a></td>
+        </tr>
+        {% elseif data['user-approved'] == 'declined' %}
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Claire Jones</td>
+          <td class="govuk-table__cell">claire.jones@comps.com</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">
+            Access declined
+          </strong></td>
+          <td class="govuk-table__cell"></td>
+        </tr>
+        {% else %}
+
+        {% endif %}
+
+
+
+
+
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{ data['user-first-name'] | default('Sam') }} {{ data['user-last-name'] | default('Smith') }}</td>
+          <td class="govuk-table__cell">{{ data['email-address'] | default('sam.smith@compensator.com') }}</td>
+          <td class="govuk-table__cell">Admin user</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag">
+            Active
+          </strong></td>
+          <td class="govuk-table__cell"><!--<a href="">View / Edit</a>--></td>
+        </tr>
+        </tbody>
+      </table>
+
+<br>
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-6">Ask us to delete your account</h2>
+
+      <form class="form" action="delete" method="post">
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+      </form>
+
+
+
+    </div>
+  </div>
+
+
+
+{% endblock %}

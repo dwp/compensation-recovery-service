@@ -1,0 +1,87 @@
+
+{% extends "../../../index.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+<br><br><br>
+
+
+      <h1 class="govuk-heading-xl">Data contacts for your organisation</h1>
+      <div class="govuk-inset-text">
+        You can add up to 8 contacts
+      </div>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contact 1
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['name'] | default('John Smith') }} <br>
+              {{ data['email'] | default('john@avova.com') }} <br>
+                  {{ data['phone'] | default('0774354322') }} <br>
+                {{ data['role'] | default('Data officer') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="hospital">Remove<span class="govuk-visually-hidden"> organisation working on behalf of</span></a>
+<!--            | <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> this organisation working on behalf of</span></a>-->
+          </dd>
+        </div>
+
+        {% if data['addHos2'] == 'false' %}
+        {% if data['manualHospital2'] == 'false' %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Hospital 2
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['hospitalTwo'] | default('South West General') }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="hospital-list2?org-name={{ data['hospitalTwo'] }}">Remove<span class="govuk-visually-hidden"> organisation working on behalf of</span></a>
+            <!--            | <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> this organisation working on behalf of</span></a>-->
+          </dd>
+        </div>
+          {% else %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Hospital 2
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['m-hospital-2'] | default('South West General') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="hospital-remove?org-name={{ data['m-hospital-2'] }}">Remove<span class="govuk-visually-hidden"> organisation working on behalf of</span></a>
+              <!--            | <a class="govuk-link" href="">Remove<span class="govuk-visually-hidden"> this organisation working on behalf of</span></a>-->
+            </dd>
+          </div>
+        {% endif %}
+          {% endif %}
+      </dl>
+
+
+        <div class="govuk-button-group">
+          <form class="form" action="confirmation_later" method="post">
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+          </form>
+          <form class="form" action="data-contact2_b" method="post">
+          <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+            Add another
+          </button>
+          </form>
+        </div>
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

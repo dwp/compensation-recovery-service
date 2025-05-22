@@ -1,0 +1,194 @@
+
+{% extends "../../../index.html" %}
+
+{% block pageTitle %}
+Transfer claim - Check your answers
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+    <form class="form" action="da-handover-confirmation" method="post">
+
+        <h1 class="govuk-heading-xl">
+        Check your answers
+        </h1>
+
+        <h2 class="govuk-heading-m">Claim details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    CRU Reference
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['da-crs-ref'] | default('CRS233450') }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Your reference
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['da-your-ref'] | default('RR0837') }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+
+                </dd>
+            </div>
+<!--            <div class="govuk-summary-list__row">-->
+<!--                <dt class="govuk-summary-list__key">-->
+<!--                    Date claim settled-->
+<!--                </dt>-->
+<!--                <dd class="govuk-summary-list__value">-->
+<!--                    12 December 2021-->
+<!--                </dd>-->
+<!--                <dd class="govuk-summary-list__actions">-->
+<!--                    -->
+<!--                </dd>-->
+<!--            </div>-->
+<!--            <div class="govuk-summary-list__row">-->
+<!--                <dt class="govuk-summary-list__key">-->
+<!--                    Type of settlement-->
+<!--                </dt>-->
+<!--                <dd class="govuk-summary-list__value">-->
+<!--                    Final-->
+<!--                </dd>-->
+<!--                <dd class="govuk-summary-list__actions">-->
+<!--                    -->
+<!--                </dd>-->
+<!--            </div>-->
+        </dl>
+        <h2 class="govuk-heading-m">Injured person details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                James Stephen
+              </dd>
+              <dd class="govuk-summary-list__actions">
+    <!--            <a class="govuk-link" href="da-handover-compensator">Change<span class="govuk-visually-hidden"> CRU reference</span></a>-->
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Date of birth
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    12 December 2003
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <!--            <a class="govuk-link" href="da-handover-compensator">Change<span class="govuk-visually-hidden"> CRU reference</span></a>-->
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    National Insurance number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    QQ123456Y
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <!--            <a class="govuk-link" href="da-handover-compensator">Change<span class="govuk-visually-hidden"> CRU reference</span></a>-->
+                </dd>
+            </div>
+        </dl>
+        <h2 class="govuk-heading-m">Compensator details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Compensator reference
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['da-comp-ref'] }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="da-handover-compensator">Change<span class="govuk-visually-hidden"> Reference number</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Organisation name
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['da-comp-name'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="da-handover-compensator">Change<span class="govuk-visually-hidden"> organisation name</span></a>
+                </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Organisation address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['da-address-lookup'] }}, {{ data['da-address-postcode'] }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="da-handover-compensator-address">Change<span class="govuk-visually-hidden"> address</span></a>
+                </dd>
+            </div>
+<!--            <div class="govuk-summary-list__row">-->
+<!--              <dt class="govuk-summary-list__key">-->
+<!--                  Contact name-->
+<!--              </dt>-->
+<!--              <dd class="govuk-summary-list__value">-->
+<!--                  {{ data['da-comp-contact-name'] }}-->
+<!--              </dd>-->
+<!--              <dd class="govuk-summary-list__actions">-->
+<!--                  <a class="govuk-link" href="da-handover-compensator-contact">Change<span class="govuk-visually-hidden"> contact name</span></a>-->
+<!--              </dd>-->
+<!--            </div>-->
+<!--            <div class="govuk-summary-list__row">-->
+<!--                <dt class="govuk-summary-list__key">-->
+<!--                    Contact email address-->
+<!--                </dt>-->
+<!--                <dd class="govuk-summary-list__value">-->
+<!--                    {{ data['da-comp-contact-email'] }}-->
+<!--                </dd>-->
+<!--                <dd class="govuk-summary-list__actions">-->
+<!--                    <a class="govuk-link" href="da-handover-compensator-contact">Change<span class="govuk-visually-hidden"> contact email address</span></a>-->
+<!--                </dd>-->
+<!--            </div>-->
+<!--            <div class="govuk-summary-list__row">-->
+<!--              <dt class="govuk-summary-list__key">-->
+<!--                  Contact number-->
+<!--              </dt>-->
+<!--              <dd class="govuk-summary-list__value">-->
+<!--                  {{ data['da-comp-contact-number'] }}-->
+<!--              </dd>-->
+<!--              <dd class="govuk-summary-list__actions">-->
+<!--                  <a class="govuk-link" href="da-handover-compensator-contact">Change<span class="govuk-visually-hidden"> contact number</span></a>-->
+<!--              </dd>-->
+<!--            </div>-->
+<!--            <div class="govuk-summary-list__row">-->
+<!--                <dt class="govuk-summary-list__key">-->
+<!--                    Name of the policy holder-->
+<!--                </dt>-->
+<!--                <dd class="govuk-summary-list__value">-->
+<!--                    {{ data['da-comp-policy-holder'] }}-->
+<!--                </dd>-->
+<!--                <dd class="govuk-summary-list__actions">-->
+<!--                    <a class="govuk-link" href="da-handover-compensator-contact">Change<span class="govuk-visually-hidden"> name of policy holder</span></a>-->
+<!--                </dd>-->
+<!--            </div>-->
+        </dl>
+
+
+      {{ govukButton({
+      text: "Submit"
+      }) }}
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}
