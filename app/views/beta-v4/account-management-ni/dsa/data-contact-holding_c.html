@@ -1,0 +1,56 @@
+
+{% extends "../../../index.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+    <form class="form" action="data-contact_c" method="post">
+      <h1 class="govuk-heading-xl">Data Sharing Contact details</h1>
+
+      <div class="govuk-form-group">
+        <p class="govuk-body">
+        We need contact details for up to 8 people responsible for data handling processes that we can contact in the event of a personal data breach.
+        <p class="govuk-body">
+        We will need their:
+          <ul class="govuk-list govuk-list--bullet">
+            <li>  Full name </li>
+        <li>Email address</li>
+        <li>Job title</li>
+        <li>Telephone number</li>
+          </ul>
+              </p>
+        <p class="govuk-body">
+
+          Their roles could include:
+
+              <ul class="govuk-list govuk-list--bullet">
+            <li>    review control</li>
+        <li>security incidents</li>
+        <li>  dispute resolution</li>
+        <li>escalation</li>
+        <li>subject access</li>
+        <li>freedom of information </li>
+        <li>data sharing operations    </li>
+              </ul>
+                  </p>
+
+
+  <br><br>
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

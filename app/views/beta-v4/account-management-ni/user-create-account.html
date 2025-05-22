@@ -1,0 +1,58 @@
+
+{% extends "../../index.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-top-9">
+  <div class="govuk-grid-column-two-thirds">
+<!--    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>-->
+    <form class="form" action="passcode" method="post">
+      <h1 class="govuk-heading-xl">Create an individual account</h1>
+
+      <div class="govuk-form-group">
+        <p class="govuk-body">You will only need to go through this process one time.</p>
+        <p class="govuk-body">After we verify your account, you will be able to register and manage claims for your organisation.</p>
+        <p class="govuk-body">You'll need:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>access to your email address to activate your account</li>
+          <li>to create a memorable password</li>
+        </ul>
+      </div>
+
+<!--      <div class="govuk-warning-text">-->
+<!--        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>-->
+<!--        <strong class="govuk-warning-text__text">-->
+<!--          <span class="govuk-warning-text__assistive">Warning</span>-->
+<!--          You must use the email address where you received the email to create an account with the Compensation Recovery Service.-->
+<!--        </strong>-->
+<!--      </div>-->
+
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-0">Email address</h2>
+      <p class="govuk-body">{{ data['new-user-email'] | default('ayana.lawrence@comps.com') }}</p>
+
+<!--      <div class="govuk-form-group">-->
+<!--        <label class="govuk-label govuk-label&#45;&#45;s" for="ind-email-address">-->
+<!--          Email address-->
+<!--        </label>-->
+<!--        <input class="govuk-input govuk-!-width-three-quarters" id="ind-email-address" name="ind-email-address" type="email" value="{{ data['new-user-email'] }}" />-->
+<!--      </div>-->
+
+      <!-- hidden field to set account type -->
+      <input style="display: none;" id="account-type-org" name="account-type" type="text" value="user" />
+
+      <br />
+
+      {{ govukButton({
+      text: "Continue"
+      }) }}
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

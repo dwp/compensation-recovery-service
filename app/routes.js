@@ -1429,7 +1429,18 @@ if (req.session.data['change'] == 'Liability') {
     }
 })
 
+router.post('/account-management-ni2/password-branch', function (req, res, next) {
 
+  const accountType = req.session.data['account-type']
+
+  if (accountType == 'user') {
+    res.redirect('/beta-v4/account-management-ni2/user-edit-name')
+  } else if (accountType == 'org') {
+    res.redirect('/beta-v4/account-management-ni2/org-user-name')
+  } else if (accountType == 'requested-user') {
+    res.redirect('/beta-v4/account-management-ni2/user-request-confirmation')
+  }
+})
 
 
 // router.post('/beta-v4/cru-ops-service/tasks-and-workflows2_0/scrutiny_task_v1_0/confirmed-check', function (req, res) {

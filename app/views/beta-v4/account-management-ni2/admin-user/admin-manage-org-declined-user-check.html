@@ -1,0 +1,104 @@
+
+{% extends "../../../index.html" %}
+
+{% block pageTitle %}
+Manage organisation - Decline access request
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+<!--    <nav class="navigation-secondary">-->
+<!--      <ul>-->
+<!--        <li><a href="admin-dashboard">Home</a></li>-->
+<!--        <li><a href="admin-all-claims">All claims</a></li>-->
+<!--        <li><a href="admin-register-claims">Register claims</a></li>-->
+<!--        <li class="active"><a href="admin-manage-org">Manage organisation</a></li>-->
+<!--        <li><a href="admin-profile">My profile</a></li>-->
+<!--      </ul>-->
+<!--    </nav>-->
+
+    <form class="form" action="admin-manage-org?user-approved=declined&" method="post">
+
+    <div class="govuk-grid-column-three-quarters">
+      <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-3">Back</a>
+
+      <h1 class="govuk-heading-xl govuk-!-margin-top-5">
+<!--      <span class="govuk-caption-xl">Access request</span>-->
+        Decline access request
+      </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Full name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Claire Jones
+          </dd>
+          <dd class="govuk-summary-list__actions">
+<!--            <a class="govuk-link" href="admin-manage-org-add-user">-->
+<!--              Change<span class="govuk-visually-hidden"> full name</span>-->
+<!--            </a>-->
+          </dd>
+        </div>
+<!--        <div class="govuk-summary-list__row">-->
+<!--          <dt class="govuk-summary-list__key">-->
+<!--            Last name-->
+<!--          </dt>-->
+<!--          <dd class="govuk-summary-list__value">-->
+<!--            {{ data['new-user-last-name'] | default('Brown') }}-->
+<!--          </dd>-->
+<!--          <dd class="govuk-summary-list__actions">-->
+<!--            <a class="govuk-link" href="admin-manage-org-add-user">-->
+<!--              Change<span class="govuk-visually-hidden"> last name</span>-->
+<!--            </a>-->
+<!--          </dd>-->
+<!--        </div>-->
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            claire.jones@comps.com
+          </dd>
+          <dd class="govuk-summary-list__actions">
+<!--            <a class="govuk-link" href="admin-manage-org-add-user">-->
+<!--              Change<span class="govuk-visually-hidden"> email address</span>-->
+<!--            </a>-->
+          </dd>
+        </div>
+<!--        <div class="govuk-summary-list__row">-->
+<!--          <dt class="govuk-summary-list__key">-->
+<!--            Access type-->
+<!--          </dt>-->
+<!--          <dd class="govuk-summary-list__value">-->
+<!--            {{ data['requested-user-access-type'] | default('Admin') }}-->
+<!--          </dd>-->
+<!--          <dd class="govuk-summary-list__actions">-->
+<!--            <a class="govuk-link" href="admin-manage-org-requested-user">-->
+<!--              Change<span class="govuk-visually-hidden"> access type</span>-->
+<!--            </a>-->
+<!--          </dd>-->
+<!--        </div>-->
+      </dl>
+
+      <p class="govuk-body">
+        An email will be sent to this user to inform them they have been declined access to the service.
+      </p>
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+            <button class="govuk-button govuk-!-margin-top-4" data-module="govuk-button">Send email</button>
+            <a class="govuk-link" href="admin-manage-org-requested-user">Cancel</a>
+        </div>
+
+
+
+      </form>
+
+    </div>
+  </div>
+
+
+
+{% endblock %}

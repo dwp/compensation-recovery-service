@@ -1,0 +1,43 @@
+
+{% extends "../../index.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+    <form class="form" action="org-user-name" method="post">
+      <span class="govuk-caption-xl">{{ data['company-name'] }}</span>
+      <h1 class="govuk-heading-xl">Your organisation address</h1>
+
+      <h2 class="govuk-heading-m">Postcode</h2>
+      <p class="govuk-body">{{ data['company-address-postcode']}} <a href="org-address">Change</a></p>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="company-address-lookup">
+          Select an address
+        </label>
+        <select class="govuk-select" id="company-address-lookup" name="company-address-lookup">
+          <option value="published">3 addresses found</option>
+          <option value="4 High Street">4 High Street, {{ data['company-address-postcode'] | default('M4 4GH')}}</option>
+          <option value="6 High Street">6 High Street, {{ data['company-address-postcode'] | default('M4 4GH')}}</option>
+          <option value="8 High Street">8 High Street, {{ data['company-address-postcode'] | default('M4 4GH')}}</option>
+        </select>
+      </div>
+
+      <p class="govuk-body"><a href="org-address-manual-entry">I can't find the address in the list</a></p>
+
+      {{ govukButton({
+      text: "Continue"
+      }) }}
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

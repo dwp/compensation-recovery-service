@@ -1,0 +1,106 @@
+{% extends "../../index.html" %}
+
+{% block pageTitle %}
+Insurance company -  Who is the insurance company paying the compensation?
+{% endblock %}
+
+
+{% block globalnav %}
+<div class="govuk-breadcrumbs">
+    <ol class="govuk-breadcrumbs__list">
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Home</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item">
+        <a class="govuk-breadcrumbs__link" href="#">Section</a>
+      </li>
+      <li class="govuk-breadcrumbs__list-item" aria-current="page">Subsection</li>
+    </ol>
+  </div>
+{% endblock %}
+
+{% block content %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+  <div class="govuk-grid-row govuk-!-margin-top-7">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Register compensation recovery claims</h1>
+
+  <p class="govuk-body">This service is for organisations that register compensation claims with the Compensation Recovery Unit (CRU). </p>
+
+  <p class="govuk-body govuk-!-font-weight-bold">Register a claim online only if:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>it is for motor or public liability</li>
+            <li>the injured person is represented and can provide an email address for their representative</li>
+            <li>the injured person did not receive NHS hospital treatment because of the incident</li>
+        </ul>
+
+        <h2 class="govuk-heading-m">Other ways to register</h2>
+
+        <p class="govuk-body">If a claim does not meet all of the criteria, you will need to register it by post using a 
+          <a href="https://www.gov.uk/government/publications/compensation-recovery-unit-forms" class="govuk-link">CRU1 form</a>.</p>
+
+          
+        <!-- <p class="govuk-body">For claims where an injured person resides in Northern Ireland, use a 
+          <a href="https://www.communities-ni.gov.uk/publications/notification-claim-compensation" class="govuk-link">CRU1 Northern Ireland form</a>.</p> -->
+        
+        <h2 class="govuk-heading-m">What can you do on this service?</h2>
+
+        <p class="govuk-body">After creating an administrator account and accepting the User Agreement, you can:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>register and manage claims</li>
+            <li>get Certificates of Recoverable Benefits and Certificates of NHS Charges with nil charges only for claims registered on the service</li>
+            <li>take over existing claims from other organisations</li>
+            <li>manage user accounts for people from your organisation who need to register compensation claims</li>
+        </ul>
+
+
+      <p class="govuk-body">You can request certificates for claims not registered on this service by sending an email to: 
+        <a href="mailto:cru.highvolumeareacertificates@dwp.gov.uk" class="govuk-link">cru.highvolumeareacertificates@dwp.gov.uk</a></p>
+
+    <h2 class="govuk-heading-m">Create an account to register compensation claims</h2>
+
+        <p class="govuk-body">To register claims online, your organisation must create an account. </p>
+
+        <p class="govuk-body">Send an email to <a href="mailto:cru.digital@dwp.gov.uk" class="govuk-link">
+          cru.digital@dwp.gov.uk</a> for details about how to create an account for this service.</p>
+
+        <p class="govuk-body">You can <a href="https://crs.dwp.gov.uk/login/login-step1" class="govuk-link">sign in</a> if you already have an account. </p>
+
+
+<!--
+        {{ govukButton({
+          text: "Create an account",
+          href: "2step-1",
+          classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-8",
+          isStartButton: true
+        }) }}
+-->
+
+
+      <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+
+      <!-- <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Related content
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a class="govuk-link" href="https://www.gov.uk/government/publications/compensation-and-repaying-dwp-if-you-think-our-decision-is-wrong">
+                Compensation and repaying DWP: if you think our decision is wrong
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link" href="https://www.gov.uk/government/collections/cru#contact-cru">
+                Contact the Compensation Recovery Service
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+      </aside> -->
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,48 @@
+
+{% extends "../../index.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+    <form class="form" action="org-check-answers" method="post">
+<!--      <span class="govuk-caption-xl">{{ data['company-name'] }}</span>-->
+        <div class="govuk-form-group">
+            <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--xl" for="user-full-name">
+            Personal details
+            </label>
+            </h1>
+<br><br>
+      <p>We will use these if we need to contact your organisation about a claim.</p>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="tel-primary">
+          Full name
+          </label>
+          <input class="govuk-input govuk-input--width-20" id="user-full-name" name="user-full-name" type="text" value="{{ data['user-full-name'] }}">
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="tel-primary">
+  Job title
+          </label>
+          <input class="govuk-input govuk-input--width-20" id="user-title" name="user-title" type="text" value="{{ data['user-title'] }}">
+        </div>
+
+      </div>
+
+      {{ govukButton({
+      text: "Continue"
+      }) }}
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

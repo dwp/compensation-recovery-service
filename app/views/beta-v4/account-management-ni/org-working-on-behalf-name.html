@@ -1,0 +1,38 @@
+
+{% extends "../../index.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+    <form class="form" action="org-working-on-behalf-check" method="post">
+      <span class="govuk-caption-xl">{{ data['company-name'] }}</span>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              What is the name of an organisation you manage claims for?
+            </h1>
+          </legend>
+          <div id="further-orgs-hint" class="govuk-hint">
+            You can add more organisations later
+          </div>
+          <input class="govuk-input" id="on-behalf-of-org1" name="on-behalf-of-org1" type="text" aria-describedby="further-orgs-hint">
+        </fieldset>
+      </div>
+
+      {{ govukButton({
+      text: "Continue"
+      }) }}
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

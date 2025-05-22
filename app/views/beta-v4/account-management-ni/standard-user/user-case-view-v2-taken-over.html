@@ -1,0 +1,284 @@
+
+{% extends "../../../index.html" %}
+
+{% block pageTitle %}
+Claim view
+{% endblock %}
+
+{% block content %}
+
+      <div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-full-from-desktop">
+          <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+          <h1 class="govuk-heading-xl govuk-!-margin-bottom-3">
+            <span class="govuk-caption-xl"> Claim reference</span>
+            CRU12345
+          </h1>
+
+          <strong class="govuk-tag govuk-tag--green govuk-!-margin-bottom-7">
+            Certificates available
+          </strong>
+
+            {% from "govuk/components/tabs/macro.njk" import govukTabs %}
+            {% from "govuk/components/table/macro.njk" import govukTable %}
+
+
+          {% set caseDetailsHtml %}
+
+          <h2 class="govuk-heading-l">Case details</h2>
+
+          <!-- Details from taken over claim -->
+
+          <h2 class="govuk-heading-m">Claim references</h2>
+
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                CRS reference
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['da-crs-ref'] | default('CRS233450') }}
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Your reference
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['da-your-ref'] | default('RR0837') }}
+              </dd>
+            </div>
+          </dl>
+
+          <h2 class="govuk-heading-m">About the injured person</h2>
+
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                First name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['da-ip-first-name'] | default('Lawrence') }}
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Last name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['da-ip-last-name'] | default('Westeros') }}
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Date of birth
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['da-ip-date-of-birth-day'] | default("28") }} {{ data['da-ip-date-of-birth-month'] | default("02") | toMonth }} {{ data['da-ip-date-of-birth-year'] | default("1978") }}
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                National Insurance number
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['da-ip-ni'] | default('QQ123456C') }}
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Date of injury
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['da-injury-date-day'] | default("15") }} {{ data['da-injury-date-month'] | default("11") | toMonth }} {{ data['da-injury-date-year'] | default("2021") }}
+              </dd>
+            </div>
+          </dl>
+
+          <h2 class="govuk-heading-m">Compensator details</h2>
+
+          <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Compensator reference
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['da-comp-ref'] | default('XYZ33990') }}
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Organisation name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['da-comp-name'] | default('Aviva') }}
+              </dd>
+            </div>
+          </dl>
+          <!-- end -->
+
+          {% endset -%}
+
+<!--          {% set settlementHtml %}-->
+<!--          <h2 class="govuk-heading-l">Settlement</h2>-->
+
+<!--          <dl class="govuk-summary-list govuk-!-margin-bottom-0">-->
+<!--            <div class="govuk-summary-list__row">-->
+<!--              <dt class="govuk-summary-list__key">-->
+<!--                Date claim settled-->
+<!--              </dt>-->
+<!--              <dd class="govuk-summary-list__value">-->
+<!--                15 November 2022-->
+<!--              </dd>-->
+<!--            </div>-->
+<!--            <div class="govuk-summary-list__row">-->
+<!--              <dt class="govuk-summary-list__key">-->
+<!--                Type of settlement-->
+<!--              </dt>-->
+<!--              <dd class="govuk-summary-list__value">-->
+<!--                Final-->
+<!--              </dd>-->
+<!--            </div>-->
+<!--          </dl>-->
+<!--          {% endset -%}-->
+
+          {% set chargesHtml %}
+          <h2 class="govuk-heading-l">Summary of charges</h2>
+
+          <div class="govuk-inset-text">
+            <h2 class="govuk-heading-s">Amount to pay</h2>
+
+            <p class="govuk-body">
+              <span class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold govuk-!-display-block">NIL</span>
+            </p>
+
+          </div>
+          {% endset -%}
+
+          {% set caseDocumentsHtml %}
+            <h2 class="govuk-heading-l">Certificates</h2>
+
+            <table class="govuk-table">
+<!--              <caption class="govuk-table__caption govuk-table__caption&#45;&#45;m">Dates and amounts</caption>-->
+              <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Type of certificate</th>
+                <th scope="col" class="govuk-table__header">Expiry date</th>
+                <th scope="col" class="govuk-table__header"></th>
+              </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Compensation Recovery (CRU) Certificate</th>
+                <td class="govuk-table__cell">Expires 24 November 2022</td>
+                <td class="govuk-table__cell">
+                  <a class="govuk-link" href="/public/downloads/CRU-nil-cert-generic-24-feb.pdf">
+                    Download copy<span class="govuk-visually-hidden"> name</span>
+                  </a>
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">NHS Charges Certificate</th>
+                <td class="govuk-table__cell">No expiry</td>
+                <td class="govuk-table__cell">
+                  <a class="govuk-link" href="/public/downloads/NHS-nil-cert-generic-24feb.pdf">
+                    Download copy<span class="govuk-visually-hidden"> name</span>
+                  </a>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+{% endset -%}
+
+          {% set caseActionsHtml %}
+          <h2 class="govuk-heading-l">Actions</h2>
+
+          <div class="govuk-form-group govuk-!-margin-bottom-7">
+            <h2 class="govuk-heading-s">Settle claim</h2>
+            <p class="govuk-body">
+              Notify the Compensation Recovery Service that the claim has been settled with payment or withdrawn.
+            </p>
+            <button class="govuk-button govuk-!-margin-right-3 govuk-!-margin-bottom-0">Settle the claim</button>
+          </div>
+
+          <div class="govuk-form-group">
+            <form class="form" action="../handover-claim/da-handover-compensator" method="post">
+              <h2 class="govuk-heading-s">Handover claim</h2>
+              <p class="govuk-body">
+                Notify the Compensation Recovery Service that the claim is being handed over to the original compensator or another party.
+              </p>
+              <button class="govuk-button govuk-button--secondary govuk-!-margin-right-3 govuk-!-margin-bottom-0">Handover the claim</button>
+            </form>
+          </div>
+          {% endset -%}
+
+
+
+{{ govukTabs({
+  items: [
+    {
+      label: "Case details",
+      id: "case-details",
+      panel: {
+      html: caseDetailsHtml
+      }
+    },
+    {
+      label: "Summary of charges",
+      id: "case-charges",
+      panel: {
+      html: chargesHtml
+      }
+    },
+
+    {
+      label: "Certificates",
+      id: "case-documents",
+      panel: {
+      html: caseDocumentsHtml
+      }
+
+    },
+    {
+      label: "Actions",
+      id: "case-actions",
+      panel: {
+      html: caseActionsHtml
+      }
+
+    }
+  ]
+}) }}
+
+
+<div>
+  <h2 class="govuk-heading-m">Get help with this claim</h2>
+
+<ul class="govuk-list">
+  <li>Telephone: 0800 15 13197</li>
+  <li>Monday to Friday, 8am to 6pm (except public holidays)</li>
+  <li>Email: <a href="mailto:cru.ebt@dwp.gov.uk" class="govuk-link">cru.ebt@dwp.gov.uk</a>
+</li></ul>
+
+  </div>
+<br>
+
+
+        <a href="../compensator/compensator-dashboard" class="govuk-button govuk-button--secondary">Return to home</a></div>
+      </div>
+
+
+        </div>
+      </div>
+
+
+{% endblock %}

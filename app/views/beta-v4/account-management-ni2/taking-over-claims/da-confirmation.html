@@ -1,0 +1,47 @@
+
+{% extends "../../../index.html" %}
+
+{% block pageTitle %}
+Take over an existing claim - Confirmation
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-main-wrapper--auto-spacing">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+              Submission sent to Compensation Recovery Service
+          </h1>
+<!--          <div class="govuk-panel__body">-->
+<!--              CRS reference number<br><strong>{{ data['da-crs-ref'] }}</strong>-->
+<!--          </div>-->
+      </div>
+
+      <p class="govuk-body">Thank you for letting us know you are taking over this existing claim. We have sent you a confirmation email.</p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">Compensation Recovery Service will process your submission and issue updated certificates. This could take up to 28 days.</p>
+      <p class="govuk-body">You will receive an email notification when the updated certificates are available to view and download.</p>
+
+      <p class="govuk-body"><a href="../standard-user/user-case-view-v1-taken-over-pending" class="govuk-link govuk-!-margin-top-4">View the claim</a></p>
+      <p class="govuk-body"><a href="../standard-user/user-dashboard" class="govuk-link">Go to your dashboard</a></p>
+<!--      <p class="govuk-body"><a href="../standard-user/user-all-claims?da-standard-request-sent=true&" class="govuk-link">Go to your dashboard</a></p>-->
+
+      <!-- route based on user type so that the DA request shows up in the correct Claims view -->
+<!--      {% if data['user-type'] == 'standard' %}-->
+<!--        <a href="../standard-user/user-all-claims?da-standard-request-sent=true&" class="govuk-button govuk-button&#45;&#45;secondary govuk-!-margin-top-4">Return to all claims</a>-->
+<!--      {% elseif data['user-type'] == 'admin' %}-->
+<!--        <a href="../admin-user/admin-all-claims?da-admin-request-sent=true&" class="govuk-button govuk-button&#45;&#45;secondary govuk-!-margin-top-4">Return to all claims</a>-->
+<!--      {% endif %}-->
+
+<!--      <p class="govuk-body govuk-!-margin-top-4">-->
+<!--        <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)-->
+<!--      </p>-->
+
+    </div>
+  </div>
+
+{% endblock %}

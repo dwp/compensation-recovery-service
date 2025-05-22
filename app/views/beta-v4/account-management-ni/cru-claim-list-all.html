@@ -1,0 +1,287 @@
+
+{% extends "../../index.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <br>
+<h1 class="govuk-heading-l">Find a claim</h1>
+<div class="govuk-form-group" style="margin-bottom:15px">
+    <label class="govuk-label govuk-!-font-weight-bold" for="search-name">
+        Search by CRU reference or injured persons name 
+    </label>
+    <input class="govuk-input govuk-input--width-20" id="company-name" name="company-name" type="text" value="{{ data['company-name'] }}">
+    <button class="govuk-button" data-module="govuk-button">
+        Search
+    </button>
+</div>
+</div>
+</div>
+</form>
+{% if data['searchres'] == 'true' %}
+<div class="govuk-inset-text" style="margin-top:15px">
+  <p>1 organisation found</p>
+  <a class="govuk-link" href="org-list_multiple?searchres=false">Clear results</a>
+</div>
+
+<table class="govuk-table gov">
+<!--        <caption class="govuk-table__caption govuk-table__caption&#45;&#45;m">Organisation users</caption>-->
+  <thead class="govuk-table__head">
+  <tr class="govuk-table__row">
+    <th scope="col" class="govuk-table__header">Name</th>
+    <th scope="col" class="govuk-table__header">CRU Reference</th>
+    <th scope="col" class="govuk-table__header">Date of injury</th>
+    <th scope="col" class="govuk-table__header">DWP Cert status</th>
+    <th scope="col" class="govuk-table__header">Claim status</th>
+    <th scope="col" class="govuk-table__header"></th>
+  </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+
+
+
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell">{{ data['company-name'] }}</td>
+    <td class="govuk-table__cell">Manchester</td>
+    <td class="govuk-table__cell">Yesterday</td>
+  <td class="govuk-table__cell">7</td>
+    <td class="govuk-table__cell">claims@{{ data['company-name'] }}.com</td>
+    <td class="govuk-table__cell">10</td>
+
+<td class="govuk-table__cell"><a href="org-details_multiple">View</a></td>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell">{{ data['company-name'] }}</td>
+    <td class="govuk-table__cell">Hull</td>
+    <td class="govuk-table__cell">17 December 2022</td>
+  <td class="govuk-table__cell">73</td>
+    <td class="govuk-table__cell">claimshull@{{ data['company-name'] }}.com</td>
+    <td class="govuk-table__cell">5</td>
+
+<td class="govuk-table__cell"><a href="">View</a></td>
+  </tr>
+
+
+  </tbody>
+</table>
+
+      </div>
+          {% else %}
+
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="sort">
+              Sort by
+            </label>
+            <select class="govuk-select" id="sort" name="sort">
+              <option value="comments">CRU Reference - newest first</option>
+              <option value="comments">CRU Reference - oldest first</option>
+              <option value="views">Name A - Z</option>
+              <option value="views">Name Z - A</option>
+              <option value="comments">Date of injury</option>
+              <option value="comments">Date of certificate expiry</option>
+              <option value="comments">Valid certificates</option>
+              <option value="comments">Expired certificates</option>
+            </select>
+          </div>
+
+
+
+
+      <table class="govuk-table gov" id="initial">
+
+        <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Name</th>
+          <th scope="col" class="govuk-table__header">CRU Reference</th>
+          <th scope="col" class="govuk-table__header">Date of injury</th>
+          <th scope="col" class="govuk-table__header">DWP Cert status</th>
+          <th scope="col" class="govuk-table__header">Claim status</th>
+          <th scope="col" class="govuk-table__header"></th>
+        </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+
+
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Alice Carter</td>
+            <td class="govuk-table__cell">PAA035</td>
+          <td class="govuk-table__cell">7 February 2025</td>
+            <td class="govuk-table__cell">VALID</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">active</strong></td>
+
+
+      <td class="govuk-table__cell"><a href="/beta-v3-mvp/registration/case-view">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">James Thornton</td>
+            <td class="govuk-table__cell">PAA036</td>
+          <td class="govuk-table__cell">2 Februrary 2025</td>
+            <td class="govuk-table__cell">VALID</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">active</strong></td>
+
+
+      <td class="govuk-table__cell"><a href="">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Olivia Bennett</td>
+            <td class="govuk-table__cell">PAA150</td>
+          <td class="govuk-table__cell">29 January 2025</td>
+                  <td class="govuk-table__cell">VALID</td>
+                  <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">active</strong></td>
+
+
+      <td class="govuk-table__cell"><a href="">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Daniel Foster</td>
+            <td class="govuk-table__cell">PAA284</td>
+          <td class="govuk-table__cell">4 January 2025</td>
+              <td class="govuk-table__cell">VALID</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">active</strong></td>
+
+
+      <td class="govuk-table__cell"><a href="">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Sophia Reynolds</td>
+            <td class="govuk-table__cell">PAA593</td>
+          <td class="govuk-table__cell">11 November 2024</td>
+          <td class="govuk-table__cell">EXPIRED</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">settled</strong></td>
+
+
+      <td class="govuk-table__cell"><a href="">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Benjamin Hayes</td>
+            <td class="govuk-table__cell">PAA742</td>
+          <td class="govuk-table__cell">4 October 2024</td>
+            <td class="govuk-table__cell">EXPIRED</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">settled</strong></td>
+
+
+      <td class="govuk-table__cell"><a href="">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Emma Sinclair</td>
+            <td class="govuk-table__cell">PAB048</td>
+          <td class="govuk-table__cell">30 November 2023</td>
+            <td class="govuk-table__cell">VALID</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">active</strong></td>
+
+
+      <td class="govuk-table__cell"><a href="">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">William Dawson</td>
+            <td class="govuk-table__cell">PAB149</td>
+          <td class="govuk-table__cell">15 November 2023</td>
+            <td class="govuk-table__cell">EXPIRED</td>
+            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">legacy</strong></td>
+      <td class="govuk-table__cell"><a href="">View</a></td>
+        </tr>
+
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Henry Lawson</td>
+            <td class="govuk-table__cell">PAB363</td>
+          <td class="govuk-table__cell">20 September 2022</td>
+              <td class="govuk-table__cell">VALID</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">active</strong></td>
+      <td class="govuk-table__cell"><a href="">View</a></td>
+        </tr>
+
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">James Dyson</td>
+            <td class="govuk-table__cell">PAB503</td>
+          <td class="govuk-table__cell">3 March 2022</td>
+              <td class="govuk-table__cell">VALID</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">active</strong></td>
+      <td class="govuk-table__cell"><a href="">View</a></td>
+        </tr>
+
+
+        </tbody>
+      </table>
+
+      <nav class="govuk-pagination" role="navigation" aria-label="results">
+        <div class="govuk-pagination__prev">
+          <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
+            <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+              <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+            </svg>
+            <span class="govuk-pagination__link-title">Previous</span></a>
+        </div>
+        <ul class="govuk-pagination__list">
+          <li class="govuk-pagination__item govuk-pagination__item--current">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1"  aria-current="page">
+              1
+            </a>
+          </li>
+          <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
+              2
+            </a>
+          </li>
+          <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+              3
+            </a>
+          </li>
+          <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+              4
+            </a>
+          </li>
+          <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+              5
+            </a>
+          </li>
+          <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+              6
+            </a>
+          </li>
+          <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+              7
+            </a>
+          </li>
+          <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+              8
+            </a>
+          </li>
+          <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+              9
+            </a>
+          </li>
+          <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+              10
+            </a>
+          </li>
+        </ul>
+        <div class="govuk-pagination__next">
+          <a class="govuk-link govuk-pagination__link" href="#" rel="next"> <span class="govuk-pagination__link-title">Next</span> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+            <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+          </svg></a>
+        </div>
+      </nav>
+{% endif %}
+
+      </div>
+
+
+{% endblock %}
