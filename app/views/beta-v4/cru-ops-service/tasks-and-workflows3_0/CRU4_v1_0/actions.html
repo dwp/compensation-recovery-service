@@ -1,0 +1,134 @@
+
+{% extends "../../../../index.html" %}
+
+{% block pageTitle %}
+Claim details -  What is the type of liability?
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+        <form class="form" action="action-options" method="post">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="liability-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                <h1 class="govuk-fieldset__heading">
+
+                  What do you want to do?
+                </h1>
+              </legend>
+              <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+<!--                <div class="govuk-radios__item">-->
+<!--                  <input class="govuk-radios__input" id="liability" name="liability" type="radio" value="Employer" {{ checked("liability", "Employer") }}>-->
+<!--                  <label class="govuk-label govuk-radios__label" for="liability">-->
+<!--                   Employer-->
+<!--                  </label>-->
+<!--                </div>-->
+<!--                <div class="govuk-radios__item">-->
+<!--                  <input class="govuk-radios__input" id="liability" name="liability" type="radio" value="Clinical negligence" {{ checked("liability", "Clinical negligence") }}>-->
+<!--                  <label class="govuk-label govuk-radios__label" for="liability">-->
+<!--                   Clinical negligence-->
+<!--                  </label>-->
+<!--                </div>-->
+
+<div class="govuk-radios__item">
+  <input class="govuk-radios__input" id="change-person" name="change" type="radio" data-aria-controls="conditional-contact" value="message"  }}>
+  <label class="govuk-label govuk-radios__label" for="motor-liability">
+Send a message to an NHS trust
+  </label>
+</div>
+<div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+  <legend class="govuk-fieldset__legend">
+  Which NHS trust or hospital do you want to send the message to?
+  </legend>
+  <div class="govuk-form-group">
+    <div class="govuk-radios" data-module="govuk-radios">
+<div class="govuk-radios__item">
+<input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
+<label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+University of Manchester Hospitals Trust
+</label>
+</div>
+<div class="govuk-radios__item">
+<input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
+<label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+Barts Health NHS Trust
+</label>
+</div>
+</div>
+      <br>
+      <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="255">
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label class="govuk-label" for="more-detail">
+            What is the message you want to send?
+            </label>
+          </h1>
+
+          <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="comment" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
+        </div>
+        <div id="with-hint-info" class="govuk-hint govuk-character-count__message">
+          You can enter up to 255 characters
+        </div>
+      </div>
+</div>
+
+</div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="change-update" name="change" type="radio" value="Liability"  }}>
+                  <label class="govuk-label govuk-radios__label" for="public-liability">
+                    Continue an NHS review
+                  </label>
+                </div>
+
+
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="change-rep" name="change" type="radio" value="Representative"  }}>
+                  <label class="govuk-label govuk-radios__label" for="motor-liability">
+                Add contributory negligence review result  
+                  </label>
+                </div>
+
+<!--                <div class="govuk-radios__item">-->
+<!--                  <input class="govuk-radios__input" id="liability-2" name="liability" type="radio" value="Other" data-aria-controls="conditional-liability-2" {{ checked("liability", "Other") }}>-->
+<!--                  <label class="govuk-label govuk-radios__label" for="liability-2">-->
+<!--                  Other-->
+<!--                  </label>-->
+<!--                </div>-->
+<!--                <div class="govuk-radios__conditional govuk-radios__conditional&#45;&#45;hidden" id="conditional-liability-2">-->
+<!--                  <div class="govuk-form-group">-->
+<!--                    <label class="govuk-label" for="other-liability">-->
+<!--                      Enter type of liability -->
+<!--                    </label>-->
+<!--                    <input class="govuk-input govuk-!-width-one-half" id="ni-by-text" name="other-liability" type="text" spellcheck="false" value="{{ data['other-liability']}}"></div>-->
+<!--          -->
+<!--                </div>-->
+              </div>
+
+            </fieldset>
+          </div>
+
+<!--          <div class="govuk-radios__item govuk-visually-hidden">-->
+<!--            <input class="govuk-radios__input" id="claim-details" name="claim-details" type="radio" value="completed" checked>-->
+<!--            <label class="govuk-label govuk-radios__label" for="claim-details">-->
+<!--             hidden radio for logic-->
+<!--            </label>-->
+<!--          </div>-->
+<br>
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+    </div>
+  </div>
+
+
+
+{% endblock %}

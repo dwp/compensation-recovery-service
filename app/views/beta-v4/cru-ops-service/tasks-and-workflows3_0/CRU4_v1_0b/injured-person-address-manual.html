@@ -1,0 +1,72 @@
+
+{% extends "../../../../index.html" %}
+
+{% block pageTitle %}
+About the injured person -  Does the injured person have a national insurance number
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+        <form class="form" action="check-answers-update4" method="post">
+
+            <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h1 class="govuk-heading-xl">
+                        <span class="govuk-caption-xl">The injured person</span>
+                        What is their home address?
+                    </h1>
+                </legend>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="address-line-1">
+                        Address line 1
+                    </label>
+                    <input class="govuk-input" id="address-line-1" name="address-line-1" type="text" autocomplete="address-line1" value="">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="address-line-2">
+                        Address line 2 (optional)
+                    </label>
+                    <input class="govuk-input" id="address-line-2" name="address-line-2" type="text" autocomplete="address-line2" value="{{ data['address-line-2'] }}">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="address-town">
+                        Town or city
+                    </label>
+                    <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="address-town" type="text" autocomplete="address-level2" value="">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="address-county">
+                        County (optional)
+                    </label>
+                    <input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="address-county" type="text" value="{{ data['address-county'] }}">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="address-postcode">
+                        Postcode
+                    </label>
+                    <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" type="text" autocomplete="postal-code"  value="">
+                </div>
+
+            </fieldset>
+
+           <button class="govuk-button" data-module="govuk-button">
+             Continue
+           </button>
+
+            <p class="govuk-body"><a href="injured-person-address">Find address using UK postcode</a></p>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

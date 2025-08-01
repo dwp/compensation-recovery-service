@@ -1,0 +1,79 @@
+
+{% extends "../../../../index.html" %}
+
+{% block pageTitle %}
+Claim details -  What is the type of liability?
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="case-view-history2" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+        <form class="form" action="action-options2" method="post">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="liability-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                <h1 class="govuk-fieldset__heading">
+
+                  Claim options
+                </h1>
+              </legend>
+              <br>
+              <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+<!--                <div class="govuk-radios__item">-->
+<!--                  <input class="govuk-radios__input" id="liability" name="liability" type="radio" value="Employer" {{ checked("liability", "Employer") }}>-->
+<!--                  <label class="govuk-label govuk-radios__label" for="liability">-->
+<!--                   Employer-->
+<!--                  </label>-->
+<!--                </div>-->
+<!--                <div class="govuk-radios__item">-->
+<!--                  <input class="govuk-radios__input" id="liability" name="liability" type="radio" value="Clinical negligence" {{ checked("liability", "Clinical negligence") }}>-->
+<!--                  <label class="govuk-label govuk-radios__label" for="liability">-->
+<!--                   Clinical negligence-->
+<!--                  </label>-->
+<!--                </div>-->
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="claim-options" name="claim" type="radio" value="Liability"  }}>
+                  <label class="govuk-label govuk-radios__label" for="public-liability">
+                   Update claim details
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="claim-options-2" name="claim" type="radio" value="letter"  }}>
+                  <label class="govuk-label govuk-radios__label" for="send-letter">
+                    Send a letter
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="claim-options-3" name="claim" type="radio" value="hs-not-required"  }}>
+                  <label class="govuk-label govuk-radios__label" for="hs-no">
+                    Confirm HS hospital not attended
+                  </label>
+                </div>
+              </div>
+
+              
+            </fieldset>
+          </div>
+
+          
+          
+
+
+
+          
+<br>
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+    </div>
+  </div>
+
+
+
+{% endblock %}

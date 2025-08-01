@@ -11,14 +11,19 @@ Create an account
   <div class="govuk-grid-column-two-thirds">
     <br>
 <h1 class="govuk-heading-l">Find a claim</h1>
-<div class="govuk-form-group" style="margin-bottom:15px">
+<div class="govuk-form-group" style="margin-bottom:20px">
     <label class="govuk-label govuk-!-font-weight-bold" for="search-name">
-        Enter a CRU reference number or injured<br> person's National Insurance Number
+      Enter a CRU reference number in the format ABC123, or the injured person's National Insurance number in the format QQ 12 34 56 C.
     </label>
-    <input class="govuk-input govuk-input--width-20" id="company-name" name="company-name" type="text" value="{{ data['company-name'] }}">
-    <button class="govuk-button" data-module="govuk-button">
+    <input class="govuk-input govuk-input--width-10" id="company-name" name="company-name" type="text" value="{{ data['company-name'] }}">
+
+      <button type="submit" class="govuk-button" data-module="govuk-button">
         Search
-    </button>
+      </button>
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Clear
+      </button>
+
 </div>
 </div>
 </div>
@@ -73,8 +78,8 @@ Create an account
               Sort by
             </label>
             <select class="govuk-select" id="sort" name="sort">
-              <option value="comments">CRU Reference - newest first</option>
-              <option value="comments">CRU Reference - oldest first</option>
+              <option value="comments">CRU Reference - Newest registered claims</option>
+              <option value="comments">CRU Reference - Oldest registered claims</option>
             </select>
           </div>
 
@@ -97,70 +102,70 @@ Create an account
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">PAA035</td>
           <td class="govuk-table__cell">Alice Bennett</td>
-      <td class="govuk-table__cell"><a href="/beta-v3-mvp/registration/case-view">View</a></td>
+      <td class="govuk-table__cell"><a href="case-view">View</a></td>
         </tr>
 
 
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">PAA036</td>
           <td class="govuk-table__cell">James Carter</td>
-      <td class="govuk-table__cell"><a href="/beta-v3-mvp/registration/case-view">View</a></td>
+      <td class="govuk-table__cell"><a href="case-view">View</a></td>
         </tr>
 
 
         <tr class="govuk-table__row">
             <td class="govuk-table__cell">PAA150</td>
             <td class="govuk-table__cell">Olivia Henrietta Dawson</td>
-      <td class="govuk-table__cell"><a href="/beta-v3-mvp/registration/case-view">View</a></td>
+      <td class="govuk-table__cell"><a href="case-view">View</a></td>
         </tr>
 
 
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">PAA284</td>
           <td class="govuk-table__cell">Daniel Foster</td>
-      <td class="govuk-table__cell"><a href="/beta-v3-mvp/registration/case-view">View</a></td>
+      <td class="govuk-table__cell"><a href="case-view">View</a></td>
         </tr>
 
 
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">PAA593</td>
           <td class="govuk-table__cell">Sophia Michelle Hayes</td>
-      <td class="govuk-table__cell"><a href="/beta-v3-mvp/registration/case-view">View</a></td>
+      <td class="govuk-table__cell"><a href="case-view">View</a></td>
         </tr>
 
 
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">PAA742</td>
           <td class="govuk-table__cell">Benjamin Lawson</td>
-      <td class="govuk-table__cell"><a href="/beta-v3-mvp/registration/case-view">View</a></td>
+      <td class="govuk-table__cell"><a href="case-view">View</a></td>
         </tr>
 
 
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">PAB048</td>
           <td class="govuk-table__cell">Emma Mercer</td>
-      <td class="govuk-table__cell"><a href="/beta-v3-mvp/registration/case-view">View</a></td>
+      <td class="govuk-table__cell"><a href="case-view">View</a></td>
         </tr>
 
 
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">PAB149</td>
           <td class="govuk-table__cell">Juan Carlos Quintero-Dominguez</td>
-      <td class="govuk-table__cell"><a href="">View</a></td>
+          <td class="govuk-table__cell"><a href="case-view">View</a></td>
         </tr>
 
 
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">PAB363</td>
           <td class="govuk-table__cell">Henry Sinclair</td>
-      <td class="govuk-table__cell"><a href="/beta-v3-mvp/registration/case-view">View</a></td>
+      <td class="govuk-table__cell"><a href="case-view">View</a></td>
         </tr>
 
 
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">PAB503</td>
           <td class="govuk-table__cell">James Michael Thornton-Smith</td>
-      <td class="govuk-table__cell"><a href="/beta-v3-mvp/registration/case-view">View</a></td>
+      <td class="govuk-table__cell"><a href="case-view">View</a></td>
         </tr>
 
 
@@ -168,13 +173,7 @@ Create an account
       </table>
 
       <nav class="govuk-pagination" role="navigation" aria-label="results">
-        <div class="govuk-pagination__prev">
-          <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
-            <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
-              <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
-            </svg>
-            <span class="govuk-pagination__link-title">Previous</span></a>
-        </div>
+
         <ul class="govuk-pagination__list">
           <li class="govuk-pagination__item govuk-pagination__item--current">
             <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1"  aria-current="page">

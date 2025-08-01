@@ -1,0 +1,117 @@
+
+{% extends "../../../../index.html" %}
+
+{% block pageTitle %}
+Agent dashboard
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+  {% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <nav class="navigation-secondary govuk-!-margin-bottom-7">
+      <ul>
+        <li class="active"><a href="v2-dashboard">Home</a></li>
+        <li><a href="v2-tasks">Tasks</a></li>
+        <li><a href="find-case">Find a claim</a></li>
+        <li><a href="../tasks-and-workflows2_0/org-list_multiple">Organisation list</a></li>
+        <li><a href="../mi">Download reports</a></li>
+      </ul>
+    </nav>
+
+    <div class="govuk-grid-column-full">
+      <span class="govuk-caption-l">Agent portal</span>
+      <h1 class="govuk-heading-xl">Sam Smith</h1>
+    </div>
+
+    {% if data['task-started'] == 'true' %}
+
+    <div class="govuk-grid-column-one-half">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Tasks</h2>
+        <strong class="govuk-tag govuk-tag--yellow">In progress</strong>
+        <h2 class="govuk-heading-s govuk-!-margin-top-3 govuk-!-margin-bottom-0">Request to take over a claim</h2>
+        <p class="govuk-body">Assigned to Sam Smith</p>
+        <form class="form" action="v2-action-task-da" method="post">
+          <button class="govuk-!-margin-bottom-0 govuk-button" data-module="govuk-button">
+            Go to task
+          </button>
+        </form>
+    </div>
+
+    {% else %}
+
+    <div class="govuk-grid-column-one-half">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Tasks</h2>
+        <p class="govuk-body">You're not currently working on a task</p>
+        <form class="form" action="v2-action-task-da" method="post">
+         <p><a href="1-tasks" class="govuk-link govuk-link--no-visited-state">Go to tasks</a></p>
+        </form>
+    </div>
+    
+    
+    {% endif %}
+
+    
+    <div class="govuk-grid-column-one-half">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Claims</h2>
+        <p class="govuk-body"><strong>18</strong> claims registered today</p>
+        <p><a href="find-case" class="govuk-link govuk-link--no-visited-state">Find a claim</a></p>
+    </div>
+
+    <div class="govuk-clearfix"></div>
+
+    <hr class="govuk-section-break govuk-section-break--m">
+
+    <div class="govuk-grid-column-one-half">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Registered organisations</h2>
+        <p class="govuk-body"><strong>4</strong> organisations registered this week</p>
+        <p><a href="../tasks-and-workflows2_0/org-list_multiple" class="govuk-link govuk-link--no-visited-state">See the list of organisations and users</a></p>
+    </div>
+
+    <div class="govuk-grid-column-one-half">
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">Reports</h2>
+        <ul class="govuk-list">
+          <li><a href="../mi" class="govuk-link govuk-link--no-visited-state">Claims</a></li>
+          <li><a href="../mi-tasks" class="govuk-link govuk-link--no-visited-state">Tasks</a></li> 
+          <li><a href="../mi-history" class="govuk-link govuk-link--no-visited-state">Cue history file</a></li> 
+        </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+{% endblock %}

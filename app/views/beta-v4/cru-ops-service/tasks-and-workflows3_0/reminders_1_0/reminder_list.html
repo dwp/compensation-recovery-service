@@ -1,0 +1,137 @@
+
+{% extends "../../../../index.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+{% if data['searchres'] == 'false' %}
+<script>
+window.onload = function(){
+ document.getElementById("company-name").value = "";
+}
+</script>
+{% endif %}
+<div class="govuk-grid-row">
+
+  <nav class="navigation-secondary govuk-!-margin-bottom-7">
+    <ul>
+      <li><a href="../tasks-and-workflows/v2-dashboard">Home</a></li>
+      <li><a href="../tasks-and-workflows/v2-tasks">Tasks</a></li>
+      <li class="active"><a href="../tasks-and-workflows/v2-tasks">Reminders</a></li>
+      <li><a href="../tasks-and-workflows/find-case">Find a claim</a></li>
+      <li><a href="../tasks-and-workflows2_0/org-list_multiple">Organisation list</a></li>
+      <li><a href="../mi">Download reports</a></li>
+    </ul>
+  </nav>
+
+<div class="govuk-grid-column-full">
+
+<br><br>
+
+
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--xl" for="company-name">
+      Reminders
+          </label>
+        </h1>
+
+
+
+
+
+
+
+<div class="govuk-inset-text">
+One reminder expires <strong class="govuk-tag govuk-tag--red">
+today
+</strong>
+<br>
+<a href="reminder_minfo" class="govuk-link">view reminder</a>
+</div>
+
+
+      <table class="govuk-table gov" id="initial">
+
+        <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Expiry date</th>
+                <th scope="col" class="govuk-table__header">Set date</th>
+          <th scope="col" class="govuk-table__header">Task</th>
+
+
+          <th scope="col" class="govuk-table__header"></th>
+        </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+
+
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">23 June 2023</td>
+            <td class="govuk-table__cell">16 June 2023</td>
+          <td class="govuk-table__cell">More information received: NHS treatment</td>
+
+
+      <td class="govuk-table__cell"><a href="reminder_minfo">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">24 June 2023</td>
+            <td class="govuk-table__cell">17 June 2023</td>
+          <td class="govuk-table__cell">Tariff codes updates</td>
+
+
+      <td class="govuk-table__cell"><a href="reminder_other">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+
+          <td class="govuk-table__cell">25 June 2023</td>
+            <td class="govuk-table__cell">18 June 2023</td>
+          <td class="govuk-table__cell">Add new trust</td>
+
+
+      <td class="govuk-table__cell"><a href="">View</a></td>
+        </tr>
+
+        </tbody>
+      </table>
+
+      <!-- <nav class="govuk-pagination" role="navigation" aria-label="results">
+        <div class="govuk-pagination__prev">
+          <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
+            <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+              <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+            </svg>
+            <span class="govuk-pagination__link-title">Previous</span></a>
+        </div>
+        <ul class="govuk-pagination__list">
+          <li class="govuk-pagination__item govuk-pagination__item--current">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1"  aria-current="page">
+              1
+            </a>
+          </li>
+          <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
+              2
+            </a>
+          </li>
+          <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+              3
+            </a>
+          </li>
+        </ul>
+        <div class="govuk-pagination__next">
+          <a class="govuk-link govuk-pagination__link" href="#" rel="next"> <span class="govuk-pagination__link-title">Next</span> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+            <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+          </svg></a>
+        </div>
+      </nav> -->
+
+
+      </div>
+
+
+{% endblock %}

@@ -1,0 +1,219 @@
+
+{% extends "../../../../index.html" %}
+
+{% block pageTitle %}
+Claim details -  What is the type of liability?
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+        <form class="form" action="action-options" method="post">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="liability-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                <h1 class="govuk-fieldset__heading">
+
+                  What do you want to do?
+                </h1>
+              </legend>
+              <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+<!--                <div class="govuk-radios__item">-->
+<!--                  <input class="govuk-radios__input" id="liability" name="liability" type="radio" value="Employer" {{ checked("liability", "Employer") }}>-->
+<!--                  <label class="govuk-label govuk-radios__label" for="liability">-->
+<!--                   Employer-->
+<!--                  </label>-->
+<!--                </div>-->
+<!--                <div class="govuk-radios__item">-->
+<!--                  <input class="govuk-radios__input" id="liability" name="liability" type="radio" value="Clinical negligence" {{ checked("liability", "Clinical negligence") }}>-->
+<!--                  <label class="govuk-label govuk-radios__label" for="liability">-->
+<!--                   Clinical negligence-->
+<!--                  </label>-->
+<!--                </div>-->
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="change-liability" name="change" type="radio" value="Liability"  }}>
+                  <label class="govuk-label govuk-radios__label" for="public-liability">
+                   Update claim details
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="change-person" name="change" type="radio" data-aria-controls="conditional-contact" value="Injured person"  }}>
+                  <label class="govuk-label govuk-radios__label" for="motor-liability">
+            Send a message to a NHS Trust
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+                  <legend class="govuk-fieldset__legend">
+                  Which NHS trust or hospital do you want to send the message to?
+                  </legend>
+                  <div class="govuk-form-group">
+                    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+          University of Manchester Hospitals Trust
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+          Barts Health NHS Trust
+        </label>
+      </div>
+      </div>
+                      <br>
+  <label class="govuk-label" for="more-detail">
+  What is the message you want to send?
+  </label>
+  <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"></textarea>
+  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="change-injury" name="change" type="radio" data-aria-controls="conditional-contact-2" value="Injury"  }}>
+                  <label class="govuk-label govuk-radios__label" for="motor-liability">
+              Send a letter
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+                  <div class="govuk-form-group">
+                    <div class="govuk-radios" data-module="govuk-radios">
+  <div class="govuk-radios__item">
+  <input class="govuk-radios__input" id="notification" name="notification" type="radio" value="NHS10COMP" {{ checked("notification", "NHS10COMP") }}>
+  <label class="govuk-label govuk-radios__label" for="notification">
+     NHS10COMP
+  </label>
+  </div>
+  <div class="govuk-radios__item">
+  <input class="govuk-radios__input" id="notification-2" name="notification" type="radio" value="NHS10REP" {{ checked("notification", "NHS10IPREP") }}>
+  <label class="govuk-label govuk-radios__label" for="notification-2">
+    NHS10REP
+  </label>
+  </div>
+  <div class="govuk-radios__item">
+  <input class="govuk-radios__input" id="notification-3" name="notification" type="radio" value="NHS10IP" {{ checked("notification", "NHS10IP") }}>
+  <label class="govuk-label govuk-radios__label" for="notification-3">
+    NHS10IP
+  </label>
+  </div>
+  <div class="govuk-radios__item">
+  <input class="govuk-radios__input" id="notification-4" name="notification" type="radio" value="NHS11COMP" {{ checked("notification", "NHS11COMP") }}>
+  <label class="govuk-label govuk-radios__label" for="notification-4">
+  NHS11COMP
+  </label>
+  </div>
+  <div class="govuk-radios__item">
+  <input class="govuk-radios__input" id="notification-5" name="notification" type="radio" value="NHS11IPREP" {{ checked("notification", "NHS11IPREP") }}>
+  <label class="govuk-label govuk-radios__label" for="notification-5">
+  NHS11REP
+  </label>
+  </div>
+  <div class="govuk-radios__item">
+  <input class="govuk-radios__input" id="notification-6" name="notification" type="radio" value="NHS11IP" {{ checked("notification", "NHS11IP") }}>
+  <label class="govuk-label govuk-radios__label" for="notification-6">
+    NHS11IP
+  </label>
+  </div>
+
+
+  </div>
+  <!-- <label class="govuk-label" for="more-detail">
+  More information
+  </label>
+  <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"></textarea> -->
+  </div>
+
+              </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="change-treatment" name="change" type="radio" data-aria-controls="conditional-contact-3" value="Treatment"  }}>
+                  <label class="govuk-label govuk-radios__label" for="motor-liability">
+                  Set a reminder for future action
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-3">
+                  <div class="govuk-form-group">
+    <label class="govuk-label" for="more-detail">
+    Reason for a reminder
+    </label>
+    <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"></textarea>
+    <legend class="govuk-fieldset__legend">
+    Remainder date
+    </legend>
+    <div id="passport-issued-hint" class="govuk-hint">
+    For example, 15 1 2023
+    </div>
+    <div class="govuk-date-input" id="passport-issued">
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+          Day
+        </label>
+        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="start-date-day" name="start-date-day" type="text" pattern="[0-9]*" inputmode="numeric" value="{{data['start-date-day']}}">
+      </div>
+    </div>
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+          Month
+        </label>
+        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="start-date-month" name="start-date-month" type="text" pattern="[0-9]*" inputmode="numeric" value="{{data['start-date-month']}}">
+      </div>
+    </div>
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+          Year
+        </label>
+        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="start-date-year" name="start-date-year" type="text" pattern="[0-9]*" inputmode="numeric" value="{{data['start-date-year']}}">
+      </div>
+    </div>
+    </div>
+    </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="change-rep" name="change" type="radio" value="Representative"  }}>
+                  <label class="govuk-label govuk-radios__label" for="motor-liability">
+                Re-issue certificates
+                  </label>
+                </div>
+
+<!--                <div class="govuk-radios__item">-->
+<!--                  <input class="govuk-radios__input" id="liability-2" name="liability" type="radio" value="Other" data-aria-controls="conditional-liability-2" {{ checked("liability", "Other") }}>-->
+<!--                  <label class="govuk-label govuk-radios__label" for="liability-2">-->
+<!--                  Other-->
+<!--                  </label>-->
+<!--                </div>-->
+<!--                <div class="govuk-radios__conditional govuk-radios__conditional&#45;&#45;hidden" id="conditional-liability-2">-->
+<!--                  <div class="govuk-form-group">-->
+<!--                    <label class="govuk-label" for="other-liability">-->
+<!--                      Enter type of liability -->
+<!--                    </label>-->
+<!--                    <input class="govuk-input govuk-!-width-one-half" id="ni-by-text" name="other-liability" type="text" spellcheck="false" value="{{ data['other-liability']}}"></div>-->
+<!--          -->
+<!--                </div>-->
+              </div>
+
+            </fieldset>
+          </div>
+
+<!--          <div class="govuk-radios__item govuk-visually-hidden">-->
+<!--            <input class="govuk-radios__input" id="claim-details" name="claim-details" type="radio" value="completed" checked>-->
+<!--            <label class="govuk-label govuk-radios__label" for="claim-details">-->
+<!--             hidden radio for logic-->
+<!--            </label>-->
+<!--          </div>-->
+<br>
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+    </div>
+  </div>
+
+
+
+{% endblock %}

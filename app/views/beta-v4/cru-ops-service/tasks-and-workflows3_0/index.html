@@ -1,0 +1,62 @@
+
+{% extends "../../../index.html" %}
+
+{% block pageTitle %}
+About the injured person - Enter injured person's name and date of birth
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+  {% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <nav class="navigation-secondary govuk-!-margin-bottom-7">
+      <ul>
+        <li class="active"><a href="./">Home</a></li>
+        <li><a href="current-tasks">Current tasks</a></li>
+        <li><a href="completed-tasks">Completed tasks</a></li>
+        <li><a href="legacy-tasks">Legacy tasks</a></li>
+        <li><a href="find-case">Find a claim</a></li>
+        <li><a href="org-list">Organisation list</a></li>
+        <li><a href="">Download reports</a></li>
+      </ul>
+    </nav>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">CRS agent portal</span>
+      <h1 class="govuk-heading-xl">Sam Smith</h1>
+
+      <p class="govuk-body">Dashboard TBC</p>
+
+
+
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

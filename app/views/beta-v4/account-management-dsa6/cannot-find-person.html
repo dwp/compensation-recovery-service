@@ -1,0 +1,36 @@
+
+{% extends "../../index.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <br>
+    <h1 class="govuk-heading-l">
+      We cannot find a person with the details you entered
+      </h1>
+
+    <p class="govuk-body">Check the details you entered and <a href="">try again</a>.</p>
+
+    <p class="govuk-body">If the problem continues, you may have different details for this person than we hold on our system.</p>
+
+    <p class="govuk-body">To register this claim for:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>England, Scotland or Wales, you need to <a href="">complete a CRU1 form.</a></li>
+  <li>Northern Ireland, you need to <a href="">complete an NI CRU1 form.</a></li>
+</ul>
+
+    <p class="govuk-body">When you’ve completed it, return it by email or post using the contact details on the form.</p>
+
+    <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Return to home
+    </button>
+
+    </div>
+  </div>
+
+{% endblock %}

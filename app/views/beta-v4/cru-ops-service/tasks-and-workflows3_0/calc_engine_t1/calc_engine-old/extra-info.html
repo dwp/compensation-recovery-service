@@ -1,0 +1,108 @@
+
+{% extends "../../../../../index.html" %}
+
+{% block pageTitle %}
+  About the injured person - Did they receive NHS hospital treatment?
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+        <form class="form" action="confirmed" method="post">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="treatment-hint">
+              <h1 class="govuk-heading-xl">
+<span class="govuk-caption-xl">CRS233450</span>
+                  What action is needed?
+                </h1>
+
+
+
+
+
+
+                <div class="govuk-radios" data-module="govuk-radios">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="info" name="info" type="radio" data-aria-controls="conditional-contact" value="Reply with further info to the NHS" {{ checked("info", "Reply with further info to the NHS") }}>
+                        <label class="govuk-label govuk-radios__label" for="info">
+                          Reply with further info to the NHS
+                        </label>
+                      </div>
+                      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+                        <div class="govuk-form-group">
+  <label class="govuk-label" for="more-detail">
+    The message you want to send to NHS
+  </label>
+  <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"></textarea>
+</div>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="info-2" name="info" type="radio" data-aria-controls="conditional-contact-2" value="Trigger an NHS11Rep" {{ checked("info", "Trigger an NHS11Rep") }}>
+                        <label class="govuk-label govuk-radios__label" for="info-2">
+                          Trigger an NHS11Rep
+                        </label>
+                      </div>
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="info-3" name="info" type="radio" data-aria-controls="conditional-contact-3" value="Set a reminder for" {{ checked("info", "Set a reminder for") }}>
+                        <label class="govuk-label govuk-radios__label" for="info-3">
+                          Set a reminder
+                        </label>
+                      </div>
+                      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-3">
+                        <div class="govuk-form-group">
+  <label class="govuk-label" for="more-detail">
+    Reason for a reminder
+  </label>
+  <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5"></textarea>
+  <legend class="govuk-fieldset__legend">
+      Remainder date
+    </legend>
+    <div id="passport-issued-hint" class="govuk-hint">
+          For example, 15 1 2023
+        </div>
+        <div class="govuk-date-input" id="passport-issued">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="start-date-day" name="start-date-day" type="text" pattern="[0-9]*" inputmode="numeric" value="{{data['start-date-day']}}">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                Month
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="start-date-month" name="start-date-month" type="text" pattern="[0-9]*" inputmode="numeric" value="{{data['start-date-month']}}">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                Year
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="start-date-year" name="start-date-year" type="text" pattern="[0-9]*" inputmode="numeric" value="{{data['start-date-year']}}">
+            </div>
+          </div>
+        </div>
+</div>
+                      </div>
+                    </div>
+
+            </fieldset>
+          </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}

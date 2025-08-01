@@ -1,0 +1,132 @@
+
+{% extends "../../../index.html" %}
+
+{% block pageTitle %}
+About the injured person - Enter injured person's name and date of birth
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+  {% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+<!--    <nav class="navigation-secondary govuk-!-margin-bottom-6">-->
+<!--      <ul>-->
+<!--        <li><a href="./">Home</a></li>-->
+<!--        <li class="active"><a href="current-tasks">Current tasks</a></li>-->
+<!--        <li><a href="completed-tasks">Completed tasks</a></li>-->
+<!--        <li><a href="">Find a claim</a></li>-->
+<!--        <li><a href="">Download reports</a></li>-->
+<!--      </ul>-->
+<!--    </nav>-->
+
+    <div class="govuk-grid-column-two-thirds">
+      <a href="current-tasks" class="govuk-back-link govuk-!-margin-bottom-5">Back to completed tasks</a>
+
+      <form class="form" action="current-tasks" method="post">
+
+        <h1 class="govuk-heading-xl govuk-!-margin-top-5 govuk-!-margin-bottom-2">
+<!--          <span class="govuk-caption-l">CRS39488</span>-->
+          Task details
+        </h1>
+        <strong class="govuk-tag govuk-tag--green">Completed</strong>
+
+<!--        <p class="govuk-body govuk-!-margin-top-7"><a class="govuk-link" href="">View claim</a></p>-->
+
+        <dl class="govuk-summary-list govuk-!-margin-top-7">
+<!--          <div class="govuk-summary-list__row">-->
+<!--            <dt class="govuk-summary-list__key">-->
+<!--              Task type-->
+<!--            </dt>-->
+<!--            <dd class="govuk-summary-list__value">-->
+<!--              <strong class="govuk-tag govuk-tag&#45;&#45;grey">No NINO</strong>-->
+<!--            </dd>-->
+<!--          </div>-->
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              CRU reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <a href="" class="govuk-link">PAB934</a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name of injured person
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Sitaram Aslan
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['update-dob'] == 'yes' %}
+                {{ data['updated-dob-day'] | default("28") }} {{ data['updated-dob-month'] | default("02") | toMonth }} {{ data['updated-dob-year'] | default("1978") }}
+              {% else %}
+                23 July 1982
+              {% endif %}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              National Insurance number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['updated-ni-number'] | default('QQ123456C') }}
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              32 Fulwick Avenue<br />
+              Brighton<br />
+              BR1 1MS
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of injury
+            </dt>
+            <dd class="govuk-summary-list__value">
+              19 June 2022
+            </dd>
+          </div>
+        </dl>
+
+      </form>
+
+
+
+
+      
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,208 @@
+
+{% extends "../../../index.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+  <nav class="navigation-secondary govuk-!-margin-bottom-7">
+    <ul>
+      <li><a href="./">Home</a></li>
+      <li><a href="current-tasks">Current tasks</a></li>
+      <li><a href="completed-tasks">Completed tasks</a></li>
+      <li><a href="legacy-tasks">Legacy tasks</a></li>
+      <li><a href="find-case">Find a claim</a></li>
+      <li class="active"><a href="org-list">Organisation list</a></li>
+      <li><a href="">Download reports</a></li>
+    </ul>
+  </nav>
+<div class="govuk-grid-column-full">
+            <form  class="form" action="org_list" method="post" >
+<br>
+
+      <div class="govuk-form-group" style="margin-bottom:15px">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--xl" for="company-name">
+      Organisation list
+          </label>
+        </h1>
+<br><br>
+<div class="govuk-form-group">
+    <label class="govuk-label govuk-!-font-weight-bold" for="search-name">
+        Search organisation by name
+    </label>
+    <input class="govuk-input govuk-input--width-20" id="company-name" name="company-name" type="text" value="{{ data['company-name'] }}">
+    <button class="govuk-button" data-module="govuk-button">
+        Search
+    </button>
+</div>
+
+</form>
+
+
+
+      </div>
+      <div class="govuk-inset-text" style="margin-top:15px">
+        183 organisations
+        <strong class="govuk-tag"> 7 new </strong>
+      </div>
+
+
+
+
+<!--      {% if data['show-notification'] == 'true' %}-->
+<!--      <div class="govuk-notification-banner govuk-notification-banner&#45;&#45;success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">-->
+<!--        <div class="govuk-notification-banner__header">-->
+<!--          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">-->
+<!--            Success-->
+<!--          </h2>-->
+<!--        </div>-->
+<!--        <div class="govuk-notification-banner__content">-->
+<!--          <h3 class="govuk-notification-banner__heading">-->
+<!--            {% if (data['user-added'] == 'true') and (data['user-amended'] == 'false')  %}-->
+<!--              New user added-->
+<!--            {% elseif (data['user-added'] == 'false') and (data['user-amended'] == 'true')  %}-->
+<!--              User details changed-->
+<!--            {% endif %}-->
+<!--          </h3>-->
+<!--          {% if (data['user-added'] == 'true') and (data['user-amended'] == 'false')  %}-->
+<!--            <p class="govuk-body">Invitation email sent to <a class="govuk-notification-banner__link" href="#">{{ data['new-user-email'] }}</a>.</p>-->
+<!--          {% elseif (data['user-added'] == 'false') and (data['user-amended'] == 'true')  %}-->
+<!--            <p class="govuk-body">Email sent to <a class="govuk-notification-banner__link" href="#">{{ data['new-user-email'] }}</a> with updated details.</p>-->
+<!--          {% endif %}-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      {% endif %}-->
+
+
+
+      <table class="govuk-table gov" id="initial">
+<!--        <caption class="govuk-table__caption govuk-table__caption&#45;&#45;m">Organisation users</caption>-->
+        <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Name</th>
+          <th scope="col" class="govuk-table__header">Registration date</th>
+          <th scope="col" class="govuk-table__header">Email</th>
+          <th scope="col" class="govuk-table__header">Users</th>
+          <th scope="col" class="govuk-table__header"></th>
+        </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+
+
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">AVOVA and Associates</td>
+          <td class="govuk-table__cell">Today</td>
+          <td class="govuk-table__cell">bobby@avova.com</td>
+          <td class="govuk-table__cell">12</td>
+      <td class="govuk-table__cell"><a href="org-details">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">VL Inc.</td>
+          <td class="govuk-table__cell">Today</td>
+          <td class="govuk-table__cell">lisa@vl.com</td>
+          <td class="govuk-table__cell">31</td>
+      <td class="govuk-table__cell"><a href="">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">OXA and Partners</td>
+          <td class="govuk-table__cell">Yesterday</td>
+          <td class="govuk-table__cell">deborah@oxa.com</td>
+          <td class="govuk-table__cell">85</td>
+      <td class="govuk-table__cell"><a href="">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Lewis John Insurance</td>
+          <td class="govuk-table__cell">Yesterday</td>
+          <td class="govuk-table__cell">info@lewis.com</td>
+          <td class="govuk-table__cell">2</td>
+      <td class="govuk-table__cell"><a href="">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Gregory & Partners</td>
+          <td class="govuk-table__cell">2 January 2023</td>
+          <td class="govuk-table__cell">danny@gregory.com</td>
+          <td class="govuk-table__cell">21</td>
+      <td class="govuk-table__cell"><a href="">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Smith Insurance</td>
+          <td class="govuk-table__cell">2 January 2023</td>
+          <td class="govuk-table__cell">claims@smithins.com</td>
+          <td class="govuk-table__cell">22</td>
+      <td class="govuk-table__cell"><a href="">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Faringdon & Associates</td>
+          <td class="govuk-table__cell">2 January 2023</td>
+          <td class="govuk-table__cell">smith@faringdon.com</td>
+          <td class="govuk-table__cell">54</td>
+      <td class="govuk-table__cell"><a href="">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Donny & Barnes</td>
+          <td class="govuk-table__cell">30 November 2022</td>
+          <td class="govuk-table__cell">me@donnybarnes.com</td>
+          <td class="govuk-table__cell">18</td>
+      <td class="govuk-table__cell"><a href="">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Winderburg Cover</td>
+          <td class="govuk-table__cell">15 November 2022</td>
+          <td class="govuk-table__cell">dontreply@winderburg.com</td>
+          <td class="govuk-table__cell">12</td>
+      <td class="govuk-table__cell"><a href="">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">Reading Cover&Away</td>
+          <td class="govuk-table__cell">4 November 2022</td>
+          <td class="govuk-table__cell">ole@coveraway.com</td>
+          <td class="govuk-table__cell">11</td>
+      <td class="govuk-table__cell"><a href="">View</a></td>
+        </tr>
+
+        </tbody>
+      </table>
+
+      <nav class="govuk-pagination" role="navigation" aria-label="results">
+        <div class="govuk-pagination__prev">
+          <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
+            <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+              <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+            </svg>
+            <span class="govuk-pagination__link-title">Previous</span></a>
+        </div>
+        <ul class="govuk-pagination__list">
+          <li class="govuk-pagination__item govuk-pagination__item--current">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1"  aria-current="page">
+              1
+            </a>
+          </li>
+          <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
+              2
+            </a>
+          </li>
+          <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+              3
+            </a>
+          </li>
+        </ul>
+        <div class="govuk-pagination__next">
+          <a class="govuk-link govuk-pagination__link" href="#" rel="next"> <span class="govuk-pagination__link-title">Next</span> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+            <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+          </svg></a>
+        </div>
+      </nav>
+
+
+      </div>
+
+
+{% endblock %}

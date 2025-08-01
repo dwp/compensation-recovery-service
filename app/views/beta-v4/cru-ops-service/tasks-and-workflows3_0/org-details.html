@@ -1,0 +1,268 @@
+
+{% extends "../../../index.html" %}
+
+{% block pageTitle %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+<!--    <nav class="navigation-secondary govuk-!-margin-bottom-6">-->
+<!--      <ul>-->
+<!--        <li><a href="admin-dashboard">Home</a></li>-->
+<!--        <li><a href="admin-all-claims">All claims</a></li>-->
+<!--        <li><a href="admin-register-new-claim">Register a new claim</a></li>-->
+<!--        <li><a href="admin-take-over-claim">Take over an existing claim</a></li>-->
+<!--        <li class="active"><a href="admin-manage-org">Manage organisation</a></li>-->
+<!--        <li><a href="admin-profile">My profile</a></li>-->
+<!--      </ul>-->
+<!--    </nav>-->
+
+
+      <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+
+      <h1 class="govuk-heading-xl govuk-!-margin-top-5">
+<!--      <span class="govuk-caption-xl">{{ data['company-name'] | default('Compensator Ltd') }}</span>-->
+<!--        {{ data['new-user-full-name'] | default('Sam Smith') }}-->
+        {{ data['company-name'] | default('Geneva') }} details
+      </h1>
+
+      <dl class="govuk-summary-list">
+      <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+              Status
+          </dt>
+          <dd class="govuk-summary-list__value">
+              <strong class="govuk-tag">
+                  Active
+              </strong>
+          </dd>
+
+      </div>
+      <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+              Type of organisation
+          </dt>
+          <dd class="govuk-summary-list__value">
+
+                  Compensator
+
+          </dd>
+
+      </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Registration date
+          </dt>
+          <dd class="govuk-summary-list__value">
+              Today
+          </dd>
+
+        </div>
+<!--        <div class="govuk-summary-list__row">-->
+<!--          <dt class="govuk-summary-list__key">-->
+<!--            Last name-->
+<!--          </dt>-->
+<!--          <dd class="govuk-summary-list__value">-->
+<!--            {{ data['new-user-last-name'] | default('Brown') }}-->
+<!--          </dd>-->
+<!--          <dd class="govuk-summary-list__actions">-->
+<!--            <a class="govuk-link" href="admin-manage-org-edit-user">-->
+<!--              Change<span class="govuk-visually-hidden"> last name</span>-->
+<!--            </a>-->
+<!--          </dd>-->
+<!--        </div>-->
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+              	bobby@avova.com
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Telephone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+                0208 423 4532
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Address
+          </dt>
+          <dd class="govuk-summary-list__value">
+                18 Lenny Street,<br>
+                Manchester,<br>
+                M1 5LP
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Users
+          </dt>
+          <dd class="govuk-summary-list__value">
+            12
+          </dd>
+          <dd class="govuk-summary-list__actions">
+
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Number of registered claims
+          </dt>
+          <dd class="govuk-summary-list__value">
+            2
+          </dd>
+          <dd class="govuk-summary-list__actions">
+
+          </dd>
+        </div>
+        <!-- <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Membership issues
+          </dt>
+          <dd class="govuk-summary-list__value">
+            None
+          </dd>
+          <dd class="govuk-summary-list__actions">
+
+          </dd>
+        </div> -->
+      </dl>
+      <!-- <div class="govuk-button-group govuk-!-margin-top-7"> -->
+<!--        <form class="form" action="admin-manage-org" method="post" style="display: inline-block;">-->
+<!--          <button class="govuk-button govuk-button&#45;&#45;secondary" data-module="govuk-button">-->
+<!--            Manage organisation-->
+<!--          </button>-->
+<!--        </form>-->
+          <!-- <button class="govuk-button" data-module="govuk-button">
+            Remove user
+          </button>
+          <a class="govuk-link" href="admin-manage-org">Manage organisation</a> -->
+      <!-- </div> -->
+
+
+<br><br>
+<h2 class="govuk-heading-m govuk-!-margin-bottom-6">Organisation users</h2>
+
+
+    <table class="govuk-table gov">
+  <!--        <caption class="govuk-table__caption govuk-table__caption&#45;&#45;m">Organisation users</caption>-->
+      <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Name</th>
+        <th scope="col" class="govuk-table__header">Email</th>
+        <th scope="col" class="govuk-table__header">Access type</th>
+        <th scope="col" class="govuk-table__header">Status</th>
+
+      </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+
+
+
+
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Claire Jones</td>
+        <td class="govuk-table__cell">claire.jones@comps.com</td>
+
+        <td class="govuk-table__cell">Standard user</td>
+        <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">
+          Access requested
+        </strong></td>
+
+      </tr>
+
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Calum Vasquez</td>
+        <td class="govuk-table__cell">calum.vasquez@comps.com</td>
+
+        <td class="govuk-table__cell">Standard user</td>
+        <td class="govuk-table__cell"><strong class="govuk-tag">
+          Active
+        </strong></td>
+
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Felicity Taylor</td>
+        <td class="govuk-table__cell">felicity.taylor@comps.com</td>
+
+        <td class="govuk-table__cell">Standard user</td>
+        <td class="govuk-table__cell"><strong class="govuk-tag">
+          Active
+        </strong></td>
+
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Kayla Ayers</td>
+        <td class="govuk-table__cell">kaylaayers@comps.com</td>
+
+        <td class="govuk-table__cell">Standard user</td>
+        <td class="govuk-table__cell"><strong class="govuk-tag">
+          Active
+        </strong></td>
+
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Aden Serrano</td>
+        <td class="govuk-table__cell">aden.serrano@comps.com</td>
+
+        <td class="govuk-table__cell">Standard user</td>
+        <td class="govuk-table__cell"><strong class="govuk-tag">
+          Active
+        </strong></td>
+
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Robert Zamora</td>
+        <td class="govuk-table__cell">robert.zamora@comps.com</td>
+
+        <td class="govuk-table__cell">Standard user</td>
+        <td class="govuk-table__cell"><strong class="govuk-tag">
+          Active
+        </strong></td>
+
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Yvonne Bautista</td>
+        <td class="govuk-table__cell">yvonne.bautistan@comps.com</td>
+
+        <td class="govuk-table__cell">Standard user</td>
+        <td class="govuk-table__cell"><strong class="govuk-tag">
+          Active
+        </strong></td>
+
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">Jo Green</td>
+        <td class="govuk-table__cell">jo.green@comps.com</td>
+
+        <td class="govuk-table__cell">Standard user</td>
+        <td class="govuk-table__cell"><strong class="govuk-tag">
+          Active
+        </strong></td>
+
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">{{ data['user-first-name'] | default('Sam') }} {{ data['user-last-name'] | default('Smith') }}</td>
+        <td class="govuk-table__cell">{{ data['email-address'] | default('sam.smith@compensator.com') }}</td>
+        <td class="govuk-table__cell">Admin user</td>
+        <td class="govuk-table__cell"><strong class="govuk-tag">
+          Active
+        </strong></td>
+
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+
+{% endblock %}

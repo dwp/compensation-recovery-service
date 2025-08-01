@@ -1,0 +1,29 @@
+
+{% extends "../../../index.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+    <h1 class="govuk-heading-xl">No results to display</h1>
+
+    <p class="govuk-body">You entered: <strong>{{ data['company-name'] | default('Geneva') }}</strong></p>
+
+    <div class="govuk-inset-text">
+      No companies have been found
+
+    </div>
+
+<p class="govuk-body">To search for a different company, <a class="govuk-link" href="org-list">go back to the orginisation list page</a>.</p>
+
+
+  </div>
+</div>
+
+{% endblock %}

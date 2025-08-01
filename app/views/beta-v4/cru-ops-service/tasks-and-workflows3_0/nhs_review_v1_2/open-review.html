@@ -1,0 +1,42 @@
+
+{% extends "../../../../index.html" %}
+
+{% block pageTitle %}
+About the injured person - Enter injured person's name and date of birth
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+        <!--        <form class="form" action="check-answers-ip" method="post">-->
+
+        <form class="form" action="date-of-claim" method="post">
+
+
+            <h1 class="govuk-heading-xl">
+                <span class="govuk-caption-xl">CRS233450</span>
+          Start an NHS review
+            </h1>
+
+            <div class="govuk-warning-text">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                    <span class="govuk-warning-text__assistive">Warning</span>
+                    We have already issued NHS certificates for this claim. If you change claim details, it will start an NHS review.
+                </strong>
+            </div>
+
+            <p class="govuk-body">If you did not want to start an NHS review, go back to <a class="govuk-link" href="about-the-injured-person">update claim details</a>.</p>
+
+            <button class="govuk-button govuk-!-margin-top-4" data-module="govuk-button">
+                Continue
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

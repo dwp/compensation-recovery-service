@@ -268,16 +268,16 @@ Fracture
 
         </dl>
 
-        <h2 class="govuk-heading-m" style=margin-bottom:10px;>NHS treatment details</h2>
+        <h2 class="govuk-heading-m" style=margin-bottom:10px;>HS treatment details</h2>
 
                 <br><br>
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              NHS hospital treatment
+              HS hospital treatment
             </dt>
             <dd class="govuk-summary-list__value">
-              Yes {{ data['treatment'] }}
+              No {{ data['treatment'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
 
@@ -288,130 +288,7 @@ Fracture
             </dd>
           </div>
 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              NHS trust exemption
-            </dt>
-            <dd class="govuk-summary-list__value">
-            No  {{ data['exemption'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-
-                <a class="govuk-link" href="exemption?backtocheckanswers=true&">
-                  Change<span class="govuk-visually-hidden"> address</span>
-                </a>
-
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-
-              Treatment at University of Manchester Hospitals Trust
-              <br><strong class="govuk-tag govuk-tag--orange" >
-                      Task open
-                      </strong>
-            </dt>
-
-            <dd class="govuk-summary-list__value">
-
-  <p class="govuk-body govuk-!-font-weight-bold">Treatment 1</p>
-
-  Inpatient  <br>
-  From 10 January 2023 <br>
-  31 days
-<br><br>
-<p><span class="govuk-body govuk-!-font-weight-bold">Notes from NHS trust</span>:<br> "Patient also attended out patient's at St Mary's Hospital (same trust) 10/02/23"</p>
-<a class="govuk-link" href="new-line-existing">
-Add new treatment<span class="govuk-visually-hidden"> address</span>
-</a>
-            </dd>
-
-            <dd class="govuk-summary-list__actions">
-              <!-- Check lookup or manual address -->
-
-                <a class="govuk-link" href="item1">
-                  Change<span class="govuk-visually-hidden"> address</span>
-                </a><br>
-                <a class="govuk-link" href="hospital-remove">
-                  Remove<span class="govuk-visually-hidden"> address</span>
-                </a>
-
-
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              North West Ambulance Service NHS Trust
-            </dt>
-            <dd class="govuk-summary-list__value">
-  <p class="govuk-body govuk-!-font-weight-bold">Treatment 1</p>
-
-              Ambulance <br>
-              From 9 January 2023 <br>
-              1 day
-<br><br>
-<a class="govuk-link" href="new-line-existing_amb">
-Add new treatment<span class="govuk-visually-hidden"> address</span>
-</a>
-            </dd>
-
-            <dd class="govuk-summary-list__actions">
-              <!-- Check lookup or manual address -->
-
-                <a class="govuk-link" href="item2">
-                  Change<span class="govuk-visually-hidden"> address</span>
-                </a>
-                <br>
-                <a class="govuk-link" href="">
-                  Remove<span class="govuk-visually-hidden"> address</span>
-                </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Treatment at Barts Health NHS Trust
-            </dt>
-            <dd class="govuk-summary-list__value">
-  <p class="govuk-body govuk-!-font-weight-bold">Treatment 1</p>
-
-              Inpatient <br>
-              10 November 2022 <br>
-              5 Days
-<br><br>
-<a class="govuk-link" href="">
-Add new treatment<span class="govuk-visually-hidden"> address</span>
-</a>
-            </dd>
-
-            <dd class="govuk-summary-list__actions">
-              <!-- Check lookup or manual address -->
-
-                <a class="govuk-link" href="">
-                  Change<span class="govuk-visually-hidden"> address</span>
-                </a>
-                <br>
-                <a class="govuk-link" href="">
-                  Remove<span class="govuk-visually-hidden"> address</span>
-                </a>
-            </dd>
-          </div>
-
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              NHS number
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['nhs-number'] | default('729388103') }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-
-                <a class="govuk-link" href="nhs-number?backtocheckanswers=true&">
-                  Change<span class="govuk-visually-hidden"> NHS number</span>
-                </a>
-
-            </dd>
-          </div>
+ 
           <br>
           <a class="govuk-link" href="new-line">
           Add new trust<span class="govuk-visually-hidden"> address</span>

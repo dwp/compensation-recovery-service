@@ -1,0 +1,198 @@
+
+{% extends "../../../../index.html" %}
+
+{% block pageTitle %}
+Compensation Recovery Service
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+  {% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-7">Back</a>
+
+      <form action="../claim-update3/case-view-history-success2" method="post" class="form">
+
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="nhs-notes-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+                Add NHS note
+              </h1>
+            </legend>
+
+            <br>
+
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="dohw-1" name="nhs-notes" type="radio" value="DOHWAMB">
+                <label class="govuk-label govuk-radios__label" for="dohw-1">
+                  DOHWAMB
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="dohw-2" name="nhs-notes" type="radio" value="DOHWAMB1">
+                <label class="govuk-label govuk-radios__label" for="dohw-2">
+                  DOHWAMB1
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="dohw-3" name="nhs-notes" type="radio" value="DOHWAMBEXEM">
+                <label class="govuk-label govuk-radios__label" for="dohw-3">
+                  DOHWAMBEXEM
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="dohw-4" name="nhs-notes" type="radio" value="DOHWCN">
+                <label class="govuk-label govuk-radios__label" for="dohw-4">
+                  DOHWCN
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="dohw-5" name="nhs-notes" type="radio" value="DOHWDIS">
+                <label class="govuk-label govuk-radios__label" for="dohw-5">
+                  DOHWDIS
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="dohw-6" name="nhs-notes" type="radio" value="DOHWDUAL">
+                <label class="govuk-label govuk-radios__label" for="dohw-6">
+                  DOHWDUAL
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="dohw-7" name="nhs-notes" type="radio" value="DOHWEXEM">
+                <label class="govuk-label govuk-radios__label" for="dohw-7">
+                  DOHWEXEM
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="dohw-8" name="nhs-notes" type="radio" value="DOHWEXH">
+                <label class="govuk-label govuk-radios__label" for="dohw-8">
+                  DOHWEXH
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="dohw-9" name="nhs-notes" type="radio" value="DOHWFTU">
+                <label class="govuk-label govuk-radios__label" for="dohw-9">
+                  DOHWFTU
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="dohw-10" name="nhs-notes" type="radio" value="DOHWLIA">
+                <label class="govuk-label govuk-radios__label" for="dohw-10">
+                  DOHWLIA
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="dohw-11" name="nhs-notes" type="radio" value="DOHWLIQ">
+                <label class="govuk-label govuk-radios__label" for="dohw-11">
+                  DOHWLIQ
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="dohw-12" name="nhs-notes" type="radio" value="DOHWLIQ2">
+                <label class="govuk-label govuk-radios__label" for="dohw-12">
+                  DOHWLIQ2
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="dohw-13" name="nhs-notes" type="radio" value="DOHWNT">
+                <label class="govuk-label govuk-radios__label" for="dohw-13">
+                  DOHWNT
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="dohw-14" name="nhs-notes" type="radio" value="DOHWPR">
+                <label class="govuk-label govuk-radios__label" for="dohw-14">
+                  DOHWPR
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="dohw-15" name="nhs-notes" type="radio" value="DOHWS10">
+                <label class="govuk-label govuk-radios__label" for="dohw-15">
+                  DOHWS10
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="dohw-16" name="nhs-notes" type="radio" value="DOHWURE">
+                <label class="govuk-label govuk-radios__label" for="dohw-16">
+                  DOHWURE
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="dohw-17" name="nhs-notes" type="radio" value="DOHWWO">
+                <label class="govuk-label govuk-radios__label" for="dohw-17">
+                  DOHWWO
+                </label>
+              </div>
+
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-button-group">
+          <button class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
+            Add note
+          </button>
+          <a class="govuk-link" href="../claim-update3/case-view-history">Cancel</a>
+        </div>
+        
+      </form>
+    
+    
+        </div>
+      </div>
+
+          
+
+
+
+
+        </div>
+
+    </div>
+  </div>
+
+{% endblock %}

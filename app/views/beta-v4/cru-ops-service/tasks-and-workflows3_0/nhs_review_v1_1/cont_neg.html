@@ -1,0 +1,52 @@
+
+{% extends "../../../../index.html" %}
+
+{% block pageTitle %}
+About the injured person -  Does the injured person have a national insurance number
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+    <form class="form" action="check-answers-cont_neg" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="date-hint">
+
+          <div class="govuk-form-group">
+            <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="cost">
+              <!-- <span class="govuk-caption-xl">Tariff updates
+              </span> -->
+                What percentage of the NHS charges will the compensator have to pay?
+              </label>
+            </h1>
+            <div id="passport-issued-hint" class="govuk-hint">
+Enter a value with up to 2 decimal places.
+</div>
+            <!-- <div class="govuk-inset-text">
+  Currently it is £231
+</div> -->
+
+
+  <div class="govuk-input__wrapper"><input class="govuk-input govuk-input--width-5" id="weight" name="weight" type="text" spellcheck="false">
+    <div class="govuk-input__suffix" aria-hidden="true">%</div>
+  </div>
+
+          </div>
+
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

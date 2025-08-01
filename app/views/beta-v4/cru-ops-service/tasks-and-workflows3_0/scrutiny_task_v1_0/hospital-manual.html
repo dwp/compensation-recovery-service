@@ -1,0 +1,79 @@
+
+{% extends "../../../../index.html" %}
+
+{% block pageTitle %}
+About the injured person -  Does the injured person have a national insurance number
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+        <form class="form" action="confirmation3" method="post">
+
+            <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h1 class="govuk-heading-xl" style="margin-bottom:1px;">
+                      <span class="govuk-caption-xl">NHS treatment details</span>
+                        What are the hospital details?
+                    </h1>
+                </legend>
+
+                <div class="govuk-inset-text">
+ <a href="hospital" class="govuk-link">Check if this hospital exists in the system</a>.
+</div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="m-hospital-1">
+                        Hospital name
+                    </label>
+                    <input class="govuk-input" id="m-hospital-1" name="m-hospital-1" type="text" autocomplete="m-hospital1" value="Bedlam Hospital">
+                </div>
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="hos-address-line-1">
+                        Address line 1
+                    </label>
+                    <input class="govuk-input" id="hos-address-line-1" name="hos-address-line-1" type="text" autocomplete="hos-address-line1" value="Monks Orchard Rd">
+                </div>
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="hos-address-line-2">
+                        Address line 2 (optional)
+                    </label>
+                    <input class="govuk-input" id="hos-address-line-2" name="hos-address-line-2" type="text" autocomplete="hos-address-line2" value="{{ data['hos-address-line-2'] }}">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="hos-address-town">
+                        Town or city
+                    </label>
+                    <input class="govuk-input govuk-!-width-two-thirds" id="hos-address-town" name="hos-address-town" type="text" autocomplete="hos-address-level2" value="Beckenham">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="hos-address-county">
+                        County (optional)
+                    </label>
+                    <input class="govuk-input govuk-!-width-two-thirds" id="hos-address-county" name="hos-address-county" type="text" value="{{ data['hos-address-county'] }}">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="hos-address-postcode">
+                        Postcode
+                    </label>
+                    <input class="govuk-input govuk-input--width-10" id="hos-address-postcode" name="hos-address-postcode" type="text" autocomplete="hos-postal-code"  value="BR3 3BX">
+                </div>
+
+            </fieldset>
+
+           <button class="govuk-button" data-module="govuk-button">
+             Continue
+           </button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

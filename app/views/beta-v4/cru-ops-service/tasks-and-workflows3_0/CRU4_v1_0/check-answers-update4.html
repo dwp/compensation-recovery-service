@@ -1,0 +1,608 @@
+
+{% extends "../../../../index.html" %}
+
+{% block pageTitle %}
+Check your answers before registering the claim
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+  <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters-from-desktop">
+
+        <h1 class="govuk-heading-xl">Update claim details</h1>
+
+        <!-- Hospital question & Liability type -->
+        <h2 class="govuk-heading-m">Claim details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Liability type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['liability'] | default('Motor') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="liability-guard?backtocheckanswers=true&">
+                Change<span class="govuk-visually-hidden">liability type</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">The injured person</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['first-name'] | default('Bojen') }}  {{ data['last-name'] | default('Westoros') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="about-the-injured-person">
+                Change<span class="govuk-visually-hidden"> address</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['date-of-birth-day'] | default("28") }} {{ data['date-of-birth-month'] | default("02") | toMonth }} {{ data['date-of-birth-year'] | default("1978") }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="about-the-injured-person">
+                Change<span class="govuk-visually-hidden"> address</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              National Insurance number
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+                <p class="govuk-body"> {{ data['ni-number'] | default('AA 11 22 33 B ') }}</p>
+
+
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="about-the-injured-person">
+                Change<span class="govuk-visually-hidden"> address</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Injury date
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['claim-date-day'] | default("12") }} {{ data['claim-date-month'] | default("02") | toMonth }} {{ data['claim-date-year'] | default("2024") }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!--              <a class="govuk-link" href="date-of-claim?backtocheckanswers=true&">-->
+              <!--                Change<span class="govuk-visually-hidden"> date of injury</span>-->
+              <!--              </a>-->
+              <a class="govuk-link" href="date-of-claim">
+                Change<span class="govuk-visually-hidden"> address</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <!-- Check lookup or manual address -->
+
+                {{ data['choose-ip-address'] | default('22 High Street') }}<br>Leicester<br>{{ data['addresspostcode'] | default('LE1 1AA') }}
+<!--
+                {{ data['address-line-1'] }}<br />
+                {{ data['address-line-2'] }}<br />
+                {{ data['address-town'] }}<br />
+                {{ data['address-county'] }}<br />
+                {{ data['address-postcode'] }} -->
+
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!-- Check lookup or manual address -->
+
+
+                <a class="govuk-link" href="injured-person-address.html">
+                  Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+
+            </dd>
+          </div>
+        </dl>
+
+        <!-- Injury details -->
+        <h2 class="govuk-heading-m">Injury details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Whiplash
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+
+              Yes
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="whiplash-guard?backtocheckanswers=true&">
+                Change<span class="govuk-visually-hidden"> whiplash</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Other injuries
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              Yes
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="injury-guard?backtocheckanswers=true&">
+                Change<span class="govuk-visually-hidden"> other injuries</span>
+              </a>
+            </dd>
+          </div>
+
+          <!-- Types of injury -->
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Injury types
+            </dt>
+            <dd class="govuk-summary-list__value">
+
+              Physical injury other than whiplash<br>
+              Psychological<br>
+Neurological
+            </dd>
+            <dd class="govuk-summary-list__actions">
+<!--              <a class="govuk-link" href="other-injuries?backtocheckanswers=true&">-->
+<!--                Change<span class="govuk-visually-hidden"> types of injury</span>-->
+<!--              </a>-->
+            </dd>
+          </div>
+
+
+
+
+              <!-- Physical injuries -->
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Physical injury other than whiplash
+                </dt>
+                <dd class="govuk-summary-list__value">
+
+                    <!-- Start Head injuries  -->
+
+                      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Head injuries</h3><br />
+                      <p>Details</p>
+                      <ul class="govuk-list govuk-list--bullet">
+
+                          <li>
+Pain or discomfort
+                          </li>
+                          <li>
+Fracture
+                          </li>
+                      </ul>
+
+                      <p>Injury location</p>
+                      <ul class="govuk-list govuk-list--bullet">
+
+                        <li>Left side</li>
+
+                      </ul>
+
+                  <!-- End Head -->
+
+
+
+                </dd>
+
+              </div>
+
+
+              <!-- Psychological injuries -->
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Psychological injuries
+                </dt>
+                <dd class="govuk-summary-list__value">
+
+
+                      	Psychological shock <br />
+
+                      {{ item }} {{ data['more-detail-psychological'] }}
+
+                  </ul>
+                </dd>
+                <dd class="govuk-summary-list__actions">
+<!--                  <a class="govuk-link" href="psychological?backtocheckanswers=true&">-->
+<!--                    Change<span class="govuk-visually-hidden"> psychological injury</span>-->
+<!--                  </a>-->
+                </dd>
+              </div>
+
+
+              <!-- Neurological injuries -->
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Neurological injuries
+                </dt>
+                <dd class="govuk-summary-list__value">
+
+	Memory loss
+                </dd>
+                <dd class="govuk-summary-list__actions">
+<!--                  <a class="govuk-link" href="neurological?backtocheckanswers=true&">-->
+<!--                    Change<span class="govuk-visually-hidden"> neurological injury</span>-->
+<!--                  </a>-->
+                </dd>
+              </div>
+
+
+
+        </dl>
+
+        <h2 class="govuk-heading-m" style=margin-bottom:10px;>NHS treatment details</h2>
+
+                <br><br>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              NHS hospital treatment
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Yes {{ data['treatment'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+
+                <a class="govuk-link" href="nhs-guard?backtocheckanswers=true&">
+                  Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              NHS trust exemption
+            </dt>
+            <dd class="govuk-summary-list__value">
+            No  {{ data['exemption'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+
+                <a class="govuk-link" href="exemption?backtocheckanswers=true&">
+                  Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+
+              Treatment at University of Manchester Hospitals Trust
+
+            </dt>
+
+            <dd class="govuk-summary-list__value">
+  <p class="govuk-body govuk-!-font-weight-bold">Treatment 1</p>
+
+  Ambulance <br>
+  From 9 January 2023 <br>
+  1 day
+
+<br><br>
+  <p class="govuk-body govuk-!-font-weight-bold">Treatment 2</p>
+
+  Inpatient  <br>
+  From 10 January 2023 <br>
+  31 days
+<br><br>
+<p><span class="govuk-body govuk-!-font-weight-bold">Notes from NHS trust</span>:<br> "Patient also attended out patient's at St Mary's Hospital (same trust) 10/02/23"</p>
+<a class="govuk-link" href="new-line-existing">
+Add new treatment<span class="govuk-visually-hidden"> address</span>
+</a>
+            </dd>
+
+            <dd class="govuk-summary-list__actions">
+              <!-- Check lookup or manual address -->
+
+                <a class="govuk-link" href="item1">
+                  Change<span class="govuk-visually-hidden"> address</span>
+                </a><br>
+                <a class="govuk-link" href="hospital-remove">
+                  Remove<span class="govuk-visually-hidden"> address</span>
+                </a>
+
+                <br>
+                <br><br><br>
+                <a class="govuk-link" href="item1">
+                  Change<span class="govuk-visually-hidden"> address</span>
+                </a><br>
+                <a class="govuk-link" href="">
+                  Remove<span class="govuk-visually-hidden"> address</span>
+                </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Treatment at Barts Health NHS Trust
+            </dt>
+            <dd class="govuk-summary-list__value">
+  <p class="govuk-body govuk-!-font-weight-bold">Treatment 1</p>
+
+              Inpatient <br>
+              10 November 2022 <br>
+              5 Days
+<br><br>
+<a class="govuk-link" href="">
+Add new treatment<span class="govuk-visually-hidden"> address</span>
+</a>
+            </dd>
+
+            <dd class="govuk-summary-list__actions">
+              <!-- Check lookup or manual address -->
+
+                <a class="govuk-link" href="">
+                  Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+                <br>
+                <a class="govuk-link" href="">
+                  Remove<span class="govuk-visually-hidden"> address</span>
+                </a>
+            </dd>
+          </div>
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              NHS number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['nhs-number'] | default('729388103') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+
+                <a class="govuk-link" href="nhs-number?backtocheckanswers=true&">
+                  Change<span class="govuk-visually-hidden"> NHS number</span>
+                </a>
+
+            </dd>
+          </div>
+          <br>
+          <a class="govuk-link" href="new-line">
+          Add new trust<span class="govuk-visually-hidden"> address</span>
+          </a>
+        </dl>
+
+        <!-- Injured persons rep details -->
+        <h2 class="govuk-heading-m">Injured person's representative</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Company name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['represesntative-name'] | default('McAdar Solicitors') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="about-the-injured-persons-rep?backtocheckanswers=true&">
+                Change<span class="govuk-visually-hidden">Solictor name</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Email address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['email-solicitor'] | default('claims@mcadarx.co.uk') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="about-the-injured-persons-rep?backtocheckanswers=true&">
+                Change<span class="govuk-visually-hidden">email address</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Reference number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['represesntative-reference'] | default('Cr1234567') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="about-the-injured-persons-rep">
+                Change<span class="govuk-visually-hidden"> About the accident or incident</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Telephone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['represesntative-phone-number'] | default('07880109642') }}
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="about-the-injured-persons-rep?backtocheckanswers=true&">
+                Change<span class="govuk-visually-hidden">telephone</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <!-- Check lookup or manual address -->
+
+                {{ data['solicitor-address'] | default('Ivy House, Ivy Lane') }}<br>Warehorne<br>{{ data['representativepostcode'] | default('TN26 9XE') }}
+
+                <!-- {{ data['address-line-1-rep'] }}<br />
+                {{ data['address-line-2-rep'] }}<br />
+                {{ data['address-town-rep'] }}<br />
+                {{ data['address-county-rep'] }}<br />
+                {{ data['address-postcode-rep'] }} -->
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <!-- Check lookup or manual address -->
+
+              <a class="govuk-link" href="representative-address-choice">
+                Change<span class="govuk-visually-hidden"> address</span>
+              </a>
+
+
+
+
+
+            </dd>
+          </div>
+        </dl>
+        <h2 class="govuk-heading-m">Compensator</h2>
+
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Organisation name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['company-name'] | default('Compensator Ltd') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+  <!--            <a class="govuk-link" href="#">-->
+  <!--              Change<span class="govuk-visually-hidden"> name</span>-->
+  <!--            </a>-->
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type of organisation
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['type-of-org'] | default('Compensator') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="admin-manage-org-edit-details">
+                Change<span class="govuk-visually-hidden"> organisation type</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Primary telephone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['tel-primary'] | default('0117 9123 345') }}
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="admin-manage-org-edit-details">
+                Change<span class="govuk-visually-hidden"> primary telephone number</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Secondary telephone number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['tel-secondary'] | default('07771 123737') }}
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="admin-manage-org-edit-details">
+                Change<span class="govuk-visually-hidden"> secondary telephone number</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Organisation address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['company-address-lookup'] | default('4 High Street') }}, {{ data['company-address-postcode'] | default('SW11 4DY') }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="admin-manage-org-edit-address">
+                Change<span class="govuk-visually-hidden"> company address</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Data contacts
+            </dt>
+            <dd class="govuk-summary-list__value">
+              John Smith <br>
+              Jane Data
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="data-contact-list2">
+                Change<span class="govuk-visually-hidden"> company address</span>
+              </a>
+            </dd>
+          </div>
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                    Organisations you manage claims for
+                </dt>
+                <dd class="govuk-summary-list__value">
+                    {{ data['on-behalf-of-org1'] | default('Aviva') }}<br />
+                    {{ data['on-behalf-of-org2'] | default('Direct Line') }}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="admin-working-on-behalf-check">Change<span class="govuk-visually-hidden"> organisations working on behalf of</span>
+                    </a>
+                </dd>
+            </div>
+        </dl>
+
+
+<br>
+
+        <form action="cru4-task" method="post" novalidate>
+
+          <input type="hidden" name="checkanswers" value="true" />
+
+          <button class="govuk-button" data-module="govuk-button">
+            Back to task
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

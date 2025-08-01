@@ -1,0 +1,172 @@
+
+{% extends "../../../../../index.html" %}
+
+{% block pageTitle %}
+Check your answers before registering the claim
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+  <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-quarters-from-desktop">
+
+        <h1 class="govuk-heading-xl">Check your answers</h1>
+
+
+
+        <!-- Injured persons rep details -->
+        <h2 class="govuk-heading-m">Payment details</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Compensator name
+            </dt>
+            <dd class="govuk-summary-list__value">
+            AVOVA Ltd
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="ambulance?backtocheckanswers=true&">
+                Change <span class="govuk-visually-hidden"></span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Compensator reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+            FDSAF214532A
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="out_patient?backtocheckanswers=true&">
+                Change
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+             Payment reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+            DSFASG43253432CDSS3213
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="in_patient?backtocheckanswers=true&">
+                Change
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Payment amount
+            </dt>
+            <dd class="govuk-summary-list__value">
+      £236,436
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="cap?backtocheckanswers=true&">
+                Change<span class="govuk-visually-hidden">telephone</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Contact name
+            </dt>
+            <dd class="govuk-summary-list__value">
+      Frank Donnell
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="cap?backtocheckanswers=true&">
+                Change<span class="govuk-visually-hidden">telephone</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Email address
+            </dt>
+            <dd class="govuk-summary-list__value">
+      frank@avova.com
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="cap?backtocheckanswers=true&">
+                Change<span class="govuk-visually-hidden">telephone</span>
+              </a>
+            </dd>
+          </div>
+
+
+
+
+        </dl>
+
+        <h2 class="govuk-heading-m">Claim details</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Claim 1 details
+            </dt>
+            <dd class="govuk-summary-list__value">
+      CRS32533<br>Louise Smith<br>11 May 1977
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="cap?backtocheckanswers=true&">
+                Change<span class="govuk-visually-hidden">telephone</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Claim 2 details
+            </dt>
+            <dd class="govuk-summary-list__value">
+      CRS78345<br>Gregory Oltawn<br>29 April 1982
+
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="cap?backtocheckanswers=true&">
+                Change<span class="govuk-visually-hidden">telephone</span>
+              </a>
+            </dd>
+          </div>
+
+        </dl>
+
+
+      <form  class="form" action="confirmation1" method="post" >
+
+          <input type="hidden" name="checkanswers" value="true" />
+
+          <div class="govuk-button-group">
+            <button class="govuk-button" data-module="govuk-button">
+              Confirm
+            </button>
+            <!-- <a class="govuk-link" href="#">Cancel</a> -->
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}

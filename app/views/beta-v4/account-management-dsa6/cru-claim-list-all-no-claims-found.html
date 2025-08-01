@@ -1,0 +1,101 @@
+
+{% extends "../../index.html" %}
+
+{% block pageTitle %}
+Create an account
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <br>
+<h1 class="govuk-heading-l">Find a claim</h1>
+<div class="govuk-form-group" style="margin-bottom:20px">
+    <label class="govuk-label govuk-!-font-weight-bold" for="search-name">
+      Enter a CRU reference number in the format ABC123, or the injured person's National Insurance number in the format QQ 12 34 56 C.
+    </label>
+    <input class="govuk-input govuk-input--width-10" id="company-name" name="company-name" type="text" value="{{ data['company-name'] }}">
+
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Search
+      </button>
+      <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Clear
+      </button>
+
+</div>
+</div>
+</div>
+</form>
+{% if data['searchres'] == 'true' %}
+<div class="govuk-inset-text" style="margin-top:15px">
+  <p>1 organisation found</p>
+  <a class="govuk-link" href="org-list_multiple?searchres=false">Clear results</a>
+</div>
+
+<table class="govuk-table gov">
+  <thead class="govuk-table__head">
+  <tr class="govuk-table__row">
+    <th scope="col" class="govuk-table__header">CRU Reference</th>
+    <th scope="col" class="govuk-table__header">Name</th>
+    <th scope="col" class="govuk-table__header"></th>
+  </tr>
+  </thead>
+  <tbody class="govuk-table__body"> 
+
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell">{{ data['company-name'] }}</td>
+    <td class="govuk-table__cell">Manchester</td>
+    <td class="govuk-table__cell">Yesterday</td>
+  <td class="govuk-table__cell">7</td>
+    <td class="govuk-table__cell">claims@{{ data['company-name'] }}.com</td>
+    <td class="govuk-table__cell">10</td>
+
+<td class="govuk-table__cell"><a href="org-details_multiple">View</a></td>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell">{{ data['company-name'] }}</td>
+    <td class="govuk-table__cell">Hull</td>
+    <td class="govuk-table__cell">17 December 2022</td>
+  <td class="govuk-table__cell">73</td>
+    <td class="govuk-table__cell">claimshull@{{ data['company-name'] }}.com</td>
+    <td class="govuk-table__cell">5</td>
+
+<td class="govuk-table__cell"><a href="">View</a></td>
+  </tr>
+
+  </tbody>
+</table>
+
+      </div>
+          {% else %}
+
+
+          <h2 class="govuk-heading-m">No claims found</h2>
+          <br>
+
+          <p class="govuk-body govuk-!-font-weight-bold">This could be because:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>you have not registered a claim on the service, or</li>
+            <li>your search did not match any of our records</li>
+          </ul>
+ 
+          <p class="govuk-body govuk-!-font-weight-bold">If your search found no claims, check:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>you entered the CRU reference or National Insurance number correctly</li>
+            <li>the claim was registered on this service</li>
+          </ul>
+
+          <p class="govuk-body">If you still need help finding a claim, send an email to <a href="cru.digital@dwp.gov.uk" class="govuk-link">cru.digital@dwp.gov.uk</a>.</p>
+<br>
+<br>
+<br>
+
+
+{% endif %}
+
+      </div>
+
+
+{% endblock %}

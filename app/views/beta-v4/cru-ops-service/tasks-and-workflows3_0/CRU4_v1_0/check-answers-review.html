@@ -1,0 +1,139 @@
+
+{% extends "../../../../index.html" %}
+
+{% block pageTitle %}
+Register a claim with the Compensation Recovery Unit
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-width-container">
+    <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+    <main class="govuk-main-wrapper " id="main-content" role="main">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+
+          <fieldset class="govuk-fieldset" aria-describedby="liability-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+              <h1 class="govuk-fieldset__heading">
+
+                Check charges details
+              </h1>
+            </legend>
+
+
+<br>
+
+          <table class="govuk-table">
+<thead class="govuk-table__head">
+  <tr class="govuk-table__row">
+    <th scope="col" class="govuk-table__header app-custom-class">Treatment started</th>
+    <th scope="col" class="govuk-table__header app-custom-class">Treatment ended</th>
+    <th scope="col" class="govuk-table__header app-custom-class">Trust attended</th>
+    <th scope="col" class="govuk-table__header app-custom-class">Charge type</th>
+    <th scope="col" class="govuk-table__header app-custom-class">Ambulance trips/days in hospitals</th>
+    <th scope="col" class="govuk-table__header app-custom-class">Gross treatment total</th>
+      <th scope="col" class="govuk-table__header app-custom-class">Net treatment total</th>
+  </tr>
+
+</thead>
+<tbody class="govuk-table__body">
+  <tr class="govuk-table__row">
+
+    <td class="govuk-table__cell">08.01.2023</td>
+    <td class="govuk-table__cell">08.01.2023</td>
+    <td class="govuk-table__cell">The North West Ambulance Service NHS Trust</td>
+    <td class="govuk-table__cell">Ambulance</td>
+    <td class="govuk-table__cell">1</td>
+    <td class="govuk-table__cell">£225</td>
+      <td class="govuk-table__cell">£225</td>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell">09.01.2023</td>
+    <td class="govuk-table__cell">26.02.2023</td>
+    <td class="govuk-table__cell">Manchester University NHS Foundation Trust</td>
+    <td class="govuk-table__cell">Inpatient</td>
+    <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">25</strong></td>
+    <td class="govuk-table__cell">£59,475</td>
+      <td class="govuk-table__cell">£54,260<strong class="govuk-tag govuk-tag--blue">
+        capped
+      </strong></td>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell">09.02.2023</td>
+    <td class="govuk-table__cell">09.02.2023</td>
+    <td class="govuk-table__cell">Manchester University NHS Foundation Trust</td>
+    <td class="govuk-table__cell">Outpatient</td>
+    <td class="govuk-table__cell">1</td>
+    <td class="govuk-table__cell">£744</td>
+      <td class="govuk-table__cell">£0 <strong class="govuk-tag govuk-tag--blue">
+        capped
+      </strong></td>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell">14.02.2023</td>
+    <td class="govuk-table__cell">14.02.2023</td>
+    <td class="govuk-table__cell">Manchester University NHS Foundation Trust</td>
+    <td class="govuk-table__cell">Outpatient</td>
+    <td class="govuk-table__cell">1</td>
+    <td class="govuk-table__cell">	£744</td>
+      <td class="govuk-table__cell">£0 <strong class="govuk-tag govuk-tag--blue">
+        capped
+      </strong></td>
+  </tr>
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell">Total NHS charges</td>
+    <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell">£59,700</td>
+  </tr>
+
+  <tr class="govuk-table__row">
+    <td class="govuk-table__cell govuk-!-font-weight-bold">Net amount to be paid</td>
+    <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell"></td>
+    <td class="govuk-table__cell"></td>
+      <td class="govuk-table__cell govuk-!-font-weight-bold">£54,260</td>
+  </tr>
+</tbody>
+</table>
+
+
+            <form action="decision_reason" method="post" novalidate>
+
+              <input type="hidden" name="answers-checked" value="true">
+
+              <button class="govuk-button" data-module="govuk-button">
+               Continue
+              </button>
+
+
+          </form>
+
+        </div>
+      </div>
+    </main>
+  </div>
+  <!-- code for demo only-->
+<style>
+a.timemachine{
+  position:absolute;
+  top:0px;
+  right:0px;
+  background:black;
+  padding:0.8em;
+  color:white;
+  }
+</style>
+
+<a href ="../registration/ip-not-found" class="timemachine">Alternate view</a>
+
+
+{% endblock %}
