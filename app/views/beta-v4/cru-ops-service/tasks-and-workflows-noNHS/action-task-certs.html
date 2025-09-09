@@ -1,0 +1,137 @@
+
+{% extends "../../../index.html" %}
+
+{% block pageTitle %}
+Task details
+{% endblock %}
+
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+<!--    <nav class="navigation-secondary govuk-!-margin-bottom-6">-->
+<!--      <ul>-->
+<!--        <li><a href="./">Home</a></li>-->
+<!--        <li class="active"><a href="current-tasks">Current tasks</a></li>-->
+<!--        <li><a href="completed-tasks">Completed tasks</a></li>-->
+<!--        <li><a href="">Find a claim</a></li>-->
+<!--        <li><a href="">Download reports</a></li>-->
+<!--      </ul>-->
+<!--    </nav>-->
+
+    <div class="govuk-grid-column-full">
+      <a href="current-tasks" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+      <form class="form" action="completed-task-certs" method="post">
+
+        <h1 class="govuk-heading-xl govuk-!-margin-top-5 govuk-!-margin-bottom-2">
+<!--          <span class="govuk-caption-l">CRS39488</span>-->
+          Task details
+        </h1>
+        <strong class="govuk-tag govuk-tag--yellow">In progress</strong>
+
+        <dl class="govuk-summary-list govuk-!-margin-top-7">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Assigned to
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Sam Smith
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Description
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Certificate requested: Investigate if benefits are attributable
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              CRU reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+              PAB994
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Benefits returned
+            </dt>
+            <dd class="govuk-summary-list__value">
+              PIP<br />
+              UC
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name of injured person
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Sitaram Aslan
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+              23 July 1982
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              National Insurance number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              AA123456U
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              32 Fulwick Avenue<br />
+              Brighton<br />
+              BR1 1MS
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of injury
+            </dt>
+            <dd class="govuk-summary-list__value">
+              19 June 2022
+            </dd>
+          </div>
+        </dl>
+
+        <p class="govuk-body">
+          <a href="case-view-task-certs" class="govuk-link">View claim</a>
+        </p>
+
+        <div class="govuk-inset-text">
+          Clicking 'Save and complete task' will email updated certificates to:<br/>
+          <ul class="govuk-list govuk-list--bullet govuk-!-margin-top-3">
+            <li>compensators</li>
+            <li>injured person's representative</li>
+          </ul>
+        </div>
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          <button class="govuk-button" data-module="govuk-button">
+            Save and complete task
+          </button>
+          <a href="close-task-certs" class="govuk-button govuk-button--secondary" data-module="govuk-button">Unable to complete task</a>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

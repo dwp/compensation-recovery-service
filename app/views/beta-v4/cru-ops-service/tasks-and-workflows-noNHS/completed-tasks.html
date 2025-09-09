@@ -1,0 +1,186 @@
+
+{% extends "../../../index.html" %}
+
+{% block pageTitle %}
+Completed tasks
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+  {% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <nav class="navigation-secondary govuk-!-margin-bottom-7">
+      <ul>
+        <li><a href="./">Home</a></li>
+        <li><a href="current-tasks">Current tasks</a></li>
+        <li class="active"><a href="completed-tasks">Completed tasks</a></li>
+        <li><a href="legacy-tasks">Legacy tasks</a></li>
+        <li><a href="find-case">Find a claim</a></li>
+        <li><a href="">Download reports</a></li>
+      </ul>
+    </nav>
+
+    <div class="govuk-grid-column-full">
+
+      <span class="govuk-caption-l">Sam Smith</span>
+      <h1 class="govuk-heading-xl">Completed tasks</h1>
+
+      <p class="govuk-body"><a href="" class="govuk-link">Refresh list</a></p>
+
+      <table class="govuk-table govuk-!-margin-top-2">
+        <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header app-custom-class">CRU reference</th>
+          <th scope="col" class="govuk-table__header app-custom-class">Date received</th>
+          <th scope="col" class="govuk-table__header app-custom-class">IP name</th>
+          <th scope="col" class="govuk-table__header app-custom-class">Task type</th>
+          <th scope="col" class="govuk-table__header app-custom-class">Status</th>
+          <th scope="col" class="govuk-table__header app-custom-class"></th>
+        </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="case-view" class="govuk-link">PAB938</a></td>
+          <td class="govuk-table__cell">11/10/2022</td>
+          <td class="govuk-table__cell">Jane Blythe</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">No NINO</strong></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Completed</strong></td>
+          <td class="govuk-table__cell"><a href="completed-task" class="govuk-link">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="case-view" class="govuk-link">PAB990</a></td>
+          <td class="govuk-table__cell">11/10/2022</td>
+          <td class="govuk-table__cell">Gemma Smith</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">No NINO</strong></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Completed</strong></td>
+          <td class="govuk-table__cell"><a href="completed-task" class="govuk-link">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="case-view" class="govuk-link">PAB118</a></td>
+          <td class="govuk-table__cell">11/10/2022</td>
+          <td class="govuk-table__cell">Claire Roberts</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">No NINO</strong></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Completed</strong></td>
+          <td class="govuk-table__cell"><a href="completed-task" class="govuk-link">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="case-view" class="govuk-link">PAB228</a></td>
+          <td class="govuk-table__cell">11/10/2022</td>
+          <td class="govuk-table__cell">Jack Green</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">No NINO</strong></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Completed</strong></td>
+          <td class="govuk-table__cell"><a href="completed-task" class="govuk-link">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="case-view" class="govuk-link">PAB466</a></td>
+          <td class="govuk-table__cell">11/10/2022</td>
+          <td class="govuk-table__cell">David Thomas</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">No NINO</strong></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Completed</strong></td>
+          <td class="govuk-table__cell"><a href="completed-task" class="govuk-link">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="case-view" class="govuk-link">PAB354</a></td>
+          <td class="govuk-table__cell">12/10/2022</td>
+          <td class="govuk-table__cell">Jeff Smythe</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">No NINO</strong></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Completed</strong></td>
+          <td class="govuk-table__cell"><a href="completed-task" class="govuk-link">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="case-view" class="govuk-link">PAB039</a></td>
+          <td class="govuk-table__cell">12/10/2022</td>
+          <td class="govuk-table__cell">Rob Jackson</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">No NINO</strong></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Completed</strong></td>
+          <td class="govuk-table__cell"><a href="completed-task" class="govuk-link">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="case-view" class="govuk-link">PAB222</a></td>
+          <td class="govuk-table__cell">12/10/2022</td>
+          <td class="govuk-table__cell">Trudy Roberts</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">No NINO</strong></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Completed</strong></td>
+          <td class="govuk-table__cell"><a href="completed-task" class="govuk-link">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="case-view" class="govuk-link">PAB258</a></td>
+          <td class="govuk-table__cell">12/10/2022</td>
+          <td class="govuk-table__cell">Jamie Brown</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">No NINO</strong></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Completed</strong></td>
+          <td class="govuk-table__cell"><a href="completed-task" class="govuk-link">View</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell"><a href="case-view" class="govuk-link">PAB443</a></td>
+          <td class="govuk-table__cell">13/10/2022</td>
+          <td class="govuk-table__cell">Julian Painter</td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">No NINO</strong></td>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Completed</strong></td>
+          <td class="govuk-table__cell"><a href="completed-task" class="govuk-link">View</a></td>
+        </tr>
+
+        </tbody>
+      </table>
+
+      <nav class="govuk-pagination" role="navigation" aria-label="results">
+        <div class="govuk-pagination__prev">
+          <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
+            <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+              <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+            </svg>
+            <span class="govuk-pagination__link-title">Previous</span></a>
+        </div>
+        <ul class="govuk-pagination__list">
+          <li class="govuk-pagination__item govuk-pagination__item--current">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1" aria-current="page">
+              1
+            </a>
+          </li>
+          <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2">
+              2
+            </a>
+          </li>
+          <li class="govuk-pagination__item">
+            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+              3
+            </a>
+          </li>
+        </ul>
+        <div class="govuk-pagination__next">
+          <a class="govuk-link govuk-pagination__link" href="#" rel="next"> <span class="govuk-pagination__link-title">Next</span> <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+            <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+          </svg></a>
+        </div>
+      </nav>
+
+
+      
+    </div>
+  </div>
+
+{% endblock %}

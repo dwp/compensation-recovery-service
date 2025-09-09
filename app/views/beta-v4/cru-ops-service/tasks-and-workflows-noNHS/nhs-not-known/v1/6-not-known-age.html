@@ -1,0 +1,93 @@
+
+{% extends "../../../../../index.html" %}
+
+{% block pageTitle %}
+Current tasks
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+  {% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <a href="#" class="govuk-back-link govuk-!-margin-bottom-7">Back</a>
+
+      <h1 class="govuk-heading-xl">Close task</h1>
+
+
+          <form class="form" action="5-completed-close" method="post">
+
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Name of injured person
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  John Jones
+                </dd>
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Date of birth
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  13 July 1945
+                </dd>
+              </div>
+
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Age
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  78 years old
+                </dd>
+              </div>
+            </dl>
+
+            <br>
+
+            <p>We cannot send a letter to the injured person due to their age.</p>
+
+            <p>Clicking on Save will close the task and send a NIL NHS certificate of charges to the compensator.</p>
+
+            <br>
+
+            <button class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
+              Save
+            </button>
+
+          </form>
+
+
+
+        </div>
+
+    </div>
+  </div>
+
+{% endblock %}

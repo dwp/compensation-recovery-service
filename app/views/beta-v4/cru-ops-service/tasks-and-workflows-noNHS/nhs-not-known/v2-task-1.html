@@ -1,0 +1,300 @@
+
+{% extends "../../../../index.html" %}
+
+{% block pageTitle %}
+Task details
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+  {% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+
+
+        <h1 class="govuk-heading-xl govuk-!-margin-top-5 govuk-!-margin-bottom-2">
+          Task details
+        </h1>
+        <strong class="govuk-tag govuk-tag--yellow">In progress</strong>
+
+<!-- summary start -->
+        <dl class="govuk-summary-list govuk-!-margin-top-7">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Assigned to
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Sam Smith
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Description
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Review NHS treatment status
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              CRU reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+              PAB283
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name of injured person
+            </dt>
+            <dd class="govuk-summary-list__value">
+              John Jones
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+              13 July 1945
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Age
+            </dt>
+            <dd class="govuk-summary-list__value">
+              78 years old
+            </dd>
+          </div>
+        </dl>
+<!-- summary end -->
+
+<!-- injury details start -->
+<h2 class="govuk-heading-m  govuk-!-margin-top-9">
+  Injury details
+</h2>
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+              Liability type
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Motor
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+              Injury
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <details class="govuk-details" data-module="govuk-details" style="margin-bottom:0px">
+                <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                Physical injury other than whiplash
+                </span>
+                </summary>
+                <div class="govuk-details__text">
+                <p class="govuk-body govuk-!-font-weight-bold">Face, cheekbones or jaw injuries</p>
+                <p class="govuk-body govuk-!-font-weight-regular" style="margin-bottom:10px">Details</p>
+                <li>Soft tissue injury (for example, bruise, strain or tear)</li>
+                </div>
+                </details>
+                <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                Psychological
+                </span>
+                </summary>
+                <div class="govuk-details__text">
+                Travel anxiety
+                </div>
+                </details>
+                Whiplash
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Injury date
+              </dt>
+              <dd class="govuk-summary-list__value">
+                8 March 2023
+              </dd>
+            </div>
+          </dl>
+<!-- injury details end -->
+
+<!-- contact details start -->
+<h2 class="govuk-heading-m  govuk-!-margin-top-9">
+  Contact details
+</h2>
+
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Compensator
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Insure Co Ltd
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Compensator contact name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Raj Patel
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Compensator number
+              </dt>
+              <dd class="govuk-summary-list__value">
+                01920 988405
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                IP representative
+              </dt>
+              <dd class="govuk-summary-list__value">
+                McAdar Solicitors
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                IP representative number
+              </dt>
+              <dd class="govuk-summary-list__value">
+                0112 559337
+              </dd>
+            </div>
+          </dl>
+<!-- contact details end -->
+
+<div class="govuk-inset-text">
+  Check DRS for a response to [NHS treatment status Not known notification].
+</div>
+
+<!-- contact details start -->
+<h2 class="govuk-heading-m govuk-!-margin-top-9">
+  NHS treatment details
+</h2>
+
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              NHS hospital treatment
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Not known
+              </dd>
+            </div>
+          </dl>
+<!-- contact details end -->
+
+<h2 class="govuk-heading-m govuk-!-margin-top-9">
+  NHS treatment details received?
+</h2>
+
+ <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+
+
+            <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="info-4" name="info" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="info-4">
+               Yes
+                </label>
+              </div>
+
+
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="info-2" name="info" type="radio" data-aria-controls="conditional-contact-2" value="no>
+                <label class="govuk-label govuk-radios__label" for="info-2">
+                  No
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+                <div class="govuk-form-group">
+                  <div class="govuk-radios" data-module="govuk-radios">
+
+<div class="govuk-radios__item">
+<input class="govuk-radios__input" id="notification-5" name="notification" type="radio" value="sendletter">
+<label class="govuk-label govuk-radios__label" for="notification-5">
+  Send a letter to the injured person to ask them about their NHS treatment status
+</label>
+</div>
+<div class="govuk-radios__item">
+<input class="govuk-radios__input" id="notification-6" name="notification" type="radio" value="closeclaim">
+<label class="govuk-label govuk-radios__label" for="notification-6">
+  Close claim and issue NIL NHS certificate of charges
+</label>
+</div>
+
+
+</div>
+
+
+      
+
+
+    </div>
+  </fieldset>
+</div>
+
+        <div class="govuk-button-group govuk-!-margin-top-9">
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+        </div>
+
+
+
+
+
+
+
+      
+    </div>
+  </div>
+
+{% endblock %}

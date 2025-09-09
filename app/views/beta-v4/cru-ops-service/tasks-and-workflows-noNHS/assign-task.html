@@ -1,0 +1,125 @@
+
+{% extends "../../../index.html" %}
+
+{% block pageTitle %}
+Assign task
+{% endblock %}
+
+{% block header %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  homepageUrl: "/",
+  serviceName: serviceName,
+  serviceUrl: "/" + folder + "/",
+  containerClasses: "govuk-width-container"
+}) }}
+
+  <div class="govuk-width-container">
+    <div class="govuk-phase-banner">
+      <p class="govuk-phase-banner__content">
+        <strong class="govuk-tag govuk-tag--red govuk-phase-banner__content__tag">
+          Prototype: Current
+        </strong>
+        <span>This is not production ready code</span>
+      </p>
+    </div>
+  </div>
+
+  {% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+<!--    <nav class="navigation-secondary govuk-!-margin-bottom-6">-->
+<!--      <ul>-->
+<!--        <li><a href="./">Home</a></li>-->
+<!--        <li class="active"><a href="current-tasks">Current tasks</a></li>-->
+<!--        <li><a href="completed-tasks">Completed tasks</a></li>-->
+<!--        <li><a href="">Find a claim</a></li>-->
+<!--        <li><a href="">Download reports</a></li>-->
+<!--      </ul>-->
+<!--    </nav>-->
+
+    <div class="govuk-grid-column-two-thirds">
+      <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+      <form class="form" action="action-task" method="post">
+
+        <h1 class="govuk-heading-xl govuk-!-margin-top-5 govuk-!-margin-bottom-2">
+<!--          <span class="govuk-caption-l">CRS39488</span>-->
+          Assign task
+        </h1>
+        <strong class="govuk-tag govuk-tag--blue">New</strong>
+
+<!--        <p class="govuk-body govuk-!-margin-top-7"><a class="govuk-link" href="">View claim</a></p>-->
+
+        <dl class="govuk-summary-list govuk-!-margin-top-7">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Task type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <strong class="govuk-tag govuk-tag--grey">No NINO</strong>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              CRU reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <a href="" class="govuk-link">PAB123</a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name of injured person
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Claire Roberts
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+              9 April 1972
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              123 London Road<br />
+              Coventry<br />
+              CV1 2FD
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of injury
+            </dt>
+            <dd class="govuk-summary-list__value">
+              19 June 2022
+            </dd>
+          </div>
+        </dl>
+
+        {{ govukButton({
+        text: "Assign to me"
+        }) }}
+
+
+      </form>
+
+
+
+
+      
+    </div>
+  </div>
+
+{% endblock %}
