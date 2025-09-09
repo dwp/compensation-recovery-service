@@ -1,0 +1,45 @@
+
+{% extends "../../index.html" %}
+
+{% block pageTitle %}
+About the injured person - Enter injured person's name and date of birth
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+        <!--        <form class="form" action="check-answers-ip" method="post">-->
+
+        <form class="form" action="injured-person-address" method="post">
+
+
+            <h1 class="govuk-heading-xl">
+      We found a date of death
+            </h1>
+
+            <div class="govuk-warning-text">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                <span class="govuk-visually-hidden">Warning</span>
+        There is a date of death on this claim. We cannot currently process the claim on this service.
+              </strong>
+            </div>
+
+  <p class="govuk-body">Continue to create a task to move the claim to the legacy CRU system.</p>
+
+
+
+            <button class="govuk-button govuk-!-margin-top-4" data-module="govuk-button">
+                Continue
+            </button>
+
+        </form>
+
+  <!-- <p class="govuk-body"><a class="govuk-link" href="about-the-injured-person">Cancel</a> </p> -->
+
+    </div>
+</div>
+
+{% endblock %}
