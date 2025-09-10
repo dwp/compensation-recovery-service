@@ -1,0 +1,73 @@
+
+{% extends "../../index.html" %}
+
+{% block pageTitle %}
+About the injured person - Enter injured person's name and date of birth
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+        <!--        <form class="form" action="check-answers-ip" method="post">-->
+
+        <form class="form" action="confirmation-final" method="post">
+
+
+            <h1 class="govuk-heading-xl">
+      We found a date of death
+            </h1>
+
+            <div class="govuk-warning-text">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                <span class="govuk-visually-hidden">Warning</span>
+There is a date of death on this claim. We cannot currently process the claim on this service.
+              </strong>
+            </div>
+
+  <p class="govuk-body">Check you have updated these details correctly.</p>
+
+  <div class="govuk-inset-text">
+    <p class="govuk-body">National Insurance Number: <span class="govuk-body govuk-!-font-weight-bold">EX123456A</span></p>
+    <p class="govuk-body">Date of Birth <span class="govuk-body govuk-!-font-weight-bold">1 January 2000</span></p>
+</div>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h1 class="govuk-fieldset__heading">
+        Are these details correct?
+      </h1>
+    </legend>
+    <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="month">
+        <label class="govuk-label govuk-radios__label" for="changedName">
+Yes, create a task to move this claim to the old CRU system
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="year">
+        <label class="govuk-label govuk-radios__label" for="changedName-2">
+      No, I’ll update the details again
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+            <button class="govuk-button govuk-!-margin-top-4" data-module="govuk-button">
+                Continue
+            </button>
+
+        </form>
+
+  <!-- <p class="govuk-body"><a class="govuk-link" href="about-the-injured-person">Cancel</a> </p> -->
+
+    </div>
+</div>
+
+{% endblock %}
