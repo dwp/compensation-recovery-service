@@ -1,0 +1,78 @@
+{% extends "../../../index.html" %}
+
+{% block pageTitle %}
+Your organisation details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+<!--    <nav class="navigation-secondary">-->
+<!--      <ul>-->
+<!--        <li><a href="admin-dashboard">Home</a></li>-->
+<!--        <li><a href="admin-all-claims">All claims</a></li>-->
+<!--        <li><a href="admin-register-claims">Register claims</a></li>-->
+<!--        <li class="active"><a href="admin-manage-org">Manage organisation</a></li>-->
+<!--        <li><a href="admin-profile">My profile</a></li>-->
+<!--      </ul>-->
+<!--    </nav>-->
+
+<!--    <form class="form" action="admin-manage-org-add-user-check?clear-fields=false&" method="post">-->
+    <form class="form" action="admin-manage-org?show-notification=true&user-added=true&user-amended=false&" method="post">
+
+    <div class="govuk-grid-column-two-thirds">
+      <a href="javascript: history.go(-1)" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+      <h1 class="govuk-heading-xl govuk-!-margin-top-5">
+<!--      <span class="govuk-caption-xl">Add a new user</span>-->
+        Your organisation details
+      </h1>
+
+      <div class="govuk-form-group">
+  <label class="govuk-label" for="sort">
+    Type of organisation
+  </label>
+  <select class="govuk-select" id="sort" name="sort">
+    <option value="updated" selected>Compensator</option>
+    <option value="published">Insurer</option>
+    <option value="views">Other</option>
+  </select>
+</div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="new-user-full-name">
+          Primary telephone number
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="new-user-full-name" name="new-user-full-name" type="text" value="{% if data['clear-fields'] == 'true' %} {% else %} {{ data['new-user-full-name'] }} {% endif %}">
+      </div>
+
+<!--      <div class="govuk-form-group">-->
+<!--        <label class="govuk-label" for="new-user-last-name">-->
+<!--          Last name-->
+<!--        </label>-->
+<!--        <input class="govuk-input govuk-input&#45;&#45;width-20" id="new-user-last-name" name="new-user-last-name" type="text" value="{{ data['new-user-last-name'] }}">-->
+<!--      </div>-->
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="new-user-email">
+          Email address for general enquiries
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="new-user-email" name="new-user-email" type="text" value="{% if data['clear-fields'] == 'true' %} {% else %} {{ data['new-user-email'] }} {% endif %}">
+      </div>
+
+
+
+<div class="govuk-button-group">
+        <button class="govuk-button govuk-!-margin-top-4" data-module="govuk-button">Save changes</button>
+  <a class="govuk-link" href="#">Cancel</a>
+</div>
+
+
+      </form>
+
+    </div>
+  </div>
+
+
+
+{% endblock %}
