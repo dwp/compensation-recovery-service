@@ -1,0 +1,54 @@
+
+{% extends "../../../index.html" %}
+
+{% block pageTitle %}
+Task details
+{% endblock %}
+
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+<!--    <nav class="navigation-secondary govuk-!-margin-bottom-6">-->
+<!--      <ul>-->
+<!--        <li><a href="./">Home</a></li>-->
+<!--        <li class="active"><a href="current-tasks">Current tasks</a></li>-->
+<!--        <li><a href="completed-tasks">Completed tasks</a></li>-->
+<!--        <li><a href="">Find a claim</a></li>-->
+<!--        <li><a href="">Download reports</a></li>-->
+<!--      </ul>-->
+<!--    </nav>-->
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="#" method="post">
+
+            <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-top-5">
+            <h1 class="govuk-panel__title ">
+      Task closed
+            </h1>
+            <div class="govuk-panel__body">
+              HS treatment not confirmed 
+            </div>
+          </div>
+
+        <h2 class="govuk-heading-m">What you can do next</h2>
+            
+        <p class="govuk-body">
+        <a href="case-view-history-settled" class="govuk-link">View claim</a>
+        </p>
+        
+        <p class="govuk-body">
+        <a href="case-view-history-settled" class="govuk-link">Back to tasks</a>
+        </p>
+       
+
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

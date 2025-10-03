@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %}
+<body>{% extends "layouts/main.html" %}
 {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
 {% block pageTitle %}
@@ -13,13 +13,13 @@
         Prototype
       </h1>
 
-      <div class="govuk-inset-text">
+      <!-- <div class="govuk-inset-text">
         <h3 class="govuk-heading-s">
           <a href="https://app.mural.co/t/dwpdigital7412/m/dwpdigital7412/1699457988609/592797980c9b8015217bd88fa4875d8af618d4ae?wid=594-1703182514643" class="govuk-link" rel="noreferrer noopener" target="_blank">
             High level user journey (opens in new tab)
           </a>
         </h3>
-      </div>
+      </div> -->
 
       <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
         <!-- ////START VERSION 4//// -->
@@ -30,22 +30,12 @@
                 Version 4: Beta
               </span>
 
-              <strong class="govuk-tag govuk-tag--blue govuk-!-margin-bottom-1" style="display: inline-block; float: right;">Updated: December 2022</strong>
+              <!-- <strong class="govuk-tag govuk-tag--blue govuk-!-margin-bottom-1" style="display: inline-block; float: right;">Updated: September 2025</strong>
             </h2>
           </div>
           <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
             <div class="govuk-grid-row">
               <div class="govuk-grid-column-two-thirds">
-                <!-- START SECTION compensator -->
-
-                  <h2 class="govuk-heading-m">
-                  No NINO (NI)
-                </h2>
-                <ul class="govuk-list govuk-list--bullet">
-                  <li><a href="/beta-v4/account-management-dsa5/">Date of death</a></li>
-                  <li><a href="/beta-v4/account-management-dsa5/">Phonecall close</a></li>
-        
-                </ul>
 
                 <h2 class="govuk-heading-m">
                   Assessment
@@ -54,13 +44,14 @@
                   <li><a href="/beta-v4/account-management-dsa5/">Compensator journey</a></li>
                   <li><a href="beta-v4/account-management/admin-user/admin-dashboard">Compensator dashboard</a></li>
                   <li><a href="beta-v4/cru-ops-service/tasks-and-workflows/v2-dashboard">Agent journey</a></li>
-                </ul>
-                <h2 class="govuk-heading-m">
+                </ul> -->
+
+                </h2><h2 class="govuk-heading-m">
                   Compensator
                 </h2>
 
                 <div class="govuk-!-margin-bottom-6">
-              <h3 class="govuk-heading-s" style="display: inline-block;">NI - Registration & dashboard</h3>
+              <h3 class="govuk-heading-s" style="display: inline-block;">NI - Registration &amp; dashboard (Onboarding)</h3>
                   <strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">New</strong>
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/beta-v4/account-management-ni/index-ni">Registration start</a></li>
@@ -72,7 +63,7 @@
 
 
                 <div class="govuk-!-margin-bottom-6">
-                  <h3 class="govuk-heading-s" style="display: inline-block;">Claim Processing Enhancements</h3>
+                  <h3 class="govuk-heading-s" style="display: inline-block;">Claim Processing Enhancements (Manage claims)</h3>
                   <strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">New</strong>
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/beta-v4/nhs-claim-duplicate/about-the-injured-person-duplicate">Duplicate warning page</a></li>
@@ -81,7 +72,7 @@
                 </div>
 
                 <div class="govuk-!-margin-bottom-6">
-                  <h3 class="govuk-heading-s" style="display: inline-block;">User Agreement updates</h3>
+                  <h3 class="govuk-heading-s" style="display: inline-block;">User Agreement updates (Account management)</h3>
                   <strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">New</strong>
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/beta-v4/account-management-dsa3/sign-in">First visit</a></li>
@@ -93,15 +84,13 @@
                 </div>
 
                 <div class="govuk-!-margin-bottom-6">
-                  <h3 class="govuk-heading-s" style="display: inline-block;">Data Sharing Agreement</h3>
-                  <strong class="govuk-tag govuk-tag--green govuk-!-margin-left-2">Partialy TESTED</strong>
+                  <h3 class="govuk-heading-s" style="display: inline-block;">Data Sharing Agreement (Onboarding)</h3>
+
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/beta-v4/account-management-dsa5/">Registration start</a></li>
                     <li>
-                      <a
-                        href="/beta-v4/account-management-dsa/dsa
-                                                  "
-                      >
+                      <a href="/beta-v4/account-management-dsa/dsa
+                                                  ">
                         DSA (with data contacts) start
                       </a>
                     </li>
@@ -114,13 +103,13 @@
                 </div>
 
                 <div class="govuk-!-margin-bottom-8">
-                  <h3 class="govuk-heading-s" style="display: inline-block;">Register NHS claim</h3>
+                  <h3 class="govuk-heading-s" style="display: inline-block;">Register NHS claim (Manage claims)</h3>
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/beta-v4/nhs-claim/admin-register-new-claim">Register new NHS claim</a></li>
                     <li><a href="/beta-v4/nhs-claim/hospital-list-max">New NHS claim - maximum hospitals scenario</a></li>
                   </ul>
-
-                  <h3 class="govuk-heading-s" style="display: inline-block;">Claim details</h3>
+    <div class="govuk-!-margin-bottom-6">
+                  <h3 class="govuk-heading-s" style="display: inline-block;">Claim details (Manage claims)</h3>
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/beta-v4/nhs-claim/case-view-nhs2">Case details with NHS charges</a></li>
                     <li><a href="/beta-v4/nhs-claim/case-view-nhs3">Case details - NHS charges calculation in progess</a></li>
@@ -128,9 +117,21 @@
                     <li><a href="/beta-v4/nhs-claim/case-view-new-ref">Case details - new CRU ref</a></li>
                   </ul>
                 </div>
+
+                <div class="govuk-!-margin-bottom-8">
+                  <h3 class="govuk-heading-s" style="display: inline-block;">Research opt-in (Account management)</h3>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li><a href="/beta-v4/account-management-dsa2/opt_in">Main version</a></li>
+                    <li><a href="/beta-v4/account-management-dsa2/opt_in2">Alternative version </a></li>
+                    <!-- <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/check-answers">Unhappy path: task view</a></li> -->
+                  </ul>
+                </div>
+
+
                 <!-- END SECTION compensator -->
 
-                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
+
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
                 <!-- START SECTION CRU Ops -->
                 <h2 class="govuk-heading-m">
@@ -138,8 +139,8 @@
                 </h2>
 
                 <div class="govuk-!-margin-bottom-6">
-                  <h3 class="govuk-heading-s" style="display: inline-block;">Add settlement details</h3>
-                  <strong class="govuk-tag govuk-tag--green govuk-!-margin-left-2"></strong>
+                  <h3 class="govuk-heading-s" style="display: inline-block;">Add settlement details (Settlement)</h3>
+
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows-settle/case-view-history2">Happy path </a></li>
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows-settle/case-view-history2-unhp">Unhappy path</a></li>
@@ -148,8 +149,16 @@
                 </div>
 
                 <div class="govuk-!-margin-bottom-6">
-                  <h3 class="govuk-heading-s" style="display: inline-block;">Allow Agents to Manually Issue CRU10 and CRU11</h3>
-                  <strong class="govuk-tag govuk-tag--green govuk-!-margin-left-2">Partialy TESTED</strong>
+                  <h3 class="govuk-heading-s" style="display: inline-block;">DoD(Manage claims)</h3>
+
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li><a href="/beta-v4/DoD/action-task">No NINO task </a></li>
+                  </ul>
+                </div>
+
+                <div class="govuk-!-margin-bottom-6">
+                  <h3 class="govuk-heading-s" style="display: inline-block;">Allow Agents to Manually Issue CRU10 and CRU11 (Manage claims)</h3>
+
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/check-answers_options">Scenario 1 - No trace query </a></li>
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_CRU1011/check-answers_options2">Scenario 2 - Date of injury query </a></li>
@@ -158,8 +167,8 @@
                 </div>
 
                 <div class="govuk-!-margin-bottom-6">
-                  <h3 class="govuk-heading-s" style="display: inline-block;">Claim Processing Enhancements</h3>
-                  <strong class="govuk-tag govuk-tag--green govuk-!-margin-left-2">Tested</strong>
+                  <h3 class="govuk-heading-s" style="display: inline-block;">Claim Processing Enhancements (Manage claims)</h3>
+
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows-cpe/action-task-cpe">Duplicate task</a></li>
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows-cpe/action-task-cpe2">NINO/DOB vs name task</a></li>
@@ -169,38 +178,26 @@
                   </ul>
                 </div>
 
-                <div class="govuk-!-margin-bottom-6">
-                  <h3 class="govuk-heading-s" style="display: inline-block;">Research opt-in</h3>
-                  <ul class="govuk-list govuk-list--bullet">
-                    <li><a href="/beta-v4/account-management-dsa2/opt_in">Main version</a></li>
-                    <li><a href="/beta-v4/account-management-dsa2/opt_in2">Alternative version </a></li>
-                    <!-- <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/check-answers">Unhappy path: task view</a></li> -->
-                  </ul>
-                </div>
 
                 <div class="govuk-!-margin-bottom-6">
-                  <h3 class="govuk-heading-s" style="display: inline-block;">CRU4</h3>
-                  <strong class="govuk-tag govuk-tag--green govuk-!-margin-left-2">TESTED</strong>
+                  <h3 class="govuk-heading-s" style="display: inline-block;">CRU4 (Manage claims)</h3>
+
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_2/cru4-taskb">Version 1.2 (latest)</a></li>
                     <li><a href="beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_2/cru4-task">Version 1.2 (checkbox)</a></li>
                     <li><a href="beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_0b/check-answers-update">Update details page</a></li>
-                    <br />
+                    <br>
                     <li><a href="beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1b/cru4-task">IP details change - version A</a></li>
                     <li><a href="beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1b/cru4-taskb">IP details change - version B</a></li>
                     <li>
-                      <a
-                        href="beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/cru4-taskc
-                              "
-                      >
+                      <a href="beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/cru4-taskc
+                              ">
                         Rep details change - version A
                       </a>
                     </li>
                     <li>
-                      <a
-                        href="beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/cru4-taskb
-                                "
-                      >
+                      <a href="beta-v4/cru-ops-service/tasks-and-workflows2_0/CRU4_v1_1/cru4-taskb
+                                ">
                         Rep details change - version B
                       </a>
                     </li>
@@ -209,15 +206,13 @@
                 </div>
 
                 <div class="govuk-!-margin-bottom-6">
-                  <h3 class="govuk-heading-s" style="display: inline-block;">NHS reviews</h3>
-                  <strong class="govuk-tag govuk-tag--green govuk-!-margin-left-2">Partialy TESTED</strong>
+                  <h3 class="govuk-heading-s" style="display: inline-block;">NHS reviews (Reviews)</h3>
+
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_2/v2-dashboard">NHS reviews from dashboard</a></li>
                     <li>
-                      <a
-                        href="/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_2/actions_all
-                            "
-                      >
+                      <a href="/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_2/actions_all
+                            ">
                         NHS reviews from claim details options page
                       </a>
                     </li>
@@ -230,7 +225,7 @@
                 </div>
 
                 <div class="govuk-!-margin-bottom-6">
-                  <h3 class="govuk-heading-s" style="display: inline-block;">19A process</h3>
+                  <h3 class="govuk-heading-s" style="display: inline-block;">19A process (Reviews)</h3>
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_1/decision2">From standard review</a></li>
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows2_0/nhs_review_v1_1/decision_reason_check_other_stl">Confirmation page example when there is a settlement</a></li>
@@ -240,7 +235,7 @@
                 </div>
 
                 <div class="govuk-!-margin-bottom-6">
-                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: Enhancements</h3>
+                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: Enhancements (Manage claims)</h3>
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/beta-v4/cru-ops-service/claim-update4/case-view">Claim details page - claim status</a></li>
                     <li>
@@ -268,7 +263,7 @@
                 </div>
 
                 <div class="govuk-!-margin-bottom-6">
-                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: Update claim details - NHS treatment details</h3>
+                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: Update claim details - NHS treatment details (Manage claims)</h3>
                   <details class="govuk-details" data-module="govuk-details">
                     <summary class="govuk-details__summary">
                       <span class="govuk-details__summary-text">
@@ -290,25 +285,25 @@
                       </ul>
                       <p class="govuk-body">NHS hospital treatment:</p>
                       <ul class="govuk-list govuk-list--bullet">
-                        <li><a href="/beta-v4/cru-ops-service/claim-update4/treatment/check-answers-not-known">Not known > No</a></li>
-                        <li><a href="/beta-v4/cru-ops-service/claim-update4/treatment/case-view4">Claim details/History entry: Not known > No</a></li>
-                        <br />
-                        <li><a href="/beta-v4/cru-ops-service/claim-update4/treatment/check-answers-not-known">Not known > Yes</a></li>
-                        <li><a href="/beta-v4/cru-ops-service/claim-update4/treatment/case-view3">Claim details/History entry: Not known > Yes</a></li>
-                        <br />
-                        <li><a href="/beta-v4/cru-ops-service/claim-update4/treatment/check-answers-no">No > Yes</a></li>
-                        <li><a href="/beta-v4/cru-ops-service/claim-update4/treatment/case-view2">Claim details/History entry: No > Yes</a></li>
-                        <br />
-                        <li><a href="/beta-v4/cru-ops-service/claim-update4/treatment/check-answers-yes">Yes > No (has no treatments)</a></li>
-                        <li><a href="/beta-v4/cru-ops-service/claim-update4/treatment/blocked-check-answers">Yes > No (blocked - has treatments)</a></li>
-                        <li><a href="/beta-v4/cru-ops-service/claim-update4/treatment/case-view">Claim details/History entry: Yes > No</a></li>
+                        <li><a href="/beta-v4/cru-ops-service/claim-update4/treatment/check-answers-not-known">Not known &gt; No</a></li>
+                        <li><a href="/beta-v4/cru-ops-service/claim-update4/treatment/case-view4">Claim details/History entry: Not known &gt; No</a></li>
+                        <br>
+                        <li><a href="/beta-v4/cru-ops-service/claim-update4/treatment/check-answers-not-known">Not known &gt; Yes</a></li>
+                        <li><a href="/beta-v4/cru-ops-service/claim-update4/treatment/case-view3">Claim details/History entry: Not known &gt; Yes</a></li>
+                        <br>
+                        <li><a href="/beta-v4/cru-ops-service/claim-update4/treatment/check-answers-no">No &gt; Yes</a></li>
+                        <li><a href="/beta-v4/cru-ops-service/claim-update4/treatment/case-view2">Claim details/History entry: No &gt; Yes</a></li>
+                        <br>
+                        <li><a href="/beta-v4/cru-ops-service/claim-update4/treatment/check-answers-yes">Yes &gt; No (has no treatments)</a></li>
+                        <li><a href="/beta-v4/cru-ops-service/claim-update4/treatment/blocked-check-answers">Yes &gt; No (blocked - has treatments)</a></li>
+                        <li><a href="/beta-v4/cru-ops-service/claim-update4/treatment/case-view">Claim details/History entry: Yes &gt; No</a></li>
                       </ul>
                     </div>
                   </details>
                 </div>
 
                 <div class="govuk-!-margin-bottom-6">
-                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: Issue Certificate of NHS Charges</h3>
+                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: Issue Certificate of NHS Charges (Manage claims)</h3>
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/beta-v4/cru-ops-service/issue-cert/0-case-view">Claim details page</a></li>
                     <li><a href="/beta-v4/cru-ops-service/issue-cert/0-case-view-nil">Claim details page - no charges</a></li>
@@ -317,15 +312,26 @@
                 </div>
 
                 <div class="govuk-!-margin-bottom-6">
-                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: Calculation engine journey</h3>
-                  <strong class="govuk-tag govuk-tag--green govuk-!-margin-left-2">TESTED</strong>
+                  <h3 class="govuk-heading-s" style="display: inline-block;">	Find out if an injured person attended an HS hospital (Manage claims)</h3>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li><a href="beta-v4/cru-ops-service/tasks-and-workflows-noNHS/action-task-nonhs">Task page</a></li>
+                  </ul>
+                </div>
+
+                <div class="govuk-!-margin-bottom-6">
+                  <h3 class="govuk-heading-s" style="display: inline-block;">	Find out if injured person replied to CRU Comp SI IP letter (Manage claims)</h3>
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li><a href="beta-v4/cru-ops-service/tasks-and-workflows-noNHS/action-task-nonhs3">Task page</a></li>
+                  </ul>
+                </div>
+
+                <div class="govuk-!-margin-bottom-6">
+                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: Calculation engine journey (Health treatment check)</h3>
+
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_4/case-view">Happy path: case view</a></li>
                     <li>
-                      <a
-                        href="/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_4/case-view-cap
-                            "
-                      >
+                      <a href="/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_4/case-view-cap">
                         Happy path: case view (capped)
                       </a>
                     </li>
@@ -335,38 +341,36 @@
                 </div>
 
                 <div class="govuk-!-margin-bottom-6">
-                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: Claim options</h3>
+                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: Claim options (Manage claims)</h3>
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/actions">Claim options page</a></li>
                     <li>
-                      <a
-                        href="/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/case-view-main
-                              "
-                      >
+                      <a href="/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/case-view-main
+                              ">
                         From Claim details page
                       </a>
                     </li>
                   </ul>
                 </div>
 
-                <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: NHS Scrutiny</h3>
-                <strong class="govuk-tag govuk-tag--orange govuk-!-margin-left-2">Not yet tested</strong>
+                <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: NHS Scrutiny (Manage claims)</h3>
+
                 <ul class="govuk-list govuk-list--bullet">
                   <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows2_0/scrutiny_task_v1_0/task">Name mismatch scenario</a></li>
                   <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows2_0/scrutiny_task_v1_0/task2">Manual hospital entry scenario</a></li>
                   <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows2_0/scrutiny_task_v1_0/task3">Duplicate case scenario</a></li>
                 </ul>
 
-                <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: E-partner</h3>
-                <strong class="govuk-tag govuk-tag--orange govuk-!-margin-left-2">Not yet tested</strong>
+                <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: E-partner (Manage claims)</h3>
+
                 <ul class="govuk-list govuk-list--bullet">
                   <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows2_0/scrutiny_task_v2/0-dashboard">E-partner task - injury description</a></li>
                   <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows2_0/scrutiny_task_v2/4-case-view">E-partner - view injury description field</a></li>
                 </ul>
 
                 <div class="govuk-!-margin-bottom-6">
-                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: Reminder tasks</h3>
-                  <strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">New</strong>
+                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: Reminder tasks (Manage claims)</h3>
+
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows2_0/calc_engine_main/case-view-reminders">Reminder list (Claim details page)</a></li>
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows2_0/reminders_1_0/reminder_expired">Reminder task - when reminder is expired</a></li>
@@ -375,8 +379,8 @@
                   </ul>
                 </div>
 
-                <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: Claim update</h3>
-                <strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">New</strong><strong class="govuk-tag govuk-tag--orange govuk-!-margin-left-2">NOT YET TESTED</strong>
+                <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: Claim update (Manage claims)</h3>
+
                 <ul class="govuk-list govuk-list--bullet">
                   <li><a href="/beta-v4/cru-ops-service/claim-update3/case-view">Updating a claim journey</a></li>
                   <li><a href="/beta-v4/cru-ops-service/claim-update3/change1">Updating a claim journey - version B (archived)</a></li>
@@ -385,33 +389,33 @@
                 </ul>
 
                 <div class="govuk-!-margin-bottom-6">
-                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: NHS Hospitals and Trusts</h3>
-                  <strong class="govuk-tag govuk-tag--green govuk-!-margin-left-2">TESTED</strong>
+                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: NHS Hospitals and Trusts (Health treatment checks)</h3>
+
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/beta-v4/cru-ops-service/nhs-hospitals/">NHS Hospitals, Trusts and Ambulance Trusts</a></li>
                   </ul>
                 </div>
 
                 <div class="govuk-!-margin-bottom-6">
-                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: Adding notes</h3>
-                  <strong class="govuk-tag govuk-tag--green govuk-!-margin-left-2">TESTED</strong>
+                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: Adding notes (Manage claims)</h3>
+
                   <ul class="govuk-list govuk-list--bullet">
-                    <li><a href="/beta-v4/cru-ops-service/claim-update3/case-view-history">Claim details page</a></li>
+                    <li><a href="/beta-v4/cru-ops-service/claim-update3/case-view-history">Claim details page </a></li>
                     <li><a href="/beta-v4/cru-ops-service/claim-update3/change-confirmation">Update details confirmation page</a></li>
                     <!-- <li><a href="/beta-v4/cru-ops-service/claim-update3/case-view-history-filter-no-results">Claim details page - no filter results</a></li> -->
                   </ul>
                 </div>
 
                 <div class="govuk-!-margin-bottom-6">
-                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: Agent portal</h3>
+                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: Agent portal (Account management)</h3>
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows/v2-dashboard">Agent dashboard</a></li>
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows/v2-dashboard-0">Agent dashboard - if 0 tasks</a></li>
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows/case-view">Claim details</a></li>
                   </ul>
-                  <br />
+                  <br>
 
-                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: NHS hospital status Not Known</h3>
+                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: NHS hospital status Not Known (Health treatment checks)</h3>
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows/nhs-not-known-v2/0-dashboard">Tasks: NHS treatment not known (Day 100)</a></li>
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows/nhs-not-known-v2/2-task-age">Tasks: NHS treatment not known (Day 100) - if IP over 70</a></li>
@@ -420,13 +424,13 @@
                 </div>
 
                 <div class="govuk-!-margin-bottom-6">
-                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: No NINO tasks & workflow</h3>
+                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: No NINO tasks &amp; workflow (Manage claims) </h3>
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows/current-tasks">Current task list</a></li>
-                    <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows/action-task?error=none&">Action a task</a></li>
-                    <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows/action-task?error=nino&">Task error - Can't find NINO </a></li>
-                    <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows/action-task?error=dob&">Task error - Date of birth error </a></li>
-                    <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows/action-task?error=benefit&">Task error - Benefit returned on the claim </a></li>
+                    <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows/action-task?error=none&amp;">Action a task</a></li>
+                    <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows/action-task?error=nino&amp;">Task error - Can't find NINO </a></li>
+                    <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows/action-task?error=dob&amp;">Task error - Date of birth error </a></li>
+                    <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows/action-task?error=benefit&amp;">Task error - Benefit returned on the claim </a></li>
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows/close-task">Unable to complete a task</a></li>
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows/completed-tasks">Completed task list</a></li>
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows/legacy-tasks">Legacy task list</a></li>
@@ -436,14 +440,14 @@
                 </div>
 
                 <div class="govuk-!-margin-bottom-6">
-                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: Certificate request task</h3>
+                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: Certificate request task (Manage claims)</h3>
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows/action-task-certs">Certificate request task</a></li>
                   </ul>
                 </div>
 
                 <div class="govuk-!-margin-bottom-6">
-                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: DA tasks & workflow</h3>
+                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: DA tasks &amp; workflow (Manage claims)</h3>
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows/action-task-da">Delegated Authority task (request to take over a claim)</a></li>
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows/action-task-da-error1">Delegated Authority task - error scenario 1 (Claim does not exist)</a></li>
@@ -452,23 +456,23 @@
                 </div>
 
                 <div class="govuk-!-margin-bottom-6">
-                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: Find an organisation</h3>
-                  <strong class="govuk-tag govuk-tag--green govuk-!-margin-left-2">PARTIALLY TESTED</strong>
+                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: Find an organisation (Account management/admin)</h3>
+
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows2_0/org-list_multiple">List of organisations and users</a></li>
                   </ul>
                 </div>
 
                 <div class="govuk-!-margin-bottom-6">
-                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: NHS Tariff Update</h3>
-                  <strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">New</strong><strong class="govuk-tag govuk-tag--green govuk-!-margin-left-2">PARTIALLY TESTED</strong>
+                  <h3 class="govuk-heading-s" style="display: inline-block;">Cru Ops: NHS Tariff Update (Account management/admin)</h3>
+
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/beta-v4/cru-ops-service/tasks-and-workflows2_0/tariffs/tariff_table">Updating NHS tarrifs</a></li>
                   </ul>
                 </div>
 
                 <div class="govuk-!-margin-bottom-8">
-                  <h3 class="govuk-heading-s">(Old) Cru Ops (Public Beta Registration) - KEEP</h3>
+                  <h3 class="govuk-heading-s">(Old) Cru Ops (Public Beta Registration) (Account management/admin)</h3>
                   <ul class="govuk-list govuk-list--bullet">
                     <li><a href="/beta-v4/cru-ops-service/index">Find a claim</a></li>
                     <li><a href="/beta-v4/cru-ops-service/mi">Download reports (MI)</a></li>
@@ -476,7 +480,7 @@
                 </div>
                 <!-- END SECTION CRU Ops -->
 
-                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
                 <!-- START SECTION completed -->
                 <h2 class="govuk-heading-m">
@@ -492,7 +496,7 @@
                   <div class="govuk-details__text">
                     <div class="govuk-!-margin-bottom-6">
                       <h3 class="govuk-heading-s" style="display: inline-block;">Certificate expiry - COMPLETED</h3>
-                      <strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">New</strong><strong class="govuk-tag govuk-tag--orange govuk-!-margin-left-2">NOT YET TESTED</strong>
+
                       <ul class="govuk-list">
                         <li><a href="/beta-v4/account-management/standard-user/user-case-view-nil-expired">Compensator requesting a new certificate (NIL only) </a></li>
                         <li><a href="/beta-v4/account-management/standard-user/retro-settle/user-case-view-nil-expired">Retrospective claim settlement</a></li>
@@ -501,15 +505,15 @@
 
                     <div class="govuk-!-margin-bottom-6">
                       <h3 class="govuk-heading-s" style="display: inline-block;">Account registration journey - COMPLETED</h3>
-                      <strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">NEW</strong><strong class="govuk-tag govuk-tag--green govuk-!-margin-left-2">PARTIALLY TESTED</strong>
+
                       <ul class="govuk-list">
                         <li><a href="/beta-v4/account-management/">Start page</a></li>
                         <li><a href="/beta-v4/account-management/org-company-name-error">Organisation name - partial match</a></li>
                         <li><a href="/beta-v4/account-management/org-company-name-error-match">Organisation name - full match</a></li>
-                        <li><br /></li>
+                        <li><br></li>
                         <li><a href="/beta-v4/account-management/sign-in">Sign in (as an organisation)</a></li>
                         <li><a href="/beta-v4/account-management/sign-in-user">Sign in (as an individual)</a></li>
-                        <li><br /></li>
+                        <li><br></li>
                         <li><a href="/beta-v4/account-management/user-invite-email">User invite email</a></li>
                         <li><a href="/beta-v4/account-management/user-request-token-error1">User invite email - token error scenario 1 (No token, bad token, token doesn't exist)</a></li>
                         <li><a href="/beta-v4/account-management/user-request-token-error2">User invite email - token error scenario 2 (Token expired)</a></li>
@@ -520,7 +524,7 @@
 
                     <div class="govuk-!-margin-bottom-6">
                       <h3 class="govuk-heading-s" style="display: inline-block;">Dashboard - COMPLETED</h3>
-                      <strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">NEW</strong>
+
                       <!--<strong class="govuk-tag govuk-tag--green govuk-!-margin-left-2">TESTED</strong>-->
                       <ul class="govuk-list">
                         <li><a href="/beta-v4/account-management/admin-user/admin-dashboard">Dashboard - Admin user</a></li>
@@ -530,7 +534,7 @@
 
                     <div class="govuk-!-margin-bottom-6">
                       <h3 class="govuk-heading-s" style="display: inline-block;">Manage organisation (Admin users only) - COMPLETED</h3>
-                      <strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">NEW</strong>
+
                       <!--<strong class="govuk-tag govuk-tag--green govuk-!-margin-left-2">TESTED</strong>-->
                       <ul class="govuk-list">
                         <li><a href="/beta-v4/account-management/admin-user/admin-manage-org">Manage organisation account (Add, remove, approve users)</a></li>
@@ -539,7 +543,7 @@
 
                     <div class="govuk-!-margin-bottom-6">
                       <h3 class="govuk-heading-s" style="display: inline-block;">Delegated Authority journeys - COMPLETED</h3>
-                      <strong class="govuk-tag govuk-tag--blue govuk-!-margin-left-2">New</strong><strong class="govuk-tag govuk-tag--orange govuk-!-margin-left-2">NOT YET TESTED</strong>
+
                       <p class="govuk-body">Delegated authority (cradle to grave)</p>
                       <ul class="govuk-list govuk-list--bullet">
                         <li><a href="/beta-v4/account-management/org-working-on-behalf">Account registration - Managing claims for other organisations </a></li>
@@ -566,7 +570,7 @@
 
                     <div class="govuk-!-margin-bottom-6">
                       <h3 class="govuk-heading-s" style="display: inline-block;">Register claim - COMPLETED</h3>
-                      <strong class="govuk-tag govuk-tag--green govuk-!-margin-left-2">TESTED</strong>
+
                       <ul class="govuk-list">
                         <li><a href="/beta-v4/account-management/admin-user/admin-register-new-claim">Register new claim</a></li>
                       </ul>
@@ -626,7 +630,7 @@
                 </details>
                 <!-- END SECTION old versions -->
 
-                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" />
+                <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
                 <!-- START SECTION summary latest changes -->
 
@@ -649,7 +653,7 @@
                     <p class="govuk-!-font-weight-bold govuk-body">January 2023</p>
                     <ul class="govuk-list govuk-list--bullet">
                       <li>16/01/23: Certificate expiry - Compensator journey for requesting a new certificate.</li>
-                      <li>16/01/23: Tasks & workflows - Updates to DA task and new expiring certificate task.</li>
+                      <li>16/01/23: Tasks &amp; workflows - Updates to DA task and new expiring certificate task.</li>
                     </ul>
                     <p class="govuk-!-font-weight-bold govuk-body">December 2022</p>
                     <ul class="govuk-list govuk-list--bullet">
@@ -676,7 +680,7 @@
                     </ul>
                     <p class="govuk-!-font-weight-bold govuk-body">August 2022</p>
                     <ul class="govuk-list govuk-list--bullet">
-                      <li>Start page & new claim: Choice of liability added between Public and Motor. Screen and content added to new claim journey</li>
+                      <li>Start page &amp; new claim: Choice of liability added between Public and Motor. Screen and content added to new claim journey</li>
                       <li>New claim: Date of injury page moved forward to be part of the injured persons details</li>
                     </ul>
                     <p class="govuk-!-font-weight-bold govuk-body">July 2022</p>
@@ -699,5 +703,6 @@
         <!-- ////END VERSION 4//// -->
       </div>
     </div>
-  </div>
+  
 {% endblock %}
+</body>

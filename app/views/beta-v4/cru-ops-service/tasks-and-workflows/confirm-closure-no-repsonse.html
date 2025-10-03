@@ -1,0 +1,131 @@
+
+{% extends "../../../index.html" %}
+
+{% block pageTitle %}
+Task details
+{% endblock %}
+
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+<!--    <nav class="navigation-secondary govuk-!-margin-bottom-6">-->
+<!--      <ul>-->
+<!--        <li><a href="./">Home</a></li>-->
+<!--        <li class="active"><a href="current-tasks">Current tasks</a></li>-->
+<!--        <li><a href="completed-tasks">Completed tasks</a></li>-->
+<!--        <li><a href="">Find a claim</a></li>-->
+<!--        <li><a href="">Download reports</a></li>-->
+<!--      </ul>-->
+<!--    </nav>-->
+
+    <div class="govuk-grid-column-two-thirds">
+      <a href="current-tasks" class="govuk-back-link govuk-!-margin-bottom-5">Back</a>
+
+      <form class="form" action="#" method="post">
+
+        <h1 class="govuk-heading-xl govuk-!-margin-top-5 govuk-!-margin-bottom-2">
+<!--          <span class="govuk-caption-l">CRS39488</span>-->
+        Confirm if you consider the injuries to be serious
+        </h1>
+   
+        <p class="govuk-body" style="margin-top: 30px;">
+          As hospital treatment has not been confirmed, confirm if you would consider this injury to be serious and require hospital treatment.
+        </p>
+
+        <h2 class="govuk-heading-m" style="margin-top: 30px; margin-bottom: 10px;">Injury details</h2>
+        <dl class="govuk-summary-list govuk-!-margin-top-4">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Task type
+            </dt>
+            <dd class="govuk-summary-list__value">
+                  <strong class="govuk-tag govuk-tag--grey">Hospital</strong>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            CRU reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+              PAB994
+            </dd>
+          </div>
+           <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name of injured person
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Claire Roberts
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of birth
+            </dt>
+            <dd class="govuk-summary-list__value">
+              9 April 1972
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Address
+            </dt>
+            <dd class="govuk-summary-list__value">
+              123 London Road<br />
+              Coventry<br />
+              CV1 2FD
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Date of injury
+            </dt>
+            <dd class="govuk-summary-list__value">
+              19 June 2022
+            </dd>
+          </div>
+        </dl>
+
+
+        <div class="govuk-form-group" style="margin-top: 50px;">
+  <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h1 class="govuk-fieldset__heading">
+       Do you consider this to be a serious injury?
+      </h1>
+    </legend>
+    <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="changedName">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="changedName-2">
+          No
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+
+
+        <div class="govuk-button-group govuk-!-margin-top-7">
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
