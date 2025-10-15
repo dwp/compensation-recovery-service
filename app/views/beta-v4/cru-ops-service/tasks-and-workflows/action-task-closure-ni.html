@@ -47,7 +47,7 @@ Task details
               Description
             </dt>
             <dd class="govuk-summary-list__value">
-              Close the hospital treatment confirmation process
+              Close process when hospital treatment cannot be confirmed
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -55,7 +55,7 @@ Task details
               CRU reference
             </dt>
             <dd class="govuk-summary-list__value">
-              PAB994
+              CRU123
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -96,27 +96,33 @@ Task details
 
      
 
+     <p class="govuk-body"> <a class="govuk-link" href="#">View claim</a></p>
+
 
         <br>
         <h2 class="govuk-heading-m" style="margin-bottom:10px">Task instructions</h2>
 
-<p class="govuk-body">Check DRS to see if the injured person's representative has replied to the CRU-Compl-Si letter.</p>
+<p class="govuk-body">A CRU-Compl-Si letter has been sent to the injured person’s representative and injured person. Complete a final check on DRS to see if they have replied to this letter.  
+Based on this, decide what ‘task outcome’ to choose below. </p>
 
-<p class="govuk-body govuk-!-font-weight-bold" style="margin-bottom:10px">If the representative has not replied</p>
+<p class="govuk-body govuk-!-font-weight-bold" style="margin-bottom:10px">If the representative or injured person have replied and said the injured person did receive hospital treatment:</p>
 <ul class="govuk-list govuk-list--bullet">
-<li>Call them and find out if the injured person received HS hospital treatment. If you are unable to contact them, send CRU-Comp SI IP letter to the injured person.  </li>
+<li><a class="govuk-link" href="#">update claim details (open in a new tab)</a> and change HS hospital treatment from No to Yes</li>
+<br>
+<li>return to this page and choose ‘Close task – Hospital treatment took place’</li>
 </ul>
 
-  <p class="govuk-body govuk-!-font-weight-bold" style="margin-bottom:10px">If the representative has replied and confirmed hospital treatment</p>
+  <p class="govuk-body govuk-!-font-weight-bold" style="margin-bottom:10px">If the representative or injured person have replied and said the injured person did not receive hospital treatment:</p>
   <ul class="govuk-list govuk-list--bullet">
-  <li>Update the claim details and change HS hospital treatment from No to Yes</li>
+  <li><a class="govuk-link" href="#">update claim options (open in a new tab)</a> and choose 'confirm HS treatment not needed'</li>
+  <br>
+  <li>return to this page and choose 'Close task - Hospital treatment did not take place'</li>
 </ul>
 
-<p class="govuk-body govuk-!-font-weight-bold" style="margin-bottom:10px">If the representative has replied and said the injured person did not receive hospital treatment</p>
-<p class="govuk-body" style="margin-bottom:10px">Review the injury details and:</p>
+<p class="govuk-body govuk-!-font-weight-bold" style="margin-bottom:10px">If the representative or injured person have not replied and we cannot confirm there was hospital treatment: </p>
 <ul class="govuk-list govuk-list--bullet">
-<li>send CRU Comp SI IP letter to the injured person if injuries seem severe enough that hospital treatment was likely</li>
-<li>close the task if injury details do not indicate that hospital treatment was likely</li>
+<li>choose 'Close task - Hospital treatment cannot be confirmed'</li>
+
 </ul>
 
         <br>
@@ -131,19 +137,19 @@ Task details
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
         <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
-          Task completed (HS treatment details updated or letter sent)
+          Close task - Hospital treatment took place
         </label>
       </div>
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
         <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
-         Close task - HS treatment confirmation not needed
+         Close task - Hospital treatment did not take place 
         </label>
       </div>
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="whereDoYouLive-3" name="whereDoYouLive" type="radio" value="wales">
         <label class="govuk-label govuk-radios__label" for="whereDoYouLive-3">
-          Close task - No confirmed outcome
+          Close task -  Hospital treatment cannot be confirmed
         </label>
       </div>
     </div>
