@@ -71,15 +71,15 @@ repos:
       - id: markdownlint-cli2
         additional_dependencies:
           - markdownlint-rule-titlecase@0.1.0
-          - markdownlint-cli2-formatter-codequality@0.0.8
+          - markdownlint-cli2-formatter-codequality@0.0.5
 
   - repo: https://github.com/rbubley/mirrors-prettier
     rev: v3.5.3
     hooks:
       - id: prettier
         additional_dependencies:
-          - prettier@3.9.9
-          - prettier-plugin-sh@0.20.2
+          - prettier@3.5.3
+          - prettier-plugin-sh@0.17.4
 
   - repo: https://github.com/python-jsonschema/check-jsonschema
     rev: 0.31.2
